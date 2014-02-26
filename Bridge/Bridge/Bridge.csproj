@@ -52,6 +52,7 @@
     <Compile Include="Bridge.Designer.cs">
       <DependentUpon>Bridge.cs</DependentUpon>
     </Compile>
+    <Compile Include="Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Bridge.resx">
@@ -76,6 +77,174 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\34.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\37.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\38.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\39.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\41.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\42.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\43.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\45.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\46.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\47.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\49.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\51.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\53.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\54.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\base.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,14 @@
+c:\users\rndm\documents\visual studio 2010\Projects\Best Movie Database\Best Movie Database\bin\Debug\Best Movie Database.exe
+c:\users\rndm\documents\visual studio 2010\Projects\Best Movie Database\Best Movie Database\bin\Debug\Best Movie Database.pdb
+c:\users\rndm\documents\visual studio 2010\Projects\Best Movie Database\Best Movie Database\obj\x86\Debug\Best_Movie_Database.Form1.resources
+c:\users\rndm\documents\visual studio 2010\Projects\Best Movie Database\Best Movie Database\obj\x86\Debug\Best_Movie_Database.Properties.Resources.resources
+c:\users\rndm\documents\visual studio 2010\Projects\Best Movie Database\Best Movie Database\obj\x86\Debug\Best Movie Database.csproj.GenerateResource.Cache
+c:\users\rndm\documents\visual studio 2010\Projects\Best Movie Database\Best Movie Database\obj\x86\Debug\Best Movie Database.exe
+c:\users\rndm\documents\visual studio 2010\Projects\Best Movie Database\Best Movie Database\obj\x86\Debug\Best Movie Database.pdb
+E:\Work\C-\Best Movie Database\Best Movie Database\obj\x86\Debug\Best Movie Database.exe
+E:\Work\C-\Best Movie Database\Best Movie Database\obj\x86\Debug\Best Movie Database.pdb
+E:\Work\C-\Best Movie Database\Best Movie Database\bin\Debug\Best Movie Database.exe
+E:\Work\C-\Best Movie Database\Best Movie Database\bin\Debug\Best Movie Database.pdb
+E:\Work\C-\Best Movie Database\Best Movie Database\obj\x86\Debug\Best_Movie_Database.Form1.resources
+E:\Work\C-\Best Movie Database\Best Movie Database\obj\x86\Debug\Best_Movie_Database.Properties.Resources.resources
+E:\Work\C-\Best Movie Database\Best Movie Database\obj\x86\Debug\Best Movie Database.csproj.GenerateResource.Cache

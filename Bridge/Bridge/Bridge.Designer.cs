@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.bDeal = new System.Windows.Forms.Button();
             this.lbDisplay = new System.Windows.Forms.ListBox();
+            this.clock = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // bDeal
             // 
-            this.bDeal.Location = new System.Drawing.Point(12, 516);
+            this.bDeal.Location = new System.Drawing.Point(499, 516);
             this.bDeal.Name = "bDeal";
-            this.bDeal.Size = new System.Drawing.Size(600, 73);
+            this.bDeal.Size = new System.Drawing.Size(113, 73);
             this.bDeal.TabIndex = 0;
             this.bDeal.Text = "Deal";
             this.bDeal.UseVisualStyleBackColor = true;
@@ -46,10 +48,14 @@
             // 
             this.lbDisplay.BackColor = System.Drawing.SystemColors.Control;
             this.lbDisplay.FormattingEnabled = true;
-            this.lbDisplay.Location = new System.Drawing.Point(12, 12);
+            this.lbDisplay.Location = new System.Drawing.Point(499, 12);
             this.lbDisplay.Name = "lbDisplay";
-            this.lbDisplay.Size = new System.Drawing.Size(600, 485);
+            this.lbDisplay.Size = new System.Drawing.Size(113, 485);
             this.lbDisplay.TabIndex = 1;
+            // 
+            // clock
+            // 
+            this.clock.Tick += new System.EventHandler(this.clock_Tick);
             // 
             // Bridge
             // 
@@ -73,6 +79,7 @@
 
         private System.Windows.Forms.Button bDeal;
         private System.Windows.Forms.ListBox lbDisplay;
+        private System.Windows.Forms.Timer clock;
     }
 }
 

@@ -11,6 +11,9 @@ namespace Bridge
 {    
     public partial class Bridge : Form
     {
+        private Game game;
+        private Graphics canvas;
+
         public Bridge()
         {
             InitializeComponent();
@@ -27,6 +30,17 @@ namespace Bridge
             // Display the hands
             foreach (Hand hand in deck.deal())                
                 lbDisplay.Items.AddRange(hand.displayHand());
+
+            canvas = this.CreateGraphics();
+
+            game = new Game();
+
+            clock.Enabled = true;
+        }
+
+        private void clock_Tick(object sender, EventArgs e)
+        {
+            game.draw(canvas);
         }
     }
 
@@ -88,6 +102,7 @@ namespace Bridge
         
     class Card
     {
+        private Bitmap bitmap;
         private int rank;
         private string suit;
         private int value;
