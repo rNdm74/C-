@@ -106,6 +106,8 @@ namespace Best_Movie_Database
 
             var items = from pair in movieTable orderby pair.Value ascending select pair;
 
+            //movieTable.OrderBy(KeyValuePair,,int,);
+
             foreach (KeyValuePair<int, TMovie> movie in items)
             {
                 lbDisplay.Items.Add(movie.Value.ToString());

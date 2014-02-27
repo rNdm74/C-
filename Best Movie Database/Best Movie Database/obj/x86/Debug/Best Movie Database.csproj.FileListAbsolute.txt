@@ -12,3 +12,5 @@ E:\Work\C-\Best Movie Database\Best Movie Database\bin\Debug\Best Movie Database
 E:\Work\C-\Best Movie Database\Best Movie Database\obj\x86\Debug\Best_Movie_Database.Form1.resources
 E:\Work\C-\Best Movie Database\Best Movie Database\obj\x86\Debug\Best_Movie_Database.Properties.Resources.resources
 E:\Work\C-\Best Movie Database\Best Movie Database\obj\x86\Debug\Best Movie Database.csproj.GenerateResource.Cache
+C:\Users\rNdm\Work\C-\Best Movie Database\Best Movie Database\obj\x86\Debug\Best Movie Database.exe
+C:\Users\rNdm\Work\C-\Best Movie Database\Best Movie Database\obj\x86\Debug\Best Movie Database.pdb

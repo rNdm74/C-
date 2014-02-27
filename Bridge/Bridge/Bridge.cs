@@ -11,12 +11,14 @@ namespace Bridge
 {    
     public partial class Bridge : Form
     {
-        private Game game;
-        private Graphics canvas;
+        private Deck deck;
 
         public Bridge()
         {
             InitializeComponent();
+
+            // Make a new deck do be dealt
+            deck = new Deck();
         }
         
         private void bDeal_Click(object sender, EventArgs e)
@@ -25,22 +27,30 @@ namespace Bridge
             lbDisplay.Items.Clear();
 
             // Make a new deck do be dealt
-            Deck deck = new Deck();
+            //Deck deck = new Deck();
+            //Hand[] handArray = deck.dealHands();
+            //Array.Sort(handArray);
 
             // Display the hands
-            foreach (Hand hand in deck.deal())                
+            foreach (Hand hand in deck.dealHands())                
                 lbDisplay.Items.AddRange(hand.displayHand());
 
-            canvas = this.CreateGraphics();
-
-            game = new Game();
-
-            clock.Enabled = true;
+            
         }
 
-        private void clock_Tick(object sender, EventArgs e)
+        private void bSort_Click(object sender, EventArgs e)
         {
-            game.draw(canvas);
+            // Clear the display
+            lbDisplay.Items.Clear();
+
+            // Make a new deck do be dealt
+            //Deck deck = new Deck();
+            Hand[] handArray = deck.dealHands();
+            Array.Sort(handArray);
+
+            // Display the hands
+            foreach (Hand hand in deck.dealHands())
+                lbDisplay.Items.AddRange(hand.displayHand());
         }
     }
 
@@ -59,18 +69,19 @@ namespace Bridge
                     deck.Add(new Card(rank, CONSTANTS.SUIT[suit]));
         }
 
-        public Hand[] deal()
+        public Hand[] dealHands()
         {
-            // Return the cardinal hands
+            // Return the cardinal hands // Why did I do that       
             return new Hand[]
             {
-                dealHand(CONSTANTS.CARDINAL[(int)CARDINAL.NORTH]),
-                dealHand(CONSTANTS.CARDINAL[(int)CARDINAL.EAST]),
-                dealHand(CONSTANTS.CARDINAL[(int)CARDINAL.SOUTH]),
-                dealHand(CONSTANTS.CARDINAL[(int)CARDINAL.WEST]),
+                dealHand(CONSTANTS.CARDINAL[(int)ECARDINAL.NORTH]),
+                dealHand(CONSTANTS.CARDINAL[(int)ECARDINAL.EAST]),
+                dealHand(CONSTANTS.CARDINAL[(int)ECARDINAL.SOUTH]),
+                dealHand(CONSTANTS.CARDINAL[(int)ECARDINAL.WEST]),
             };
         }
 
+        
         private Hand dealHand(string cardinal)
         {
             // Create a list for the card in a hand
@@ -102,7 +113,6 @@ namespace Bridge
         
     class Card
     {
-        private Bitmap bitmap;
         private int rank;
         private string suit;
         private int value;
@@ -131,10 +141,10 @@ namespace Bridge
                 case 12: return 4;
                 default: return 0;
             }
-        }
+        }        
     }
-    
-    class Hand
+
+    class Hand : IComparable
     {
         private string cardinal;
         private List<Card> cards;
@@ -151,6 +161,11 @@ namespace Bridge
 
             // Sorts the hand by suit
             sortIntoSuits();
+        }
+
+        public int getHCP()
+        {
+            return highCardPoints; 
         }
 
         private void calculateHCP()
@@ -195,6 +210,16 @@ namespace Bridge
             return ranks;            
         }
 
+        public int CompareTo(Object obj)
+        {
+            Hand a = this;
+            Hand b = obj as Hand;
+
+            if (a.getHCP() < b.getHCP()) return 1;
+            else if (a.getHCP() > b.getHCP()) return -1;
+            else return 0;
+        }
+
         // Used to sort the cards based on rank
         private class SortOnRank : IComparer<Card>
         {
@@ -207,7 +232,7 @@ namespace Bridge
         }
     }
 
-    enum CARDINAL
+    enum ECARDINAL
     {
         NORTH = 0, EAST = 1, SOUTH = 2, WEST = 3
     }

@@ -52,7 +52,6 @@
     <Compile Include="Bridge.Designer.cs">
       <DependentUpon>Bridge.cs</DependentUpon>
     </Compile>
-    <Compile Include="Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Bridge.resx">

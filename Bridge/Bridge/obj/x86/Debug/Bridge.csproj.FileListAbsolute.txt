@@ -12,3 +12,10 @@ E:\Work\C-\Bridge\Bridge\obj\x86\Debug\Bridge.Properties.Resources.resources
 E:\Work\C-\Bridge\Bridge\obj\x86\Debug\Bridge.csproj.GenerateResource.Cache
 E:\Work\C-\Bridge\Bridge\obj\x86\Debug\Bridge.exe
 E:\Work\C-\Bridge\Bridge\obj\x86\Debug\Bridge.pdb
+C:\Users\rNdm\Work\C-\Bridge\Bridge\obj\x86\Debug\Bridge.exe
+C:\Users\rNdm\Work\C-\Bridge\Bridge\obj\x86\Debug\Bridge.pdb
+C:\Users\rNdm\Work\C-\Bridge\Bridge\bin\Debug\Bridge.exe
+C:\Users\rNdm\Work\C-\Bridge\Bridge\bin\Debug\Bridge.pdb
+C:\Users\rNdm\Work\C-\Bridge\Bridge\obj\x86\Debug\Bridge.Bridge.resources
+C:\Users\rNdm\Work\C-\Bridge\Bridge\obj\x86\Debug\Bridge.Properties.Resources.resources
+C:\Users\rNdm\Work\C-\Bridge\Bridge\obj\x86\Debug\Bridge.csproj.GenerateResource.Cache
