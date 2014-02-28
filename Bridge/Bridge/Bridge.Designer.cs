@@ -41,7 +41,7 @@
             this.bDeal.Name = "bDeal";
             this.bDeal.Size = new System.Drawing.Size(113, 73);
             this.bDeal.TabIndex = 0;
-            this.bDeal.Text = "Deal";
+            this.bDeal.Text = "DEAL HANDS";
             this.bDeal.UseVisualStyleBackColor = true;
             this.bDeal.Click += new System.EventHandler(this.bDeal_Click);
             // 
@@ -60,7 +60,7 @@
             this.bSort.Name = "bSort";
             this.bSort.Size = new System.Drawing.Size(113, 73);
             this.bSort.TabIndex = 2;
-            this.bSort.Text = "Sort";
+            this.bSort.Text = "SORT BY HCP";
             this.bSort.UseVisualStyleBackColor = true;
             this.bSort.Click += new System.EventHandler(this.bSort_Click);
             // 

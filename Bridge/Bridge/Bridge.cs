@@ -12,13 +12,11 @@ namespace Bridge
     public partial class Bridge : Form
     {
         private Deck deck;
+        private Hand[] handArray;
 
         public Bridge()
         {
-            InitializeComponent();
-
-            // Make a new deck do be dealt
-            deck = new Deck();
+            InitializeComponent();            
         }
         
         private void bDeal_Click(object sender, EventArgs e)
@@ -27,30 +25,34 @@ namespace Bridge
             lbDisplay.Items.Clear();
 
             // Make a new deck do be dealt
-            //Deck deck = new Deck();
-            //Hand[] handArray = deck.dealHands();
-            //Array.Sort(handArray);
+            deck = new Deck();
+
+            // Deals the four cardinal hands from the deck
+            handArray = deck.dealHands();
 
             // Display the hands
-            foreach (Hand hand in deck.dealHands())                
-                lbDisplay.Items.AddRange(hand.displayHand());
-
-            
+            foreach (Hand hand in handArray)                
+                lbDisplay.Items.AddRange(hand.displayHand());            
         }
 
         private void bSort_Click(object sender, EventArgs e)
         {
-            // Clear the display
-            lbDisplay.Items.Clear();
+            try
+            {
+                // Clear the display
+                lbDisplay.Items.Clear();
 
-            // Make a new deck do be dealt
-            //Deck deck = new Deck();
-            Hand[] handArray = deck.dealHands();
-            Array.Sort(handArray);
+                // Sort hand by HCP
+                Array.Sort(handArray);
 
-            // Display the hands
-            foreach (Hand hand in deck.dealHands())
-                lbDisplay.Items.AddRange(hand.displayHand());
+                // Display the hands
+                foreach (Hand hand in handArray)
+                    lbDisplay.Items.AddRange(hand.displayHand());
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show("Please DEAL HANDS before you can SORT BY HCP", "Sort");
+            }            
         }
     }
 
@@ -71,7 +73,9 @@ namespace Bridge
 
         public Hand[] dealHands()
         {
-            // Return the cardinal hands // Why did I do that       
+            // Return the cardinal hands 
+            // When required hands will be dealt from the deck
+            // An array of four even randomized hands is then returned 
             return new Hand[]
             {
                 dealHand(CONSTANTS.CARDINAL[(int)ECARDINAL.NORTH]),
