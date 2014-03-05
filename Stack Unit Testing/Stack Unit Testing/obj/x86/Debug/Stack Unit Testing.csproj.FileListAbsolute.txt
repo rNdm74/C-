@@ -1,0 +1,7 @@
+E:\Work\C#\Stack Unit Testing\Stack Unit Testing\obj\x86\Debug\Stack_Unit_Testing.Properties.Resources.resources
+E:\Work\C#\Stack Unit Testing\Stack Unit Testing\obj\x86\Debug\Stack Unit Testing.csproj.GenerateResource.Cache
+E:\Work\C#\Stack Unit Testing\Stack Unit Testing\bin\Debug\Stack Unit Testing.exe
+E:\Work\C#\Stack Unit Testing\Stack Unit Testing\bin\Debug\Stack Unit Testing.pdb
+E:\Work\C#\Stack Unit Testing\Stack Unit Testing\obj\x86\Debug\Stack Unit Testing.exe
+E:\Work\C#\Stack Unit Testing\Stack Unit Testing\obj\x86\Debug\Stack Unit Testing.pdb
+E:\Work\C#\Stack Unit Testing\Stack Unit Testing\obj\x86\Debug\Stack_Unit_Testing.Form1.resources
