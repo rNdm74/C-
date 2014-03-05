@@ -12,3 +12,4 @@ C:\Users\rNdm\Work\C-\Stack Unit Testing\Stack Unit Testing\bin\Debug\Stack Unit
 C:\Users\rNdm\Work\C-\Stack Unit Testing\Stack Unit Testing\obj\x86\Debug\Stack_Unit_Testing.Form1.resources
 C:\Users\rNdm\Work\C-\Stack Unit Testing\Stack Unit Testing\obj\x86\Debug\Stack_Unit_Testing.Properties.Resources.resources
 C:\Users\rNdm\Work\C-\Stack Unit Testing\Stack Unit Testing\obj\x86\Debug\Stack Unit Testing.csproj.GenerateResource.Cache
+C:\Users\rNdm\Work\C-\Stack Unit Testing\Stack Unit Testing\obj\x86\Debug\Stack Unit Testing.csprojResolveAssemblyReference.cache

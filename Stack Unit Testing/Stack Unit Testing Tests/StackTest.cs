@@ -371,6 +371,25 @@ namespace Stack_Unit_Testing_Tests
         }
 
         [TestMethod()]
+        [DeploymentItem("Stack Unit Testing.exe")]
+        public void PushTestFillStackWithStringArray()
+        {
+            string[] ARRAY = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };            
+            Stack_Accessor<string> target = new Stack_Accessor<string>(ARRAY.Length); // TODO: Initialize to an appropriate value
+
+            for (int i = 0; i < ARRAY.Length; i++)
+            {
+                target.Push(ARRAY[i]);
+            }
+
+            string expected = "Friday"; // TODO: Initialize to an appropriate value
+            string actual;
+            actual = target.Pop();
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod()]
         [ExpectedException(typeof(System.StackOverflowException))]
         public void PushTestPushStackIsFullException()
         {
@@ -389,13 +408,33 @@ namespace Stack_Unit_Testing_Tests
         #region Constructor
         [TestMethod()]
         [DeploymentItem("Stack Unit Testing.exe")]
-        public void StackConstructorTest()
+        public void StackConstructorTestString()
         {
             int param0 = 5; // TODO: Initialize to an appropriate value
             Stack_Accessor<string> target = new Stack_Accessor<string>(param0); // TODO: Initialize to an appropriate value
 
             Assert.IsNotNull(target);
         }
+
+        [TestMethod()]
+        [DeploymentItem("Stack Unit Testing.exe")]
+        public void StackConstructorTestInt()
+        {
+            int param0 = 5; // TODO: Initialize to an appropriate value
+            Stack_Accessor<int> target = new Stack_Accessor<int>(param0); // TODO: Initialize to an appropriate value
+
+            Assert.IsNotNull(target);
+        }
+
+        //[TestMethod()]
+        //[DeploymentItem("Stack Unit Testing.exe")]
+        //public void StackConstructorTestInt()
+        //{
+        //    int param0 = 5; // TODO: Initialize to an appropriate value
+        //    Stack_Accessor<int> target = new Stack_Accessor<int>(param0); // TODO: Initialize to an appropriate value
+
+        //    Assert.IsNotNull(target);
+        //}
         #endregion
     }
 }
