@@ -7,3 +7,12 @@ E:\Work\C#\Stack Unit Testing\Stack Unit Testing Tests\bin\Debug\Stack Unit Test
 E:\Work\C#\Stack Unit Testing\Stack Unit Testing Tests\bin\Debug\Stack Unit Testing.pdb
 E:\Work\C#\Stack Unit Testing\Stack Unit Testing Tests\bin\Debug\Stack Unit Testing_Accessor.exe
 E:\Work\C#\Stack Unit Testing\Stack Unit Testing Tests\bin\Debug\Stack Unit Testing_Accessor.pdb
+C:\Users\rNdm\Work\C-\Stack Unit Testing\Stack Unit Testing Tests\bin\Debug\Stack Unit Testing Tests.dll
+C:\Users\rNdm\Work\C-\Stack Unit Testing\Stack Unit Testing Tests\bin\Debug\Stack Unit Testing Tests.pdb
+C:\Users\rNdm\Work\C-\Stack Unit Testing\Stack Unit Testing Tests\bin\Debug\Stack Unit Testing.exe
+C:\Users\rNdm\Work\C-\Stack Unit Testing\Stack Unit Testing Tests\bin\Debug\Stack Unit Testing.pdb
+C:\Users\rNdm\Work\C-\Stack Unit Testing\Stack Unit Testing Tests\bin\Debug\Stack Unit Testing_Accessor.exe
+C:\Users\rNdm\Work\C-\Stack Unit Testing\Stack Unit Testing Tests\bin\Debug\Stack Unit Testing_Accessor.pdb
+C:\Users\rNdm\Work\C-\Stack Unit Testing\Stack Unit Testing Tests\obj\Debug\Stack Unit Testing Tests.csprojResolveAssemblyReference.cache
+C:\Users\rNdm\Work\C-\Stack Unit Testing\Stack Unit Testing Tests\obj\Debug\Stack Unit Testing Tests.dll
+C:\Users\rNdm\Work\C-\Stack Unit Testing\Stack Unit Testing Tests\obj\Debug\Stack Unit Testing Tests.pdb

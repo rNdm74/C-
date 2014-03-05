@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="c648bea8-5d47-401e-9ff9-dd2cdeacbadb" name="rNdm@RNDM-LAPTOP 2014-03-05 11:05:16" runUser="RNDM-LAPTOP\rNdm" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="68deba7f-ce6a-400b-b243-7fe2972b289e">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="rNdm_RNDM-LAPTOP 2014-03-05 11_05_16">
+      <DeploymentItem filename="C:\Users\rNdm\Work\C-\Bridge\Bridge\bin\Debug\Bridge.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-03-05T11:05:16.6970964+13:00" queuing="2014-03-05T11:05:18.1971729+13:00" start="2014-03-05T11:05:18.3690610+13:00" finish="2014-03-05T11:05:27.3070138+13:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="18" executed="18" passed="1" error="0" failed="14" timeout="0" aborted="0" inconclusive="3" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="RNDM-LAPTOP" outcome="Warning" timestamp="2014-03-05T11:05:17.5721413+13:00">
+        <Text>Deployment is currently disabled. The deployment item 'Bridge.exe' on test 'Bridge_Tests.CardTest.getValueTest' was not deployed.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="getValueTest" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="56dd6633-80b6-466f-aec1-35151d79dd40">
+      <DeploymentItems>
+        <DeploymentItem filename="Bridge.exe" />
+      </DeploymentItems>
+      <Execution id="c81bed27-a001-48d0-8de8-65f14712cfc8" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.CardTest, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getValueTest" />
+    </UnitTest>
+    <UnitTest name="bDeal_ClickTest" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="c5c4dbea-56c8-acf5-1acb-716670aca851">
+      <DeploymentItems>
+        <DeploymentItem filename="Bridge.exe" />
+      </DeploymentItems>
+      <Execution id="04a2235c-819f-4c33-8956-1fc66202887e" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.BridgeTest, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="bDeal_ClickTest" />
+    </UnitTest>
+    <UnitTest name="bSort_ClickTest" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="0b6f7dc1-7033-b53d-9473-a8c419c8a2ae">
+      <DeploymentItems>
+        <DeploymentItem filename="Bridge.exe" />
+      </DeploymentItems>
+      <Execution id="b651134a-ece7-491d-aa82-abe8c631e341" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.BridgeTest, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="bSort_ClickTest" />
+    </UnitTest>
+    <UnitTest name="dealHandTest" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="1d7d6f42-cd09-1ebc-5d41-2c2521dfac18">
+      <DeploymentItems>
+        <DeploymentItem filename="Bridge.exe" />
+      </DeploymentItems>
+      <Execution id="31681067-10c1-4d06-a8f5-c4350f602158" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.DeckTest, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="dealHandTest" />
+    </UnitTest>
+    <UnitTest name="HandConstructorTest" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="4a416ae6-6ca2-0e10-f77f-50a9c9e891b6">
+      <DeploymentItems>
+        <DeploymentItem filename="Bridge.exe" />
+      </DeploymentItems>
+      <Execution id="09426ab7-4acc-49eb-b250-f1b0b4ea5552" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.HandTest, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="HandConstructorTest" />
+    </UnitTest>
+    <UnitTest name="getSuitCardsTest" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="aacad0ab-1570-1d48-65f9-e718b9de2c0a">
+      <DeploymentItems>
+        <DeploymentItem filename="Bridge.exe" />
+      </DeploymentItems>
+      <Execution id="cf0eec61-e71e-4ef6-987f-e3f56e954810" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.HandTest, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getSuitCardsTest" />
+    </UnitTest>
+    <UnitTest name="displayHandTest" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="aa072f24-c503-1baa-5552-2510c9ac46af">
+      <DeploymentItems>
+        <DeploymentItem filename="Bridge.exe" />
+      </DeploymentItems>
+      <Execution id="2ca068cf-eaea-4170-8f13-8313f9543cd4" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.HandTest, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="displayHandTest" />
+    </UnitTest>
+    <UnitTest name="Hand_SortOnRankConstructorTest" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="09e10610-8de4-8673-a720-e089ae7de907">
+      <DeploymentItems>
+        <DeploymentItem filename="Bridge.exe" />
+      </DeploymentItems>
+      <Execution id="f4346745-34ac-4e74-b069-185cc1386631" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.Hand_SortOnRankTest, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Hand_SortOnRankConstructorTest" />
+    </UnitTest>
+    <UnitTest name="dealHandsTest" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="9f525b4e-a1cd-9900-2afb-e6f91eac660c">
+      <DeploymentItems>
+        <DeploymentItem filename="Bridge.exe" />
+      </DeploymentItems>
+      <Execution id="91a59493-d851-461c-9529-2960a1111367" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.DeckTest, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="dealHandsTest" />
+    </UnitTest>
+    <UnitTest name="getHCPTest" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="7d0fe7b0-529b-3790-a37b-da087d05b93a">
+      <DeploymentItems>
+        <DeploymentItem filename="Bridge.exe" />
+      </DeploymentItems>
+      <Execution id="2d5b1acd-1365-4c8e-ad4f-90ca1cb6bdd5" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.HandTest, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getHCPTest" />
+    </UnitTest>
+    <UnitTest name="sortIntoSuitsTest" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="ef1ee36b-a24f-2679-d3eb-7959e9db1a95">
+      <DeploymentItems>
+        <DeploymentItem filename="Bridge.exe" />
+      </DeploymentItems>
+      <Execution id="af91f163-8132-4336-86cd-ec2bf679df1b" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.HandTest, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="sortIntoSuitsTest" />
+    </UnitTest>
+    <UnitTest name="getRankTest" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="b0584b31-3986-c220-afb1-93bf6ab31c00">
+      <DeploymentItems>
+        <DeploymentItem filename="Bridge.exe" />
+      </DeploymentItems>
+      <Execution id="1e6cd449-b2ae-44ff-ae18-3d9928262089" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.CardTest, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getRankTest" />
+    </UnitTest>
+    <UnitTest name="TestMethod1" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="f299b7cb-2d97-6ddb-3b70-74e732b71c6a">
+      <Execution id="569355b4-b561-4c9d-88bd-abce5f5f04d1" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.UnitTest1, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+    <UnitTest name="CompareToTest" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="ef625bf2-2b8c-8c02-e898-776a3edbca38">
+      <DeploymentItems>
+        <DeploymentItem filename="Bridge.exe" />
+      </DeploymentItems>
+      <Execution id="d35ce0e4-795e-49e8-9328-f5de0c982bca" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.HandTest, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CompareToTest" />
+    </UnitTest>
+    <UnitTest name="calculateHCPTest" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="e6ce19b5-fa93-f3c9-83f7-5392a029520a">
+      <DeploymentItems>
+        <DeploymentItem filename="Bridge.exe" />
+      </DeploymentItems>
+      <Execution id="ccccfbd7-3c11-4d02-8dc6-4ae096589d69" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.HandTest, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="calculateHCPTest" />
+    </UnitTest>
+    <UnitTest name="getValueFromRankTest" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="e6936aaf-6a84-d6a2-9238-25fa42a20515">
+      <DeploymentItems>
+        <DeploymentItem filename="Bridge.exe" />
+      </DeploymentItems>
+      <Execution id="e0f8d5dc-3ef3-4fe4-ad46-a1cda98f3455" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.CardTest, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getValueFromRankTest" />
+    </UnitTest>
+    <UnitTest name="getSuitTest" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="d108984f-71fe-d818-613f-834ecc12b774">
+      <DeploymentItems>
+        <DeploymentItem filename="Bridge.exe" />
+      </DeploymentItems>
+      <Execution id="d281ba86-9878-4854-97fc-a7b79e714ba6" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.CardTest, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getSuitTest" />
+    </UnitTest>
+    <UnitTest name="CompareTest" storage="c:\users\rndm\work\c-\bridge\bridge tests\bin\debug\bridge tests.dll" id="4fe59838-65fb-c1a9-d2d6-836a3a5ba3f8">
+      <DeploymentItems>
+        <DeploymentItem filename="Bridge.exe" />
+      </DeploymentItems>
+      <Execution id="4937de35-b585-4715-ac12-9c0f52e9a703" />
+      <TestMethod codeBase="C:/Users/rNdm/Work/C-/Bridge/Bridge Tests/bin/Debug/Bridge Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Bridge_Tests.Hand_SortOnRankTest, Bridge Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CompareTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="09e10610-8de4-8673-a720-e089ae7de907" executionId="f4346745-34ac-4e74-b069-185cc1386631" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0b6f7dc1-7033-b53d-9473-a8c419c8a2ae" executionId="b651134a-ece7-491d-aa82-abe8c631e341" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1d7d6f42-cd09-1ebc-5d41-2c2521dfac18" executionId="31681067-10c1-4d06-a8f5-c4350f602158" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4a416ae6-6ca2-0e10-f77f-50a9c9e891b6" executionId="09426ab7-4acc-49eb-b250-f1b0b4ea5552" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4fe59838-65fb-c1a9-d2d6-836a3a5ba3f8" executionId="4937de35-b585-4715-ac12-9c0f52e9a703" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="56dd6633-80b6-466f-aec1-35151d79dd40" executionId="c81bed27-a001-48d0-8de8-65f14712cfc8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7d0fe7b0-529b-3790-a37b-da087d05b93a" executionId="2d5b1acd-1365-4c8e-ad4f-90ca1cb6bdd5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9f525b4e-a1cd-9900-2afb-e6f91eac660c" executionId="91a59493-d851-461c-9529-2960a1111367" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="aa072f24-c503-1baa-5552-2510c9ac46af" executionId="2ca068cf-eaea-4170-8f13-8313f9543cd4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="aacad0ab-1570-1d48-65f9-e718b9de2c0a" executionId="cf0eec61-e71e-4ef6-987f-e3f56e954810" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b0584b31-3986-c220-afb1-93bf6ab31c00" executionId="1e6cd449-b2ae-44ff-ae18-3d9928262089" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c5c4dbea-56c8-acf5-1acb-716670aca851" executionId="04a2235c-819f-4c33-8956-1fc66202887e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d108984f-71fe-d818-613f-834ecc12b774" executionId="d281ba86-9878-4854-97fc-a7b79e714ba6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e6936aaf-6a84-d6a2-9238-25fa42a20515" executionId="e0f8d5dc-3ef3-4fe4-ad46-a1cda98f3455" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e6ce19b5-fa93-f3c9-83f7-5392a029520a" executionId="ccccfbd7-3c11-4d02-8dc6-4ae096589d69" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ef1ee36b-a24f-2679-d3eb-7959e9db1a95" executionId="af91f163-8132-4336-86cd-ec2bf679df1b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ef625bf2-2b8c-8c02-e898-776a3edbca38" executionId="d35ce0e4-795e-49e8-9328-f5de0c982bca" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f299b7cb-2d97-6ddb-3b70-74e732b71c6a" executionId="569355b4-b561-4c9d-88bd-abce5f5f04d1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="f4346745-34ac-4e74-b069-185cc1386631" testId="09e10610-8de4-8673-a720-e089ae7de907" testName="Hand_SortOnRankConstructorTest" computerName="RNDM-LAPTOP" duration="00:00:00.1296226" startTime="2014-03-05T11:05:18.4471862+13:00" endTime="2014-03-05T11:05:18.8378332+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f4346745-34ac-4e74-b069-185cc1386631">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. TODO: Implement code to verify target</Message>
+          <StackTrace>   at Bridge_Tests.Hand_SortOnRankTest.Hand_SortOnRankConstructorTest() in C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\Hand_SortOnRankTest.cs:line 75
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b651134a-ece7-491d-aa82-abe8c631e341" testId="0b6f7dc1-7033-b53d-9473-a8c419c8a2ae" testName="bSort_ClickTest" computerName="RNDM-LAPTOP" duration="00:00:08.1902949" startTime="2014-03-05T11:05:18.8378332+13:00" endTime="2014-03-05T11:05:27.0414169+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b651134a-ece7-491d-aa82-abe8c631e341">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. A method that does not return a value cannot be verified.</Message>
+          <StackTrace>   at Bridge_Tests.BridgeTest.bSort_ClickTest() in C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\BridgeTest.cs:line 92
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="31681067-10c1-4d06-a8f5-c4350f602158" testId="1d7d6f42-cd09-1ebc-5d41-2c2521dfac18" testName="dealHandTest" computerName="RNDM-LAPTOP" duration="00:00:00.0255389" startTime="2014-03-05T11:05:27.0414169+13:00" endTime="2014-03-05T11:05:27.0726279+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="31681067-10c1-4d06-a8f5-c4350f602158">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;(null)&gt;. Actual:&lt;Bridge.Hand&gt;. </Message>
+          <StackTrace>   at Bridge_Tests.DeckTest.dealHandTest() in C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\DeckTest.cs:line 79
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="09426ab7-4acc-49eb-b250-f1b0b4ea5552" testId="4a416ae6-6ca2-0e10-f77f-50a9c9e891b6" testName="HandConstructorTest" computerName="RNDM-LAPTOP" duration="00:00:00.0121775" startTime="2014-03-05T11:05:27.0726279+13:00" endTime="2014-03-05T11:05:27.0882548+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="09426ab7-4acc-49eb-b250-f1b0b4ea5552">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Bridge_Tests.HandTest.HandConstructorTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Bridge.Hand_Accessor..ctor(String cardinal, List`1 cards)
+   at Bridge_Tests.HandTest.HandConstructorTest() in C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\HandTest.cs:line 77
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4937de35-b585-4715-ac12-9c0f52e9a703" testId="4fe59838-65fb-c1a9-d2d6-836a3a5ba3f8" testName="CompareTest" computerName="RNDM-LAPTOP" duration="00:00:00.0043284" startTime="2014-03-05T11:05:27.0882548+13:00" endTime="2014-03-05T11:05:27.1038795+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4937de35-b585-4715-ac12-9c0f52e9a703">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Bridge_Tests.Hand_SortOnRankTest.CompareTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Bridge.Hand_Accessor.SortOnRank.Compare(Card_Accessor a, Card_Accessor b)
+   at Bridge_Tests.Hand_SortOnRankTest.CompareTest() in C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\Hand_SortOnRankTest.cs:line 90
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c81bed27-a001-48d0-8de8-65f14712cfc8" testId="56dd6633-80b6-466f-aec1-35151d79dd40" testName="getValueTest" computerName="RNDM-LAPTOP" duration="00:00:00.0031905" startTime="2014-03-05T11:05:27.1038795+13:00" endTime="2014-03-05T11:05:27.1038795+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c81bed27-a001-48d0-8de8-65f14712cfc8">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Bridge_Tests.CardTest.getValueTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Bridge.Card_Accessor.getValue()
+   at Bridge_Tests.CardTest.getValueTest() in C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\CardTest.cs:line 110
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2d5b1acd-1365-4c8e-ad4f-90ca1cb6bdd5" testId="7d0fe7b0-529b-3790-a37b-da087d05b93a" testName="getHCPTest" computerName="RNDM-LAPTOP" duration="00:00:00.0028442" startTime="2014-03-05T11:05:27.1195046+13:00" endTime="2014-03-05T11:05:27.1195046+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2d5b1acd-1365-4c8e-ad4f-90ca1cb6bdd5">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Bridge_Tests.HandTest.getHCPTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Bridge.Hand_Accessor.getHCP()
+   at Bridge_Tests.HandTest.getHCPTest() in C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\HandTest.cs:line 138
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="91a59493-d851-461c-9529-2960a1111367" testId="9f525b4e-a1cd-9900-2afb-e6f91eac660c" testName="dealHandsTest" computerName="RNDM-LAPTOP" duration="00:00:00.0038009" startTime="2014-03-05T11:05:27.1195046+13:00" endTime="2014-03-05T11:05:27.1351298+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="91a59493-d851-461c-9529-2960a1111367">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;(null)&gt;. Actual:&lt;Bridge.Hand_Accessor[]&gt;. </Message>
+          <StackTrace>   at Bridge_Tests.DeckTest.dealHandsTest() in C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\DeckTest.cs:line 94
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2ca068cf-eaea-4170-8f13-8313f9543cd4" testId="aa072f24-c503-1baa-5552-2510c9ac46af" testName="displayHandTest" computerName="RNDM-LAPTOP" duration="00:00:00.0022347" startTime="2014-03-05T11:05:27.1351298+13:00" endTime="2014-03-05T11:05:27.1351298+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2ca068cf-eaea-4170-8f13-8313f9543cd4">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Bridge_Tests.HandTest.displayHandTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Bridge.Hand_Accessor.displayHand()
+   at Bridge_Tests.HandTest.displayHandTest() in C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\HandTest.cs:line 122
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="cf0eec61-e71e-4ef6-987f-e3f56e954810" testId="aacad0ab-1570-1d48-65f9-e718b9de2c0a" testName="getSuitCardsTest" computerName="RNDM-LAPTOP" duration="00:00:00.0030138" startTime="2014-03-05T11:05:27.1351298+13:00" endTime="2014-03-05T11:05:27.1507571+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cf0eec61-e71e-4ef6-987f-e3f56e954810">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Bridge_Tests.HandTest.getSuitCardsTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Bridge.Hand_Accessor.getSuitCards(String suit)
+   at Bridge_Tests.HandTest.getSuitCardsTest() in C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\HandTest.cs:line 155
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1e6cd449-b2ae-44ff-ae18-3d9928262089" testId="b0584b31-3986-c220-afb1-93bf6ab31c00" testName="getRankTest" computerName="RNDM-LAPTOP" duration="00:00:00.0027309" startTime="2014-03-05T11:05:27.1507571+13:00" endTime="2014-03-05T11:05:27.1507571+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1e6cd449-b2ae-44ff-ae18-3d9928262089">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Bridge_Tests.CardTest.getRankTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Bridge.Card_Accessor.getRank()
+   at Bridge_Tests.CardTest.getRankTest() in C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\CardTest.cs:line 78
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="04a2235c-819f-4c33-8956-1fc66202887e" testId="c5c4dbea-56c8-acf5-1acb-716670aca851" testName="bDeal_ClickTest" computerName="RNDM-LAPTOP" duration="00:00:00.0030642" startTime="2014-03-05T11:05:27.1507571+13:00" endTime="2014-03-05T11:05:27.1663836+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="04a2235c-819f-4c33-8956-1fc66202887e">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. A method that does not return a value cannot be verified.</Message>
+          <StackTrace>   at Bridge_Tests.BridgeTest.bDeal_ClickTest() in C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\BridgeTest.cs:line 78
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d281ba86-9878-4854-97fc-a7b79e714ba6" testId="d108984f-71fe-d818-613f-834ecc12b774" testName="getSuitTest" computerName="RNDM-LAPTOP" duration="00:00:00.0027211" startTime="2014-03-05T11:05:27.1663836+13:00" endTime="2014-03-05T11:05:27.1663836+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d281ba86-9878-4854-97fc-a7b79e714ba6">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Bridge_Tests.CardTest.getSuitTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Bridge.Card_Accessor.getSuit()
+   at Bridge_Tests.CardTest.getSuitTest() in C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\CardTest.cs:line 94
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e0f8d5dc-3ef3-4fe4-ad46-a1cda98f3455" testId="e6936aaf-6a84-d6a2-9238-25fa42a20515" testName="getValueFromRankTest" computerName="RNDM-LAPTOP" duration="00:00:00.0026595" startTime="2014-03-05T11:05:27.1663836+13:00" endTime="2014-03-05T11:05:27.1820078+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e0f8d5dc-3ef3-4fe4-ad46-a1cda98f3455">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Bridge_Tests.CardTest.getValueFromRankTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Bridge.Card_Accessor.getValueFromRank(Int32 cardRank)
+   at Bridge_Tests.CardTest.getValueFromRankTest() in C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\CardTest.cs:line 127
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ccccfbd7-3c11-4d02-8dc6-4ae096589d69" testId="e6ce19b5-fa93-f3c9-83f7-5392a029520a" testName="calculateHCPTest" computerName="RNDM-LAPTOP" duration="00:00:00.0024346" startTime="2014-03-05T11:05:27.1820078+13:00" endTime="2014-03-05T11:05:27.1820078+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ccccfbd7-3c11-4d02-8dc6-4ae096589d69">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Bridge_Tests.HandTest.calculateHCPTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Bridge.Hand_Accessor.calculateHCP()
+   at Bridge_Tests.HandTest.calculateHCPTest() in C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\HandTest.cs:line 107
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="af91f163-8132-4336-86cd-ec2bf679df1b" testId="ef1ee36b-a24f-2679-d3eb-7959e9db1a95" testName="sortIntoSuitsTest" computerName="RNDM-LAPTOP" duration="00:00:00.0026599" startTime="2014-03-05T11:05:27.1820078+13:00" endTime="2014-03-05T11:05:27.1976334+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="af91f163-8132-4336-86cd-ec2bf679df1b">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Bridge_Tests.HandTest.sortIntoSuitsTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Bridge.Hand_Accessor.sortIntoSuits()
+   at Bridge_Tests.HandTest.sortIntoSuitsTest() in C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\HandTest.cs:line 169
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d35ce0e4-795e-49e8-9328-f5de0c982bca" testId="ef625bf2-2b8c-8c02-e898-776a3edbca38" testName="CompareToTest" computerName="RNDM-LAPTOP" duration="00:00:00.0025850" startTime="2014-03-05T11:05:27.1976334+13:00" endTime="2014-03-05T11:05:27.1976334+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d35ce0e4-795e-49e8-9328-f5de0c982bca">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Bridge_Tests.HandTest.CompareToTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Bridge.Hand_Accessor.CompareTo(Object obj)
+   at Bridge_Tests.HandTest.CompareToTest() in C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\HandTest.cs:line 93
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="569355b4-b561-4c9d-88bd-abce5f5f04d1" testId="f299b7cb-2d97-6ddb-3b70-74e732b71c6a" testName="TestMethod1" computerName="RNDM-LAPTOP" duration="00:00:00.0001963" startTime="2014-03-05T11:05:27.1976334+13:00" endTime="2014-03-05T11:05:27.2132594+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="569355b4-b561-4c9d-88bd-abce5f5f04d1">
+    </UnitTestResult>
+  </Results>
+</TestRun>

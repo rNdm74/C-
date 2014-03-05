@@ -1,0 +1,9 @@
+C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\bin\Debug\Bridge Tests.dll
+C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\bin\Debug\Bridge Tests.pdb
+C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\bin\Debug\Bridge.exe
+C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\bin\Debug\Bridge.pdb
+C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\bin\Debug\Bridge_Accessor.exe
+C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\bin\Debug\Bridge_Accessor.pdb
+C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\obj\Debug\Bridge Tests.csprojResolveAssemblyReference.cache
+C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\obj\Debug\Bridge Tests.dll
+C:\Users\rNdm\Work\C-\Bridge\Bridge Tests\obj\Debug\Bridge Tests.pdb

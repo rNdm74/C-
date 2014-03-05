@@ -45,7 +45,7 @@ namespace Bridge
                 // Sort hand by HCP
                 Array.Sort(handArray);
 
-                // Display the hands
+                // Display the hands - Adds array items to the listbox
                 foreach (Hand hand in handArray)
                     lbDisplay.Items.AddRange(hand.displayHand());
             }
@@ -254,4 +254,3 @@ namespace Bridge
         public const int DECK_SIZE = 52;        
     }
 }
-
