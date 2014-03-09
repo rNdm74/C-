@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="147761fd-aa10-4ad5-8f5a-59a9a05958b0" name="rNdm@RNDM-PC 2014-03-05 21:56:52" runUser="RNDM-PC\rNdm" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="ab684e55-41fe-4872-9932-1149f5004a7c">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment runDeploymentRoot="rNdm_RNDM-PC 2014-03-05 21_56_52">
+      <DeploymentItem filename="E:\Work\C#\Stack Unit Testing\Stack Unit Testing\bin\Debug\Stack Unit Testing.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 7.0">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-03-05T21:56:52.4484271+13:00" queuing="2014-03-05T21:56:52.5784262+13:00" start="2014-03-05T21:56:52.5833776+13:00" finish="2014-03-05T21:56:52.7613883+13:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="11" executed="11" passed="11" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="PushTestHelperPushTillStackIsFullException" storage="e:\work\c#\stack unit testing\stack unit testing tests\bin\debug\stack unit testing tests.dll" id="b5b83ddb-b301-8aa9-f517-1e900714238f">
+      <Execution id="7c936f21-dd52-4fd0-9946-101e31b9a73c" />
+      <TestMethod codeBase="E:/Work/C#/Stack Unit Testing/Stack Unit Testing Tests/bin/Debug/Stack Unit Testing Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Stack_Unit_Testing_Tests.StackTest, Stack Unit Testing Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PushTestHelperPushTillStackIsFullException" />
+    </UnitTest>
+    <UnitTest name="IsEmptyTestHelperFalse" storage="e:\work\c#\stack unit testing\stack unit testing tests\bin\debug\stack unit testing tests.dll" id="30478b2b-0337-381a-a03f-215419e77da5">
+      <DeploymentItems>
+        <DeploymentItem filename="Stack Unit Testing.exe" />
+      </DeploymentItems>
+      <Execution id="bf6d8f34-3c70-4639-a2e2-149218efb94b" />
+      <TestMethod codeBase="E:/Work/C#/Stack Unit Testing/Stack Unit Testing Tests/bin/Debug/Stack Unit Testing Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Stack_Unit_Testing_Tests.StackTest, Stack Unit Testing Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="IsEmptyTestHelperFalse" />
+    </UnitTest>
+    <UnitTest name="PeekTestHelperDoesntRemoveItemTrue" storage="e:\work\c#\stack unit testing\stack unit testing tests\bin\debug\stack unit testing tests.dll" id="a64e7c77-a8a1-e145-70a4-72fe1550366a">
+      <DeploymentItems>
+        <DeploymentItem filename="Stack Unit Testing.exe" />
+      </DeploymentItems>
+      <Execution id="14978388-7786-42de-841c-619bb4a7687d" />
+      <TestMethod codeBase="E:/Work/C#/Stack Unit Testing/Stack Unit Testing Tests/bin/Debug/Stack Unit Testing Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Stack_Unit_Testing_Tests.StackTest, Stack Unit Testing Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PeekTestHelperDoesntRemoveItemTrue" />
+    </UnitTest>
+    <UnitTest name="PushTestHelperDefault" storage="e:\work\c#\stack unit testing\stack unit testing tests\bin\debug\stack unit testing tests.dll" id="0fcb5239-e4f9-cb40-28e9-c0143ac6a413">
+      <DeploymentItems>
+        <DeploymentItem filename="Stack Unit Testing.exe" />
+      </DeploymentItems>
+      <Execution id="3b48b5e9-ae07-42df-9d5e-ad22967ce144" />
+      <TestMethod codeBase="E:/Work/C#/Stack Unit Testing/Stack Unit Testing Tests/bin/Debug/Stack Unit Testing Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Stack_Unit_Testing_Tests.StackTest, Stack Unit Testing Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PushTestHelperDefault" />
+    </UnitTest>
+    <UnitTest name="PopTestDefault" storage="e:\work\c#\stack unit testing\stack unit testing tests\bin\debug\stack unit testing tests.dll" id="e38817d2-8ab1-b8ee-2b1a-ae48d2250d61">
+      <DeploymentItems>
+        <DeploymentItem filename="Stack Unit Testing.exe" />
+      </DeploymentItems>
+      <Execution id="a9038564-f10b-4378-9a55-f44f1c231a85" />
+      <TestMethod codeBase="E:/Work/C#/Stack Unit Testing/Stack Unit Testing Tests/bin/Debug/Stack Unit Testing Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Stack_Unit_Testing_Tests.StackTest, Stack Unit Testing Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PopTestDefault" />
+    </UnitTest>
+    <UnitTest name="CountTest" storage="e:\work\c#\stack unit testing\stack unit testing tests\bin\debug\stack unit testing tests.dll" id="f6a16e3b-46d3-cdfb-0603-80020653299b">
+      <DeploymentItems>
+        <DeploymentItem filename="Stack Unit Testing.exe" />
+      </DeploymentItems>
+      <Execution id="e6097401-b97e-4905-86cb-d67ce7aa209e" />
+      <TestMethod codeBase="E:/Work/C#/Stack Unit Testing/Stack Unit Testing Tests/bin/Debug/Stack Unit Testing Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Stack_Unit_Testing_Tests.StackTest, Stack Unit Testing Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CountTest" />
+    </UnitTest>
+    <UnitTest name="StackConstructorTestHelper" storage="e:\work\c#\stack unit testing\stack unit testing tests\bin\debug\stack unit testing tests.dll" id="193f48b6-43f5-4007-5761-69c8e6b597c9">
+      <DeploymentItems>
+        <DeploymentItem filename="Stack Unit Testing.exe" />
+      </DeploymentItems>
+      <Execution id="6e49916c-5ba0-4060-921a-443a9826c883" />
+      <TestMethod codeBase="E:/Work/C#/Stack Unit Testing/Stack Unit Testing Tests/bin/Debug/Stack Unit Testing Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Stack_Unit_Testing_Tests.StackTest, Stack Unit Testing Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="StackConstructorTestHelper" />
+    </UnitTest>
+    <UnitTest name="PeekTestHelperEmptyStackTrue" storage="e:\work\c#\stack unit testing\stack unit testing tests\bin\debug\stack unit testing tests.dll" id="65690538-7b69-c615-ce70-9c6f2a87d103">
+      <DeploymentItems>
+        <DeploymentItem filename="Stack Unit Testing.exe" />
+      </DeploymentItems>
+      <Execution id="ff6f5043-0496-4a8b-a48f-28e317a84c1d" />
+      <TestMethod codeBase="E:/Work/C#/Stack Unit Testing/Stack Unit Testing Tests/bin/Debug/Stack Unit Testing Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Stack_Unit_Testing_Tests.StackTest, Stack Unit Testing Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PeekTestHelperEmptyStackTrue" />
+    </UnitTest>
+    <UnitTest name="PeekTestHelperDefault" storage="e:\work\c#\stack unit testing\stack unit testing tests\bin\debug\stack unit testing tests.dll" id="29d7a5f9-3970-194f-2682-903bcf519ef2">
+      <DeploymentItems>
+        <DeploymentItem filename="Stack Unit Testing.exe" />
+      </DeploymentItems>
+      <Execution id="6a7f1922-ff9a-4f4e-8aef-f56f87f1ca06" />
+      <TestMethod codeBase="E:/Work/C#/Stack Unit Testing/Stack Unit Testing Tests/bin/Debug/Stack Unit Testing Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Stack_Unit_Testing_Tests.StackTest, Stack Unit Testing Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PeekTestHelperDefault" />
+    </UnitTest>
+    <UnitTest name="IsEmptyTestHelperTrue" storage="e:\work\c#\stack unit testing\stack unit testing tests\bin\debug\stack unit testing tests.dll" id="12a16b75-0f11-f887-c517-beef22b149c1">
+      <DeploymentItems>
+        <DeploymentItem filename="Stack Unit Testing.exe" />
+      </DeploymentItems>
+      <Execution id="a02f3e0d-dc6d-4ac8-8fd1-584ae42a1a37" />
+      <TestMethod codeBase="E:/Work/C#/Stack Unit Testing/Stack Unit Testing Tests/bin/Debug/Stack Unit Testing Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Stack_Unit_Testing_Tests.StackTest, Stack Unit Testing Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="IsEmptyTestHelperTrue" />
+    </UnitTest>
+    <UnitTest name="IsEmptyTestHelperItemsPoppedTrue" storage="e:\work\c#\stack unit testing\stack unit testing tests\bin\debug\stack unit testing tests.dll" id="492f29e3-8fee-a77b-5d75-9fbf26e7c9dd">
+      <DeploymentItems>
+        <DeploymentItem filename="Stack Unit Testing.exe" />
+      </DeploymentItems>
+      <Execution id="91d19ded-085b-4e78-ba30-c8f237fa7e7a" />
+      <TestMethod codeBase="E:/Work/C#/Stack Unit Testing/Stack Unit Testing Tests/bin/Debug/Stack Unit Testing Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Stack_Unit_Testing_Tests.StackTest, Stack Unit Testing Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="IsEmptyTestHelperItemsPoppedTrue" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="0fcb5239-e4f9-cb40-28e9-c0143ac6a413" executionId="3b48b5e9-ae07-42df-9d5e-ad22967ce144" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="12a16b75-0f11-f887-c517-beef22b149c1" executionId="a02f3e0d-dc6d-4ac8-8fd1-584ae42a1a37" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="193f48b6-43f5-4007-5761-69c8e6b597c9" executionId="6e49916c-5ba0-4060-921a-443a9826c883" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="29d7a5f9-3970-194f-2682-903bcf519ef2" executionId="6a7f1922-ff9a-4f4e-8aef-f56f87f1ca06" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="30478b2b-0337-381a-a03f-215419e77da5" executionId="bf6d8f34-3c70-4639-a2e2-149218efb94b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="492f29e3-8fee-a77b-5d75-9fbf26e7c9dd" executionId="91d19ded-085b-4e78-ba30-c8f237fa7e7a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="65690538-7b69-c615-ce70-9c6f2a87d103" executionId="ff6f5043-0496-4a8b-a48f-28e317a84c1d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a64e7c77-a8a1-e145-70a4-72fe1550366a" executionId="14978388-7786-42de-841c-619bb4a7687d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b5b83ddb-b301-8aa9-f517-1e900714238f" executionId="7c936f21-dd52-4fd0-9946-101e31b9a73c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e38817d2-8ab1-b8ee-2b1a-ae48d2250d61" executionId="a9038564-f10b-4378-9a55-f44f1c231a85" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f6a16e3b-46d3-cdfb-0603-80020653299b" executionId="e6097401-b97e-4905-86cb-d67ce7aa209e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="3b48b5e9-ae07-42df-9d5e-ad22967ce144" testId="0fcb5239-e4f9-cb40-28e9-c0143ac6a413" testName="PushTestHelperDefault" computerName="RNDM-PC" duration="00:00:00.0142035" startTime="2014-03-05T21:56:52.5843789+13:00" endTime="2014-03-05T21:56:52.7204128+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3b48b5e9-ae07-42df-9d5e-ad22967ce144">
+    </UnitTestResult>
+    <UnitTestResult executionId="a02f3e0d-dc6d-4ac8-8fd1-584ae42a1a37" testId="12a16b75-0f11-f887-c517-beef22b149c1" testName="IsEmptyTestHelperTrue" computerName="RNDM-PC" duration="00:00:00.0003783" startTime="2014-03-05T21:56:52.7204128+13:00" endTime="2014-03-05T21:56:52.7223873+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a02f3e0d-dc6d-4ac8-8fd1-584ae42a1a37">
+    </UnitTestResult>
+    <UnitTestResult executionId="6e49916c-5ba0-4060-921a-443a9826c883" testId="193f48b6-43f5-4007-5761-69c8e6b597c9" testName="StackConstructorTestHelper" computerName="RNDM-PC" duration="00:00:00.0001446" startTime="2014-03-05T21:56:52.7223873+13:00" endTime="2014-03-05T21:56:52.7243869+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6e49916c-5ba0-4060-921a-443a9826c883">
+    </UnitTestResult>
+    <UnitTestResult executionId="6a7f1922-ff9a-4f4e-8aef-f56f87f1ca06" testId="29d7a5f9-3970-194f-2682-903bcf519ef2" testName="PeekTestHelperDefault" computerName="RNDM-PC" duration="00:00:00.0005780" startTime="2014-03-05T21:56:52.7253867+13:00" endTime="2014-03-05T21:56:52.7274177+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6a7f1922-ff9a-4f4e-8aef-f56f87f1ca06">
+    </UnitTestResult>
+    <UnitTestResult executionId="bf6d8f34-3c70-4639-a2e2-149218efb94b" testId="30478b2b-0337-381a-a03f-215419e77da5" testName="IsEmptyTestHelperFalse" computerName="RNDM-PC" duration="00:00:00.0002054" startTime="2014-03-05T21:56:52.7274177+13:00" endTime="2014-03-05T21:56:52.7294176+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bf6d8f34-3c70-4639-a2e2-149218efb94b">
+    </UnitTestResult>
+    <UnitTestResult executionId="91d19ded-085b-4e78-ba30-c8f237fa7e7a" testId="492f29e3-8fee-a77b-5d75-9fbf26e7c9dd" testName="IsEmptyTestHelperItemsPoppedTrue" computerName="RNDM-PC" duration="00:00:00.0002160" startTime="2014-03-05T21:56:52.7294176+13:00" endTime="2014-03-05T21:56:52.7313854+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="91d19ded-085b-4e78-ba30-c8f237fa7e7a">
+    </UnitTestResult>
+    <UnitTestResult executionId="ff6f5043-0496-4a8b-a48f-28e317a84c1d" testId="65690538-7b69-c615-ce70-9c6f2a87d103" testName="PeekTestHelperEmptyStackTrue" computerName="RNDM-PC" duration="00:00:00.0001759" startTime="2014-03-05T21:56:52.7313854+13:00" endTime="2014-03-05T21:56:52.7323852+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ff6f5043-0496-4a8b-a48f-28e317a84c1d">
+    </UnitTestResult>
+    <UnitTestResult executionId="14978388-7786-42de-841c-619bb4a7687d" testId="a64e7c77-a8a1-e145-70a4-72fe1550366a" testName="PeekTestHelperDoesntRemoveItemTrue" computerName="RNDM-PC" duration="00:00:00.0006728" startTime="2014-03-05T21:56:52.7333862+13:00" endTime="2014-03-05T21:56:52.7353862+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="14978388-7786-42de-841c-619bb4a7687d">
+    </UnitTestResult>
+    <UnitTestResult executionId="7c936f21-dd52-4fd0-9946-101e31b9a73c" testId="b5b83ddb-b301-8aa9-f517-1e900714238f" testName="PushTestHelperPushTillStackIsFullException" computerName="RNDM-PC" duration="00:00:00.0062603" startTime="2014-03-05T21:56:52.7364322+13:00" endTime="2014-03-05T21:56:52.7443867+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7c936f21-dd52-4fd0-9946-101e31b9a73c">
+    </UnitTestResult>
+    <UnitTestResult executionId="a9038564-f10b-4378-9a55-f44f1c231a85" testId="e38817d2-8ab1-b8ee-2b1a-ae48d2250d61" testName="PopTestDefault" computerName="RNDM-PC" duration="00:00:00.0002938" startTime="2014-03-05T21:56:52.7453872+13:00" endTime="2014-03-05T21:56:52.7473865+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a9038564-f10b-4378-9a55-f44f1c231a85">
+    </UnitTestResult>
+    <UnitTestResult executionId="e6097401-b97e-4905-86cb-d67ce7aa209e" testId="f6a16e3b-46d3-cdfb-0603-80020653299b" testName="CountTest" computerName="RNDM-PC" duration="00:00:00.0002510" startTime="2014-03-05T21:56:52.7473865+13:00" endTime="2014-03-05T21:56:52.7494153+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e6097401-b97e-4905-86cb-d67ce7aa209e">
+    </UnitTestResult>
+  </Results>
+</TestRun>

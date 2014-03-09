@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stack Unit Testing", "Stack Unit Testing\Stack Unit Testing.csproj", "{D0FEB2F8-F8D2-4614-881A-41E91AB2F5C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stack Unit Testing Tests", "Stack Unit Testing Tests\Stack Unit Testing Tests.csproj", "{CAAEB14E-97BD-48CF-A585-074C451598EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0A59D3EB-BA3E-44FF-AC15-FC607E473519}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		Stack Unit Testing.vsmdi = Stack Unit Testing.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Stack Unit Testing.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0FEB2F8-F8D2-4614-881A-41E91AB2F5C2}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{D0FEB2F8-F8D2-4614-881A-41E91AB2F5C2}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{D0FEB2F8-F8D2-4614-881A-41E91AB2F5C2}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{D0FEB2F8-F8D2-4614-881A-41E91AB2F5C2}.Debug|x86.ActiveCfg = Debug|x86
+		{D0FEB2F8-F8D2-4614-881A-41E91AB2F5C2}.Debug|x86.Build.0 = Debug|x86
+		{D0FEB2F8-F8D2-4614-881A-41E91AB2F5C2}.Release|Any CPU.ActiveCfg = Release|x86
+		{D0FEB2F8-F8D2-4614-881A-41E91AB2F5C2}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{D0FEB2F8-F8D2-4614-881A-41E91AB2F5C2}.Release|Mixed Platforms.Build.0 = Release|x86
+		{D0FEB2F8-F8D2-4614-881A-41E91AB2F5C2}.Release|x86.ActiveCfg = Release|x86
+		{D0FEB2F8-F8D2-4614-881A-41E91AB2F5C2}.Release|x86.Build.0 = Release|x86
+		{CAAEB14E-97BD-48CF-A585-074C451598EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAAEB14E-97BD-48CF-A585-074C451598EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAAEB14E-97BD-48CF-A585-074C451598EF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{CAAEB14E-97BD-48CF-A585-074C451598EF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{CAAEB14E-97BD-48CF-A585-074C451598EF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CAAEB14E-97BD-48CF-A585-074C451598EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAAEB14E-97BD-48CF-A585-074C451598EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAAEB14E-97BD-48CF-A585-074C451598EF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{CAAEB14E-97BD-48CF-A585-074C451598EF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{CAAEB14E-97BD-48CF-A585-074C451598EF}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
