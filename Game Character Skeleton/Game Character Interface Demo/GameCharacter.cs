@@ -27,7 +27,7 @@ namespace Game_Character_Interface_Demo
             display.Items.Add(StateName());
             display.Items.Add(Declaim());
             display.Items.Add(weaponBehaviour.UseWeapon());
-            display.Items.Add("-----------------------");
+            display.Items.Add("*************************");
         }
 
         public string StateName()
@@ -38,6 +38,11 @@ namespace Game_Character_Interface_Demo
         public string Declaim()
         {
             return DECLAIM + kind;
+        }
+
+        public override string ToString()
+        {
+            return name;
         }
     }
 }
