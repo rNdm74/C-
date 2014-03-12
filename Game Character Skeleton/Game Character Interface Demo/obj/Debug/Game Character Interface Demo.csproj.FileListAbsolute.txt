@@ -1,0 +1,7 @@
+Z:\Work\C-\Game Character Skeleton\Game Character Interface Demo\bin\Debug\Game Character Interface Demo.exe
+Z:\Work\C-\Game Character Skeleton\Game Character Interface Demo\bin\Debug\Game Character Interface Demo.pdb
+Z:\Work\C-\Game Character Skeleton\Game Character Interface Demo\obj\Debug\Game_Character_Interface_Demo.Form1.resources
+Z:\Work\C-\Game Character Skeleton\Game Character Interface Demo\obj\Debug\Game_Character_Interface_Demo.Properties.Resources.resources
+Z:\Work\C-\Game Character Skeleton\Game Character Interface Demo\obj\Debug\Game Character Interface Demo.csproj.GenerateResource.Cache
+Z:\Work\C-\Game Character Skeleton\Game Character Interface Demo\obj\Debug\Game Character Interface Demo.exe
+Z:\Work\C-\Game Character Skeleton\Game Character Interface Demo\obj\Debug\Game Character Interface Demo.pdb
