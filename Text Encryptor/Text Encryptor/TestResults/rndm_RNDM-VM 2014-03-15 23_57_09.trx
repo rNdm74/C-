@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="edda6991-4de4-4275-a12a-5fe373214077" name="rndm@RNDM-VM 2014-03-15 23:57:09" runUser="RNDM-VM\rndm" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="c7899930-c836-44cf-ba38-cbb517c7b731">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="rndm_RNDM-VM 2014-03-15 23_57_09">
+      <DeploymentItem filename="Z:\Work\C-\Text Encryptor\Text Encryptor\Text Encryptor\bin\Debug\Text Encryptor.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-03-15T23:57:09.6725580+13:00" queuing="2014-03-15T23:57:10.2506894+13:00" start="2014-03-15T23:57:10.3131856+13:00" finish="2014-03-15T23:57:10.7819356+13:00" />
+  <ResultSummary outcome="Inconclusive">
+    <Counters total="5" executed="5" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="4" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="RNDM-VM" outcome="Warning" timestamp="2014-03-15T23:57:10.0163597+13:00">
+        <Text>Deployment is currently disabled. The deployment item 'Text Encryptor.exe' on test 'Text_Encyptor_Tests.Rot13Test.Rot13ConstructorTest' was not deployed.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Rot13ConstructorTest" storage="z:\work\c-\text encryptor\text encryptor\text encyptor tests\bin\debug\text encyptor tests.dll" id="a8376afc-1c19-14d8-4ad9-b6f9c169d8b9">
+      <DeploymentItems>
+        <DeploymentItem filename="Text Encryptor.exe" />
+      </DeploymentItems>
+      <Execution id="edd2adbf-1985-4f4f-af0c-9d84321bf641" />
+      <TestMethod codeBase="Z:/Work/C-/Text Encryptor/Text Encryptor/Text Encyptor Tests/bin/Debug/Text Encyptor Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Text_Encyptor_Tests.Rot13Test, Text Encyptor Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Rot13ConstructorTest" />
+    </UnitTest>
+    <UnitTest name="EncryptTest" storage="z:\work\c-\text encryptor\text encryptor\text encyptor tests\bin\debug\text encyptor tests.dll" id="b6ab6ac7-16b6-9c55-1201-82d58981537f">
+      <DeploymentItems>
+        <DeploymentItem filename="Text Encryptor.exe" />
+      </DeploymentItems>
+      <Execution id="c27479f2-d986-4c8b-9841-e58838fa3595" />
+      <TestMethod codeBase="Z:/Work/C-/Text Encryptor/Text Encryptor/Text Encyptor Tests/bin/Debug/Text Encyptor Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Text_Encyptor_Tests.PlainTextTest, Text Encyptor Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="EncryptTest" />
+    </UnitTest>
+    <UnitTest name="TestMethod1" storage="z:\work\c-\text encryptor\text encryptor\text encyptor tests\bin\debug\text encyptor tests.dll" id="ee646e52-2f46-a0ea-2f43-c0744885682b">
+      <Execution id="2b30a4fa-0115-4248-a9fa-4fdea21c6863" />
+      <TestMethod codeBase="Z:/Work/C-/Text Encryptor/Text Encryptor/Text Encyptor Tests/bin/Debug/Text Encyptor Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Text_Encyptor_Tests.UnitTest1, Text Encyptor Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+    <UnitTest name="PlainTextConstructorTest" storage="z:\work\c-\text encryptor\text encryptor\text encyptor tests\bin\debug\text encyptor tests.dll" id="ffe07cc8-0c61-f278-9e3b-059f8f344827">
+      <DeploymentItems>
+        <DeploymentItem filename="Text Encryptor.exe" />
+      </DeploymentItems>
+      <Execution id="d86023cc-60a9-41f8-90f8-4ed584c87201" />
+      <TestMethod codeBase="Z:/Work/C-/Text Encryptor/Text Encryptor/Text Encyptor Tests/bin/Debug/Text Encyptor Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Text_Encyptor_Tests.PlainTextTest, Text Encyptor Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PlainTextConstructorTest" />
+    </UnitTest>
+    <UnitTest name="EncryptTest" storage="z:\work\c-\text encryptor\text encryptor\text encyptor tests\bin\debug\text encyptor tests.dll" id="7f91310e-fb83-794d-7a4e-eb2b227296d0">
+      <DeploymentItems>
+        <DeploymentItem filename="Text Encryptor.exe" />
+      </DeploymentItems>
+      <Execution id="e54c9c8b-4c09-44f3-a8b7-50a4e03213bd" />
+      <TestMethod codeBase="Z:/Work/C-/Text Encryptor/Text Encryptor/Text Encyptor Tests/bin/Debug/Text Encyptor Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Text_Encyptor_Tests.Rot13Test, Text Encyptor Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="EncryptTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="7f91310e-fb83-794d-7a4e-eb2b227296d0" executionId="e54c9c8b-4c09-44f3-a8b7-50a4e03213bd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a8376afc-1c19-14d8-4ad9-b6f9c169d8b9" executionId="edd2adbf-1985-4f4f-af0c-9d84321bf641" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b6ab6ac7-16b6-9c55-1201-82d58981537f" executionId="c27479f2-d986-4c8b-9841-e58838fa3595" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ee646e52-2f46-a0ea-2f43-c0744885682b" executionId="2b30a4fa-0115-4248-a9fa-4fdea21c6863" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ffe07cc8-0c61-f278-9e3b-059f8f344827" executionId="d86023cc-60a9-41f8-90f8-4ed584c87201" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="e54c9c8b-4c09-44f3-a8b7-50a4e03213bd" testId="7f91310e-fb83-794d-7a4e-eb2b227296d0" testName="EncryptTest" computerName="RNDM-VM" duration="00:00:00.0609085" startTime="2014-03-15T23:57:10.3288097+13:00" endTime="2014-03-15T23:57:10.6725844+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e54c9c8b-4c09-44f3-a8b7-50a4e03213bd">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. Verify the correctness of this test method.</Message>
+          <StackTrace>   at Text_Encyptor_Tests.Rot13Test.EncryptTest() in Z:\Work\C-\Text Encryptor\Text Encryptor\Text Encyptor Tests\Rot13Test.cs:line 91
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="edd2adbf-1985-4f4f-af0c-9d84321bf641" testId="a8376afc-1c19-14d8-4ad9-b6f9c169d8b9" testName="Rot13ConstructorTest" computerName="RNDM-VM" duration="00:00:00.0010019" startTime="2014-03-15T23:57:10.6725844+13:00" endTime="2014-03-15T23:57:10.6881848+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="edd2adbf-1985-4f4f-af0c-9d84321bf641">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. TODO: Implement code to verify target</Message>
+          <StackTrace>   at Text_Encyptor_Tests.Rot13Test.Rot13ConstructorTest() in Z:\Work\C-\Text Encryptor\Text Encryptor\Text Encyptor Tests\Rot13Test.cs:line 75
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c27479f2-d986-4c8b-9841-e58838fa3595" testId="b6ab6ac7-16b6-9c55-1201-82d58981537f" testName="EncryptTest" computerName="RNDM-VM" duration="00:00:00.0031916" startTime="2014-03-15T23:57:10.6881848+13:00" endTime="2014-03-15T23:57:10.7038223+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c27479f2-d986-4c8b-9841-e58838fa3595">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. Verify the correctness of this test method.</Message>
+          <StackTrace>   at Text_Encyptor_Tests.PlainTextTest.EncryptTest() in Z:\Work\C-\Text Encryptor\Text Encryptor\Text Encyptor Tests\PlainTextTest.cs:line 91
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2b30a4fa-0115-4248-a9fa-4fdea21c6863" testId="ee646e52-2f46-a0ea-2f43-c0744885682b" testName="TestMethod1" computerName="RNDM-VM" duration="00:00:00.0002446" startTime="2014-03-15T23:57:10.7038223+13:00" endTime="2014-03-15T23:57:10.7038223+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2b30a4fa-0115-4248-a9fa-4fdea21c6863">
+    </UnitTestResult>
+    <UnitTestResult executionId="d86023cc-60a9-41f8-90f8-4ed584c87201" testId="ffe07cc8-0c61-f278-9e3b-059f8f344827" testName="PlainTextConstructorTest" computerName="RNDM-VM" duration="00:00:00.0009151" startTime="2014-03-15T23:57:10.7194372+13:00" endTime="2014-03-15T23:57:10.7194372+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d86023cc-60a9-41f8-90f8-4ed584c87201">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. TODO: Implement code to verify target</Message>
+          <StackTrace>   at Text_Encyptor_Tests.PlainTextTest.PlainTextConstructorTest() in Z:\Work\C-\Text Encryptor\Text Encryptor\Text Encyptor Tests\PlainTextTest.cs:line 75
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

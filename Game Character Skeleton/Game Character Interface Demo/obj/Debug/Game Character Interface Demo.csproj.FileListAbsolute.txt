@@ -12,3 +12,4 @@ E:\Work\C-\Game Character Skeleton\Game Character Interface Demo\bin\Debug\Game 
 E:\Work\C-\Game Character Skeleton\Game Character Interface Demo\obj\Debug\Game_Character_Interface_Demo.Form1.resources
 E:\Work\C-\Game Character Skeleton\Game Character Interface Demo\obj\Debug\Game_Character_Interface_Demo.Properties.Resources.resources
 E:\Work\C-\Game Character Skeleton\Game Character Interface Demo\obj\Debug\Game Character Interface Demo.csproj.GenerateResource.Cache
+Z:\Work\C-\Game Character Skeleton\Game Character Interface Demo\obj\Debug\Game Character Interface Demo.csprojResolveAssemblyReference.cache

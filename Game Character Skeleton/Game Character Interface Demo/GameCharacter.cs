@@ -15,11 +15,34 @@ namespace Game_Character_Interface_Demo
         protected ListBox display;
         protected IWeaponBehaviour weaponBehaviour;
 
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+
+        public string Weapon
+        {
+            get
+            {
+                return weapon;
+            }
+            set
+            {
+                weapon = value;
+            }
+        }
+
         public GameCharacter(ListBox display, string name)
         {
             this.name = name;
             this.display = display;
-            
         }
 
         public void DoBattle()

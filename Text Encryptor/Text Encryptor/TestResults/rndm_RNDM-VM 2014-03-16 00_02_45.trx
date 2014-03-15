@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="a75f36f2-c0ee-4e56-ab8d-71f54f2a387d" name="rndm@RNDM-VM 2014-03-16 00:02:45" runUser="RNDM-VM\rndm" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="c7899930-c836-44cf-ba38-cbb517c7b731">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="rndm_RNDM-VM 2014-03-16 00_02_45">
+      <DeploymentItem filename="Z:\Work\C-\Text Encryptor\Text Encryptor\Text Encryptor\bin\Debug\Text Encryptor.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-03-16T00:02:45.6815170+13:00" queuing="2014-03-16T00:02:45.7595613+13:00" start="2014-03-16T00:02:45.7595613+13:00" finish="2014-03-16T00:02:46.1033199+13:00" />
+  <ResultSummary outcome="Warning">
+    <Counters total="4" executed="4" passed="4" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="RNDM-VM" outcome="Warning" timestamp="2014-03-16T00:02:45.7595613+13:00">
+        <Text>Deployment is currently disabled. The deployment item 'Text Encryptor.exe' on test 'Text_Encyptor_Tests.Rot13Test.Rot13ConstructorTest' was not deployed.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Rot13ConstructorTest" storage="z:\work\c-\text encryptor\text encryptor\text encyptor tests\bin\debug\text encyptor tests.dll" id="a8376afc-1c19-14d8-4ad9-b6f9c169d8b9">
+      <DeploymentItems>
+        <DeploymentItem filename="Text Encryptor.exe" />
+      </DeploymentItems>
+      <Execution id="1d1f4b89-2648-4aeb-90e6-ada3019d0fec" />
+      <TestMethod codeBase="Z:/Work/C-/Text Encryptor/Text Encryptor/Text Encyptor Tests/bin/Debug/Text Encyptor Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Text_Encyptor_Tests.Rot13Test, Text Encyptor Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Rot13ConstructorTest" />
+    </UnitTest>
+    <UnitTest name="EncryptTest" storage="z:\work\c-\text encryptor\text encryptor\text encyptor tests\bin\debug\text encyptor tests.dll" id="b6ab6ac7-16b6-9c55-1201-82d58981537f">
+      <DeploymentItems>
+        <DeploymentItem filename="Text Encryptor.exe" />
+      </DeploymentItems>
+      <Execution id="e722014b-b1fb-405b-96a6-12125d7bbe2d" />
+      <TestMethod codeBase="Z:/Work/C-/Text Encryptor/Text Encryptor/Text Encyptor Tests/bin/Debug/Text Encyptor Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Text_Encyptor_Tests.PlainTextTest, Text Encyptor Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="EncryptTest" />
+    </UnitTest>
+    <UnitTest name="PlainTextConstructorTest" storage="z:\work\c-\text encryptor\text encryptor\text encyptor tests\bin\debug\text encyptor tests.dll" id="ffe07cc8-0c61-f278-9e3b-059f8f344827">
+      <DeploymentItems>
+        <DeploymentItem filename="Text Encryptor.exe" />
+      </DeploymentItems>
+      <Execution id="c88d876c-c356-47e8-b218-15ac6e23c9a3" />
+      <TestMethod codeBase="Z:/Work/C-/Text Encryptor/Text Encryptor/Text Encyptor Tests/bin/Debug/Text Encyptor Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Text_Encyptor_Tests.PlainTextTest, Text Encyptor Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PlainTextConstructorTest" />
+    </UnitTest>
+    <UnitTest name="EncryptTest" storage="z:\work\c-\text encryptor\text encryptor\text encyptor tests\bin\debug\text encyptor tests.dll" id="7f91310e-fb83-794d-7a4e-eb2b227296d0">
+      <DeploymentItems>
+        <DeploymentItem filename="Text Encryptor.exe" />
+      </DeploymentItems>
+      <Execution id="147df41e-c5d1-4dbe-bdd0-02dc7eec64e0" />
+      <TestMethod codeBase="Z:/Work/C-/Text Encryptor/Text Encryptor/Text Encyptor Tests/bin/Debug/Text Encyptor Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Text_Encyptor_Tests.Rot13Test, Text Encyptor Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="EncryptTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="7f91310e-fb83-794d-7a4e-eb2b227296d0" executionId="147df41e-c5d1-4dbe-bdd0-02dc7eec64e0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a8376afc-1c19-14d8-4ad9-b6f9c169d8b9" executionId="1d1f4b89-2648-4aeb-90e6-ada3019d0fec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b6ab6ac7-16b6-9c55-1201-82d58981537f" executionId="e722014b-b1fb-405b-96a6-12125d7bbe2d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ffe07cc8-0c61-f278-9e3b-059f8f344827" executionId="c88d876c-c356-47e8-b218-15ac6e23c9a3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="147df41e-c5d1-4dbe-bdd0-02dc7eec64e0" testId="7f91310e-fb83-794d-7a4e-eb2b227296d0" testName="EncryptTest" computerName="RNDM-VM" duration="00:00:00.0428317" startTime="2014-03-16T00:02:45.7751870+13:00" endTime="2014-03-16T00:02:46.0095642+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="147df41e-c5d1-4dbe-bdd0-02dc7eec64e0">
+    </UnitTestResult>
+    <UnitTestResult executionId="1d1f4b89-2648-4aeb-90e6-ada3019d0fec" testId="a8376afc-1c19-14d8-4ad9-b6f9c169d8b9" testName="Rot13ConstructorTest" computerName="RNDM-VM" duration="00:00:00.0002958" startTime="2014-03-16T00:02:46.0095642+13:00" endTime="2014-03-16T00:02:46.0251877+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1d1f4b89-2648-4aeb-90e6-ada3019d0fec">
+    </UnitTestResult>
+    <UnitTestResult executionId="e722014b-b1fb-405b-96a6-12125d7bbe2d" testId="b6ab6ac7-16b6-9c55-1201-82d58981537f" testName="EncryptTest" computerName="RNDM-VM" duration="00:00:00.0009932" startTime="2014-03-16T00:02:46.0251877+13:00" endTime="2014-03-16T00:02:46.0251877+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e722014b-b1fb-405b-96a6-12125d7bbe2d">
+    </UnitTestResult>
+    <UnitTestResult executionId="c88d876c-c356-47e8-b218-15ac6e23c9a3" testId="ffe07cc8-0c61-f278-9e3b-059f8f344827" testName="PlainTextConstructorTest" computerName="RNDM-VM" duration="00:00:00.0006655" startTime="2014-03-16T00:02:46.0251877+13:00" endTime="2014-03-16T00:02:46.0408231+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c88d876c-c356-47e8-b218-15ac6e23c9a3">
+    </UnitTestResult>
+  </Results>
+</TestRun>

@@ -1,0 +1,9 @@
+Z:\Work\C-\Text Encryptor\Text Encryptor\Text Encyptor Tests\bin\Debug\Text Encyptor Tests.dll
+Z:\Work\C-\Text Encryptor\Text Encryptor\Text Encyptor Tests\bin\Debug\Text Encyptor Tests.pdb
+Z:\Work\C-\Text Encryptor\Text Encryptor\Text Encyptor Tests\bin\Debug\Text Encryptor.exe
+Z:\Work\C-\Text Encryptor\Text Encryptor\Text Encyptor Tests\bin\Debug\Text Encryptor.pdb
+Z:\Work\C-\Text Encryptor\Text Encryptor\Text Encyptor Tests\bin\Debug\Text Encryptor_Accessor.exe
+Z:\Work\C-\Text Encryptor\Text Encryptor\Text Encyptor Tests\bin\Debug\Text Encryptor_Accessor.pdb
+Z:\Work\C-\Text Encryptor\Text Encryptor\Text Encyptor Tests\obj\Debug\Text Encyptor Tests.csprojResolveAssemblyReference.cache
+Z:\Work\C-\Text Encryptor\Text Encryptor\Text Encyptor Tests\obj\Debug\Text Encyptor Tests.dll
+Z:\Work\C-\Text Encryptor\Text Encryptor\Text Encyptor Tests\obj\Debug\Text Encyptor Tests.pdb
