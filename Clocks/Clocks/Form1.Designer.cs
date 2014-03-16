@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.analogClock = new AnalogClockControl.AnalogClock();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbAnalogue = new System.Windows.Forms.RadioButton();
             this.rbDigital = new System.Windows.Forms.RadioButton();
+            this.rbAnalogue = new System.Windows.Forms.RadioButton();
             this.lDigitalTime = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tClock = new System.Windows.Forms.Timer(this.components);
@@ -65,21 +65,10 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Clock Type";
             // 
-            // rbAnalogue
-            // 
-            this.rbAnalogue.AutoSize = true;
-            this.rbAnalogue.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbAnalogue.Location = new System.Drawing.Point(45, 88);
-            this.rbAnalogue.Name = "rbAnalogue";
-            this.rbAnalogue.Size = new System.Drawing.Size(155, 37);
-            this.rbAnalogue.TabIndex = 0;
-            this.rbAnalogue.TabStop = true;
-            this.rbAnalogue.Text = "Analogue";
-            this.rbAnalogue.UseVisualStyleBackColor = true;
-            // 
             // rbDigital
             // 
             this.rbDigital.AutoSize = true;
+            this.rbDigital.Checked = true;
             this.rbDigital.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbDigital.Location = new System.Drawing.Point(45, 45);
             this.rbDigital.Name = "rbDigital";
@@ -89,6 +78,17 @@
             this.rbDigital.Text = "Digital";
             this.rbDigital.UseVisualStyleBackColor = true;
             this.rbDigital.CheckedChanged += new System.EventHandler(this.rbDigital_CheckedChanged);
+            // 
+            // rbAnalogue
+            // 
+            this.rbAnalogue.AutoSize = true;
+            this.rbAnalogue.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbAnalogue.Location = new System.Drawing.Point(45, 88);
+            this.rbAnalogue.Name = "rbAnalogue";
+            this.rbAnalogue.Size = new System.Drawing.Size(155, 37);
+            this.rbAnalogue.TabIndex = 0;
+            this.rbAnalogue.Text = "Analogue";
+            this.rbAnalogue.UseVisualStyleBackColor = true;
             // 
             // lDigitalTime
             // 
@@ -108,7 +108,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(232, 50);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Turn Clock On";
+            this.button1.Text = "On";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
