@@ -48,6 +48,8 @@ namespace Game_Character_Interface_Demo
                 MessageBox.Show("Please choose a character type", "Choose Character");
             else
                 gameCharacterList.Add(createCharacter(type, txtName.Text));
+
+            updateCheckedListBoxes();
         }
 
         private GameCharacter createCharacter(string characterType, string name)
