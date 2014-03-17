@@ -69,7 +69,7 @@ namespace Animal_Shelter
             // Trim 's' from the string
             string newString = species.TrimEnd('s');
 
-            // Populate list of selecteed animals
+            // Populate list of selected animals
             for (int i = 0; i < animalList.Count; i++)
                 if (animalList[i].Species.Contains(newString))
                     animalsQuery.Add(animalList[i]);
