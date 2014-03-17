@@ -35,6 +35,17 @@ namespace Animal_Shelter
                 species = value;
             }
         }
+        public Image PetImage
+        {
+            get
+            {
+                return image;
+            }
+            set
+            {
+                image = value;
+            }
+        }
 
         public Animal(string[] animalData)
         {

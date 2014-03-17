@@ -6,3 +6,11 @@ Z:\Work\C-\Animal Shelter\Animal Shelter\bin\Debug\Animal Shelter.pdb
 Z:\Work\C-\Animal Shelter\Animal Shelter\obj\x86\Debug\Animal Shelter.exe
 Z:\Work\C-\Animal Shelter\Animal Shelter\obj\x86\Debug\Animal Shelter.pdb
 Z:\Work\C-\Animal Shelter\Animal Shelter\obj\x86\Debug\Animal Shelter.csprojResolveAssemblyReference.cache
+E:\Work\C-\Animal Shelter\Animal Shelter\obj\x86\Debug\Animal Shelter.exe
+E:\Work\C-\Animal Shelter\Animal Shelter\bin\Debug\Animal Shelter.exe
+E:\Work\C-\Animal Shelter\Animal Shelter\bin\Debug\Animal Shelter.pdb
+E:\Work\C-\Animal Shelter\Animal Shelter\obj\x86\Debug\Animal Shelter.csprojResolveAssemblyReference.cache
+E:\Work\C-\Animal Shelter\Animal Shelter\obj\x86\Debug\Animal_Shelter.Form1.resources
+E:\Work\C-\Animal Shelter\Animal Shelter\obj\x86\Debug\Animal_Shelter.Properties.Resources.resources
+E:\Work\C-\Animal Shelter\Animal Shelter\obj\x86\Debug\Animal Shelter.csproj.GenerateResource.Cache
+E:\Work\C-\Animal Shelter\Animal Shelter\obj\x86\Debug\Animal Shelter.pdb

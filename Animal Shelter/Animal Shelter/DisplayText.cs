@@ -9,15 +9,18 @@ namespace Animal_Shelter
 {
     class DisplayText : IDisplayAnimals
     {
-        List<string> animals;
+        private ListBox lbPets;
 
-        public DisplayText()
-        { 
+        public DisplayText(ListBox lbPets)
+        {
+            this.lbPets = lbPets;
         }
 
-        public void DisplayAnimals(object display)
+        public void display(List<Animal> animals)
         {
-            throw new NotImplementedException();
+            // Add animals to the listbox
+            foreach (var animal in animals)
+                lbPets.Items.Add(animal.Name + ": " + animal.Species);
         }
     }
 }

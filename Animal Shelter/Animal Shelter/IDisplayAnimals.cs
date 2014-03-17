@@ -7,6 +7,6 @@ namespace Animal_Shelter
 {
     interface IDisplayAnimals
     {
-        void DisplayAnimals(object display);
+        void display(List<Animal> animals);
     }
 }

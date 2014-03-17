@@ -9,11 +9,18 @@ namespace Animal_Shelter
 {
     class DisplayPicture : IDisplayAnimals
     {
-        List<PictureBox> animals;
+        PictureBox[] pbPets;
 
-        public void DisplayAnimals(object display)
+        public DisplayPicture(PictureBox[] pbPets)
         {
-            throw new NotImplementedException();
+            this.pbPets = pbPets;
+        }
+
+        public void display(List<Animal> animals)
+        {
+            // Adds the animal images to the pictureboxs
+            for (int i = 0; i < animals.Count; i++)
+                pbPets[i].Image = animals[i].PetImage;
         }
     }
 }

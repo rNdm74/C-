@@ -105,14 +105,14 @@
             this.lbPets.FormattingEnabled = true;
             this.lbPets.Location = new System.Drawing.Point(13, 161);
             this.lbPets.Name = "lbPets";
-            this.lbPets.Size = new System.Drawing.Size(152, 225);
+            this.lbPets.Size = new System.Drawing.Size(152, 186);
             this.lbPets.TabIndex = 1;
             // 
             // bShowPets
             // 
-            this.bShowPets.Location = new System.Drawing.Point(13, 393);
+            this.bShowPets.Location = new System.Drawing.Point(12, 353);
             this.bShowPets.Name = "bShowPets";
-            this.bShowPets.Size = new System.Drawing.Size(152, 71);
+            this.bShowPets.Size = new System.Drawing.Size(152, 33);
             this.bShowPets.TabIndex = 2;
             this.bShowPets.Text = "Show Pets !";
             this.bShowPets.UseVisualStyleBackColor = true;
@@ -128,7 +128,7 @@
             // 
             // pbPet2
             // 
-            this.pbPet2.Location = new System.Drawing.Point(465, 13);
+            this.pbPet2.Location = new System.Drawing.Point(388, 12);
             this.pbPet2.Name = "pbPet2";
             this.pbPet2.Size = new System.Drawing.Size(199, 184);
             this.pbPet2.TabIndex = 4;
@@ -136,7 +136,7 @@
             // 
             // pbPet3
             // 
-            this.pbPet3.Location = new System.Drawing.Point(183, 280);
+            this.pbPet3.Location = new System.Drawing.Point(183, 202);
             this.pbPet3.Name = "pbPet3";
             this.pbPet3.Size = new System.Drawing.Size(199, 184);
             this.pbPet3.TabIndex = 5;
@@ -144,7 +144,7 @@
             // 
             // pbPet4
             // 
-            this.pbPet4.Location = new System.Drawing.Point(465, 280);
+            this.pbPet4.Location = new System.Drawing.Point(388, 202);
             this.pbPet4.Name = "pbPet4";
             this.pbPet4.Size = new System.Drawing.Size(199, 184);
             this.pbPet4.TabIndex = 6;
@@ -154,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 476);
+            this.ClientSize = new System.Drawing.Size(603, 398);
             this.Controls.Add(this.pbPet4);
             this.Controls.Add(this.pbPet3);
             this.Controls.Add(this.pbPet2);

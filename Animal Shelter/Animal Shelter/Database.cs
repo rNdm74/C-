@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Animal_Shelter
 {
@@ -12,9 +13,8 @@ namespace Animal_Shelter
         private const char DELIMITER = ',';
         private const int ANIMAL_LIMIT = 4;
 
-        List<Animal> animalList;
-
-        IDisplayAnimals displayAnimals;
+        private List<Animal> animalList;
+        private IDisplayAnimals displayAnimals;
 
         public Database(string fileName)
         {
@@ -23,50 +23,70 @@ namespace Animal_Shelter
 
         private List<Animal> createAnimalList(string fileName)
         {
-            try
+            List<Animal> animalList = new List<Animal>();
+
+            StreamReader sr = new StreamReader(fileName);
+
+            while (!sr.EndOfStream)
             {
-                List<Animal> animalList = new List<Animal>();
+                string animalData = sr.ReadLine();
 
-                StreamReader sr = new StreamReader(fileName);
-
-                while (!sr.EndOfStream)
-                {
-                    string animalData = sr.ReadLine();
-
-                    animalList.Add(new Animal(animalData.Split(DELIMITER)));
-                }
-
-                return animalList;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("The file could not be read:");
-                Console.WriteLine(e.Message);
+                Animal animal = new Animal(animalData.Split(DELIMITER));
+                
+                animalList.Add(animal);
             }
 
-            return null;
+            return animalList;
         }
 
-        public List<Animal> displayAnimalList(string species)
+        public void query(string species, ListBox lbPets, PictureBox[] pbPets)
         {
-            List<Animal> animals = new List<Animal>();
+            // Clear the boxes on each query
+            clearListBox(lbPets);
+            clearPictureBoxes(pbPets);
 
-            foreach (var animal in animalList)
-                if(animal.Species.Equals(species))
-                    animals.Add(animal);
+            // Display the query
+            displayQueryResult(species, lbPets, pbPets);
+        }
 
-            if (animals.Capacity > ANIMAL_LIMIT)
+        private void clearListBox(ListBox lbPets)
+        {
+            // Listbox
+            lbPets.Items.Clear();
+        }
+
+        private void clearPictureBoxes(PictureBox[] pbPets)
+        {
+            // Sets all images in pictureboxes to null
+            foreach (var item in pbPets)
+                item.Image = null;
+        }       
+
+        private void displayQueryResult(string species, ListBox lbPets, PictureBox[] pbPets)
+        {
+            List<Animal> animalsQuery = new List<Animal>();
+
+            // Trim 's' from the string
+            string newString = species.TrimEnd('s');
+
+            // Populate list of selecteed animals
+            for (int i = 0; i < animalList.Count; i++)
+                if (animalList[i].Species.Contains(newString))
+                    animalsQuery.Add(animalList[i]);
+
+            // Determines how many animals in selection
+            if (animalsQuery.Count > ANIMAL_LIMIT)
             {
                 // Display listbox
-                displayAnimals = new DisplayText();
+                displayAnimals = new DisplayText(lbPets);
             }
             else
             {
                 // Display pictureboxes
-                displayAnimals = new DisplayPicture();
+                displayAnimals = new DisplayPicture(pbPets);
             }
 
-            return animalList;
+            displayAnimals.display(animalsQuery);
         }
     }
 }
