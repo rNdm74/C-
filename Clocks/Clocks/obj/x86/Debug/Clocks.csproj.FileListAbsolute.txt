@@ -14,3 +14,4 @@ Z:\Work\C-\Clocks\Clocks\bin\Debug\AnalogClockControl.dll
 Z:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.Form1.resources
 Z:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.Properties.Resources.resources
 Z:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.csproj.GenerateResource.Cache
+Z:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.csprojResolveAssemblyReference.cache

@@ -1,0 +1,8 @@
+Z:\Work\C-\Animal Shelter\Animal Shelter\obj\x86\Debug\Animal_Shelter.Form1.resources
+Z:\Work\C-\Animal Shelter\Animal Shelter\obj\x86\Debug\Animal_Shelter.Properties.Resources.resources
+Z:\Work\C-\Animal Shelter\Animal Shelter\obj\x86\Debug\Animal Shelter.csproj.GenerateResource.Cache
+Z:\Work\C-\Animal Shelter\Animal Shelter\bin\Debug\Animal Shelter.exe
+Z:\Work\C-\Animal Shelter\Animal Shelter\bin\Debug\Animal Shelter.pdb
+Z:\Work\C-\Animal Shelter\Animal Shelter\obj\x86\Debug\Animal Shelter.exe
+Z:\Work\C-\Animal Shelter\Animal Shelter\obj\x86\Debug\Animal Shelter.pdb
+Z:\Work\C-\Animal Shelter\Animal Shelter\obj\x86\Debug\Animal Shelter.csprojResolveAssemblyReference.cache
