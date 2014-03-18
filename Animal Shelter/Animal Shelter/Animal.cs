@@ -13,6 +13,9 @@ namespace Animal_Shelter
         private string name, species;
         private Image image;
 
+        /// <summary>
+        /// GET AND SETS
+        /// </summary>
         public string Name 
         {
             get
@@ -47,6 +50,10 @@ namespace Animal_Shelter
             }
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="animalData"></param>
         public Animal(string[] animalData)
         {
             this.name = animalData[(int)ANIMAL.NAME];
