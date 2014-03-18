@@ -51,7 +51,19 @@ namespace Animal_Shelter
         {
             this.name = animalData[(int)ANIMAL.NAME];
             this.species = animalData[(int)ANIMAL.SPECIES];
-            this.image = Image.FromFile(@"images/" + name + ".jpg");
+            this.image = loadImage();
+        }
+
+        private Image loadImage() 
+        {
+            try
+            {
+                return Image.FromFile(@"images/" + name + ".jpg");
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

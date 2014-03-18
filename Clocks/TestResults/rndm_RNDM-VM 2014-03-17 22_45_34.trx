@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="91169108-f93b-418b-ba0c-b8755d4db27c" name="rndm@RNDM-VM 2014-03-17 22:45:34" runUser="RNDM-VM\rndm" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="83b1a813-1c94-4de7-acba-7abacfc42ec6">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="rndm_RNDM-VM 2014-03-17 22_45_34">
+      <DeploymentItem filename="Z:\Work\C-\Clocks\Clocks\bin\Debug\Clocks.exe" />
+      <DeploymentItem filename="Z:\Work\C-\Clocks\AnalogClockControl.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-03-17T22:45:34.6791056+13:00" queuing="2014-03-17T22:45:34.7259762+13:00" start="2014-03-17T22:45:34.7259762+13:00" finish="2014-03-17T22:45:35.0227867+13:00" />
+  <ResultSummary outcome="Inconclusive">
+    <Counters total="3" executed="3" passed="2" error="0" failed="0" timeout="0" aborted="0" inconclusive="1" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="RNDM-VM" outcome="Warning" timestamp="2014-03-17T22:45:34.7103451+13:00">
+        <Text>Deployment is currently disabled. The deployment item 'Clocks.exe' on test 'ClocksTests.Form1_DigitalTest.hideTest' was not deployed.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="hideTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="9b490b3d-abc6-4d54-f90e-668d92c121ff">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="b26dd0d7-9142-4a0b-ad1b-b970659da088" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_DigitalTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="hideTest" />
+    </UnitTest>
+    <UnitTest name="Form1_DigitalConstructorTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="1b4d1bc7-155b-c841-1600-5ec986a94bfb">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="197ee161-2939-4847-945a-4dbfa4da1be4" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_DigitalTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Form1_DigitalConstructorTest" />
+    </UnitTest>
+    <UnitTest name="showTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="84a0ae22-8674-9688-51ea-8686b8186af1">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="e0b8ae8f-5f32-4b54-a60a-994baa838812" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_DigitalTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="showTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="1b4d1bc7-155b-c841-1600-5ec986a94bfb" executionId="197ee161-2939-4847-945a-4dbfa4da1be4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="84a0ae22-8674-9688-51ea-8686b8186af1" executionId="e0b8ae8f-5f32-4b54-a60a-994baa838812" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9b490b3d-abc6-4d54-f90e-668d92c121ff" executionId="b26dd0d7-9142-4a0b-ad1b-b970659da088" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="197ee161-2939-4847-945a-4dbfa4da1be4" testId="1b4d1bc7-155b-c841-1600-5ec986a94bfb" testName="Form1_DigitalConstructorTest" computerName="RNDM-VM" duration="00:00:00.0496009" startTime="2014-03-17T22:45:34.7259762+13:00" endTime="2014-03-17T22:45:34.9602861+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="197ee161-2939-4847-945a-4dbfa4da1be4">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. TODO: Implement code to verify target</Message>
+          <StackTrace>   at ClocksTests.Form1_DigitalTest.Form1_DigitalConstructorTest() in Z:\Work\C-\Clocks\ClocksTests\Form1_DigitalTest.cs:line 77
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e0b8ae8f-5f32-4b54-a60a-994baa838812" testId="84a0ae22-8674-9688-51ea-8686b8186af1" testName="showTest" computerName="RNDM-VM" duration="00:00:00.0030644" startTime="2014-03-17T22:45:34.9759349+13:00" endTime="2014-03-17T22:45:34.9915369+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e0b8ae8f-5f32-4b54-a60a-994baa838812">
+    </UnitTestResult>
+    <UnitTestResult executionId="b26dd0d7-9142-4a0b-ad1b-b970659da088" testId="9b490b3d-abc6-4d54-f90e-668d92c121ff" testName="hideTest" computerName="RNDM-VM" duration="00:00:00.0012902" startTime="2014-03-17T22:45:34.9915369+13:00" endTime="2014-03-17T22:45:34.9915369+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b26dd0d7-9142-4a0b-ad1b-b970659da088">
+    </UnitTestResult>
+  </Results>
+</TestRun>

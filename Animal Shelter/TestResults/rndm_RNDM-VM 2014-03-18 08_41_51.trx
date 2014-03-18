@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="80515aca-a950-4f50-9847-b2f280242588" name="rndm@RNDM-VM 2014-03-18 08:41:51" runUser="RNDM-VM\rndm" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="70407aa8-e9e1-4d54-b511-0019737484e1">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="rndm_RNDM-VM 2014-03-18 08_41_51">
+      <DeploymentItem filename="Z:\Work\C-\Animal Shelter\Animal Shelter\bin\Debug\Animal Shelter.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-03-18T08:41:51.6543392+13:00" queuing="2014-03-18T08:41:51.7042889+13:00" start="2014-03-18T08:41:51.7122917+13:00" finish="2014-03-18T08:41:52.0342883+13:00" />
+  <ResultSummary outcome="Inconclusive">
+    <Counters total="2" executed="2" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="1" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="displayTest" storage="z:\work\c-\animal shelter\animalsheltertests\bin\debug\animalsheltertests.dll" id="7ac1f416-386e-67d4-ad86-cb97eb76ff61">
+      <Execution id="ed5094d4-2ab3-4251-b46a-7a7d28b32724" />
+      <TestMethod codeBase="Z:/Work/C-/Animal Shelter/AnimalShelterTests/bin/Debug/AnimalShelterTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AnimalShelterTests.DisplayPictureTest, AnimalShelterTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="displayTest" />
+    </UnitTest>
+    <UnitTest name="DisplayPictureConstructorTest" storage="z:\work\c-\animal shelter\animalsheltertests\bin\debug\animalsheltertests.dll" id="c9cba322-0f81-6bfe-2803-295345d010a8">
+      <Execution id="180c18d5-bad2-4338-92e3-6cacee45086e" />
+      <TestMethod codeBase="Z:/Work/C-/Animal Shelter/AnimalShelterTests/bin/Debug/AnimalShelterTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AnimalShelterTests.DisplayPictureTest, AnimalShelterTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DisplayPictureConstructorTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="7ac1f416-386e-67d4-ad86-cb97eb76ff61" executionId="ed5094d4-2ab3-4251-b46a-7a7d28b32724" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c9cba322-0f81-6bfe-2803-295345d010a8" executionId="180c18d5-bad2-4338-92e3-6cacee45086e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="ed5094d4-2ab3-4251-b46a-7a7d28b32724" testId="7ac1f416-386e-67d4-ad86-cb97eb76ff61" testName="displayTest" computerName="RNDM-VM" duration="00:00:00.0374725" startTime="2014-03-18T08:41:51.7172889+13:00" endTime="2014-03-18T08:41:51.9852915+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ed5094d4-2ab3-4251-b46a-7a7d28b32724">
+    </UnitTestResult>
+    <UnitTestResult executionId="180c18d5-bad2-4338-92e3-6cacee45086e" testId="c9cba322-0f81-6bfe-2803-295345d010a8" testName="DisplayPictureConstructorTest" computerName="RNDM-VM" duration="00:00:00.0091427" startTime="2014-03-18T08:41:51.9912948+13:00" endTime="2014-03-18T08:41:52.0122895+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="180c18d5-bad2-4338-92e3-6cacee45086e">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. TODO: Implement code to verify target</Message>
+          <StackTrace>   at AnimalShelterTests.DisplayPictureTest.DisplayPictureConstructorTest() in Z:\Work\C-\Animal Shelter\AnimalShelterTests\DisplayPictureTest.cs:line 77
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

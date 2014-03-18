@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="ca69ad4d-c448-4b1b-9af2-a77de2c06c44" name="rndm@RNDM-VM 2014-03-17 22:46:31" runUser="RNDM-VM\rndm" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="83b1a813-1c94-4de7-acba-7abacfc42ec6">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="rndm_RNDM-VM 2014-03-17 22_46_31">
+      <DeploymentItem filename="Z:\Work\C-\Clocks\Clocks\bin\Debug\Clocks.exe" />
+      <DeploymentItem filename="Z:\Work\C-\Clocks\AnalogClockControl.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-03-17T22:46:31.5301433+13:00" queuing="2014-03-17T22:46:31.5769287+13:00" start="2014-03-17T22:46:31.5769287+13:00" finish="2014-03-17T22:46:31.9050704+13:00" />
+  <ResultSummary outcome="Warning">
+    <Counters total="3" executed="3" passed="3" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="RNDM-VM" outcome="Warning" timestamp="2014-03-17T22:46:31.5769287+13:00">
+        <Text>Deployment is currently disabled. The deployment item 'Clocks.exe' on test 'ClocksTests.Form1_DigitalTest.hideTest' was not deployed.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="hideTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="9b490b3d-abc6-4d54-f90e-668d92c121ff">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="f5391d77-ce62-43b4-84ff-45a3833bb162" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_DigitalTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="hideTest" />
+    </UnitTest>
+    <UnitTest name="Form1_DigitalConstructorTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="1b4d1bc7-155b-c841-1600-5ec986a94bfb">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="3af61960-4307-4c95-9016-49dadf1a7518" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_DigitalTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Form1_DigitalConstructorTest" />
+    </UnitTest>
+    <UnitTest name="showTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="84a0ae22-8674-9688-51ea-8686b8186af1">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="815968e8-3577-4cf2-89a9-c2c0f8d4f695" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_DigitalTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="showTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="1b4d1bc7-155b-c841-1600-5ec986a94bfb" executionId="3af61960-4307-4c95-9016-49dadf1a7518" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="84a0ae22-8674-9688-51ea-8686b8186af1" executionId="815968e8-3577-4cf2-89a9-c2c0f8d4f695" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9b490b3d-abc6-4d54-f90e-668d92c121ff" executionId="f5391d77-ce62-43b4-84ff-45a3833bb162" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="3af61960-4307-4c95-9016-49dadf1a7518" testId="1b4d1bc7-155b-c841-1600-5ec986a94bfb" testName="Form1_DigitalConstructorTest" computerName="RNDM-VM" duration="00:00:00.0392073" startTime="2014-03-17T22:46:31.5926186+13:00" endTime="2014-03-17T22:46:31.8269231+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3af61960-4307-4c95-9016-49dadf1a7518">
+    </UnitTestResult>
+    <UnitTestResult executionId="815968e8-3577-4cf2-89a9-c2c0f8d4f695" testId="84a0ae22-8674-9688-51ea-8686b8186af1" testName="showTest" computerName="RNDM-VM" duration="00:00:00.0014147" startTime="2014-03-17T22:46:31.8425450+13:00" endTime="2014-03-17T22:46:31.8425450+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="815968e8-3577-4cf2-89a9-c2c0f8d4f695">
+    </UnitTestResult>
+    <UnitTestResult executionId="f5391d77-ce62-43b4-84ff-45a3833bb162" testId="9b490b3d-abc6-4d54-f90e-668d92c121ff" testName="hideTest" computerName="RNDM-VM" duration="00:00:00.0014745" startTime="2014-03-17T22:46:31.8582052+13:00" endTime="2014-03-17T22:46:31.8582052+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f5391d77-ce62-43b4-84ff-45a3833bb162">
+    </UnitTestResult>
+  </Results>
+</TestRun>

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="f4f7475e-578c-4ea5-a31e-81dc093a9e59" name="rndm@RNDM-VM 2014-03-17 22:57:13" runUser="RNDM-VM\rndm" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="83b1a813-1c94-4de7-acba-7abacfc42ec6">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="rndm_RNDM-VM 2014-03-17 22_57_13">
+      <DeploymentItem filename="Z:\Work\C-\Clocks\Clocks\bin\Debug\Clocks.exe" />
+      <DeploymentItem filename="Z:\Work\C-\Clocks\AnalogClockControl.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-03-17T22:57:13.6346203+13:00" queuing="2014-03-17T22:57:13.6814316+13:00" start="2014-03-17T22:57:13.6814316+13:00" finish="2014-03-17T22:57:14.0876877+13:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="3" executed="3" error="0" failed="2" timeout="0" aborted="0" inconclusive="1" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="RNDM-VM" outcome="Warning" timestamp="2014-03-17T22:57:13.6814316+13:00">
+        <Text>Deployment is currently disabled. The deployment item 'Clocks.exe' on test 'ClocksTests.Form1_AnalogueTest.Form1_AnalogueConstructorTest' was not deployed.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Form1_AnalogueConstructorTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="3c3bb529-37af-4605-bbca-e6cdf1dedb6b">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="54a1dba7-d650-4164-b3e1-06901049a1dd" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_AnalogueTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Form1_AnalogueConstructorTest" />
+    </UnitTest>
+    <UnitTest name="hideTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="40d3ebbc-9123-6082-251a-780921ddf9a8">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="d3c649d7-6930-41fd-b53d-516443610fb3" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_AnalogueTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="hideTest" />
+    </UnitTest>
+    <UnitTest name="showTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="563cb137-5cbf-b76c-4ae6-74058fb7cbd5">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="6ded0139-5b94-4243-bac5-c6d440b8c108" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_AnalogueTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="showTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="3c3bb529-37af-4605-bbca-e6cdf1dedb6b" executionId="54a1dba7-d650-4164-b3e1-06901049a1dd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="40d3ebbc-9123-6082-251a-780921ddf9a8" executionId="d3c649d7-6930-41fd-b53d-516443610fb3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="563cb137-5cbf-b76c-4ae6-74058fb7cbd5" executionId="6ded0139-5b94-4243-bac5-c6d440b8c108" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="54a1dba7-d650-4164-b3e1-06901049a1dd" testId="3c3bb529-37af-4605-bbca-e6cdf1dedb6b" testName="Form1_AnalogueConstructorTest" computerName="RNDM-VM" duration="00:00:00.0202288" startTime="2014-03-17T22:57:13.7595617+13:00" endTime="2014-03-17T22:57:13.9627631+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="54a1dba7-d650-4164-b3e1-06901049a1dd">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. Private Accessor for .ctor is not found. Please rebuild the containing project or run the Publicize.exe manually.</Message>
+          <StackTrace>   at ClocksTests.Form1_AnalogueTest.Form1_AnalogueConstructorTest() in Z:\Work\C-\Clocks\ClocksTests\Form1_AnalogueTest.cs:line 75
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d3c649d7-6930-41fd-b53d-516443610fb3" testId="40d3ebbc-9123-6082-251a-780921ddf9a8" testName="hideTest" computerName="RNDM-VM" duration="00:00:00.0439996" startTime="2014-03-17T22:57:13.9783117+13:00" endTime="2014-03-17T22:57:14.0252502+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d3c649d7-6930-41fd-b53d-516443610fb3">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method ClocksTests.Form1_AnalogueTest.hideTest threw exception: 
+System.ArgumentException: 
+      The member specified (Clocks.Form1.IClock.hide) could not be found. You might need to regenerate your private accessor,
+      or the member may be private and defined on a base class. If the latter is true, you need to pass the type
+      that defines the member into PrivateObject's constructor.
+    </Message>
+          <StackTrace>   at Clocks.Form1_Accessor.Analogue.Clocks.Form1.IClock.hide()
+   at ClocksTests.Form1_AnalogueTest.hideTest() in Z:\Work\C-\Clocks\ClocksTests\Form1_AnalogueTest.cs:line 89
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6ded0139-5b94-4243-bac5-c6d440b8c108" testId="563cb137-5cbf-b76c-4ae6-74058fb7cbd5" testName="showTest" computerName="RNDM-VM" duration="00:00:00.0024872" startTime="2014-03-17T22:57:14.0252502+13:00" endTime="2014-03-17T22:57:14.0252502+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6ded0139-5b94-4243-bac5-c6d440b8c108">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method ClocksTests.Form1_AnalogueTest.showTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Clocks.Form1_Accessor.Analogue.Clocks.Form1.IClock.show()
+   at ClocksTests.Form1_AnalogueTest.showTest() in Z:\Work\C-\Clocks\ClocksTests\Form1_AnalogueTest.cs:line 107
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

@@ -1,0 +1,10 @@
+Z:\Work\C-\Clocks\ClocksTests\bin\Debug\ClocksTests.dll
+Z:\Work\C-\Clocks\ClocksTests\bin\Debug\ClocksTests.pdb
+Z:\Work\C-\Clocks\ClocksTests\bin\Debug\AnalogClockControl.dll
+Z:\Work\C-\Clocks\ClocksTests\bin\Debug\Clocks.exe
+Z:\Work\C-\Clocks\ClocksTests\bin\Debug\Clocks.pdb
+Z:\Work\C-\Clocks\ClocksTests\bin\Debug\Clocks_Accessor.exe
+Z:\Work\C-\Clocks\ClocksTests\bin\Debug\Clocks_Accessor.pdb
+Z:\Work\C-\Clocks\ClocksTests\obj\Debug\ClocksTests.csprojResolveAssemblyReference.cache
+Z:\Work\C-\Clocks\ClocksTests\obj\Debug\ClocksTests.dll
+Z:\Work\C-\Clocks\ClocksTests\obj\Debug\ClocksTests.pdb

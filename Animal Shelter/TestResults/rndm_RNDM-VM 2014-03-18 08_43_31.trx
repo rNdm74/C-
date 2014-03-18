@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="43a701b9-7957-4fa4-9856-ef2a5ea9d5fa" name="rndm@RNDM-VM 2014-03-18 08:43:31" runUser="RNDM-VM\rndm" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="70407aa8-e9e1-4d54-b511-0019737484e1">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="rndm_RNDM-VM 2014-03-18 08_43_31">
+      <DeploymentItem filename="Z:\Work\C-\Animal Shelter\Animal Shelter\bin\Debug\Animal Shelter.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-03-18T08:43:31.2343786+13:00" queuing="2014-03-18T08:43:31.2733823+13:00" start="2014-03-18T08:43:31.2803832+13:00" finish="2014-03-18T08:43:31.5483847+13:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="2" executed="2" passed="2" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="displayTest" storage="z:\work\c-\animal shelter\animalsheltertests\bin\debug\animalsheltertests.dll" id="7ac1f416-386e-67d4-ad86-cb97eb76ff61">
+      <Execution id="a121a3ee-8298-491d-bab1-7e9b27fb1b55" />
+      <TestMethod codeBase="Z:/Work/C-/Animal Shelter/AnimalShelterTests/bin/Debug/AnimalShelterTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AnimalShelterTests.DisplayPictureTest, AnimalShelterTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="displayTest" />
+    </UnitTest>
+    <UnitTest name="DisplayPictureConstructorTest" storage="z:\work\c-\animal shelter\animalsheltertests\bin\debug\animalsheltertests.dll" id="c9cba322-0f81-6bfe-2803-295345d010a8">
+      <Execution id="b3e6fe8f-b4bd-4979-9c48-5ae37caa7842" />
+      <TestMethod codeBase="Z:/Work/C-/Animal Shelter/AnimalShelterTests/bin/Debug/AnimalShelterTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AnimalShelterTests.DisplayPictureTest, AnimalShelterTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DisplayPictureConstructorTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="7ac1f416-386e-67d4-ad86-cb97eb76ff61" executionId="a121a3ee-8298-491d-bab1-7e9b27fb1b55" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c9cba322-0f81-6bfe-2803-295345d010a8" executionId="b3e6fe8f-b4bd-4979-9c48-5ae37caa7842" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="a121a3ee-8298-491d-bab1-7e9b27fb1b55" testId="7ac1f416-386e-67d4-ad86-cb97eb76ff61" testName="displayTest" computerName="RNDM-VM" duration="00:00:00.0372935" startTime="2014-03-18T08:43:31.2873922+13:00" endTime="2014-03-18T08:43:31.5133833+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a121a3ee-8298-491d-bab1-7e9b27fb1b55">
+    </UnitTestResult>
+    <UnitTestResult executionId="b3e6fe8f-b4bd-4979-9c48-5ae37caa7842" testId="c9cba322-0f81-6bfe-2803-295345d010a8" testName="DisplayPictureConstructorTest" computerName="RNDM-VM" duration="00:00:00.0002139" startTime="2014-03-18T08:43:31.5224301+13:00" endTime="2014-03-18T08:43:31.5294019+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b3e6fe8f-b4bd-4979-9c48-5ae37caa7842">
+    </UnitTestResult>
+  </Results>
+</TestRun>
