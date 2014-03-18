@@ -5,21 +5,33 @@ using System.Text;
 
 namespace InterfacePractice
 {
-    class ObjectDatabase : IDatabase
+    class ObjectDatabase<T> : IDatabase<T>
     {
-        public object Query(string key)
+        List<T> t;
+
+        public ObjectDatabase()
         {
-            throw new NotImplementedException();
+            this.t = new List<T>();
         }
 
-        public void Add(string key)
+        public int Count()
         {
-            throw new NotImplementedException();
+            return t.Count;
         }
 
-        public void Delete(string key)
-        {
-            throw new NotImplementedException();
+        public T Query(int index)
+        {   
+            return this.t[index];
         }
+
+        public void Add(T t)
+        {
+            this.t.Add(t);
+        }
+
+        public void Delete(int index)
+        {
+            this.t.RemoveAt(index);
+        }        
     }
 }

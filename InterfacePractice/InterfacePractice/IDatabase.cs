@@ -5,10 +5,10 @@ using System.Text;
 
 namespace InterfacePractice
 {
-    interface IDatabase
+    interface IDatabase<T>
     {
-        object Query(string key);
-        void Add(string key);
-        void Delete(string key);
+        T Query(int index);
+        void Add(T t);
+        void Delete(int index);
     }
 }

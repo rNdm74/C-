@@ -28,61 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.clbUsers = new System.Windows.Forms.CheckedListBox();
+            this.bShow = new System.Windows.Forms.Button();
+            this.bDelete = new System.Windows.Forms.Button();
             this.gbDisplay = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.bAdd = new System.Windows.Forms.Button();
+            this.bClear = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.mtbConfirmPassword = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.mtbPassword = new System.Windows.Forms.MaskedTextBox();
+            this.tbUserName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbLastName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbFirstName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbDetails = new System.Windows.Forms.ListBox();
             this.gbDisplay.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // checkedListBox1
+            // clbUsers
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(6, 19);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(186, 79);
-            this.checkedListBox1.TabIndex = 4;
+            this.clbUsers.FormattingEnabled = true;
+            this.clbUsers.Location = new System.Drawing.Point(6, 19);
+            this.clbUsers.Name = "clbUsers";
+            this.clbUsers.Size = new System.Drawing.Size(186, 79);
+            this.clbUsers.TabIndex = 4;
             // 
-            // button1
+            // bShow
             // 
-            this.button1.Location = new System.Drawing.Point(132, 107);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Show";
-            this.button1.UseVisualStyleBackColor = true;
+            this.bShow.Location = new System.Drawing.Point(117, 107);
+            this.bShow.Name = "bShow";
+            this.bShow.Size = new System.Drawing.Size(75, 23);
+            this.bShow.TabIndex = 7;
+            this.bShow.Text = "Show";
+            this.bShow.UseVisualStyleBackColor = true;
+            this.bShow.Click += new System.EventHandler(this.bShow_Click);
             // 
-            // button2
+            // bDelete
             // 
-            this.button2.Location = new System.Drawing.Point(6, 107);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(54, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bDelete.Location = new System.Drawing.Point(7, 107);
+            this.bDelete.Name = "bDelete";
+            this.bDelete.Size = new System.Drawing.Size(75, 23);
+            this.bDelete.TabIndex = 8;
+            this.bDelete.Text = "Delete";
+            this.bDelete.UseVisualStyleBackColor = true;
+            this.bDelete.Click += new System.EventHandler(this.bDelete_Click);
             // 
             // gbDisplay
             // 
-            this.gbDisplay.Controls.Add(this.checkedListBox1);
-            this.gbDisplay.Controls.Add(this.button2);
-            this.gbDisplay.Controls.Add(this.button1);
+            this.gbDisplay.Controls.Add(this.clbUsers);
+            this.gbDisplay.Controls.Add(this.bDelete);
+            this.gbDisplay.Controls.Add(this.bShow);
             this.gbDisplay.Location = new System.Drawing.Point(220, 12);
             this.gbDisplay.Name = "gbDisplay";
             this.gbDisplay.Size = new System.Drawing.Size(200, 136);
@@ -92,17 +94,17 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.bAdd);
+            this.groupBox1.Controls.Add(this.bClear);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.maskedTextBox2);
+            this.groupBox1.Controls.Add(this.mtbConfirmPassword);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.mtbPassword);
+            this.groupBox1.Controls.Add(this.tbUserName);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.tbLastName);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.tbFirstName);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(13, 12);
             this.groupBox1.Name = "groupBox1";
@@ -111,23 +113,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create User";
             // 
-            // button4
+            // bAdd
             // 
-            this.button4.Location = new System.Drawing.Point(119, 229);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "Add";
-            this.button4.UseVisualStyleBackColor = true;
+            this.bAdd.Location = new System.Drawing.Point(119, 229);
+            this.bAdd.Name = "bAdd";
+            this.bAdd.Size = new System.Drawing.Size(75, 23);
+            this.bAdd.TabIndex = 11;
+            this.bAdd.Text = "Add";
+            this.bAdd.UseVisualStyleBackColor = true;
+            this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
             // 
-            // button3
+            // bClear
             // 
-            this.button3.Location = new System.Drawing.Point(10, 229);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Clear";
-            this.button3.UseVisualStyleBackColor = true;
+            this.bClear.Location = new System.Drawing.Point(10, 229);
+            this.bClear.Name = "bClear";
+            this.bClear.Size = new System.Drawing.Size(75, 23);
+            this.bClear.TabIndex = 10;
+            this.bClear.Text = "Clear";
+            this.bClear.UseVisualStyleBackColor = true;
+            this.bClear.Click += new System.EventHandler(this.bClear_Click);
             // 
             // label5
             // 
@@ -138,13 +142,13 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Confirm Password";
             // 
-            // maskedTextBox2
+            // mtbConfirmPassword
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(6, 195);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.PasswordChar = '*';
-            this.maskedTextBox2.Size = new System.Drawing.Size(188, 20);
-            this.maskedTextBox2.TabIndex = 8;
+            this.mtbConfirmPassword.Location = new System.Drawing.Point(6, 195);
+            this.mtbConfirmPassword.Name = "mtbConfirmPassword";
+            this.mtbConfirmPassword.PasswordChar = '*';
+            this.mtbConfirmPassword.Size = new System.Drawing.Size(188, 20);
+            this.mtbConfirmPassword.TabIndex = 8;
             // 
             // label4
             // 
@@ -155,20 +159,20 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Password";
             // 
-            // maskedTextBox1
+            // mtbPassword
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(6, 155);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.PasswordChar = '*';
-            this.maskedTextBox1.Size = new System.Drawing.Size(188, 20);
-            this.maskedTextBox1.TabIndex = 6;
+            this.mtbPassword.Location = new System.Drawing.Point(6, 155);
+            this.mtbPassword.Name = "mtbPassword";
+            this.mtbPassword.PasswordChar = '*';
+            this.mtbPassword.Size = new System.Drawing.Size(188, 20);
+            this.mtbPassword.TabIndex = 6;
             // 
-            // textBox3
+            // tbUserName
             // 
-            this.textBox3.Location = new System.Drawing.Point(6, 116);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(188, 20);
-            this.textBox3.TabIndex = 5;
+            this.tbUserName.Location = new System.Drawing.Point(6, 116);
+            this.tbUserName.Name = "tbUserName";
+            this.tbUserName.Size = new System.Drawing.Size(188, 20);
+            this.tbUserName.TabIndex = 5;
             // 
             // label3
             // 
@@ -179,12 +183,13 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Username";
             // 
-            // textBox2
+            // tbLastName
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 76);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(188, 20);
-            this.textBox2.TabIndex = 3;
+            this.tbLastName.Location = new System.Drawing.Point(6, 76);
+            this.tbLastName.Name = "tbLastName";
+            this.tbLastName.Size = new System.Drawing.Size(188, 20);
+            this.tbLastName.TabIndex = 3;
+            this.tbLastName.Leave += new System.EventHandler(this.tbLastName_Leave);
             // 
             // label2
             // 
@@ -195,12 +200,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Lastname";
             // 
-            // textBox1
+            // tbFirstName
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 20);
-            this.textBox1.TabIndex = 1;
+            this.tbFirstName.Location = new System.Drawing.Point(6, 36);
+            this.tbFirstName.Name = "tbFirstName";
+            this.tbFirstName.Size = new System.Drawing.Size(188, 20);
+            this.tbFirstName.TabIndex = 1;
             // 
             // label1
             // 
@@ -213,7 +218,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.listBox1);
+            this.groupBox2.Controls.Add(this.lbDetails);
             this.groupBox2.Location = new System.Drawing.Point(220, 155);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 116);
@@ -221,13 +226,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Details";
             // 
-            // listBox1
+            // lbDetails
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(7, 20);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(187, 82);
-            this.listBox1.TabIndex = 0;
+            this.lbDetails.FormattingEnabled = true;
+            this.lbDetails.Location = new System.Drawing.Point(7, 20);
+            this.lbDetails.Name = "lbDetails";
+            this.lbDetails.Size = new System.Drawing.Size(187, 82);
+            this.lbDetails.TabIndex = 0;
             // 
             // Form1
             // 
@@ -239,6 +244,7 @@
             this.Controls.Add(this.gbDisplay);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.gbDisplay.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -249,25 +255,25 @@
 
         #endregion
 
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckedListBox clbUsers;
+        private System.Windows.Forms.Button bShow;
+        private System.Windows.Forms.Button bDelete;
         private System.Windows.Forms.GroupBox gbDisplay;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbUserName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.MaskedTextBox mtbPassword;
+        private System.Windows.Forms.Button bAdd;
+        private System.Windows.Forms.Button bClear;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox mtbConfirmPassword;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbDetails;
 
     }
 }

@@ -6,3 +6,10 @@ Z:\Work\C-\InterfacePractice\InterfacePractice\obj\x86\Debug\InterfacePractice.c
 Z:\Work\C-\InterfacePractice\InterfacePractice\obj\x86\Debug\InterfacePractice.exe
 Z:\Work\C-\InterfacePractice\InterfacePractice\obj\x86\Debug\InterfacePractice.pdb
 Z:\Work\C-\InterfacePractice\InterfacePractice\obj\x86\Debug\InterfacePractice.csprojResolveAssemblyReference.cache
+E:\Work\C-\InterfacePractice\InterfacePractice\obj\x86\Debug\InterfacePractice.exe
+E:\Work\C-\InterfacePractice\InterfacePractice\obj\x86\Debug\InterfacePractice.pdb
+E:\Work\C-\InterfacePractice\InterfacePractice\bin\Debug\InterfacePractice.exe
+E:\Work\C-\InterfacePractice\InterfacePractice\bin\Debug\InterfacePractice.pdb
+E:\Work\C-\InterfacePractice\InterfacePractice\obj\x86\Debug\InterfacePractice.Form1.resources
+E:\Work\C-\InterfacePractice\InterfacePractice\obj\x86\Debug\InterfacePractice.Properties.Resources.resources
+E:\Work\C-\InterfacePractice\InterfacePractice\obj\x86\Debug\InterfacePractice.csproj.GenerateResource.Cache
