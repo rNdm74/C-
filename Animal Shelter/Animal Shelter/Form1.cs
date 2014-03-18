@@ -16,6 +16,7 @@ namespace Animal_Shelter
         private const string    ANIMAL_LIST     = "animalList.txt";
         private const int       ANIMAL_LIMIT    = 4;
         private const char      DELIMITER       = ',';
+        private const char      TRIM_CHAR       = 's';
 
         // Variables
         private IDatabase<Animal> db;
@@ -65,15 +66,15 @@ namespace Animal_Shelter
             catch (Exception e)
             {
                 // Let the user know what went wrong.
-                MessageBox.Show("The file could not be read:", e.Message);
+                MessageBox.Show(e.Message, "The file could not be read");
+                Application.Exit();
             }
         }
 
         private void bShowPets_Click(object sender, EventArgs e)
         {
             // Clear the boxes on each query
-            clearListBox(lbPets);
-            clearPictureBoxes(pbPets);
+            clearFormControls();
 
             // Get selected species for search
             string search = selectedSpecies(rbSelect);
@@ -82,33 +83,35 @@ namespace Animal_Shelter
             displayQueryResult(search);
         }
 
-        private void clearListBox(ListBox lbPets)
-        {
-            // Listbox
-            lbPets.Items.Clear();
-        }
-        private void clearPictureBoxes(PictureBox[] pbPets)
+        private void clearFormControls()
         {
             // Sets all images in pictureboxes to null
             foreach (var item in pbPets)
                 item.Image = null;
+
+            // Clear Listbox
+            lbPets.Items.Clear();
         }
+        
         private string selectedSpecies(RadioButton[] rbSelect)
         {
             int count = 0;
 
+            // Finds the checked radiobutton
             while (!rbSelect[count].Checked)
                 count++;
 
+            // Returns its name
             return rbSelect[count].Text;
         }
+
         private void displayQueryResult(string species)
         {
             // Trim 's' from the string
-            string newString = species.TrimEnd('s');
+            string key = species.TrimEnd(TRIM_CHAR);
 
             // Populate list of selected animals
-            List<Animal> animalsQuery = db.Search(newString);
+            List<Animal> animalsQuery = db.Search(key);
 
             // Determines how many animals in selection
             if (animalsQuery.Count > ANIMAL_LIMIT)

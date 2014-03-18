@@ -7,49 +7,44 @@ namespace Animal_Shelter
 {
     class Database : IDatabase<Animal>
     {
-        private List<Animal> animalDB;
-
-        public Database() 
-        {
-            animalDB = new List<Animal>();
-        }
-
+        private List<Animal> data = new List<Animal>();
+        
         public int Count()
         {
-            return animalDB.Count;
+            return data.Count;
         }
 
         public void Add(Animal t)
         {
-            animalDB.Add(t);
+            data.Add(t);
         }
 
         public void Delete(Animal t)
         {
-            animalDB.Remove(t);
+            data.Remove(t);
         }
 
         public void Modify(int i, Animal t)
         {
-            // Removes the animal
-            animalDB.RemoveAt(i);
-            // Adds the new Animal 
-            animalDB.Insert(i, t);
+            // Removes item
+            data.RemoveAt(i);
+            // Replaces with new item
+            data.Insert(i, t);
         }
 
-        List<Animal> IDatabase<Animal>.Search(string searchString)
+        List<Animal> IDatabase<Animal>.Search(string s)
         {
             // Create list for search results
             List<Animal> results = new List<Animal>();
-
-            for (int i = 0; i < animalDB.Count; i++)
+            
+            for (int i = 0; i < data.Count; i++)
             {
                 // Get the species name
-                string species = animalDB[i].Species;
+                string key = data[i].Species;
 
                 // Add to results if found
-                if (species.Contains(searchString))
-                    results.Add(animalDB[i]);
+                if (key.Contains(s))
+                    results.Add(data[i]);
             }
 
             return results;

@@ -5,3 +5,10 @@ Z:\Work\C-\Animal Shelter\AnimalShelterTests\bin\Debug\Animal Shelter.pdb
 Z:\Work\C-\Animal Shelter\AnimalShelterTests\obj\Debug\AnimalShelterTests.csprojResolveAssemblyReference.cache
 Z:\Work\C-\Animal Shelter\AnimalShelterTests\obj\Debug\AnimalShelterTests.dll
 Z:\Work\C-\Animal Shelter\AnimalShelterTests\obj\Debug\AnimalShelterTests.pdb
+E:\Work\C-\Animal Shelter\AnimalShelterTests\bin\Debug\AnimalShelterTests.dll
+E:\Work\C-\Animal Shelter\AnimalShelterTests\bin\Debug\AnimalShelterTests.pdb
+E:\Work\C-\Animal Shelter\AnimalShelterTests\bin\Debug\Animal Shelter.exe
+E:\Work\C-\Animal Shelter\AnimalShelterTests\bin\Debug\Animal Shelter.pdb
+E:\Work\C-\Animal Shelter\AnimalShelterTests\obj\Debug\AnimalShelterTests.csprojResolveAssemblyReference.cache
+E:\Work\C-\Animal Shelter\AnimalShelterTests\obj\Debug\AnimalShelterTests.dll
+E:\Work\C-\Animal Shelter\AnimalShelterTests\obj\Debug\AnimalShelterTests.pdb

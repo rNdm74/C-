@@ -11,7 +11,6 @@ namespace Animal_Shelter
         void Add(T t);
         void Delete(T t);
         void Modify(int i, T t);
-        List<T> Search(string s);
-        
+        List<T> Search(string s);        
     }
 }
