@@ -13,3 +13,5 @@ E:\Work\C-\InterfacePractice\InterfacePractice\bin\Debug\InterfacePractice.pdb
 E:\Work\C-\InterfacePractice\InterfacePractice\obj\x86\Debug\InterfacePractice.Form1.resources
 E:\Work\C-\InterfacePractice\InterfacePractice\obj\x86\Debug\InterfacePractice.Properties.Resources.resources
 E:\Work\C-\InterfacePractice\InterfacePractice\obj\x86\Debug\InterfacePractice.csproj.GenerateResource.Cache
+\\vmware-host\Shared Folders\Work\C-\InterfacePractice\InterfacePractice\obj\x86\Debug\InterfacePractice.exe
+\\vmware-host\Shared Folders\Work\C-\InterfacePractice\InterfacePractice\obj\x86\Debug\InterfacePractice.pdb
