@@ -19,17 +19,14 @@ namespace WorldAnimals
             protected Bitmap image;
             public Bitmap Image
             {
-                get 
-                {
-                    return image; // Read Only
-                }
+                get { return image; } // Read Only
             }
 
             public override string ToString()
             {
-                string displayString = "I am " + name;
+                string displayString = "I am a " + name;
                 displayString += ". I am a " + family;
-                displayString += "I eat " + food + ".";
+                displayString += ". I eat " + food + ".";
                 return displayString;
             }
         }
@@ -46,8 +43,6 @@ namespace WorldAnimals
                 food = "Grass";
                 image = new Bitmap("bison.jpg");
             }
-            
-
         }
 
         public class Crocodile : Animal
@@ -55,9 +50,9 @@ namespace WorldAnimals
             public Crocodile()
             {
                 name = "Croc";
-                family = "Herbivore";
-                food = "Grass";
-                image = new Bitmap("bison.jpg");
+                family = "Carnavore";
+                food = "Chickens";
+                image = new Bitmap("crocodile.jpg");
             } 
         }
 
@@ -66,9 +61,9 @@ namespace WorldAnimals
             public Eagle()
             {
                 name = "Eagle";
-                family = "Herbivore";
-                food = "Grass";
-                image = new Bitmap("bison.jpg");
+                family = "Carnivore";
+                food = "Fish";
+                image = new Bitmap("eagle.jpg");
             }
         }
 
@@ -79,7 +74,7 @@ namespace WorldAnimals
                 name = "Kangaroo";
                 family = "Herbivore";
                 food = "Grass";
-                image = new Bitmap("bison.jpg");
+                image = new Bitmap("kangaroo.jpg");
             }
         }
 
@@ -89,8 +84,8 @@ namespace WorldAnimals
             {
                 name = "Koala";
                 family = "Herbivore";
-                food = "Grass";
-                image = new Bitmap("bison.jpg");
+                food = "Leaves";
+                image = new Bitmap("koala.jpg");
             }
         }
 
@@ -101,7 +96,7 @@ namespace WorldAnimals
                 name = "Platypus";
                 family = "Herbivore";
                 food = "Grass";
-                image = new Bitmap("bison.jpg");
+                image = new Bitmap("platypus.jpg");
             }
         }
 
@@ -110,9 +105,31 @@ namespace WorldAnimals
             public Wolf()
             {
                 name = "Wolf";
-                family = "Herbivore";
-                food = "Grass";
+                family = "Carnivore";
+                food = "Rabbits";
                 image = new Bitmap("wolf.jpg");
+            }
+        }
+
+        public class Snake : Animal
+        {
+            public Snake()
+            {
+                name = "Snake";
+                family = "Carnivore";
+                food = "Mice";
+                image = new Bitmap("snake.jpg");
+            }
+        }
+
+        public class Elephant : Animal
+        {
+            public Elephant()
+            {
+                name = "Elephant";
+                family = "Herbivore";
+                food = "Fruit";
+                image = new Bitmap("elephant.jpg");
             }
         }
     }

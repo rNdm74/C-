@@ -5,3 +5,10 @@
 \\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\WorldAnimals\WorldAnimals\bin\Debug\WorldAnimals.pdb
 \\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\WorldAnimals\WorldAnimals\obj\x86\Debug\WorldAnimals.exe
 \\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\WorldAnimals\WorldAnimals\obj\x86\Debug\WorldAnimals.pdb
+E:\Work\C-\WorldAnimals\WorldAnimals\obj\x86\Debug\WorldAnimals.exe
+E:\Work\C-\WorldAnimals\WorldAnimals\obj\x86\Debug\WorldAnimals.pdb
+E:\Work\C-\WorldAnimals\WorldAnimals\bin\Debug\WorldAnimals.exe
+E:\Work\C-\WorldAnimals\WorldAnimals\bin\Debug\WorldAnimals.pdb
+E:\Work\C-\WorldAnimals\WorldAnimals\obj\x86\Debug\WorldAnimals.Form1.resources
+E:\Work\C-\WorldAnimals\WorldAnimals\obj\x86\Debug\WorldAnimals.Properties.Resources.resources
+E:\Work\C-\WorldAnimals\WorldAnimals\obj\x86\Debug\WorldAnimals.csproj.GenerateResource.Cache
