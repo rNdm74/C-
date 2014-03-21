@@ -9,7 +9,9 @@ namespace Computer_Builder
     {
         public interface IComputerFactory
         {
-            Computer BuildComputer();
+            PartsHierarchy.Part GetCpu();
+            PartsHierarchy.Part GetRam();
+            PartsHierarchy.Part GetGpu();
         }
 
         public abstract class ComputerFactory
@@ -24,72 +26,55 @@ namespace Computer_Builder
 
         public class BusinessFactory : ComputerFactory, IComputerFactory
         {
-            public Computer BuildComputer()
+            public PartsHierarchy.Part GetCpu()
             {
-                return new Computer
-                (
-                    partFactory.getPart(PART.CPU_SINGLE_CORE),
-                    partFactory.getPart(PART.RAM_2GB),
-                    partFactory.getPart(PART.GPU_INTEL)
-                );
+                return partFactory.getPart(PART.CPU_SINGLE_CORE);
+            }
+
+            public PartsHierarchy.Part GetRam()
+            {
+                return partFactory.getPart(PART.RAM_2GB);
+            }
+
+            public PartsHierarchy.Part GetGpu()
+            {
+                return partFactory.getPart(PART.GPU_INTEL);
             }
         }
 
         public class GamingFactory : ComputerFactory, IComputerFactory
         {
-            public Computer BuildComputer()
+            public PartsHierarchy.Part GetCpu()
             {
-                return new Computer
-                (
-                    partFactory.getPart(PART.CPU_QUAD_CORE),
-                    partFactory.getPart(PART.RAM_8GB),
-                    partFactory.getPart(PART.GPU_NVIDIA)
-                );
+                return partFactory.getPart(PART.CPU_QUAD_CORE);
+            }
+
+            public PartsHierarchy.Part GetRam()
+            {
+                return partFactory.getPart(PART.RAM_8GB);
+            }
+
+            public PartsHierarchy.Part GetGpu()
+            {
+                return partFactory.getPart(PART.GPU_NVIDIA);
             }
         }
 
         public class MediaFactory : ComputerFactory, IComputerFactory
         {
-            public Computer BuildComputer()
+            public PartsHierarchy.Part GetCpu()
             {
-                return new Computer
-                (
-                    partFactory.getPart(PART.CPU_DUAL_CORE),
-                    partFactory.getPart(PART.RAM_4GB),
-                    partFactory.getPart(PART.GPU_ATI)
-                );
-            }
-        }
-
-        public class Computer
-        {
-            protected PartsHierarchy.Part cpu;
-            protected PartsHierarchy.Part ram;
-            protected PartsHierarchy.Part gpu;
-
-            public Computer(PartsHierarchy.Part cpu, PartsHierarchy.Part ram, PartsHierarchy.Part gpu)
-            {
-                this.cpu = cpu;
-                this.ram = ram;
-                this.gpu = gpu;
+                return partFactory.getPart(PART.CPU_DUAL_CORE);
             }
 
-            // Accessors - READ ONLY
-            public string Cpu
-            { 
-                get{ return cpu.ToString();}
-            }
-            public string Ram 
-            { 
-                get { return ram.ToString(); } 
-            }
-            public string Gpu 
-            { 
-                get { return gpu.ToString(); } 
-            }
-            public int TotalPrice()
+            public PartsHierarchy.Part GetRam()
             {
-                return cpu.Price + ram.Price + gpu.Price;
+                return partFactory.getPart(PART.RAM_4GB);
+            }
+
+            public PartsHierarchy.Part GetGpu()
+            {
+                return partFactory.getPart(PART.GPU_ATI);
             }
         }
     }

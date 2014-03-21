@@ -44,13 +44,18 @@ namespace Computer_Builder
         }
 
         public void display()
-        {            
-            ComputerHierarchy.Computer computer = computerFactory.BuildComputer();
-            listBox.Items.Add("Price\tComponent");
+        {
+            PartsHierarchy.Part cpu = computerFactory.GetCpu();
+            PartsHierarchy.Part ram = computerFactory.GetRam();
+            PartsHierarchy.Part gpu = computerFactory.GetGpu();
+
+            listBox.Items.Add("Price\tComponent\tSpeed");
             listBox.Items.Add("---------------------------------------------------------------------------------------------");
-            listBox.Items.AddRange(new string[]{computer.Cpu, computer.Ram, computer.Gpu});
+            listBox.Items.Add(cpu.ToString());
+            listBox.Items.Add(ram.ToString());
+            listBox.Items.Add(gpu.ToString());
             listBox.Items.Add("---------------------------------------------------------------------------------------------");
-            listBox.Items.Add("Total Price: " + computer.TotalPrice());
+            listBox.Items.Add("Total Price: " + (cpu.Price + ram.Price + gpu.Price));
         }
     }
 }
