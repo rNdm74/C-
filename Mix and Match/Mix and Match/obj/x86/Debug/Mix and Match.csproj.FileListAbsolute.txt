@@ -1,0 +1,7 @@
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\Mix and Match\Mix and Match\bin\Debug\Mix and Match.exe
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\Mix and Match\Mix and Match\bin\Debug\Mix and Match.pdb
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\Mix and Match\Mix and Match\obj\x86\Debug\Mix_and_Match.Form1.resources
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\Mix and Match\Mix and Match\obj\x86\Debug\Mix_and_Match.Properties.Resources.resources
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\Mix and Match\Mix and Match\obj\x86\Debug\Mix and Match.csproj.GenerateResource.Cache
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\Mix and Match\Mix and Match\obj\x86\Debug\Mix and Match.exe
+\\vmware-host\Shared Folders\Documents\Visual Studio 2010\Projects\Mix and Match\Mix and Match\obj\x86\Debug\Mix and Match.pdb
