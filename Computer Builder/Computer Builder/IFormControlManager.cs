@@ -8,43 +8,23 @@ using System.Windows.Forms;
 namespace Computer_Builder
 {
     interface IFormControlManager
-    {        
-        void update(string selectedContinent);
-        void draw();
+    {
+        void update(COMPUTER computerType);
+        void display();
     }
 
-    //======================================================================
-    // Modify when adding new continent: Continent Constants, Update method
-    //======================================================================
     public class FormControlManager : IFormControlManager
-    {
-        // Continent Constants
-        private const string    NORTH_AMERICA           = "North America";
-        private const string    AUSTRALIA               = "Australia";
-        private const string    AFRICA                  = "Africa";
-        // Draw Constants
-        private const int       MAX_DISPLAY_ANIMALS     = 4;
-        private const int       X                       = 20;
-        private const int       Y                       = 20;
-        private const int       WIDTH                   = 150;
-        private const int       HEIGHT                  = 100;
-        
+    {                
         // Variables
-        private Random rGen;
-        private Graphics canvas;
         private ListBox listBox;  
       
-        //private FactroyHierarchy.IAnimalFactory animalFactory;
+        private ComputerHierarchy.IComputerFactory computerFactory;
 
         public FormControlManager(ListBox listBox)
         {
-            this.rGen = new Random();
             this.listBox = listBox; 
         }
-
-        //=======================================================================
-        // If extra continents need to be added please add another if(statement) 
-        //=======================================================================
+        
         public void update(COMPUTER computerType)
         {
             listBox.Items.Clear();
@@ -52,26 +32,25 @@ namespace Computer_Builder
             switch (computerType)
             {
                 case COMPUTER.BUSINESS:
-                    computerFactory = new 
+                    computerFactory = new ComputerHierarchy.BusinessFactory();
                     break;
                 case COMPUTER.GAMING:
+                    computerFactory = new ComputerHierarchy.GamingFactory();
                     break;
                 case COMPUTER.MEDIA:
+                    computerFactory = new ComputerHierarchy.MediaFactory();
                     break;
             }     
         }
 
-        public void draw()
-        {
-            for (int i = 0; i < MAX_DISPLAY_ANIMALS; i++)
-            {
-                // Create an animal based on contenint
-                AnimalHierarchy.Animal animal = animalFactory.createAnimal(rGen);
-                // Add to listbox
-                listBox.Items.Add(animal.ToString());
-                // Draw its image vertically
-                canvas.DrawImage(animal.Image, X, Y + (HEIGHT * i), WIDTH, HEIGHT);
-            }
+        public void display()
+        {            
+            ComputerHierarchy.Computer computer = computerFactory.BuildComputer();
+            listBox.Items.Add("Price\tComponent");
+            listBox.Items.Add("---------------------------------------------------------------------------------------------");
+            listBox.Items.AddRange(new string[]{computer.Cpu, computer.Ram, computer.Gpu});
+            listBox.Items.Add("---------------------------------------------------------------------------------------------");
+            listBox.Items.Add("Total Price: " + computer.TotalPrice());
         }
     }
 }

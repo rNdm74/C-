@@ -1,0 +1,7 @@
+E:\Work\C-\Computer Builder\Computer Builder\obj\x86\Debug\Computer_Builder.Form1.resources
+E:\Work\C-\Computer Builder\Computer Builder\obj\x86\Debug\Computer_Builder.Properties.Resources.resources
+E:\Work\C-\Computer Builder\Computer Builder\obj\x86\Debug\Computer Builder.csproj.GenerateResource.Cache
+E:\Work\C-\Computer Builder\Computer Builder\bin\Debug\Computer Builder.exe
+E:\Work\C-\Computer Builder\Computer Builder\bin\Debug\Computer Builder.pdb
+E:\Work\C-\Computer Builder\Computer Builder\obj\x86\Debug\Computer Builder.exe
+E:\Work\C-\Computer Builder\Computer Builder\obj\x86\Debug\Computer Builder.pdb

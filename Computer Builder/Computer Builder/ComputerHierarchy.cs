@@ -6,39 +6,90 @@ using System.Text;
 namespace Computer_Builder
 {
     class ComputerHierarchy
-    {   
-        public abstract class Computer
+    {
+        public interface IComputerFactory
+        {
+            Computer BuildComputer();
+        }
+
+        public abstract class ComputerFactory
+        {
+            protected PartsHierarchy.PartFactory partFactory;
+
+            public ComputerFactory() 
+            {
+                partFactory = new PartsHierarchy.PartFactory();
+            }
+        }
+
+        public class BusinessFactory : ComputerFactory, IComputerFactory
+        {
+            public Computer BuildComputer()
+            {
+                return new Computer
+                (
+                    partFactory.getPart(PART.CPU_SINGLE_CORE),
+                    partFactory.getPart(PART.RAM_2GB),
+                    partFactory.getPart(PART.GPU_INTEL)
+                );
+            }
+        }
+
+        public class GamingFactory : ComputerFactory, IComputerFactory
+        {
+            public Computer BuildComputer()
+            {
+                return new Computer
+                (
+                    partFactory.getPart(PART.CPU_QUAD_CORE),
+                    partFactory.getPart(PART.RAM_8GB),
+                    partFactory.getPart(PART.GPU_NVIDIA)
+                );
+            }
+        }
+
+        public class MediaFactory : ComputerFactory, IComputerFactory
+        {
+            public Computer BuildComputer()
+            {
+                return new Computer
+                (
+                    partFactory.getPart(PART.CPU_DUAL_CORE),
+                    partFactory.getPart(PART.RAM_4GB),
+                    partFactory.getPart(PART.GPU_ATI)
+                );
+            }
+        }
+
+        public class Computer
         {
             protected PartsHierarchy.Part cpu;
             protected PartsHierarchy.Part ram;
             protected PartsHierarchy.Part gpu;
-        }
 
-        public class Business : Computer
-        {
-            public Business()
+            public Computer(PartsHierarchy.Part cpu, PartsHierarchy.Part ram, PartsHierarchy.Part gpu)
             {
-                cpu = new PartsHierarchy.SingleCore();
-                ram = new PartsHierarchy.Ram2GB();
-                gpu = new PartsHierarchy.IntelGpu();
+                this.cpu = cpu;
+                this.ram = ram;
+                this.gpu = gpu;
             }
-        }
-        public class Gaming : Computer
-        {
-            public Gaming()
-            {
-                cpu = new PartsHierarchy.QuadCore();
-                ram = new PartsHierarchy.Ram8GB();
-                gpu = new PartsHierarchy.NvidiaGpu();
+
+            // Accessors - READ ONLY
+            public string Cpu
+            { 
+                get{ return cpu.ToString();}
             }
-        }
-        public class Media : Computer
-        {
-            public Media()
+            public string Ram 
+            { 
+                get { return ram.ToString(); } 
+            }
+            public string Gpu 
+            { 
+                get { return gpu.ToString(); } 
+            }
+            public int TotalPrice()
             {
-                cpu = new PartsHierarchy.DualCore();
-                ram = new PartsHierarchy.Ram4GB();
-                gpu = new PartsHierarchy.ATIGpu();
+                return cpu.Price + ram.Price + gpu.Price;
             }
         }
     }
