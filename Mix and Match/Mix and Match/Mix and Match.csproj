@@ -52,7 +52,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="IFormControlManager.cs" />
     <Compile Include="CharacterMaker.cs" />
     <Compile Include="MakerFactory.cs" />
     <Compile Include="Program.cs" />

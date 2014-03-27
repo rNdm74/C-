@@ -11,6 +11,11 @@ namespace Mix_and_Match
 {
     public partial class Form1 : Form
     {
+        /// <summary>
+        /// To add a new Character
+        /// add the name to the CHARACTERS array 
+        /// add your image to the debug folder
+        /// </summary>
         private string[] CHARACTERS = new string[] 
         {
             "Fairy", 
@@ -60,6 +65,7 @@ namespace Mix_and_Match
 
         private void makeMonster()
         {
+            // Loads the images of body parts to the pictureboxs
             pbHead.Image = makerFactory.createCharacterMaker(cbHead.Text).HeadImage();
             pbBody.Image = makerFactory.createCharacterMaker(cbBody.Text).BodyImage();
             pbLegs.Image = makerFactory.createCharacterMaker(cbLegs.Text).LegsImage();

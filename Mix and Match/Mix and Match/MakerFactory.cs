@@ -5,7 +5,12 @@ using System.Text;
 
 namespace Mix_and_Match
 {
-    class MakerFactory
+    interface Factory
+    {
+        CharacterMaker createCharacterMaker(string characterType);
+    }
+
+    class MakerFactory : Factory
     {
         public CharacterMaker createCharacterMaker(string characterType)
         {

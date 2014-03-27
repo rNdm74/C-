@@ -6,7 +6,14 @@ using System.Drawing;
 
 namespace Mix_and_Match
 {
-    class CharacterMaker
+    interface Maker
+    {
+        Bitmap HeadImage();
+        Bitmap BodyImage();
+        Bitmap LegsImage();
+    }
+
+    class CharacterMaker : Maker
     {
         protected string characterLabel;
         

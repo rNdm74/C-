@@ -5,3 +5,10 @@ E:\Work\C-\Computer Builder\Computer Builder\bin\Debug\Computer Builder.exe
 E:\Work\C-\Computer Builder\Computer Builder\bin\Debug\Computer Builder.pdb
 E:\Work\C-\Computer Builder\Computer Builder\obj\x86\Debug\Computer Builder.exe
 E:\Work\C-\Computer Builder\Computer Builder\obj\x86\Debug\Computer Builder.pdb
+V:\C-\Computer Builder\Computer Builder\obj\x86\Debug\Computer Builder.exe
+V:\C-\Computer Builder\Computer Builder\obj\x86\Debug\Computer Builder.pdb
+V:\C-\Computer Builder\Computer Builder\bin\Debug\Computer Builder.exe
+V:\C-\Computer Builder\Computer Builder\bin\Debug\Computer Builder.pdb
+V:\C-\Computer Builder\Computer Builder\obj\x86\Debug\Computer_Builder.Form1.resources
+V:\C-\Computer Builder\Computer Builder\obj\x86\Debug\Computer_Builder.Properties.Resources.resources
+V:\C-\Computer Builder\Computer Builder\obj\x86\Debug\Computer Builder.csproj.GenerateResource.Cache
