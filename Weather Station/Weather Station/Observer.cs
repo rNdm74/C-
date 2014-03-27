@@ -52,6 +52,16 @@ namespace ObserverPattern_Bicycle
             currentComputedValue = (double)data;
             Display();
         }
+
+        public override void Display()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Compute()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     class Cph : Observer
@@ -63,6 +73,16 @@ namespace ObserverPattern_Bicycle
         {
             currentComputedValue = (double)data * FACTOR;
             Display();
+        }
+
+        public override void Display()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Compute()
+        {
+            throw new NotImplementedException();
         }
     }
 
@@ -89,6 +109,16 @@ namespace ObserverPattern_Bicycle
             //currentComputedValue = currentComputedValue / KILOMETER;
 
             Display();
+        }
+
+        public override void Display()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Compute()
+        {
+            throw new NotImplementedException();
         }
     }
 }
