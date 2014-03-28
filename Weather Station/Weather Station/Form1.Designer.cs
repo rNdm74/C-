@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.gbUpdateMeasurements = new System.Windows.Forms.GroupBox();
+            this.lBPressure = new System.Windows.Forms.Label();
+            this.lHumidity = new System.Windows.Forms.Label();
+            this.lTemperature = new System.Windows.Forms.Label();
+            this.nBPressure = new System.Windows.Forms.NumericUpDown();
+            this.nHumidity = new System.Windows.Forms.NumericUpDown();
+            this.nTemperature = new System.Windows.Forms.NumericUpDown();
+            this.bUpdateMeasurements = new System.Windows.Forms.Button();
             this.lbCurrentReadings = new System.Windows.Forms.ListBox();
             this.lbAverageReadings = new System.Windows.Forms.ListBox();
             this.lbForecast = new System.Windows.Forms.ListBox();
             this.lCurrentReadings = new System.Windows.Forms.Label();
             this.lAverageReadings = new System.Windows.Forms.Label();
             this.lForecast = new System.Windows.Forms.Label();
-            this.bUpdateMeasurements = new System.Windows.Forms.Button();
-            this.nTemperature = new System.Windows.Forms.NumericUpDown();
-            this.nHumidity = new System.Windows.Forms.NumericUpDown();
-            this.nBPressure = new System.Windows.Forms.NumericUpDown();
-            this.lTemperature = new System.Windows.Forms.Label();
-            this.lHumidity = new System.Windows.Forms.Label();
-            this.lBPressure = new System.Windows.Forms.Label();
             this.gbUpdateMeasurements.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nTemperature)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nHumidity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nBPressure)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nHumidity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nTemperature)).BeginInit();
             this.SuspendLayout();
             // 
             // gbUpdateMeasurements
@@ -63,6 +63,89 @@
             this.gbUpdateMeasurements.TabIndex = 0;
             this.gbUpdateMeasurements.TabStop = false;
             this.gbUpdateMeasurements.Text = "Update Measurements";
+            // 
+            // lBPressure
+            // 
+            this.lBPressure.AutoSize = true;
+            this.lBPressure.Location = new System.Drawing.Point(24, 320);
+            this.lBPressure.Name = "lBPressure";
+            this.lBPressure.Size = new System.Drawing.Size(125, 13);
+            this.lBPressure.TabIndex = 6;
+            this.lBPressure.Text = "Barometric Pressure (mB)";
+            // 
+            // lHumidity
+            // 
+            this.lHumidity.AutoSize = true;
+            this.lHumidity.Location = new System.Drawing.Point(24, 224);
+            this.lHumidity.Name = "lHumidity";
+            this.lHumidity.Size = new System.Drawing.Size(64, 13);
+            this.lHumidity.TabIndex = 5;
+            this.lHumidity.Text = "Humidity (%)";
+            // 
+            // lTemperature
+            // 
+            this.lTemperature.AutoSize = true;
+            this.lTemperature.Location = new System.Drawing.Point(24, 135);
+            this.lTemperature.Name = "lTemperature";
+            this.lTemperature.Size = new System.Drawing.Size(83, 13);
+            this.lTemperature.TabIndex = 4;
+            this.lTemperature.Text = "Temperature (C)";
+            // 
+            // nBPressure
+            // 
+            this.nBPressure.Location = new System.Drawing.Point(24, 339);
+            this.nBPressure.Maximum = new decimal(new int[] {
+            1050,
+            0,
+            0,
+            0});
+            this.nBPressure.Minimum = new decimal(new int[] {
+            980,
+            0,
+            0,
+            0});
+            this.nBPressure.Name = "nBPressure";
+            this.nBPressure.Size = new System.Drawing.Size(198, 20);
+            this.nBPressure.TabIndex = 3;
+            this.nBPressure.Value = new decimal(new int[] {
+            987,
+            0,
+            0,
+            0});
+            // 
+            // nHumidity
+            // 
+            this.nHumidity.Location = new System.Drawing.Point(24, 243);
+            this.nHumidity.Name = "nHumidity";
+            this.nHumidity.Size = new System.Drawing.Size(198, 20);
+            this.nHumidity.TabIndex = 2;
+            this.nHumidity.Value = new decimal(new int[] {
+            85,
+            0,
+            0,
+            0});
+            // 
+            // nTemperature
+            // 
+            this.nTemperature.Location = new System.Drawing.Point(24, 155);
+            this.nTemperature.Name = "nTemperature";
+            this.nTemperature.Size = new System.Drawing.Size(198, 20);
+            this.nTemperature.TabIndex = 1;
+            this.nTemperature.Value = new decimal(new int[] {
+            17,
+            0,
+            0,
+            0});
+            // 
+            // bUpdateMeasurements
+            // 
+            this.bUpdateMeasurements.Location = new System.Drawing.Point(24, 36);
+            this.bUpdateMeasurements.Name = "bUpdateMeasurements";
+            this.bUpdateMeasurements.Size = new System.Drawing.Size(198, 44);
+            this.bUpdateMeasurements.TabIndex = 0;
+            this.bUpdateMeasurements.Text = "Update Measurements";
+            this.bUpdateMeasurements.UseVisualStyleBackColor = true;
+            this.bUpdateMeasurements.Click += new System.EventHandler(this.bUpdateMeasurements_Click);
             // 
             // lbCurrentReadings
             // 
@@ -115,63 +198,6 @@
             this.lForecast.TabIndex = 6;
             this.lForecast.Text = "Forecast";
             // 
-            // bUpdateMeasurements
-            // 
-            this.bUpdateMeasurements.Location = new System.Drawing.Point(24, 36);
-            this.bUpdateMeasurements.Name = "bUpdateMeasurements";
-            this.bUpdateMeasurements.Size = new System.Drawing.Size(198, 44);
-            this.bUpdateMeasurements.TabIndex = 0;
-            this.bUpdateMeasurements.Text = "Update Measurements";
-            this.bUpdateMeasurements.UseVisualStyleBackColor = true;
-            // 
-            // nTemperature
-            // 
-            this.nTemperature.Location = new System.Drawing.Point(24, 155);
-            this.nTemperature.Name = "nTemperature";
-            this.nTemperature.Size = new System.Drawing.Size(198, 20);
-            this.nTemperature.TabIndex = 1;
-            // 
-            // nHumidity
-            // 
-            this.nHumidity.Location = new System.Drawing.Point(24, 243);
-            this.nHumidity.Name = "nHumidity";
-            this.nHumidity.Size = new System.Drawing.Size(198, 20);
-            this.nHumidity.TabIndex = 2;
-            // 
-            // nBPressure
-            // 
-            this.nBPressure.Location = new System.Drawing.Point(24, 339);
-            this.nBPressure.Name = "nBPressure";
-            this.nBPressure.Size = new System.Drawing.Size(198, 20);
-            this.nBPressure.TabIndex = 3;
-            // 
-            // lTemperature
-            // 
-            this.lTemperature.AutoSize = true;
-            this.lTemperature.Location = new System.Drawing.Point(24, 135);
-            this.lTemperature.Name = "lTemperature";
-            this.lTemperature.Size = new System.Drawing.Size(83, 13);
-            this.lTemperature.TabIndex = 4;
-            this.lTemperature.Text = "Temperature (C)";
-            // 
-            // lHumidity
-            // 
-            this.lHumidity.AutoSize = true;
-            this.lHumidity.Location = new System.Drawing.Point(24, 224);
-            this.lHumidity.Name = "lHumidity";
-            this.lHumidity.Size = new System.Drawing.Size(64, 13);
-            this.lHumidity.TabIndex = 5;
-            this.lHumidity.Text = "Humidity (%)";
-            // 
-            // lBPressure
-            // 
-            this.lBPressure.AutoSize = true;
-            this.lBPressure.Location = new System.Drawing.Point(24, 320);
-            this.lBPressure.Name = "lBPressure";
-            this.lBPressure.Size = new System.Drawing.Size(125, 13);
-            this.lBPressure.TabIndex = 6;
-            this.lBPressure.Text = "Barometric Pressure (mB)";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,11 +212,12 @@
             this.Controls.Add(this.gbUpdateMeasurements);
             this.Name = "Form1";
             this.Text = "Weather Station";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.gbUpdateMeasurements.ResumeLayout(false);
             this.gbUpdateMeasurements.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nTemperature)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nHumidity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nBPressure)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nHumidity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nTemperature)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

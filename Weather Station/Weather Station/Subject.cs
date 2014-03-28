@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ObserverPattern_Bicycle
+namespace Weather_Station
 {
     interface ISubject
     {
@@ -27,12 +27,13 @@ namespace ObserverPattern_Bicycle
         }
 
 
-        public void ChangeSpeed(int temp, int humidity, int pressure)
+        public void UpdateData(int temp, int humidity, int pressure)
         {
             this.temp = temp;
             this.humidity = humidity;
             this.pressure = pressure;
         }
+
         public void AddObserver(IObserver o)
         {
             observerList.Add(o);

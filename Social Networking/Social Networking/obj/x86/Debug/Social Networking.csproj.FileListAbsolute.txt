@@ -1,0 +1,7 @@
+E:\Work\C-\Social Networking\Social Networking\bin\Debug\Social Networking.exe
+E:\Work\C-\Social Networking\Social Networking\bin\Debug\Social Networking.pdb
+E:\Work\C-\Social Networking\Social Networking\obj\x86\Debug\Social_Networking.Form1.resources
+E:\Work\C-\Social Networking\Social Networking\obj\x86\Debug\Social_Networking.Properties.Resources.resources
+E:\Work\C-\Social Networking\Social Networking\obj\x86\Debug\Social Networking.csproj.GenerateResource.Cache
+E:\Work\C-\Social Networking\Social Networking\obj\x86\Debug\Social Networking.exe
+E:\Work\C-\Social Networking\Social Networking\obj\x86\Debug\Social Networking.pdb

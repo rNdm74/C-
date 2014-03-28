@@ -1,0 +1,7 @@
+E:\Work\C-\Weather Station\Weather Station\obj\x86\Debug\Weather_Station.Form1.resources
+E:\Work\C-\Weather Station\Weather Station\obj\x86\Debug\Weather_Station.Properties.Resources.resources
+E:\Work\C-\Weather Station\Weather Station\obj\x86\Debug\Weather Station.csproj.GenerateResource.Cache
+E:\Work\C-\Weather Station\Weather Station\bin\Debug\Weather Station.exe
+E:\Work\C-\Weather Station\Weather Station\bin\Debug\Weather Station.pdb
+E:\Work\C-\Weather Station\Weather Station\obj\x86\Debug\Weather Station.exe
+E:\Work\C-\Weather Station\Weather Station\obj\x86\Debug\Weather Station.pdb

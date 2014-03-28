@@ -6,3 +6,5 @@ V:\C-\ObserverPattern_Bicycle\ObserverPattern_Bicycle\obj\x86\Debug\ObserverPatt
 V:\C-\ObserverPattern_Bicycle\ObserverPattern_Bicycle\obj\x86\Debug\ObserverPattern_Bicycle.exe
 V:\C-\ObserverPattern_Bicycle\ObserverPattern_Bicycle\obj\x86\Debug\ObserverPattern_Bicycle.pdb
 V:\C-\ObserverPattern_Bicycle\ObserverPattern_Bicycle\obj\x86\Debug\ObserverPattern_Bicycle.csprojResolveAssemblyReference.cache
+E:\Work\C-\ObserverPattern_Bicycle\ObserverPattern_Bicycle\obj\x86\Debug\ObserverPattern_Bicycle.exe
+E:\Work\C-\ObserverPattern_Bicycle\ObserverPattern_Bicycle\obj\x86\Debug\ObserverPattern_Bicycle.pdb
