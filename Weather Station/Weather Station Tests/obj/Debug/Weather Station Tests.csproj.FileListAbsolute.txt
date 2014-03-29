@@ -1,0 +1,7 @@
+E:\Work\C-\Weather Station\Weather Station Tests\obj\Debug\Weather Station Tests.csprojResolveAssemblyReference.cache
+E:\Work\C-\Weather Station\Weather Station Tests\bin\Debug\Weather Station Tests.dll
+E:\Work\C-\Weather Station\Weather Station Tests\bin\Debug\Weather Station Tests.pdb
+E:\Work\C-\Weather Station\Weather Station Tests\bin\Debug\Weather Station.exe
+E:\Work\C-\Weather Station\Weather Station Tests\bin\Debug\Weather Station.pdb
+E:\Work\C-\Weather Station\Weather Station Tests\obj\Debug\Weather Station Tests.dll
+E:\Work\C-\Weather Station\Weather Station Tests\obj\Debug\Weather Station Tests.pdb

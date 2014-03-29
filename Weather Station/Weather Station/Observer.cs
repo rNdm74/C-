@@ -10,7 +10,7 @@ namespace Weather_Station
     {
         void Update(int temp, int humidity, int bPressure);
         void Display();
-        void Compute(int temp, int humidity, int bPressure);
+        double Compute(int newValue, double avgValue, int count);
     }
 
     abstract class Observer : IObserver
@@ -33,9 +33,10 @@ namespace Weather_Station
 
         public abstract void Update(int temp, int humidity, int bPressure);
         public abstract void Display();
-        public virtual void Compute(int temp, int humidity, int bPressure)
+        public virtual double Compute(int newValue, double avgValue, int count)
         {
             // Does nothing
+            return 0;
         }
     }
 
@@ -76,7 +77,7 @@ namespace Weather_Station
 
         public override void Update(int temp, int humidity, int bPressure)
         {
-            Compute(temp, humidity, bPressure);
+            SetAverages(temp, humidity, bPressure);
             Display();
         }
 
@@ -88,12 +89,17 @@ namespace Weather_Station
             display.Items.Add("Average Pressure: " + avgBPressure.ToString("F2"));
         }
 
-        public override void Compute(int temp, int humidity, int bPressure)
+        private void SetAverages(int temp, int humidity, int bPressure)
         {
             count++;
-            avgTemp += (temp - avgTemp) / count;
-            avgHumidity += (humidity - avgHumidity) / count;
-            avgBPressure += (bPressure - avgBPressure) / count;
+            avgTemp += Compute(temp, avgTemp, count);
+            avgHumidity += Compute(humidity, avgHumidity, count);
+            avgBPressure += Compute(bPressure, avgBPressure, count);
+        }
+
+        public override double Compute(int newValue, double avgValue, int count) 
+        {
+            return (newValue - avgValue) / count;
         }
     }
 
