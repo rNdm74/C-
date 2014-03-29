@@ -13,6 +13,9 @@ namespace Weather_Station
         double Compute(int newValue, double avgValue, int count);
     }
 
+    /// <summary>
+    /// Abstract Observer Interface
+    /// </summary>
     abstract class Observer : IObserver
     {
         protected int temp, humidity, bPressure;
@@ -40,6 +43,9 @@ namespace Weather_Station
         }
     }
 
+    /// <summary>
+    /// Current Readings
+    /// </summary>
     class CurrentReadings : Observer
     {
         public CurrentReadings(ListBox display, ISubject subject)
@@ -63,6 +69,9 @@ namespace Weather_Station
         }
     }
 
+    /// <summary>
+    /// Calculates the average readings
+    /// </summary>
     class AverageReadings : Observer
     {
         private int count;
@@ -103,6 +112,9 @@ namespace Weather_Station
         }
     }
 
+    /// <summary>
+    /// Displays the weather forecast
+    /// </summary>
     class Forecast : Observer 
     {
         private Random rGen;
