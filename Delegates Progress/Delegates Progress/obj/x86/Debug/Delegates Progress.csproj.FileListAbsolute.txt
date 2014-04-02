@@ -5,3 +5,10 @@ V:\C-\Delegates Progress\Delegates Progress\obj\x86\Debug\Delegates_Progress.Pro
 V:\C-\Delegates Progress\Delegates Progress\obj\x86\Debug\Delegates Progress.csproj.GenerateResource.Cache
 V:\C-\Delegates Progress\Delegates Progress\obj\x86\Debug\Delegates Progress.exe
 V:\C-\Delegates Progress\Delegates Progress\obj\x86\Debug\Delegates Progress.pdb
+E:\Work\C-\Delegates Progress\Delegates Progress\obj\x86\Debug\Delegates Progress.exe
+E:\Work\C-\Delegates Progress\Delegates Progress\obj\x86\Debug\Delegates Progress.pdb
+E:\Work\C-\Delegates Progress\Delegates Progress\bin\Debug\Delegates Progress.exe
+E:\Work\C-\Delegates Progress\Delegates Progress\bin\Debug\Delegates Progress.pdb
+E:\Work\C-\Delegates Progress\Delegates Progress\obj\x86\Debug\Delegates_Progress.Form1.resources
+E:\Work\C-\Delegates Progress\Delegates Progress\obj\x86\Debug\Delegates_Progress.Properties.Resources.resources
+E:\Work\C-\Delegates Progress\Delegates Progress\obj\x86\Debug\Delegates Progress.csproj.GenerateResource.Cache

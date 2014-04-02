@@ -30,9 +30,9 @@
         {
             this.bStart = new System.Windows.Forms.Button();
             this.gbFeedBack = new System.Windows.Forms.GroupBox();
-            this.rbSpinBox = new System.Windows.Forms.RadioButton();
-            this.rbProgressBar = new System.Windows.Forms.RadioButton();
             this.rbTrackBar = new System.Windows.Forms.RadioButton();
+            this.rbProgressBar = new System.Windows.Forms.RadioButton();
+            this.rbSpinBox = new System.Windows.Forms.RadioButton();
             this.pBar = new System.Windows.Forms.ProgressBar();
             this.nUpDown = new System.Windows.Forms.NumericUpDown();
             this.tBar = new System.Windows.Forms.TrackBar();
@@ -67,6 +67,28 @@
             this.gbFeedBack.TabStop = false;
             this.gbFeedBack.Text = "Feedback";
             // 
+            // rbTrackBar
+            // 
+            this.rbTrackBar.AutoSize = true;
+            this.rbTrackBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbTrackBar.Location = new System.Drawing.Point(31, 157);
+            this.rbTrackBar.Name = "rbTrackBar";
+            this.rbTrackBar.Size = new System.Drawing.Size(123, 29);
+            this.rbTrackBar.TabIndex = 2;
+            this.rbTrackBar.Text = "Track Bar";
+            this.rbTrackBar.UseVisualStyleBackColor = true;
+            // 
+            // rbProgressBar
+            // 
+            this.rbProgressBar.AutoSize = true;
+            this.rbProgressBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbProgressBar.Location = new System.Drawing.Point(31, 103);
+            this.rbProgressBar.Name = "rbProgressBar";
+            this.rbProgressBar.Size = new System.Drawing.Size(155, 29);
+            this.rbProgressBar.TabIndex = 1;
+            this.rbProgressBar.Text = "Progress Bar";
+            this.rbProgressBar.UseVisualStyleBackColor = true;
+            // 
             // rbSpinBox
             // 
             this.rbSpinBox.AutoSize = true;
@@ -80,39 +102,24 @@
             this.rbSpinBox.Text = "Spin Box";
             this.rbSpinBox.UseVisualStyleBackColor = true;
             // 
-            // rbProgressBar
-            // 
-            this.rbProgressBar.AutoSize = true;
-            this.rbProgressBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbProgressBar.Location = new System.Drawing.Point(31, 103);
-            this.rbProgressBar.Name = "rbProgressBar";
-            this.rbProgressBar.Size = new System.Drawing.Size(155, 29);
-            this.rbProgressBar.TabIndex = 1;
-            this.rbProgressBar.Text = "Progress Bar";
-            this.rbProgressBar.UseVisualStyleBackColor = true;
-            // 
-            // rbTrackBar
-            // 
-            this.rbTrackBar.AutoSize = true;
-            this.rbTrackBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbTrackBar.Location = new System.Drawing.Point(31, 157);
-            this.rbTrackBar.Name = "rbTrackBar";
-            this.rbTrackBar.Size = new System.Drawing.Size(123, 29);
-            this.rbTrackBar.TabIndex = 2;
-            this.rbTrackBar.Text = "Track Bar";
-            this.rbTrackBar.UseVisualStyleBackColor = true;
-            // 
             // pBar
             // 
             this.pBar.Location = new System.Drawing.Point(6, 100);
+            this.pBar.Maximum = 10;
             this.pBar.Name = "pBar";
             this.pBar.Size = new System.Drawing.Size(286, 32);
+            this.pBar.Step = 1;
             this.pBar.TabIndex = 2;
             // 
             // nUpDown
             // 
             this.nUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nUpDown.Location = new System.Drawing.Point(6, 46);
+            this.nUpDown.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.nUpDown.Name = "nUpDown";
             this.nUpDown.Size = new System.Drawing.Size(286, 31);
             this.nUpDown.TabIndex = 3;

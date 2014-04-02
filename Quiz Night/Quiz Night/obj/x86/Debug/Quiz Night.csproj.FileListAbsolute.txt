@@ -5,3 +5,10 @@ V:\C-\Quiz Night\Quiz Night\bin\Debug\Quiz Night.exe
 V:\C-\Quiz Night\Quiz Night\bin\Debug\Quiz Night.pdb
 V:\C-\Quiz Night\Quiz Night\obj\x86\Debug\Quiz Night.exe
 V:\C-\Quiz Night\Quiz Night\obj\x86\Debug\Quiz Night.pdb
+E:\Work\C-\Quiz Night\Quiz Night\obj\x86\Debug\Quiz Night.exe
+E:\Work\C-\Quiz Night\Quiz Night\obj\x86\Debug\Quiz Night.pdb
+E:\Work\C-\Quiz Night\Quiz Night\bin\Debug\Quiz Night.exe
+E:\Work\C-\Quiz Night\Quiz Night\bin\Debug\Quiz Night.pdb
+E:\Work\C-\Quiz Night\Quiz Night\obj\x86\Debug\Quiz_Night.Form1.resources
+E:\Work\C-\Quiz Night\Quiz Night\obj\x86\Debug\Quiz_Night.Properties.Resources.resources
+E:\Work\C-\Quiz Night\Quiz Night\obj\x86\Debug\Quiz Night.csproj.GenerateResource.Cache

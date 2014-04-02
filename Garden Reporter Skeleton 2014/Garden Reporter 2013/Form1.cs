@@ -11,7 +11,9 @@ namespace Garden_Reporter_2013
 {
     public partial class Form1 : Form
     {
-        // Modify if required after you write the GardenManager ctor.
+        //====================================================
+        // Private data fields
+        //====================================================
         GardenManager mainManager = new GardenManager();
         private delegate string Reporter(Garden garden);
         private Reporter gardenReport;
@@ -28,6 +30,9 @@ namespace Garden_Reporter_2013
             populateDummyData();
         }
 
+        //====================================================
+        // Dummy data
+        //====================================================
         private void populateDummyData()
         {
             Garden garden1 = new Garden(10, 20, "Savitch");
@@ -49,6 +54,9 @@ namespace Garden_Reporter_2013
             mainManager.AddGarden(garden3);
         }
 
+        //====================================================
+        // Area report
+        //====================================================
         private void btnArea_Click(object sender, EventArgs e)
         {
             gardenReport = new Reporter(mainManager.AreaReporter);
@@ -56,6 +64,9 @@ namespace Garden_Reporter_2013
             displayReport(gardenReport, mainManager.GardenList);
         }
 
+        //====================================================
+        // Charges report
+        //====================================================
         private void btnCharges_Click(object sender, EventArgs e)
         {
             gardenReport = new Reporter(mainManager.ChargesReporter);
@@ -63,14 +74,15 @@ namespace Garden_Reporter_2013
             displayReport(gardenReport, mainManager.GardenList);
         }
 
+        //====================================================
+        // Display
+        //====================================================
         private void displayReport(Reporter reporter, List<Garden> gardenList)
         {
             listBox1.Items.Clear();
 
             foreach (Garden garden in gardenList)
-            {
                 listBox1.Items.Add(reporter(garden));
-            }
         }
     }
 }

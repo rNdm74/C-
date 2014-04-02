@@ -27,7 +27,8 @@ namespace Delegates_Progress
 
         private void bStart_Click(object sender, EventArgs e)
         {
-            ResetControls();
+            resetControls();
+            updateControls();
 
             // Assign method based on checked radiobutton
             if (rbSpinBox.Checked)
@@ -43,6 +44,20 @@ namespace Delegates_Progress
             slowMethod(feedBackDelegate);
         }
 
+        private void updateControls()
+        {
+            nUpDown.Refresh();
+            pBar.Refresh();
+            tBar.Refresh();
+        }
+
+        private void resetControls()
+        {
+            nUpDown.Value = 0;
+            pBar.Value = 0;
+            tBar.Value = 0;
+        }
+
         private void slowMethod(FeedbackDelegate feedBackDelegate) 
         {
             // Reset flag
@@ -51,10 +66,13 @@ namespace Delegates_Progress
             while (!finishedWork)
             {
                 // Do some work
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(500);
 
                 // Update progress
                 feedBackDelegate();
+
+                // Update controls
+                updateControls();
             }
 
             // Give feedback when done
@@ -67,9 +85,6 @@ namespace Delegates_Progress
                 nUpDown.Value++;
             else
                 finishedWork = true; // Set flag to stop loop
-
-            // Update Display
-            nUpDown.Refresh();
         }
 
         private void updateProgressBar()
@@ -78,9 +93,6 @@ namespace Delegates_Progress
                 pBar.PerformStep();
             else
                 finishedWork = true; // Set flag to stop loop
-
-            // Update Display
-            pBar.Refresh();
         }
 
         private void updateTrackBar() 
@@ -89,20 +101,6 @@ namespace Delegates_Progress
                 tBar.Value++;
             else
                 finishedWork = true; // Set flag to stop loop
-
-            // Update Display
-            tBar.Refresh();
-        }
-
-        private void ResetControls() 
-        {
-            nUpDown.Value = 0;
-            pBar.Value = 0;
-            tBar.Value = 0;
-
-            nUpDown.Refresh();
-            pBar.Refresh();
-            tBar.Refresh();
         }
     }
 }

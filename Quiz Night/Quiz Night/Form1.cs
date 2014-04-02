@@ -26,14 +26,17 @@ namespace Quiz_Night
 
         private void bCalculate_Click(object sender, EventArgs e)
         {
+            // Get scores
             int correct = (int)nUpDownCorrect.Value;
             int incorrect = (int)nUpDownIncorrect.Value;
 
+            // Determine team
             if (rbAdultTeam.Checked)
                 scoreCalculator = new ScoreDelegate(Scorer.AdultScore);
             if (rbChildTeam.Checked)
                 scoreCalculator = new ScoreDelegate(Scorer.ChildScore);
 
+            // Set value of team score
             nUpDownTeamScore.Value = scoreCalculator(correct, incorrect);
         }
     }

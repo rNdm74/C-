@@ -5,3 +5,10 @@ V:\C-\Predicates\Predicates\bin\Debug\Predicates.exe
 V:\C-\Predicates\Predicates\bin\Debug\Predicates.pdb
 V:\C-\Predicates\Predicates\obj\x86\Debug\Predicates.exe
 V:\C-\Predicates\Predicates\obj\x86\Debug\Predicates.pdb
+E:\Work\C-\Predicates\Predicates\obj\x86\Debug\Predicates.exe
+E:\Work\C-\Predicates\Predicates\obj\x86\Debug\Predicates.pdb
+E:\Work\C-\Predicates\Predicates\bin\Debug\Predicates.exe
+E:\Work\C-\Predicates\Predicates\bin\Debug\Predicates.pdb
+E:\Work\C-\Predicates\Predicates\obj\x86\Debug\Predicates.Form1.resources
+E:\Work\C-\Predicates\Predicates\obj\x86\Debug\Predicates.Properties.Resources.resources
+E:\Work\C-\Predicates\Predicates\obj\x86\Debug\Predicates.csproj.GenerateResource.Cache
