@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="e0e2f16c-92cc-4dd4-b092-0b494ebebcd3" name="Patricia@PATRICIA-LAPTOP 2013-03-30 09:39:41" runUser="Patricia-Laptop\Patricia" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="a96afccd-8255-4800-ab31-fa7b7837bac7">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Patricia_PATRICIA-LAPTOP 2013-03-30 09_39_41">
+      <DeploymentItem filename="C:\Users\Patricia\Desktop\Garden Reporter 2013\Garden Reporter 2013\bin\Debug\Garden Reporter 2013.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-03-30T09:39:41.9893122+13:00" queuing="2013-03-30T09:39:43.7833154+13:00" start="2013-03-30T09:39:43.8769155+13:00" finish="2013-03-30T09:39:44.8597173+13:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetAccountBalanceTest" storage="c:\users\patricia\desktop\garden reporter 2013\testproject1\bin\debug\testproject1.dll" id="2b4886cd-7a6e-4213-cc1a-793bf0ca436e">
+      <Execution id="05a600c7-6bd3-4a81-b3f3-a46d40099ea0" />
+      <TestMethod codeBase="C:/Users/Patricia/Desktop/Garden Reporter 2013/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.GardenTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetAccountBalanceTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="2b4886cd-7a6e-4213-cc1a-793bf0ca436e" executionId="05a600c7-6bd3-4a81-b3f3-a46d40099ea0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="05a600c7-6bd3-4a81-b3f3-a46d40099ea0" testId="2b4886cd-7a6e-4213-cc1a-793bf0ca436e" testName="GetAccountBalanceTest" computerName="PATRICIA-LAPTOP" duration="00:00:00.1211870" startTime="2013-03-30T09:39:44.0017158+13:00" endTime="2013-03-30T09:39:44.7661171+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="05a600c7-6bd3-4a81-b3f3-a46d40099ea0">
+    </UnitTestResult>
+  </Results>
+</TestRun>

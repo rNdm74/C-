@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="96393eae-21c8-49a9-8c2c-04f281306b4f" name="rndm@RNDM-VM 2014-04-02 13:54:49" runUser="RNDM-VM\rndm" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="a96afccd-8255-4800-ab31-fa7b7837bac7">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="rndm_RNDM-VM 2014-04-02 13_54_49">
+      <DeploymentItem filename="V:\C-\Garden Reporter Skeleton 2014\Garden Reporter 2013\bin\Debug\Garden Reporter 2013.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-04-02T13:54:49.3574642+13:00" queuing="2014-04-02T13:54:49.5446840+13:00" start="2014-04-02T13:54:49.5759385+13:00" finish="2014-04-02T13:54:50.0290679+13:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="2" executed="2" passed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="AreaReporterTest" storage="v:\c-\garden reporter skeleton 2014\testproject1\bin\x86\debug\testproject1.dll" id="06a8ada6-0fb0-5b91-271b-dac93b9ac4c8">
+      <Execution id="aa71e721-f920-4e4f-a4dc-c969d1bbb688" />
+      <TestMethod codeBase="V:/C-/Garden Reporter Skeleton 2014/TestProject1/bin/x86/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.GardenManagerTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AreaReporterTest" />
+    </UnitTest>
+    <UnitTest name="ChargesReporterTest" storage="v:\c-\garden reporter skeleton 2014\testproject1\bin\x86\debug\testproject1.dll" id="77b73c43-4e9e-e9c1-9ea9-f3f25923e04a">
+      <Execution id="edf29800-9436-44d1-9d2c-a2c446b11846" />
+      <TestMethod codeBase="V:/C-/Garden Reporter Skeleton 2014/TestProject1/bin/x86/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.GardenManagerTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ChargesReporterTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="06a8ada6-0fb0-5b91-271b-dac93b9ac4c8" executionId="aa71e721-f920-4e4f-a4dc-c969d1bbb688" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="77b73c43-4e9e-e9c1-9ea9-f3f25923e04a" executionId="edf29800-9436-44d1-9d2c-a2c446b11846" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="aa71e721-f920-4e4f-a4dc-c969d1bbb688" testId="06a8ada6-0fb0-5b91-271b-dac93b9ac4c8" testName="AreaReporterTest" computerName="RNDM-VM" duration="00:00:00.0232504" startTime="2014-04-02T13:54:49.5759385+13:00" endTime="2014-04-02T13:54:49.9197305+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aa71e721-f920-4e4f-a4dc-c969d1bbb688">
+    </UnitTestResult>
+    <UnitTestResult executionId="edf29800-9436-44d1-9d2c-a2c446b11846" testId="77b73c43-4e9e-e9c1-9ea9-f3f25923e04a" testName="ChargesReporterTest" computerName="RNDM-VM" duration="00:00:00.0270419" startTime="2014-04-02T13:54:49.9197305+13:00" endTime="2014-04-02T13:54:49.9509715+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="edf29800-9436-44d1-9d2c-a2c446b11846">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;Bob           :   $802.35&gt;. Actual:&lt;Bob           : $802.35&gt;. </Message>
+          <StackTrace>   at TestProject1.GardenManagerTest.ChargesReporterTest() in V:\C-\Garden Reporter Skeleton 2014\TestProject1\GardenManagerTest.cs:line 95
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

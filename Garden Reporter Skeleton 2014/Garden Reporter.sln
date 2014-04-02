@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Garden Reporter", "Garden Reporter 2013\Garden Reporter.csproj", "{2771D6D8-D6B6-4DFA-96F2-8AA143C82151}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{8A5AB4AC-2E29-48F5-A9A6-21F6D761BFFC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A9BD2113-48F8-4933-90CA-84D89C0FC786}"
+	ProjectSection(SolutionItems) = preProject
+		Garden Reporter 2013.vsmdi = Garden Reporter 2013.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Garden Reporter 2013.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2771D6D8-D6B6-4DFA-96F2-8AA143C82151}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{2771D6D8-D6B6-4DFA-96F2-8AA143C82151}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{2771D6D8-D6B6-4DFA-96F2-8AA143C82151}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{2771D6D8-D6B6-4DFA-96F2-8AA143C82151}.Debug|x86.ActiveCfg = Debug|x86
+		{2771D6D8-D6B6-4DFA-96F2-8AA143C82151}.Debug|x86.Build.0 = Debug|x86
+		{2771D6D8-D6B6-4DFA-96F2-8AA143C82151}.Release|Any CPU.ActiveCfg = Release|x86
+		{2771D6D8-D6B6-4DFA-96F2-8AA143C82151}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{2771D6D8-D6B6-4DFA-96F2-8AA143C82151}.Release|Mixed Platforms.Build.0 = Release|x86
+		{2771D6D8-D6B6-4DFA-96F2-8AA143C82151}.Release|x86.ActiveCfg = Release|x86
+		{2771D6D8-D6B6-4DFA-96F2-8AA143C82151}.Release|x86.Build.0 = Release|x86
+		{8A5AB4AC-2E29-48F5-A9A6-21F6D761BFFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A5AB4AC-2E29-48F5-A9A6-21F6D761BFFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A5AB4AC-2E29-48F5-A9A6-21F6D761BFFC}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{8A5AB4AC-2E29-48F5-A9A6-21F6D761BFFC}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{8A5AB4AC-2E29-48F5-A9A6-21F6D761BFFC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8A5AB4AC-2E29-48F5-A9A6-21F6D761BFFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A5AB4AC-2E29-48F5-A9A6-21F6D761BFFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A5AB4AC-2E29-48F5-A9A6-21F6D761BFFC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8A5AB4AC-2E29-48F5-A9A6-21F6D761BFFC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8A5AB4AC-2E29-48F5-A9A6-21F6D761BFFC}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

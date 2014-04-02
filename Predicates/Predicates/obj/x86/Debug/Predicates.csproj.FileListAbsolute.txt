@@ -1,0 +1,7 @@
+V:\C-\Predicates\Predicates\obj\x86\Debug\Predicates.Form1.resources
+V:\C-\Predicates\Predicates\obj\x86\Debug\Predicates.Properties.Resources.resources
+V:\C-\Predicates\Predicates\obj\x86\Debug\Predicates.csproj.GenerateResource.Cache
+V:\C-\Predicates\Predicates\bin\Debug\Predicates.exe
+V:\C-\Predicates\Predicates\bin\Debug\Predicates.pdb
+V:\C-\Predicates\Predicates\obj\x86\Debug\Predicates.exe
+V:\C-\Predicates\Predicates\obj\x86\Debug\Predicates.pdb

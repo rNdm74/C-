@@ -1,0 +1,7 @@
+C:\Users\Patricia\Desktop\Garden Reporter 2013\TestProject1\bin\Debug\TestProject1.dll
+C:\Users\Patricia\Desktop\Garden Reporter 2013\TestProject1\bin\Debug\TestProject1.pdb
+C:\Users\Patricia\Desktop\Garden Reporter 2013\TestProject1\bin\Debug\Garden Reporter 2013.exe
+C:\Users\Patricia\Desktop\Garden Reporter 2013\TestProject1\bin\Debug\Garden Reporter 2013.pdb
+C:\Users\Patricia\Desktop\Garden Reporter 2013\TestProject1\obj\Debug\TestProject1.csprojResolveAssemblyReference.cache
+C:\Users\Patricia\Desktop\Garden Reporter 2013\TestProject1\obj\Debug\TestProject1.dll
+C:\Users\Patricia\Desktop\Garden Reporter 2013\TestProject1\obj\Debug\TestProject1.pdb

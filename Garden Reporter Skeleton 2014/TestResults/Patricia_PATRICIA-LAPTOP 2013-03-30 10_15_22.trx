@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="7a0a3689-2fa4-46df-bbea-7ce704da4068" name="Patricia@PATRICIA-LAPTOP 2013-03-30 10:15:22" runUser="Patricia-Laptop\Patricia" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="a96afccd-8255-4800-ab31-fa7b7837bac7">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Patricia_PATRICIA-LAPTOP 2013-03-30 10_15_22">
+      <DeploymentItem filename="C:\Users\Patricia\Desktop\Garden Reporter 2013\Garden Reporter 2013\bin\Debug\Garden Reporter 2013.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-03-30T10:15:22.6412382+13:00" queuing="2013-03-30T10:15:22.6874391+13:00" start="2013-03-30T10:15:22.6874391+13:00" finish="2013-03-30T10:15:23.0306397+13:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="3" executed="3" passed="3" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetAccountBalanceTest" storage="c:\users\patricia\desktop\garden reporter 2013\testproject1\bin\debug\testproject1.dll" id="2b4886cd-7a6e-4213-cc1a-793bf0ca436e">
+      <Execution id="01115dd7-b125-4f70-ab5d-2c31e81bcce7" />
+      <TestMethod codeBase="C:/Users/Patricia/Desktop/Garden Reporter 2013/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.GardenTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetAccountBalanceTest" />
+    </UnitTest>
+    <UnitTest name="AreaReporterTest" storage="c:\users\patricia\desktop\garden reporter 2013\testproject1\bin\debug\testproject1.dll" id="06a8ada6-0fb0-5b91-271b-dac93b9ac4c8">
+      <Execution id="04740a4e-c5c7-48ad-92d0-ca156068c6cc" />
+      <TestMethod codeBase="C:/Users/Patricia/Desktop/Garden Reporter 2013/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.GardenManagerTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AreaReporterTest" />
+    </UnitTest>
+    <UnitTest name="ChargesReporterTest" storage="c:\users\patricia\desktop\garden reporter 2013\testproject1\bin\debug\testproject1.dll" id="77b73c43-4e9e-e9c1-9ea9-f3f25923e04a">
+      <Execution id="39eaadc8-b313-41d5-a5f5-b41eb482935a" />
+      <TestMethod codeBase="C:/Users/Patricia/Desktop/Garden Reporter 2013/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.GardenManagerTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ChargesReporterTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="06a8ada6-0fb0-5b91-271b-dac93b9ac4c8" executionId="04740a4e-c5c7-48ad-92d0-ca156068c6cc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2b4886cd-7a6e-4213-cc1a-793bf0ca436e" executionId="01115dd7-b125-4f70-ab5d-2c31e81bcce7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="77b73c43-4e9e-e9c1-9ea9-f3f25923e04a" executionId="39eaadc8-b313-41d5-a5f5-b41eb482935a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="04740a4e-c5c7-48ad-92d0-ca156068c6cc" testId="06a8ada6-0fb0-5b91-271b-dac93b9ac4c8" testName="AreaReporterTest" computerName="PATRICIA-LAPTOP" duration="00:00:00.0332418" startTime="2013-03-30T10:15:22.7030391+13:00" endTime="2013-03-30T10:15:22.9682396+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="04740a4e-c5c7-48ad-92d0-ca156068c6cc">
+    </UnitTestResult>
+    <UnitTestResult executionId="01115dd7-b125-4f70-ab5d-2c31e81bcce7" testId="2b4886cd-7a6e-4213-cc1a-793bf0ca436e" testName="GetAccountBalanceTest" computerName="PATRICIA-LAPTOP" duration="00:00:00.0060851" startTime="2013-03-30T10:15:22.9682396+13:00" endTime="2013-03-30T10:15:22.9994397+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="01115dd7-b125-4f70-ab5d-2c31e81bcce7">
+    </UnitTestResult>
+    <UnitTestResult executionId="39eaadc8-b313-41d5-a5f5-b41eb482935a" testId="77b73c43-4e9e-e9c1-9ea9-f3f25923e04a" testName="ChargesReporterTest" computerName="PATRICIA-LAPTOP" duration="00:00:00.0011305" startTime="2013-03-30T10:15:22.9994397+13:00" endTime="2013-03-30T10:15:23.0150397+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="39eaadc8-b313-41d5-a5f5-b41eb482935a">
+    </UnitTestResult>
+  </Results>
+</TestRun>

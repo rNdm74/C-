@@ -1,0 +1,22 @@
+E:\Users\Patricia\Desktop\IN710 OOSD 2014\IN710 OOSD 2014 Teaching Sessions\IN710 OOSD 2014 7.1 - Delegates\Garden Reporter Skeleton 2014 - Copy (2)\Garden Reporter 2013\bin\Debug\Garden Reporter 2013.exe
+E:\Users\Patricia\Desktop\IN710 OOSD 2014\IN710 OOSD 2014 Teaching Sessions\IN710 OOSD 2014 7.1 - Delegates\Garden Reporter Skeleton 2014 - Copy (2)\Garden Reporter 2013\bin\Debug\Garden Reporter 2013.pdb
+E:\Users\Patricia\Desktop\IN710 OOSD 2014\IN710 OOSD 2014 Teaching Sessions\IN710 OOSD 2014 7.1 - Delegates\Garden Reporter Skeleton 2014 - Copy (2)\Garden Reporter 2013\obj\x86\Debug\Garden_Reporter_2013.Form1.resources
+E:\Users\Patricia\Desktop\IN710 OOSD 2014\IN710 OOSD 2014 Teaching Sessions\IN710 OOSD 2014 7.1 - Delegates\Garden Reporter Skeleton 2014 - Copy (2)\Garden Reporter 2013\obj\x86\Debug\Garden_Reporter_2013.Properties.Resources.resources
+E:\Users\Patricia\Desktop\IN710 OOSD 2014\IN710 OOSD 2014 Teaching Sessions\IN710 OOSD 2014 7.1 - Delegates\Garden Reporter Skeleton 2014 - Copy (2)\Garden Reporter 2013\obj\x86\Debug\Garden Reporter.csproj.GenerateResource.Cache
+E:\Users\Patricia\Desktop\IN710 OOSD 2014\IN710 OOSD 2014 Teaching Sessions\IN710 OOSD 2014 7.1 - Delegates\Garden Reporter Skeleton 2014 - Copy (2)\Garden Reporter 2013\obj\x86\Debug\Garden Reporter 2013.exe
+E:\Users\Patricia\Desktop\IN710 OOSD 2014\IN710 OOSD 2014 Teaching Sessions\IN710 OOSD 2014 7.1 - Delegates\Garden Reporter Skeleton 2014 - Copy (2)\Garden Reporter 2013\obj\x86\Debug\Garden Reporter 2013.pdb
+E:\Users\Patricia\Desktop\IN710 OOSD 2014\IN710 OOSD 2014 Teaching Sessions\IN710 OOSD 2014 7.1 - Delegates\Garden Reporter Skeleton 2014\Garden Reporter 2013\obj\x86\Debug\Garden Reporter 2013.exe
+E:\Users\Patricia\Desktop\IN710 OOSD 2014\IN710 OOSD 2014 Teaching Sessions\IN710 OOSD 2014 7.1 - Delegates\Garden Reporter Skeleton 2014\Garden Reporter 2013\obj\x86\Debug\Garden Reporter 2013.pdb
+E:\Users\Patricia\Desktop\IN710 OOSD 2014\IN710 OOSD 2014 Teaching Sessions\IN710 OOSD 2014 7.1 - Delegates\Garden Reporter Skeleton 2014\Garden Reporter 2013\bin\Debug\Garden Reporter 2013.exe
+E:\Users\Patricia\Desktop\IN710 OOSD 2014\IN710 OOSD 2014 Teaching Sessions\IN710 OOSD 2014 7.1 - Delegates\Garden Reporter Skeleton 2014\Garden Reporter 2013\bin\Debug\Garden Reporter 2013.pdb
+E:\Users\Patricia\Desktop\IN710 OOSD 2014\IN710 OOSD 2014 Teaching Sessions\IN710 OOSD 2014 7.1 - Delegates\Garden Reporter Skeleton 2014\Garden Reporter 2013\obj\x86\Debug\Garden Reporter.csprojResolveAssemblyReference.cache
+E:\Users\Patricia\Desktop\IN710 OOSD 2014\IN710 OOSD 2014 Teaching Sessions\IN710 OOSD 2014 7.1 - Delegates\Garden Reporter Skeleton 2014\Garden Reporter 2013\obj\x86\Debug\Garden_Reporter_2013.Form1.resources
+E:\Users\Patricia\Desktop\IN710 OOSD 2014\IN710 OOSD 2014 Teaching Sessions\IN710 OOSD 2014 7.1 - Delegates\Garden Reporter Skeleton 2014\Garden Reporter 2013\obj\x86\Debug\Garden_Reporter_2013.Properties.Resources.resources
+E:\Users\Patricia\Desktop\IN710 OOSD 2014\IN710 OOSD 2014 Teaching Sessions\IN710 OOSD 2014 7.1 - Delegates\Garden Reporter Skeleton 2014\Garden Reporter 2013\obj\x86\Debug\Garden Reporter.csproj.GenerateResource.Cache
+V:\C-\Garden Reporter Skeleton 2014\Garden Reporter 2013\bin\Debug\Garden Reporter 2013.exe
+V:\C-\Garden Reporter Skeleton 2014\Garden Reporter 2013\bin\Debug\Garden Reporter 2013.pdb
+V:\C-\Garden Reporter Skeleton 2014\Garden Reporter 2013\obj\x86\Debug\Garden_Reporter_2013.Form1.resources
+V:\C-\Garden Reporter Skeleton 2014\Garden Reporter 2013\obj\x86\Debug\Garden_Reporter_2013.Properties.Resources.resources
+V:\C-\Garden Reporter Skeleton 2014\Garden Reporter 2013\obj\x86\Debug\Garden Reporter.csproj.GenerateResource.Cache
+V:\C-\Garden Reporter Skeleton 2014\Garden Reporter 2013\obj\x86\Debug\Garden Reporter 2013.exe
+V:\C-\Garden Reporter Skeleton 2014\Garden Reporter 2013\obj\x86\Debug\Garden Reporter 2013.pdb

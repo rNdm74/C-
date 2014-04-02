@@ -6,3 +6,5 @@ E:\Work\C-\Weather Station\Weather Station\bin\Debug\Weather Station.pdb
 E:\Work\C-\Weather Station\Weather Station\obj\x86\Debug\Weather Station.exe
 E:\Work\C-\Weather Station\Weather Station\obj\x86\Debug\Weather Station.pdb
 E:\Work\C-\Weather Station\Weather Station\obj\x86\Debug\Weather Station.csprojResolveAssemblyReference.cache
+V:\C-\Weather Station\Weather Station\obj\x86\Debug\Weather Station.exe
+V:\C-\Weather Station\Weather Station\obj\x86\Debug\Weather Station.pdb
