@@ -27,14 +27,28 @@ namespace Predicates
 
         private void bEvenNumbers_Click(object sender, EventArgs e)
         {
-            Predicate<int> isEvenPredicate = new Predicate<int>(isEven);
-            process(isEvenPredicate);
+            // Using Predicate
+            //Predicate<int> isEvenPredicate = new Predicate<int>(isEven);
+            //process(isEvenPredicate);
+
+            // Using Anonymous
+            //process(delegate(int number) { return number % 2 == 0; });
+
+            // Using Lambda
+            process((n) => n % 2 == 0);
         }
 
         private void bLessThanTen_Click(object sender, EventArgs e)
         {
-            Predicate<int> isLessThanTenPredicate = new Predicate<int>(isLessThanTen);
-            process(isLessThanTenPredicate);
+            // Using Predicate
+            //Predicate<int> isLessThanTenPredicate = new Predicate<int>(isLessThanTen);
+            //process(isLessThanTenPredicate);
+
+            // Using Anonymous
+            //process(delegate (int number) { return number < 10; });
+
+            // Using Lambda
+            process((n) => n < 10);
         }
 
         private void process(Predicate<int> predicate)
