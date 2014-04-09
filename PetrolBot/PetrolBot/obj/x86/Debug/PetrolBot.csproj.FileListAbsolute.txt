@@ -1,0 +1,7 @@
+E:\Work\C-\PetrolBot\PetrolBot\obj\x86\Debug\PetrolBot.Form1.resources
+E:\Work\C-\PetrolBot\PetrolBot\obj\x86\Debug\PetrolBot.Properties.Resources.resources
+E:\Work\C-\PetrolBot\PetrolBot\obj\x86\Debug\PetrolBot.csproj.GenerateResource.Cache
+E:\Work\C-\PetrolBot\PetrolBot\bin\Debug\PetrolBot.exe
+E:\Work\C-\PetrolBot\PetrolBot\bin\Debug\PetrolBot.pdb
+E:\Work\C-\PetrolBot\PetrolBot\obj\x86\Debug\PetrolBot.exe
+E:\Work\C-\PetrolBot\PetrolBot\obj\x86\Debug\PetrolBot.pdb

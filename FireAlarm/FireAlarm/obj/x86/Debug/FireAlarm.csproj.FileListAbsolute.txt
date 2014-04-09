@@ -1,0 +1,7 @@
+E:\Work\C-\FireAlarm\FireAlarm\bin\Debug\FireAlarm.exe
+E:\Work\C-\FireAlarm\FireAlarm\bin\Debug\FireAlarm.pdb
+E:\Work\C-\FireAlarm\FireAlarm\obj\x86\Debug\FireAlarm.Form1.resources
+E:\Work\C-\FireAlarm\FireAlarm\obj\x86\Debug\FireAlarm.Properties.Resources.resources
+E:\Work\C-\FireAlarm\FireAlarm\obj\x86\Debug\FireAlarm.csproj.GenerateResource.Cache
+E:\Work\C-\FireAlarm\FireAlarm\obj\x86\Debug\FireAlarm.exe
+E:\Work\C-\FireAlarm\FireAlarm\obj\x86\Debug\FireAlarm.pdb

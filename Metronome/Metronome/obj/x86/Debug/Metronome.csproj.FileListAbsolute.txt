@@ -1,0 +1,7 @@
+E:\Work\C-\Metronome\Metronome\bin\Debug\Metronome.exe
+E:\Work\C-\Metronome\Metronome\bin\Debug\Metronome.pdb
+E:\Work\C-\Metronome\Metronome\obj\x86\Debug\Metronome.Form1.resources
+E:\Work\C-\Metronome\Metronome\obj\x86\Debug\Metronome.Properties.Resources.resources
+E:\Work\C-\Metronome\Metronome\obj\x86\Debug\Metronome.csproj.GenerateResource.Cache
+E:\Work\C-\Metronome\Metronome\obj\x86\Debug\Metronome.exe
+E:\Work\C-\Metronome\Metronome\obj\x86\Debug\Metronome.pdb
