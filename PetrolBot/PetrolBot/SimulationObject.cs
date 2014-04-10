@@ -8,19 +8,16 @@ namespace PetrolBot
 {
     enum EObjectState 
     {
-        MOVING, WAITING, REFUELING
+        MOVING, WAITING, REFUELING, RETURN_HOME
     }
 
     abstract class SimulationObject
     {
-        int speed;
+        protected int speed, angle, radius;
 
-        int angle;
-        int radius;
+        protected Random rGen;
 
-        Random rGen;
-
-        int worldWidth, worldHeight;
+        protected int worldWidth, worldHeight;
 
         protected int red, blue, green;
 
@@ -37,24 +34,18 @@ namespace PetrolBot
             this.worldHeight = worldHeight;
 
             ChangeRandomDirection();
-            speed = 1;
-            radius = 50;
 
-            red = 0;
-            green = 255;
-            blue = 0;
 
-            myBrush = new SolidBrush(Color.FromArgb(red,green,blue));
-
+            
         }
 
         public abstract void UpdateState();
         public abstract void PerformAction();
         public abstract void Draw(Graphics g);
 
-        protected void Move()
+        protected void Move(double radiansAngle)
 	    {
-		    double radiansAngle = angle * 0.01745; // convert degrees to radians PI / 180
+		    //double radiansAngle = angle * 0.01745; // convert degrees to radians PI / 180
 
 		    if(location.X < 0 || location.X + radius > worldWidth || location.Y < 0 || location.Y + radius > worldHeight)
 		    {
@@ -76,5 +67,11 @@ namespace PetrolBot
 
 		    angle = newAngle;
 	    }
+
+        protected double Bearing()
+        {
+            return angle * 0.01745;
+        }
+        
     }
 }

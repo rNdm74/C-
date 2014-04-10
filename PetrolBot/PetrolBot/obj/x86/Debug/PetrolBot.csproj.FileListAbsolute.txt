@@ -5,3 +5,10 @@ E:\Work\C-\PetrolBot\PetrolBot\bin\Debug\PetrolBot.exe
 E:\Work\C-\PetrolBot\PetrolBot\bin\Debug\PetrolBot.pdb
 E:\Work\C-\PetrolBot\PetrolBot\obj\x86\Debug\PetrolBot.exe
 E:\Work\C-\PetrolBot\PetrolBot\obj\x86\Debug\PetrolBot.pdb
+V:\C-\PetrolBot\PetrolBot\obj\x86\Debug\PetrolBot.exe
+V:\C-\PetrolBot\PetrolBot\obj\x86\Debug\PetrolBot.pdb
+V:\C-\PetrolBot\PetrolBot\bin\Debug\PetrolBot.exe
+V:\C-\PetrolBot\PetrolBot\bin\Debug\PetrolBot.pdb
+V:\C-\PetrolBot\PetrolBot\obj\x86\Debug\PetrolBot.Form1.resources
+V:\C-\PetrolBot\PetrolBot\obj\x86\Debug\PetrolBot.Properties.Resources.resources
+V:\C-\PetrolBot\PetrolBot\obj\x86\Debug\PetrolBot.csproj.GenerateResource.Cache

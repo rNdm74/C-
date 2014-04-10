@@ -12,7 +12,10 @@ namespace PetrolBot
     public partial class Form1 : Form
     {
         Random rGen;
-        Ships ship;
+        EventManager eManager;
+        List<Ship> ships;
+        List<Bot> bots;
+        List<SimulationObject> objects;
 
         // This example assumes the existence of a form called Form1.
         private BufferedGraphicsContext currentContext;
@@ -26,11 +29,15 @@ namespace PetrolBot
         private void clock_Tick(object sender, EventArgs e)
         {
             myBuffer = currentContext.Allocate(canvas.CreateGraphics(), canvas.DisplayRectangle);
+            myBuffer.Graphics.FillRectangle(Brushes.WhiteSmoke, canvas.DisplayRectangle);
 
             // Move Update Draw Simulation Objects
-            ship.UpdateState();
-            ship.PerformAction();
-            ship.Draw(myBuffer.Graphics);
+            foreach (SimulationObject so in objects)
+            {
+                so.UpdateState();
+                so.PerformAction();
+                so.Draw(myBuffer.Graphics);
+            }
 
             myBuffer.Render();
             
@@ -43,8 +50,26 @@ namespace PetrolBot
             currentContext = BufferedGraphicsManager.Current;
                                     
             clock.Enabled = true;
+
             rGen = new Random();
-            ship = new Ships(rGen, canvas.Width, canvas.Height);
+
+            
+            objects = new List<SimulationObject>();
+            ships = new List<Ship>();
+            ships.Add(new Ship(1, rGen, canvas.Width, canvas.Height));
+            ships.Add(new Ship(2, rGen, canvas.Width, canvas.Height));
+            ships.Add(new Ship(3, rGen, canvas.Width, canvas.Height));
+
+            bots = new List<Bot>();
+            bots.Add(new Bot(rGen, canvas.Width, canvas.Height));
+            bots.Add(new Bot(rGen, canvas.Width, canvas.Height));
+            bots.Add(new Bot(rGen, canvas.Width, canvas.Height));
+            bots.Add(new Bot(rGen, canvas.Width, canvas.Height));
+
+            eManager = new EventManager(rGen, bots, ships);
+            
+            objects.AddRange(ships);
+            objects.AddRange(bots);
         }
 
         private void timer1_Tick(object sender, EventArgs e)

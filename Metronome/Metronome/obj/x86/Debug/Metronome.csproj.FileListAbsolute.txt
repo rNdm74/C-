@@ -5,3 +5,5 @@ E:\Work\C-\Metronome\Metronome\obj\x86\Debug\Metronome.Properties.Resources.reso
 E:\Work\C-\Metronome\Metronome\obj\x86\Debug\Metronome.csproj.GenerateResource.Cache
 E:\Work\C-\Metronome\Metronome\obj\x86\Debug\Metronome.exe
 E:\Work\C-\Metronome\Metronome\obj\x86\Debug\Metronome.pdb
+V:\C-\Metronome\Metronome\obj\x86\Debug\Metronome.exe
+V:\C-\Metronome\Metronome\obj\x86\Debug\Metronome.pdb
