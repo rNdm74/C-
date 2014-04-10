@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.clock = new System.Windows.Forms.Timer(this.components);
             this.canvas = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // clock
@@ -47,12 +46,6 @@
             this.canvas.Name = "canvas";
             this.canvas.Size = new System.Drawing.Size(624, 441);
             this.canvas.TabIndex = 0;
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 10;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -72,7 +65,6 @@
 
         private System.Windows.Forms.Timer clock;
         private System.Windows.Forms.Panel canvas;
-        private System.Windows.Forms.Timer timer1;
     }
 }
 

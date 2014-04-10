@@ -13,19 +13,12 @@ namespace PetrolBot
 
     abstract class SimulationObject
     {
-        protected int speed, angle, radius;
-
-        protected Random rGen;
-
+        protected SolidBrush myBrush = new SolidBrush(Color.Green);
         protected int worldWidth, worldHeight;
-
-        protected int red, blue, green;
-
-        protected PointF location;
-
+        protected float speed, angle, radius;
         protected EObjectState state;
-
-        protected SolidBrush myBrush = new SolidBrush(Color.Blue);
+        protected PointF location;
+        protected Random rGen;
 
         public SimulationObject(Random rGen, int worldWidth, int worldHeight) 
         {
@@ -34,9 +27,6 @@ namespace PetrolBot
             this.worldHeight = worldHeight;
 
             ChangeRandomDirection();
-
-
-            
         }
 
         public abstract void UpdateState();
@@ -45,8 +35,6 @@ namespace PetrolBot
 
         protected void Move(double radiansAngle)
 	    {
-		    //double radiansAngle = angle * 0.01745; // convert degrees to radians PI / 180
-
 		    if(location.X < 0 || location.X + radius > worldWidth || location.Y < 0 || location.Y + radius > worldHeight)
 		    {
 			    location.X -= (float) Math.Cos(radiansAngle) * speed;

@@ -13,36 +13,33 @@ namespace PetrolBot
         public event ShipHandler RefuelingCompleteEvent;
 
         private const int FUEL_CAPACITY = 255;
-        private const int WANDER_PROB = 500;
-        public int fuel;
-        private int waitingTime;
-        public bool Refueling;
-        private int id;
+        private const int WANDER_PROB = 400;
+        private const int RADIUS = 50;
+        private const int MAX_SPEED = 5;
+        private const int SPEED_RATIO = 4;
 
-        public Ship(int id, Random rGen, int worldWidth, int worldHeight)
+        public float fuel;
+        public bool Refueling;
+
+        public Ship(Random rGen, int worldWidth, int worldHeight)
             : base(rGen, worldWidth, worldHeight)
         {
-            this.id = id;
+            location = new PointF(rGen.Next(worldWidth - RADIUS), rGen.Next(worldHeight - RADIUS));
 
-            speed = rGen.Next(1, 5);
-            radius = 50;
-
-            fuel = FUEL_CAPACITY;
-            waitingTime = 500;
+            myBrush = new SolidBrush(Color.FromArgb(0, 255, 0));
 
             state = EObjectState.MOVING;
+            
+            speed = rGen.Next(1, MAX_SPEED); 
+            speed /= SPEED_RATIO;
 
-            red = 0;
-            green = 255;
-            blue = 0;
-
-            myBrush = new SolidBrush(Color.FromArgb(red, green, blue));
+            fuel = FUEL_CAPACITY;
+            radius = RADIUS;
         }
 
         public override void Draw(System.Drawing.Graphics g)
         {
-            g.FillRectangle(Brushes.Black, location.X, location.Y, radius, radius);
-            g.DrawString(fuel.ToString(), new Font("Verdana", 12), myBrush, new PointF(location.X, location.Y + 30));
+            g.FillRectangle(myBrush, location.X, location.Y, radius, radius);
         }
 
         public override void UpdateState()
@@ -52,7 +49,6 @@ namespace PetrolBot
                 case EObjectState.MOVING:
                     if (fuel <= 0)
                     {
-                        
                         state = EObjectState.WAITING;
                     }
                     break;
@@ -94,50 +90,55 @@ namespace PetrolBot
                     
                     break;
                 case EObjectState.REFUELING:
+                    ReFuel();
                     break;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         private void UseFuel()
         {
+            // Reduce fuel based on speed
             fuel -= speed;
-
-            //red++;
-            //green--;
-            //myBrush = new SolidBrush(Color.FromArgb(red, green, blue));
+            // Clamps fuel to zero
+            if (fuel < 0) fuel = 0;
+            myBrush = new SolidBrush(Color.FromArgb(0, (int)fuel, 0));
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         private void ReFuel() 
         {
-            //fuel += 1;
-
-            //red--;
-            //green++;
-            //myBrush = new SolidBrush(Color.FromArgb(red, green, blue));
+            // Clamps fuel to 255
+            if (fuel > 255) fuel = 255;
+            myBrush = new SolidBrush(Color.FromArgb(0, (int)fuel, 0));
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public void OnNeedsFuelEvent() 
         {
-            ShipEventArgs se = new ShipEventArgs(id, location);
+            ShipEventArgs se = new ShipEventArgs(location);
 
             if (NeedsFuelEvent != null)
                 NeedsFuelEvent(this, se);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public void OnRefuelingCompleteEvent() 
         {
-            ShipEventArgs se = new ShipEventArgs(id, location);
+            ShipEventArgs se = new ShipEventArgs(location);
 
             if (RefuelingCompleteEvent != null)
                 RefuelingCompleteEvent(this, se);
         }
-
-        //public void StartRefueling()
-        //{
-        //    OnShipEvent();
-        //}
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     class ShipEventArgs
     {
         private PointF location;
@@ -145,15 +146,9 @@ namespace PetrolBot
         {
             get { return location; }
         }
-        private int id;
-        public int ID
-        {
-            get { return id; }
-        }
 
-        public ShipEventArgs(int id, PointF location)
+        public ShipEventArgs(PointF location)
         {
-            this.id = id;
             this.location = location;
         }
     }
