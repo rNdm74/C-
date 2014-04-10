@@ -10,7 +10,6 @@ namespace PetrolBot
         private Random rGen;
         private List<Bot> bots;
         private List<Ship> ships;
-        private List<Bot> botsPool;
 
         public EventManager(Random rGen, List<Bot> bots, List<Ship> ships)
         {
@@ -27,29 +26,45 @@ namespace PetrolBot
 
         private void needFuelHandler(object sender, ShipEventArgs se)
         {
-            bool pickedBot = false;
-            int selectedBotFromPool = rGen.Next(bots.Count);
-            while (pickedBot == false)
+            bool botsAtHome = false;
+            int count = 0;
+            while (count < bots.Count && botsAtHome == false)
             {
-                if (bots[selectedBotFromPool].isHome)
+                if (bots[count].isHome)
+                    botsAtHome = true;
+
+                count++;
+            }
+
+            if (botsAtHome) 
+            {
+                bool pickedBot = false;
+                int selectedBotFromPool = rGen.Next(bots.Count);
+                while (pickedBot == false)
                 {
-                    pickedBot = true;
-                    bots[selectedBotFromPool].Dispatch((Ship)sender, se.Location);
-                }
-                else 
-                {
-                    selectedBotFromPool = rGen.Next(bots.Count); 
+                    if (!bots[selectedBotFromPool].isRefueling && bots[selectedBotFromPool].isHome)
+                    {
+                        pickedBot = true;
+                        bots[selectedBotFromPool].Dispatch((Ship)sender, se.Location);
+                    }
+                    else
+                    {
+                        selectedBotFromPool = rGen.Next(bots.Count);
+                    }
                 }
             }
 
             
-
-
-            //bots[se.ID].Dispatch((Ship)sender, se.Location);
         }
         private void refuelingCompleteHandler(object sender, ShipEventArgs se)
         {
-            bots[se.ID].SendHome();
+            foreach (Bot bot in bots)
+            {
+                if (bot.refuelingShip != null && bot.refuelingShip.Equals((Ship)sender))
+                {
+                    bot.SendHome();
+                }
+            }
         }
     }
 }

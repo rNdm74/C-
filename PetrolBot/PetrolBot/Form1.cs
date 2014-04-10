@@ -63,8 +63,8 @@ namespace PetrolBot
             bots = new List<Bot>();
             bots.Add(new Bot(rGen, canvas.Width, canvas.Height));
             bots.Add(new Bot(rGen, canvas.Width, canvas.Height));
-            bots.Add(new Bot(rGen, canvas.Width, canvas.Height));
-            bots.Add(new Bot(rGen, canvas.Width, canvas.Height));
+            //bots.Add(new Bot(rGen, canvas.Width, canvas.Height));
+            //bots.Add(new Bot(rGen, canvas.Width, canvas.Height));
 
             eManager = new EventManager(rGen, bots, ships);
             

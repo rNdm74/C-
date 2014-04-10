@@ -10,9 +10,10 @@ namespace PetrolBot
     {
         PointF refuelingLocation, homeLocation;
         //RectangleF ship, bot, home;
-        Ship refuelingShip;
+        public Ship refuelingShip;
         bool shipNeedsFuel;
         public bool isHome;
+        public bool isRefueling;
 
         public Bot(Random rGen, int worldWidth, int worldHeight)
             : base(rGen, worldWidth, worldHeight)
@@ -35,7 +36,8 @@ namespace PetrolBot
         {
             state = EObjectState.REFUELING;
             refuelingShip = ship;
-            //refuelingLocation = location;
+            isHome = false;
+            isRefueling = true;
             shipNeedsFuel = true;
             this.location = location; 
         }
@@ -43,8 +45,10 @@ namespace PetrolBot
         public void SendHome() 
         {
             refuelingShip = null;
-            //refuelingLocation = new PointF();
+            refuelingLocation = new PointF();
             shipNeedsFuel = false;
+            isRefueling = false;
+            isHome = true;
             location = homeLocation;
         }
 
@@ -61,7 +65,7 @@ namespace PetrolBot
                     if (collided(refuelingLocation))
                     {
                         //location = refuelingLocation;
-                        state = EObjectState.REFUELING;
+                        //state = EObjectState.REFUELING;
                     }
                     break;
                 case EObjectState.WAITING:
@@ -99,14 +103,14 @@ namespace PetrolBot
                     if (refuelingShip != null) 
                     {
                         refuelingShip.Refueling = true;
-                        refuelingShip.fuel++;
+                        refuelingShip.fuel+= 5;
                     }   
                     break;
                 case EObjectState.RETURN_HOME:
-                    refuelingShip = null;
-                    refuelingLocation = new PointF();
+                    //refuelingShip = null;
+                    //refuelingLocation = new PointF();
 
-                    Move(FindAngle(homeLocation, location));
+                    //Move(FindAngle(homeLocation, location));
                     break;
             }
         }

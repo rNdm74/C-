@@ -12,3 +12,4 @@ V:\C-\PetrolBot\PetrolBot\bin\Debug\PetrolBot.pdb
 V:\C-\PetrolBot\PetrolBot\obj\x86\Debug\PetrolBot.Form1.resources
 V:\C-\PetrolBot\PetrolBot\obj\x86\Debug\PetrolBot.Properties.Resources.resources
 V:\C-\PetrolBot\PetrolBot\obj\x86\Debug\PetrolBot.csproj.GenerateResource.Cache
+V:\C-\PetrolBot\PetrolBot\obj\x86\Debug\PetrolBot.csprojResolveAssemblyReference.cache

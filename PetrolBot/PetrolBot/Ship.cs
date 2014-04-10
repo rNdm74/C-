@@ -52,7 +52,7 @@ namespace PetrolBot
                 case EObjectState.MOVING:
                     if (fuel <= 0)
                     {
-                        OnNeedsFuelEvent();
+                        
                         state = EObjectState.WAITING;
                     }
                     break;
@@ -90,7 +90,7 @@ namespace PetrolBot
                     
                     break;
                 case EObjectState.WAITING:
-                    //StartRefueling();
+                    OnNeedsFuelEvent();
                     
                     break;
                 case EObjectState.REFUELING:
