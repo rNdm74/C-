@@ -95,7 +95,7 @@ namespace PetrolBot
             }
         }
         /// <summary>
-        /// 
+        /// Updates the color when the ship uses fuel
         /// </summary>
         private void UseFuel()
         {
@@ -106,7 +106,7 @@ namespace PetrolBot
             myBrush = new SolidBrush(Color.FromArgb(0, (int)fuel, 0));
         }
         /// <summary>
-        /// 
+        /// Updates the color based on the ships refueling
         /// </summary>
         private void ReFuel() 
         {
@@ -115,7 +115,7 @@ namespace PetrolBot
             myBrush = new SolidBrush(Color.FromArgb(0, (int)fuel, 0));
         }
         /// <summary>
-        /// 
+        /// Event for when a ship needs fuel
         /// </summary>
         public void OnNeedsFuelEvent() 
         {
@@ -125,7 +125,7 @@ namespace PetrolBot
                 NeedsFuelEvent(this, se);
         }
         /// <summary>
-        /// 
+        /// Event for ship refueling complete
         /// </summary>
         public void OnRefuelingCompleteEvent() 
         {
@@ -137,7 +137,7 @@ namespace PetrolBot
     }
 
     /// <summary>
-    /// 
+    /// Arguments that are accessible when the event is raised
     /// </summary>
     class ShipEventArgs
     {
