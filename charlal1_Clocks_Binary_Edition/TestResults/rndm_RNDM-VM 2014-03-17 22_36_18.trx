@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="0de91d6f-2fb4-4c54-9e8d-9f51358dc878" name="rndm@RNDM-VM 2014-03-17 22:36:18" runUser="RNDM-VM\rndm" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="83b1a813-1c94-4de7-acba-7abacfc42ec6">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="rndm_RNDM-VM 2014-03-17 22_36_18">
+      <DeploymentItem filename="Z:\Work\C-\Clocks\Clocks\bin\Debug\Clocks.exe" />
+      <DeploymentItem filename="Z:\Work\C-\Clocks\AnalogClockControl.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-03-17T22:36:18.0875185+13:00" queuing="2014-03-17T22:36:18.5093249+13:00" start="2014-03-17T22:36:18.5718319+13:00" finish="2014-03-17T22:36:19.0249640+13:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="6" executed="6" error="0" failed="5" timeout="0" aborted="0" inconclusive="1" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="RNDM-VM" outcome="Warning" timestamp="2014-03-17T22:36:18.2905743+13:00">
+        <Text>Deployment is currently disabled. The deployment item 'Clocks.exe' on test 'ClocksTests.Form1_ClockManagerTest.DisplayClockTest' was not deployed.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="DisplayClockTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="2621d777-14eb-2e5a-2f0a-87322faaef47">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="a28104e5-9264-4358-87b9-d8b84b9ee8e6" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_ClockManagerTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DisplayClockTest" />
+    </UnitTest>
+    <UnitTest name="UpdateClockTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="af3ddecb-5792-b91a-102d-46d2e3e36dce">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="fa0f9542-66dd-48a7-aaf2-415273de8afc" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_ClockManagerTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateClockTest" />
+    </UnitTest>
+    <UnitTest name="updateTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="ece7ad8a-7bf5-9581-ecb7-368f10c11f4a">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="13f1965f-aabd-4bfa-8725-fc26a111e0bc" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_ClockManagerTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="updateTest" />
+    </UnitTest>
+    <UnitTest name="Form1_ClockManagerConstructorTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="d380a4a6-9be9-6131-3476-8a71bbf0bc15">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="55529ac6-c8af-4d51-950c-97025f54ff83" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_ClockManagerTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Form1_ClockManagerConstructorTest" />
+    </UnitTest>
+    <UnitTest name="UpdateTimeTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="2350e27b-876d-ecd9-b665-50a1e34563ad">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="29815051-7475-4c8e-9752-92b1020ef31e" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_ClockManagerTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateTimeTest" />
+    </UnitTest>
+    <UnitTest name="updateClockTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="e7f45a04-6b2e-50ec-5ba1-a1ac06f9f4be">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="8b10d3e7-736d-4dcc-a8c6-618492395d8c" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_ClockManagerTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="updateClockTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="2350e27b-876d-ecd9-b665-50a1e34563ad" executionId="29815051-7475-4c8e-9752-92b1020ef31e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2621d777-14eb-2e5a-2f0a-87322faaef47" executionId="a28104e5-9264-4358-87b9-d8b84b9ee8e6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="af3ddecb-5792-b91a-102d-46d2e3e36dce" executionId="fa0f9542-66dd-48a7-aaf2-415273de8afc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d380a4a6-9be9-6131-3476-8a71bbf0bc15" executionId="55529ac6-c8af-4d51-950c-97025f54ff83" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e7f45a04-6b2e-50ec-5ba1-a1ac06f9f4be" executionId="8b10d3e7-736d-4dcc-a8c6-618492395d8c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ece7ad8a-7bf5-9581-ecb7-368f10c11f4a" executionId="13f1965f-aabd-4bfa-8725-fc26a111e0bc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="29815051-7475-4c8e-9752-92b1020ef31e" testId="2350e27b-876d-ecd9-b665-50a1e34563ad" testName="UpdateTimeTest" computerName="RNDM-VM" duration="00:00:00.0803343" startTime="2014-03-17T22:36:18.6030817+13:00" endTime="2014-03-17T22:36:18.9312390+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="29815051-7475-4c8e-9752-92b1020ef31e">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method ClocksTests.Form1_ClockManagerTest.UpdateTimeTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Clocks.Form1_Accessor.ClockManager.UpdateTime()
+   at ClocksTests.Form1_ClockManagerTest.UpdateTimeTest() in Z:\Work\C-\Clocks\ClocksTests\Form1_ClockManagerTest.cs:line 122
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a28104e5-9264-4358-87b9-d8b84b9ee8e6" testId="2621d777-14eb-2e5a-2f0a-87322faaef47" testName="DisplayClockTest" computerName="RNDM-VM" duration="00:00:00.0031463" startTime="2014-03-17T22:36:18.9312390+13:00" endTime="2014-03-17T22:36:18.9468296+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a28104e5-9264-4358-87b9-d8b84b9ee8e6">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method ClocksTests.Form1_ClockManagerTest.DisplayClockTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Clocks.Form1_Accessor.ClockManager.DisplayClock(RadioButton rbDigital)
+   at ClocksTests.Form1_ClockManagerTest.DisplayClockTest() in Z:\Work\C-\Clocks\ClocksTests\Form1_ClockManagerTest.cs:line 92
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="fa0f9542-66dd-48a7-aaf2-415273de8afc" testId="af3ddecb-5792-b91a-102d-46d2e3e36dce" testName="UpdateClockTest" computerName="RNDM-VM" duration="00:00:00.0030908" startTime="2014-03-17T22:36:18.9468296+13:00" endTime="2014-03-17T22:36:18.9468296+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fa0f9542-66dd-48a7-aaf2-415273de8afc">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method ClocksTests.Form1_ClockManagerTest.UpdateClockTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Clocks.Form1_Accessor.ClockManager.UpdateClock(Object sender)
+   at ClocksTests.Form1_ClockManagerTest.UpdateClockTest() in Z:\Work\C-\Clocks\ClocksTests\Form1_ClockManagerTest.cs:line 107
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="55529ac6-c8af-4d51-950c-97025f54ff83" testId="d380a4a6-9be9-6131-3476-8a71bbf0bc15" testName="Form1_ClockManagerConstructorTest" computerName="RNDM-VM" duration="00:00:00.0018140" startTime="2014-03-17T22:36:18.9624542+13:00" endTime="2014-03-17T22:36:18.9624542+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="55529ac6-c8af-4d51-950c-97025f54ff83">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. Private Accessor for .ctor is not found. Please rebuild the containing project or run the Publicize.exe manually.</Message>
+          <StackTrace>   at ClocksTests.Form1_ClockManagerTest.Form1_ClockManagerConstructorTest() in Z:\Work\C-\Clocks\ClocksTests\Form1_ClockManagerTest.cs:line 76
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="8b10d3e7-736d-4dcc-a8c6-618492395d8c" testId="e7f45a04-6b2e-50ec-5ba1-a1ac06f9f4be" testName="updateClockTest" computerName="RNDM-VM" duration="00:00:00.0025971" startTime="2014-03-17T22:36:18.9624542+13:00" endTime="2014-03-17T22:36:18.9780778+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8b10d3e7-736d-4dcc-a8c6-618492395d8c">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method ClocksTests.Form1_ClockManagerTest.updateClockTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Clocks.Form1_Accessor.ClockManager.updateClock(Object sender)
+   at ClocksTests.Form1_ClockManagerTest.updateClockTest() in Z:\Work\C-\Clocks\ClocksTests\Form1_ClockManagerTest.cs:line 151
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="13f1965f-aabd-4bfa-8725-fc26a111e0bc" testId="ece7ad8a-7bf5-9581-ecb7-368f10c11f4a" testName="updateTest" computerName="RNDM-VM" duration="00:00:00.0026203" startTime="2014-03-17T22:36:18.9780778+13:00" endTime="2014-03-17T22:36:18.9937099+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="13f1965f-aabd-4bfa-8725-fc26a111e0bc">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method ClocksTests.Form1_ClockManagerTest.updateTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Clocks.Form1_Accessor.ClockManager.update(IClock_Accessor newClock)
+   at ClocksTests.Form1_ClockManagerTest.updateTest() in Z:\Work\C-\Clocks\ClocksTests\Form1_ClockManagerTest.cs:line 137
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

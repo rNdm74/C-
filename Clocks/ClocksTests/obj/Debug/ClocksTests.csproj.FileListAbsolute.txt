@@ -8,3 +8,13 @@ Z:\Work\C-\Clocks\ClocksTests\bin\Debug\Clocks_Accessor.pdb
 Z:\Work\C-\Clocks\ClocksTests\obj\Debug\ClocksTests.csprojResolveAssemblyReference.cache
 Z:\Work\C-\Clocks\ClocksTests\obj\Debug\ClocksTests.dll
 Z:\Work\C-\Clocks\ClocksTests\obj\Debug\ClocksTests.pdb
+E:\Work\C-\Clocks\ClocksTests\bin\Debug\ClocksTests.dll
+E:\Work\C-\Clocks\ClocksTests\bin\Debug\ClocksTests.pdb
+E:\Work\C-\Clocks\ClocksTests\bin\Debug\AnalogClockControl.dll
+E:\Work\C-\Clocks\ClocksTests\bin\Debug\Clocks.exe
+E:\Work\C-\Clocks\ClocksTests\bin\Debug\Clocks.pdb
+E:\Work\C-\Clocks\ClocksTests\bin\Debug\Clocks_Accessor.exe
+E:\Work\C-\Clocks\ClocksTests\bin\Debug\Clocks_Accessor.pdb
+E:\Work\C-\Clocks\ClocksTests\obj\Debug\ClocksTests.csprojResolveAssemblyReference.cache
+E:\Work\C-\Clocks\ClocksTests\obj\Debug\ClocksTests.dll
+E:\Work\C-\Clocks\ClocksTests\obj\Debug\ClocksTests.pdb

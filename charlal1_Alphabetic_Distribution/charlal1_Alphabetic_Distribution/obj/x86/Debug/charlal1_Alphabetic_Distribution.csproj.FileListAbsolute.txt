@@ -1,0 +1,7 @@
+E:\Work\C-\charlal1_Alphabetic_Distribution\charlal1_Alphabetic_Distribution\obj\x86\Debug\charlal1_Alphabetic_Distribution.Form1.resources
+E:\Work\C-\charlal1_Alphabetic_Distribution\charlal1_Alphabetic_Distribution\obj\x86\Debug\charlal1_Alphabetic_Distribution.Properties.Resources.resources
+E:\Work\C-\charlal1_Alphabetic_Distribution\charlal1_Alphabetic_Distribution\obj\x86\Debug\charlal1_Alphabetic_Distribution.csproj.GenerateResource.Cache
+E:\Work\C-\charlal1_Alphabetic_Distribution\charlal1_Alphabetic_Distribution\bin\Debug\charlal1_Alphabetic_Distribution.exe
+E:\Work\C-\charlal1_Alphabetic_Distribution\charlal1_Alphabetic_Distribution\bin\Debug\charlal1_Alphabetic_Distribution.pdb
+E:\Work\C-\charlal1_Alphabetic_Distribution\charlal1_Alphabetic_Distribution\obj\x86\Debug\charlal1_Alphabetic_Distribution.exe
+E:\Work\C-\charlal1_Alphabetic_Distribution\charlal1_Alphabetic_Distribution\obj\x86\Debug\charlal1_Alphabetic_Distribution.pdb

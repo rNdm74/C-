@@ -1,0 +1,28 @@
+E:\Work\C-\Clocks\Clocks\bin\Debug\Clocks.exe
+E:\Work\C-\Clocks\Clocks\bin\Debug\Clocks.pdb
+E:\Work\C-\Clocks\Clocks\bin\Debug\AnalogClockControl.dll
+E:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.Form1.resources
+E:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.Properties.Resources.resources
+E:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.csproj.GenerateResource.Cache
+E:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.exe
+E:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.pdb
+Z:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.exe
+Z:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.pdb
+Z:\Work\C-\Clocks\Clocks\bin\Debug\Clocks.exe
+Z:\Work\C-\Clocks\Clocks\bin\Debug\Clocks.pdb
+Z:\Work\C-\Clocks\Clocks\bin\Debug\AnalogClockControl.dll
+Z:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.Form1.resources
+Z:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.Properties.Resources.resources
+Z:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.csproj.GenerateResource.Cache
+Z:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.exe
+\\vmware-host\Shared Folders\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.pdb
+E:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.csprojResolveAssemblyReference.cache
+E:\Work\C-\charlal1_Clocks_Binary_Edition\Clocks\obj\x86\Debug\Clocks.exe
+E:\Work\C-\charlal1_Clocks_Binary_Edition\Clocks\obj\x86\Debug\Clocks.pdb
+E:\Work\C-\charlal1_Clocks_Binary_Edition\Clocks\bin\Debug\Clocks.exe
+E:\Work\C-\charlal1_Clocks_Binary_Edition\Clocks\bin\Debug\Clocks.pdb
+E:\Work\C-\charlal1_Clocks_Binary_Edition\Clocks\bin\Debug\AnalogClockControl.dll
+E:\Work\C-\charlal1_Clocks_Binary_Edition\Clocks\obj\x86\Debug\Clocks.Form1.resources
+E:\Work\C-\charlal1_Clocks_Binary_Edition\Clocks\obj\x86\Debug\Clocks.Properties.Resources.resources
+E:\Work\C-\charlal1_Clocks_Binary_Edition\Clocks\obj\x86\Debug\Clocks.csproj.GenerateResource.Cache

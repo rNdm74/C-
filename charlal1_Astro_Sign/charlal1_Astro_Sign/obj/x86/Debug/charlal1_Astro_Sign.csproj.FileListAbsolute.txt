@@ -1,0 +1,7 @@
+E:\Work\C-\charlal1_Astro_Sign\charlal1_Astro_Sign\obj\x86\Debug\charlal1_Astro_Sign.Form1.resources
+E:\Work\C-\charlal1_Astro_Sign\charlal1_Astro_Sign\obj\x86\Debug\charlal1_Astro_Sign.Properties.Resources.resources
+E:\Work\C-\charlal1_Astro_Sign\charlal1_Astro_Sign\obj\x86\Debug\charlal1_Astro_Sign.csproj.GenerateResource.Cache
+E:\Work\C-\charlal1_Astro_Sign\charlal1_Astro_Sign\bin\Debug\charlal1_Astro_Sign.exe
+E:\Work\C-\charlal1_Astro_Sign\charlal1_Astro_Sign\bin\Debug\charlal1_Astro_Sign.pdb
+E:\Work\C-\charlal1_Astro_Sign\charlal1_Astro_Sign\obj\x86\Debug\charlal1_Astro_Sign.exe
+E:\Work\C-\charlal1_Astro_Sign\charlal1_Astro_Sign\obj\x86\Debug\charlal1_Astro_Sign.pdb

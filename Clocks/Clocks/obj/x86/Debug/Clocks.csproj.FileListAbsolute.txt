@@ -17,3 +17,4 @@ Z:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.csproj.GenerateResource.Cache
 Z:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.csprojResolveAssemblyReference.cache
 \\vmware-host\Shared Folders\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.exe
 \\vmware-host\Shared Folders\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.pdb
+E:\Work\C-\Clocks\Clocks\obj\x86\Debug\Clocks.csprojResolveAssemblyReference.cache

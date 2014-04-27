@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="ba323175-7c43-40e9-a068-c953ca6d57da" name="rndm@RNDM-VM 2014-03-17 22:43:45" runUser="RNDM-VM\rndm" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="83b1a813-1c94-4de7-acba-7abacfc42ec6">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="rndm_RNDM-VM 2014-03-17 22_43_45">
+      <DeploymentItem filename="Z:\Work\C-\Clocks\Clocks\bin\Debug\Clocks.exe" />
+      <DeploymentItem filename="Z:\Work\C-\Clocks\AnalogClockControl.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-03-17T22:43:45.9404674+13:00" queuing="2014-03-17T22:43:45.9873622+13:00" start="2014-03-17T22:43:46.0029184+13:00" finish="2014-03-17T22:43:46.3310433+13:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="3" executed="3" error="0" failed="2" timeout="0" aborted="0" inconclusive="1" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="RNDM-VM" outcome="Warning" timestamp="2014-03-17T22:43:45.9873622+13:00">
+        <Text>Deployment is currently disabled. The deployment item 'Clocks.exe' on test 'ClocksTests.Form1_DigitalTest.hideTest' was not deployed.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="hideTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="9b490b3d-abc6-4d54-f90e-668d92c121ff">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="fb24b5c2-129b-4fef-a885-7fe8dee916df" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_DigitalTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="hideTest" />
+    </UnitTest>
+    <UnitTest name="Form1_DigitalConstructorTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="1b4d1bc7-155b-c841-1600-5ec986a94bfb">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="a4aa0888-ced5-4bc1-950f-74bc7c451f7d" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_DigitalTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Form1_DigitalConstructorTest" />
+    </UnitTest>
+    <UnitTest name="showTest" storage="z:\work\c-\clocks\clockstests\bin\debug\clockstests.dll" id="84a0ae22-8674-9688-51ea-8686b8186af1">
+      <DeploymentItems>
+        <DeploymentItem filename="Clocks.exe" />
+      </DeploymentItems>
+      <Execution id="26cc9c1e-c160-4ca0-9a74-ba28310841fc" />
+      <TestMethod codeBase="Z:/Work/C-/Clocks/ClocksTests/bin/Debug/ClocksTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ClocksTests.Form1_DigitalTest, ClocksTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="showTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="1b4d1bc7-155b-c841-1600-5ec986a94bfb" executionId="a4aa0888-ced5-4bc1-950f-74bc7c451f7d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="84a0ae22-8674-9688-51ea-8686b8186af1" executionId="26cc9c1e-c160-4ca0-9a74-ba28310841fc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9b490b3d-abc6-4d54-f90e-668d92c121ff" executionId="fb24b5c2-129b-4fef-a885-7fe8dee916df" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="a4aa0888-ced5-4bc1-950f-74bc7c451f7d" testId="1b4d1bc7-155b-c841-1600-5ec986a94bfb" testName="Form1_DigitalConstructorTest" computerName="RNDM-VM" duration="00:00:00.0419187" startTime="2014-03-17T22:43:46.0029184+13:00" endTime="2014-03-17T22:43:46.2529240+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a4aa0888-ced5-4bc1-950f-74bc7c451f7d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. TODO: Implement code to verify target</Message>
+          <StackTrace>   at ClocksTests.Form1_DigitalTest.Form1_DigitalConstructorTest() in Z:\Work\C-\Clocks\ClocksTests\Form1_DigitalTest.cs:line 77
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="26cc9c1e-c160-4ca0-9a74-ba28310841fc" testId="84a0ae22-8674-9688-51ea-8686b8186af1" testName="showTest" computerName="RNDM-VM" duration="00:00:00.0202886" startTime="2014-03-17T22:43:46.2529240+13:00" endTime="2014-03-17T22:43:46.2841706+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="26cc9c1e-c160-4ca0-9a74-ba28310841fc">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method ClocksTests.Form1_DigitalTest.showTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Clocks.Form1_Accessor.Digital.Clocks.Form1.IClock.show()
+   at ClocksTests.Form1_DigitalTest.showTest() in Z:\Work\C-\Clocks\ClocksTests\Form1_DigitalTest.cs:line 107
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="fb24b5c2-129b-4fef-a885-7fe8dee916df" testId="9b490b3d-abc6-4d54-f90e-668d92c121ff" testName="hideTest" computerName="RNDM-VM" duration="00:00:00.0066689" startTime="2014-03-17T22:43:46.2841706+13:00" endTime="2014-03-17T22:43:46.2997925+13:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fb24b5c2-129b-4fef-a885-7fe8dee916df">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Fail failed. Assert.Equals should not be used for Assertions. Please use Assert.AreEqual &amp; overloads instead.</Message>
+          <StackTrace>   at ClocksTests.Form1_DigitalTest.hideTest() in Z:\Work\C-\Clocks\ClocksTests\Form1_DigitalTest.cs:line 94
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
