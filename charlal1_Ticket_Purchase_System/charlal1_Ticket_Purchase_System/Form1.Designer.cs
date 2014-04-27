@@ -143,6 +143,7 @@
             this.rbStudent.TabStop = true;
             this.rbStudent.Text = "Student";
             this.rbStudent.UseVisualStyleBackColor = true;
+            this.rbStudent.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
             // 
             // rbAdult
             // 
@@ -155,6 +156,7 @@
             this.rbAdult.TabStop = true;
             this.rbAdult.Text = "Adult";
             this.rbAdult.UseVisualStyleBackColor = true;
+            this.rbAdult.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
             // 
             // rbSenior
             // 
@@ -167,6 +169,7 @@
             this.rbSenior.TabStop = true;
             this.rbSenior.Text = "Senior";
             this.rbSenior.UseVisualStyleBackColor = true;
+            this.rbSenior.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
             // 
             // gbRate
             // 
@@ -263,7 +266,7 @@
             // lAllocatedSeating
             // 
             this.lAllocatedSeating.AutoSize = true;
-            this.lAllocatedSeating.Location = new System.Drawing.Point(21, 29);
+            this.lAllocatedSeating.Location = new System.Drawing.Point(6, 29);
             this.lAllocatedSeating.Name = "lAllocatedSeating";
             this.lAllocatedSeating.Size = new System.Drawing.Size(0, 25);
             this.lAllocatedSeating.TabIndex = 0;
