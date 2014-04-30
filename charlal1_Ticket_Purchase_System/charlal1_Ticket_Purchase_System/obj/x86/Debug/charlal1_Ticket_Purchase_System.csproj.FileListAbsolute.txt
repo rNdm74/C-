@@ -5,3 +5,4 @@ E:\Work\C-\charlal1_Ticket_Purchase_System\charlal1_Ticket_Purchase_System\obj\x
 E:\Work\C-\charlal1_Ticket_Purchase_System\charlal1_Ticket_Purchase_System\obj\x86\Debug\charlal1_Ticket_Purchase_System.csproj.GenerateResource.Cache
 E:\Work\C-\charlal1_Ticket_Purchase_System\charlal1_Ticket_Purchase_System\obj\x86\Debug\charlal1_Ticket_Purchase_System.exe
 E:\Work\C-\charlal1_Ticket_Purchase_System\charlal1_Ticket_Purchase_System\obj\x86\Debug\charlal1_Ticket_Purchase_System.pdb
+E:\Work\C-\charlal1_Ticket_Purchase_System\charlal1_Ticket_Purchase_System\obj\x86\Debug\charlal1_Ticket_Purchase_System.csprojResolveAssemblyReference.cache

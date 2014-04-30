@@ -72,9 +72,9 @@
             this.lSeating.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lSeating.Location = new System.Drawing.Point(466, 500);
             this.lSeating.Name = "lSeating";
-            this.lSeating.Size = new System.Drawing.Size(214, 33);
+            this.lSeating.Size = new System.Drawing.Size(216, 33);
             this.lSeating.TabIndex = 1;
-            this.lSeating.Text = "Regent Seating";
+            this.lSeating.Text = "Regent Theatre";
             // 
             // pSeatingDisplayGods
             // 
@@ -87,21 +87,21 @@
             // 
             this.lGallery.AutoSize = true;
             this.lGallery.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lGallery.Location = new System.Drawing.Point(187, 289);
+            this.lGallery.Location = new System.Drawing.Point(142, 289);
             this.lGallery.Name = "lGallery";
-            this.lGallery.Size = new System.Drawing.Size(80, 25);
+            this.lGallery.Size = new System.Drawing.Size(159, 25);
             this.lGallery.TabIndex = 2;
-            this.lGallery.Text = "Gallery";
+            this.lGallery.Text = "Gallery Seating";
             // 
             // lGods
             // 
             this.lGods.AutoSize = true;
             this.lGods.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lGods.Location = new System.Drawing.Point(532, 289);
+            this.lGods.Location = new System.Drawing.Point(496, 289);
             this.lGods.Name = "lGods";
-            this.lGods.Size = new System.Drawing.Size(63, 25);
+            this.lGods.Size = new System.Drawing.Size(142, 25);
             this.lGods.TabIndex = 3;
-            this.lGods.Text = "Gods";
+            this.lGods.Text = "Gods Seating";
             // 
             // pGalleryRows
             // 
