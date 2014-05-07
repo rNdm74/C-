@@ -26,39 +26,127 @@ namespace charlal1.XML.PubsAndClubs
 
             foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
             {
-                //lbDebug.Items.Add(item.Attribute("TITLE").Value);
-
-                string genre = item.Element("Band").Element("Genre").Value;
-
+                string genre = item.Element("Band").Element("Genre").Value.Trim();
+                
                 if (!cbGenres.Items.Contains(genre))
-                    cbGenres.Items.Add(genre);
-
-
-                string[] items = new string[]
-                {
-                    item.Attribute("TITLE").Value,
-                    item.Element("Date").Value,
-                    item.Element("StartTime").Value,
-                    item.Element("EndTime").Value,
-                    item.Element("CoverPrice").Value,
-                    item.Element("AgeLimit").Value,
-                    item.Element("Club").Element("Name").Value,
-                    item.Element("Club").Element("Address").Value,
-                    item.Element("Band").Element("Name").Value,
-                    item.Element("Band").Element("Genre").Value                                    
-                };
-
-                //DataGridViewRow dataGridViewRow = new DataGridViewRow();
-                //dataGridViewRow.CreateCells(dgvDisplay, items);
-
-                dgvDisplay.Rows.Add(items);
-                                                
+                    cbGenres.Items.Add(genre);                                                
             }
 
             cbGenres.Text = cbGenres.Items[0].ToString();
 
-             
-            //dgvDisplay.Rows.Add(
+            UpdateDisplay();            
+        }
+
+        private void DisplaySelectedGenresCurrentMonth(string selection)
+        {
+            dgvDisplay.Rows.Clear();
+
+            foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
+            {
+                string[] items = GetItems(item);
+
+                string genre = item.Element("Band").Element("Genre").Value.Trim();
+
+                string date = item.Element("Date").Value;
+                DateTime dt = DateTime.ParseExact(date, "dd/MM/yyyy", null);
+
+                DateTime today = DateTime.Today;
+                DateTime endOfMonth = new DateTime(today.Year, today.Month, 1).AddMonths(1);
+
+                if (dt < endOfMonth)
+                    if (selection == genre)
+                        dgvDisplay.Rows.Add(items);
+            }
+
+            dgvDisplay.Refresh();
+        }
+
+        private void DisplayAllGenresCurrentMonth()
+        {
+            dgvDisplay.Rows.Clear();
+
+            foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
+            {
+                string[] items = GetItems(item);
+
+                //string genre = item.Element("Band").Element("Genre").Value.Trim();
+
+                string date = item.Element("Date").Value;
+                DateTime dt = DateTime.ParseExact(date, "dd/MM/yyyy", null);
+
+                DateTime today = DateTime.Today;
+                DateTime endOfMonth = new DateTime(today.Year, today.Month, 1).AddMonths(1);
+
+                if (dt < endOfMonth)
+                    dgvDisplay.Rows.Add(items);
+            }
+
+            dgvDisplay.Refresh();
+        }
+
+        private void DisplaySelectedGenres(string selection)
+        {
+            dgvDisplay.Rows.Clear();
+
+            foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
+            {
+                string[] items = GetItems(item);
+
+                string genre = item.Element("Band").Element("Genre").Value.Trim();
+                
+                if(selection == genre)
+                    dgvDisplay.Rows.Add(items);
+            }
+
+            dgvDisplay.Refresh();
+        }
+
+        private void DisplayAllGenres()
+        {
+            dgvDisplay.Rows.Clear();
+
+            foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
+            {
+                string[] items = GetItems(item);
+                dgvDisplay.Rows.Add(items);
+            }
+
+            dgvDisplay.Refresh();
+        }
+
+        private void UpdateDisplay()
+        {
+            string selection = cbGenres.SelectedItem.ToString();
+
+            if (selection == "All Genres" && rbAllMonths.Checked)
+                // Display All Genres
+                DisplayAllGenres();
+            else if (rbAllMonths.Checked)
+                // Display Only Selected Genres
+                DisplaySelectedGenres(selection);
+            else if (selection == "All Genres" && rbThisMonth.Checked)
+                // Display All Genres For Current Month 
+                DisplayAllGenresCurrentMonth();
+            else if (rbThisMonth.Checked)
+                // Display Only Selected Genres For Current Month 
+                DisplaySelectedGenresCurrentMonth(selection); 
+        }
+
+        private string[] GetItems(XElement item)
+        {
+            return new string[]
+            {
+                item.Attribute("TITLE").Value,
+                item.Element("Date").Value,
+                item.Element("StartTime").Value,
+                item.Element("EndTime").Value,
+                item.Element("CoverPrice").Value,
+                item.Element("AgeLimit").Value,
+                item.Element("Club").Element("Name").Value,
+                item.Element("Club").Element("Address").Value,
+                item.Element("Band").Element("Name").Value,
+                item.Element("Band").Element("Genre").Value                                    
+            };
         }
 
         private void dgvDisplay_SelectionChanged(object sender, EventArgs e)
@@ -85,97 +173,94 @@ namespace charlal1.XML.PubsAndClubs
             }
             catch (Exception)
             {
-            }
-            
+            }            
         }
 
         private void cbGenres_SelectedValueChanged(object sender, EventArgs e)
         {
-            dgvDisplay.Rows.Clear();
-
-            foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
-            {
-                string[] items = new string[]
-                {
-                    item.Attribute("TITLE").Value,
-                    item.Element("Date").Value,
-                    item.Element("StartTime").Value,
-                    item.Element("EndTime").Value,
-                    item.Element("CoverPrice").Value,
-                    item.Element("AgeLimit").Value,
-                    item.Element("Club").Element("Name").Value,
-                    item.Element("Club").Element("Address").Value,
-                    item.Element("Band").Element("Name").Value,
-                    item.Element("Band").Element("Genre").Value                                    
-                };
-                
-                string genre = item.Element("Band").Element("Genre").Value.Trim();
-                string selection = cbGenres.SelectedItem.ToString();
-
-                if(selection == genre)
-                    dgvDisplay.Rows.Add(items);
-                else if(selection == "All Genres")
-                    dgvDisplay.Rows.Add(items);
-            }
-
-            dgvDisplay.Refresh();
+            UpdateDisplay();
         }
 
         private void rbAllMonths_CheckedChanged(object sender, EventArgs e)
         {
-            dgvDisplay.Rows.Clear();
+            UpdateDisplay();                     
+        }
+        
+        private void bAddEvent_Click(object sender, EventArgs e)
+        {
+            if(rbEditEvent.Checked)
+                EditEvent();
+            else if (rbAddEvent.Checked)
+                AddEvent();
+            else if(rbDeleteEvent.Checked)
+                DeleteEvent();
 
+            UpdateDisplay();
+        }
+
+        private void DeleteEvent()
+        {
             foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
             {
-                string[] items = new string[]
-                {
-                    item.Attribute("TITLE").Value,
-                    item.Element("Date").Value,
-                    item.Element("StartTime").Value,
-                    item.Element("EndTime").Value,
-                    item.Element("CoverPrice").Value,
-                    item.Element("AgeLimit").Value,
-                    item.Element("Club").Element("Name").Value,
-                    item.Element("Club").Element("Address").Value,
-                    item.Element("Band").Element("Name").Value,
-                    item.Element("Band").Element("Genre").Value                                    
-                };
-
-                string genre = item.Element("Band").Element("Genre").Value.Trim();
-                string selection = cbGenres.SelectedItem.ToString();
-
-                RadioButton rb = (RadioButton) sender;
-
-                if (rb.Text == "All Months")
-                {
-                    if (selection == genre)
-                        dgvDisplay.Rows.Add(items);
-                    else if (selection == "All Genres")
-                        dgvDisplay.Rows.Add(items);
-                }
-                else if (rb.Text == "This Month") 
-                {
-                    string date = item.Element("Date").Value;
-                    DateTime dt = DateTime.ParseExact(date, "dd/MM/yyyy", null);
-
-                    DateTime today = DateTime.Today;
-                    DateTime endOfMonth = new DateTime(today.Year, today.Month, 1).AddMonths(1);
-
-                    if (dt < endOfMonth)
-                    {
-                        if (selection == genre)
-                            dgvDisplay.Rows.Add(items);
-                        else if (selection == "All Genres")
-                            dgvDisplay.Rows.Add(items);
-                             
-                    }
-                }
-                                  
+                if (item.Element("Date").Value == dtpDate.Text && item.Attribute("TITLE").Value == tbEventName.Text)
+                    item.Remove();
             }
+        }
 
-            dgvDisplay.Refresh();
+        private void EditEvent()
+        {
+            foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
+            {
+                if (item.Element("Date").Value == dtpDate.Text && item.Attribute("TITLE").Value == tbEventName.Text)
+                {
+                    item.Attribute("TITLE").Value = tbEventName.Text;
+                    item.Element("Date").Value = dtpDate.Text;
+                    item.Element("StartTime").Value = tbStartTime.Text;
+                    item.Element("EndTime").Value = tbEndTime.Text;
+                    item.Element("CoverPrice").Value = tbCoverPrice.Text;
+                    item.Element("AgeLimit").Value = nUpDownAgeLimit.Value.ToString();
+                    item.Element("Club").Element("Name").Value = tbClubName.Text;
+                    item.Element("Club").Element("Address").Value = tbClubAddress.Text;
+                    item.Element("Band").Element("Name").Value = tbBandName.Text;
+                    item.Element("Band").Element("Genre").Value = tbBandGenre.Text; 
+                }                
+            }
+        }
+        
+        private void AddEvent()
+        {
+            XElement newEvent = new XElement("Event",
+                new XAttribute("TITLE", tbEventName.Text),
+                new XElement("Date", dtpDate.Text),
+                new XElement("StartTime", tbStartTime.Text),
+                new XElement("EndTime", tbEndTime.Text),
+                new XElement("CoverPrice", tbCoverPrice.Text),
+                new XElement("AgeLimit", nUpDownAgeLimit.Value),
+                new XElement("Club",
+                    new XAttribute("ID", 0),
+                    new XElement("Name", tbClubName.Text),
+                    new XElement("Address", tbClubAddress.Text)
+                ),
+                new XElement("Band",
+                    new XAttribute("ID", 0),
+                    new XElement("Name", tbBandName.Text),
+                    new XElement("Genre", tbBandGenre.Text)
+                )
+            );
 
-            
-        }        
+            pubsClubs.Element("Gig").Add(newEvent);
+        }
+
+        private void rbEdit_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rb = (RadioButton)sender;
+
+            if( rb.Text == "Edit Event")
+                bAddEvent.Text = "Edit Event";
+            else if( rb.Text == "Add Event")
+                bAddEvent.Text = "Add Event";
+            else if( rb.Text == "Delete Event")
+                bAddEvent.Text = "Delete Event";
+        }
     }
 }

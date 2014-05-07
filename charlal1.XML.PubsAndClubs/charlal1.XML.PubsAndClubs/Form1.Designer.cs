@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDisplay = new System.Windows.Forms.DataGridView();
             this.Event = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,7 +73,8 @@
             this.nUpDownAgeLimit = new System.Windows.Forms.NumericUpDown();
             this.tbStartTime = new System.Windows.Forms.TextBox();
             this.rbAddEvent = new System.Windows.Forms.RadioButton();
-            this.rbEdit = new System.Windows.Forms.RadioButton();
+            this.rbEditEvent = new System.Windows.Forms.RadioButton();
+            this.rbDeleteEvent = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).BeginInit();
             this.panel1.SuspendLayout();
             this.gbFilter.SuspendLayout();
@@ -83,22 +84,22 @@
             // dgvDisplay
             // 
             this.dgvDisplay.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
-            this.dgvDisplay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.dgvDisplay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvDisplay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDisplay.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvDisplay.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvDisplay.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDisplay.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvDisplay.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDisplay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDisplay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDisplay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Event,
@@ -111,27 +112,27 @@
             this.ClubAddress,
             this.Band,
             this.BandGenre});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDisplay.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDisplay.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDisplay.GridColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvDisplay.Location = new System.Drawing.Point(0, 0);
             this.dgvDisplay.Name = "dgvDisplay";
             this.dgvDisplay.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDisplay.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDisplay.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvDisplay.RowHeadersVisible = false;
             this.dgvDisplay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDisplay.Size = new System.Drawing.Size(1011, 305);
@@ -316,8 +317,9 @@
             this.bAddEvent.Name = "bAddEvent";
             this.bAddEvent.Size = new System.Drawing.Size(139, 29);
             this.bAddEvent.TabIndex = 37;
-            this.bAddEvent.Text = "Add Event";
+            this.bAddEvent.Text = "Edit Event";
             this.bAddEvent.UseVisualStyleBackColor = true;
+            this.bAddEvent.Click += new System.EventHandler(this.bAddEvent_Click);
             // 
             // lBandName
             // 
@@ -441,6 +443,7 @@
             // 
             this.dtpDate.CustomFormat = "dd/MM/yyyy";
             this.dtpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDate.Location = new System.Drawing.Point(179, 509);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -483,19 +486,34 @@
             this.rbAddEvent.TabIndex = 54;
             this.rbAddEvent.Text = "Add Event";
             this.rbAddEvent.UseVisualStyleBackColor = true;
+            this.rbAddEvent.CheckedChanged += new System.EventHandler(this.rbEdit_CheckedChanged);
             // 
             // rbEdit
             // 
-            this.rbEdit.AutoSize = true;
-            this.rbEdit.Checked = true;
-            this.rbEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbEdit.Location = new System.Drawing.Point(179, 666);
-            this.rbEdit.Name = "rbEdit";
-            this.rbEdit.Size = new System.Drawing.Size(100, 24);
-            this.rbEdit.TabIndex = 53;
-            this.rbEdit.TabStop = true;
-            this.rbEdit.Text = "Edit Event";
-            this.rbEdit.UseVisualStyleBackColor = true;
+            this.rbEditEvent.AutoSize = true;
+            this.rbEditEvent.Checked = true;
+            this.rbEditEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbEditEvent.Location = new System.Drawing.Point(179, 666);
+            this.rbEditEvent.Name = "rbEdit";
+            this.rbEditEvent.Size = new System.Drawing.Size(100, 24);
+            this.rbEditEvent.TabIndex = 53;
+            this.rbEditEvent.TabStop = true;
+            this.rbEditEvent.Text = "Edit Event";
+            this.rbEditEvent.UseVisualStyleBackColor = true;
+            this.rbEditEvent.CheckedChanged += new System.EventHandler(this.rbEdit_CheckedChanged);
+            // 
+            // rbDeleteEvent
+            // 
+            this.rbDeleteEvent.AutoSize = true;
+            this.rbDeleteEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbDeleteEvent.Location = new System.Drawing.Point(393, 666);
+            this.rbDeleteEvent.Name = "rbDeleteEvent";
+            this.rbDeleteEvent.Size = new System.Drawing.Size(119, 24);
+            this.rbDeleteEvent.TabIndex = 55;
+            this.rbDeleteEvent.TabStop = true;
+            this.rbDeleteEvent.Text = "Delete Event";
+            this.rbDeleteEvent.UseVisualStyleBackColor = true;
+            this.rbDeleteEvent.CheckedChanged += new System.EventHandler(this.rbEdit_CheckedChanged);
             // 
             // Form1
             // 
@@ -503,8 +521,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.rbDeleteEvent);
             this.Controls.Add(this.rbAddEvent);
-            this.Controls.Add(this.rbEdit);
+            this.Controls.Add(this.rbEditEvent);
             this.Controls.Add(this.lBandGenre);
             this.Controls.Add(this.tbBandGenre);
             this.Controls.Add(this.lEventName);
@@ -588,7 +607,8 @@
         private System.Windows.Forms.NumericUpDown nUpDownAgeLimit;
         private System.Windows.Forms.TextBox tbStartTime;
         private System.Windows.Forms.RadioButton rbAddEvent;
-        private System.Windows.Forms.RadioButton rbEdit;
+        private System.Windows.Forms.RadioButton rbEditEvent;
+        private System.Windows.Forms.RadioButton rbDeleteEvent;
     }
 }
 
