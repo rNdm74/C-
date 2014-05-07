@@ -1,0 +1,7 @@
+V:\C-\charlal1.XML.PubsAndClubs\charlal1.XML.PubsAndClubs\bin\Debug\charlal1.XML.PubsAndClubs.exe
+V:\C-\charlal1.XML.PubsAndClubs\charlal1.XML.PubsAndClubs\bin\Debug\charlal1.XML.PubsAndClubs.pdb
+V:\C-\charlal1.XML.PubsAndClubs\charlal1.XML.PubsAndClubs\obj\x86\Debug\charlal1.XML.PubsAndClubs.Form1.resources
+V:\C-\charlal1.XML.PubsAndClubs\charlal1.XML.PubsAndClubs\obj\x86\Debug\charlal1.XML.PubsAndClubs.Properties.Resources.resources
+V:\C-\charlal1.XML.PubsAndClubs\charlal1.XML.PubsAndClubs\obj\x86\Debug\charlal1.XML.PubsAndClubs.csproj.GenerateResource.Cache
+V:\C-\charlal1.XML.PubsAndClubs\charlal1.XML.PubsAndClubs\obj\x86\Debug\charlal1.XML.PubsAndClubs.exe
+V:\C-\charlal1.XML.PubsAndClubs\charlal1.XML.PubsAndClubs\obj\x86\Debug\charlal1.XML.PubsAndClubs.pdb
