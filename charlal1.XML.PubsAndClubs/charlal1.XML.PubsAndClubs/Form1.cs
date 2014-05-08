@@ -21,9 +21,10 @@ namespace charlal1.XML.PubsAndClubs
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            // Load XML from folder
             pubsClubs = XDocument.Load("pubsClubs.xml");
 
+            // Populate ComboBox
             foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
             {
                 string genre = item.Element("Band").Element("Genre").Value.Trim();
@@ -32,33 +33,52 @@ namespace charlal1.XML.PubsAndClubs
                     cbGenres.Items.Add(genre);                                                
             }
 
+            // Set the First Item in the ComboBox
             cbGenres.Text = cbGenres.Items[0].ToString();
 
+            // Update Display
             UpdateDisplay();            
         }
 
         private void DisplaySelectedGenresCurrentMonth(string selection)
         {
+            // Clear Gridview
             dgvDisplay.Rows.Clear();
 
             foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
             {
+                // Items From Element
                 string[] items = GetItems(item);
 
+                // Genre From Tree
                 string genre = item.Element("Band").Element("Genre").Value.Trim();
 
-                string date = item.Element("Date").Value;
-                DateTime dt = DateTime.ParseExact(date, "dd/MM/yyyy", null);
-
-                DateTime today = DateTime.Today;
-                DateTime endOfMonth = new DateTime(today.Year, today.Month, 1).AddMonths(1);
-
-                if (dt < endOfMonth)
+                // Display Row when Item is in current month AND comboBox selection equals the Items Genre
+                if (IsInMonth(item))
                     if (selection == genre)
                         dgvDisplay.Rows.Add(items);
             }
 
+            // Refresh the DataGridView
             dgvDisplay.Refresh();
+        }
+
+        private bool IsInMonth(XElement item) 
+        {
+            // Get Date
+            string date = item.Element("Date").Value;
+
+            // Convert To DateTime For Calculation
+            DateTime convertedDate = DateTime.ParseExact(date, "dd/MM/yyyy", null);
+            
+            // Todays Date
+            DateTime today = DateTime.Today;
+            
+            // First Day of Next Month
+            DateTime firstDayOfNextMonth = new DateTime(today.Year, today.Month, 1).AddMonths(1);
+
+            // Return If Date in Current Month
+            return (convertedDate < firstDayOfNextMonth);
         }
 
         private void DisplayAllGenresCurrentMonth()
@@ -69,15 +89,7 @@ namespace charlal1.XML.PubsAndClubs
             {
                 string[] items = GetItems(item);
 
-                //string genre = item.Element("Band").Element("Genre").Value.Trim();
-
-                string date = item.Element("Date").Value;
-                DateTime dt = DateTime.ParseExact(date, "dd/MM/yyyy", null);
-
-                DateTime today = DateTime.Today;
-                DateTime endOfMonth = new DateTime(today.Year, today.Month, 1).AddMonths(1);
-
-                if (dt < endOfMonth)
+                if (IsInMonth(item))
                     dgvDisplay.Rows.Add(items);
             }
 
@@ -108,7 +120,8 @@ namespace charlal1.XML.PubsAndClubs
             foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
             {
                 string[] items = GetItems(item);
-                dgvDisplay.Rows.Add(items);
+                if(items != null)
+                    dgvDisplay.Rows.Add(items);
             }
 
             dgvDisplay.Refresh();
@@ -151,17 +164,18 @@ namespace charlal1.XML.PubsAndClubs
 
         private void dgvDisplay_SelectionChanged(object sender, EventArgs e)
         {
-            try
-            {
-                DataGridView dataGridView = (DataGridView)sender;
+            DataGridView dataGridView = (DataGridView)sender;
 
-                DataGridViewSelectedCellCollection selectedCells = dataGridView.SelectedCells;
-                                
+            DataGridViewSelectedCellCollection selectedCells = dataGridView.SelectedCells;
+
+            if (selectedCells.Count > 0 && dataGridView.CurrentCell.RowIndex < dataGridView.Rows.Count - 1)
+            {
+                tbEventName.Text = selectedCells[0].Value.ToString();
+
                 string date = selectedCells[1].Value.ToString();
                 DateTime dt = DateTime.ParseExact(date, "dd/MM/yyyy", null);
-
-                tbEventName.Text = selectedCells[0].Value.ToString();
                 dtpDate.Text = dt.ToString();
+
                 tbStartTime.Text = selectedCells[2].Value.ToString();
                 tbEndTime.Text = selectedCells[3].Value.ToString();
                 tbCoverPrice.Text = selectedCells[4].Value.ToString();
@@ -170,10 +184,7 @@ namespace charlal1.XML.PubsAndClubs
                 tbClubAddress.Text = selectedCells[7].Value.ToString();
                 tbBandName.Text = selectedCells[8].Value.ToString();
                 tbBandGenre.Text = selectedCells[9].Value.ToString();
-            }
-            catch (Exception)
-            {
-            }            
+            }     
         }
 
         private void cbGenres_SelectedValueChanged(object sender, EventArgs e)

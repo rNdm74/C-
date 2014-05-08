@@ -13,3 +13,4 @@ E:\Work\C-\charlal1.XML.PubsAndClubs\charlal1.XML.PubsAndClubs\obj\x86\Debug\cha
 E:\Work\C-\charlal1.XML.PubsAndClubs\charlal1.XML.PubsAndClubs\obj\x86\Debug\charlal1.XML.PubsAndClubs.Properties.Resources.resources
 E:\Work\C-\charlal1.XML.PubsAndClubs\charlal1.XML.PubsAndClubs\obj\x86\Debug\charlal1.XML.PubsAndClubs.csproj.GenerateResource.Cache
 E:\Work\C-\charlal1.XML.PubsAndClubs\charlal1.XML.PubsAndClubs\obj\x86\Debug\charlal1.XML.PubsAndClubs.csprojResolveAssemblyReference.cache
+V:\C-\charlal1.XML.PubsAndClubs\charlal1.XML.PubsAndClubs\obj\x86\Debug\charlal1.XML.PubsAndClubs.csprojResolveAssemblyReference.cache
