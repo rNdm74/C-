@@ -1,96 +1,96 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Gig>
-  <Event TITLE="The Gathering">
+  <Event TITLE="The Gathering" ID="0">
     <Date>09/05/2014</Date>
     <StartTime>1800</StartTime>
     <EndTime>0000</EndTime>
     <CoverPrice>10</CoverPrice>
     <AgeLimit>18</AgeLimit>
-    <Club ID="0">
+    <Club>
       <Name>Club 1</Name>
       <Address>5 Joe Street</Address>
     </Club>
-    <Band ID="0">
+    <Band>
       <Name>The Best</Name>
       <Genre>Electronic</Genre>
     </Band>
   </Event>
-  <Event TITLE="The OldSkool">
+  <Event TITLE="The OldSkool" ID="1">
     <Date>10/05/2014</Date>
     <StartTime>1800</StartTime>
     <EndTime>0000</EndTime>
     <CoverPrice>30</CoverPrice>
     <AgeLimit>40</AgeLimit>
-    <Club ID="1">
+    <Club>
       <Name>Club 2</Name>
       <Address>5 John Street</Address>
     </Club>
-    <Band ID="1">
+    <Band>
       <Name>The Olds</Name>
       <Genre>Folk</Genre>
     </Band>
   </Event>
-  <Event TITLE="The Bogan">
+  <Event TITLE="The Bogan" ID="2">
     <Date>16/05/2014</Date>
     <StartTime>1800</StartTime>
     <EndTime>0000</EndTime>
     <CoverPrice>10</CoverPrice>
     <AgeLimit>18</AgeLimit>
-    <Club ID="2">
+    <Club>
       <Name>Club 3</Name>
       <Address>5 Jean Street</Address>
     </Club>
-    <Band ID="2">
+    <Band>
       <Name>The Death</Name>
       <Genre>Rock</Genre>
     </Band>
   </Event>
-  <Event TITLE="The Chicks">
+  <Event TITLE="The Chicks" ID="3">
     <Date>17/05/2014</Date>
     <StartTime>1800</StartTime>
     <EndTime>0000</EndTime>
     <CoverPrice>10</CoverPrice>
     <AgeLimit>18</AgeLimit>
-    <Club ID="3">
+    <Club>
       <Name>Club 4</Name>
       <Address>5 Girl Street</Address>
     </Club>
-    <Band ID="3">
+    <Band>
       <Name>The Teeny Bopper</Name>
       <Genre>Dance</Genre>
     </Band>
   </Event>
-  <Event TITLE="The RNB">
+  <Event TITLE="The RNB" ID="4">
     <Date>23/05/2014</Date>
     <StartTime>1800</StartTime>
     <EndTime>0000</EndTime>
     <CoverPrice>10</CoverPrice>
     <AgeLimit>18</AgeLimit>
-    <Club ID="4">
+    <Club>
       <Name>Club 5</Name>
       <Address>5 Dre Street</Address>
     </Club>
-    <Band ID="4">
+    <Band>
       <Name>The Rappers</Name>
       <Genre>HipHop</Genre>
     </Band>
   </Event>
-  <Event TITLE="The Gathering">
+  <Event TITLE="The Gathering" ID="5">
     <Date>24/05/2014</Date>
     <StartTime>1800</StartTime>
     <EndTime>0000</EndTime>
     <CoverPrice>10</CoverPrice>
     <AgeLimit>18</AgeLimit>
-    <Club ID="0">
+    <Club>
       <Name>Club 1</Name>
       <Address>5 Joe Street</Address>
     </Club>
-    <Band ID="0">
+    <Band>
       <Name>The Best</Name>
       <Genre>Electronic</Genre>
     </Band>
   </Event>
-  <Event TITLE="The Chicks">
+  <Event TITLE="The Chicks" ID="6">
     <Date>30/05/2014</Date>
     <StartTime>1800</StartTime>
     <EndTime>0000</EndTime>
@@ -100,52 +100,52 @@
       <Name>Club 4</Name>
       <Address>5 Girl Street</Address>
     </Club>
-    <Band ID="3">
+    <Band>
       <Name>The Teeny Bopper</Name>
       <Genre>Dance</Genre>
     </Band>
   </Event>
-  <Event TITLE="The Gathering">
+  <Event TITLE="The Gathering" ID="7">
     <Date>31/05/2014</Date>
     <StartTime>1800</StartTime>
     <EndTime>0000</EndTime>
     <CoverPrice>10</CoverPrice>
     <AgeLimit>18</AgeLimit>
-    <Club ID="0">
+    <Club>
       <Name>Club 1</Name>
       <Address>5 Joe Street</Address>
     </Club>
-    <Band ID="0">
+    <Band>
       <Name>The Best</Name>
       <Genre>Electronic</Genre>
     </Band>
   </Event>
-  <Event TITLE="The OldSkool">
+  <Event TITLE="The OldSkool" ID="8">
     <Date>06/06/2014</Date>
     <StartTime>1800</StartTime>
     <EndTime>0000</EndTime>
     <CoverPrice>30</CoverPrice>
     <AgeLimit>40</AgeLimit>
-    <Club ID="1">
+    <Club>
       <Name>Club 2</Name>
       <Address>5 John Street</Address>
     </Club>
-    <Band ID="1">
+    <Band>
       <Name>The Olds</Name>
       <Genre>Folk</Genre>
     </Band>
   </Event>
-  <Event TITLE="The Bogan">
+  <Event TITLE="The Bogan" ID="9">
     <Date>07/06/2014</Date>
     <StartTime>1800</StartTime>
     <EndTime>0000</EndTime>
     <CoverPrice>10</CoverPrice>
     <AgeLimit>18</AgeLimit>
-    <Club ID="2">
+    <Club>
       <Name>Club 3</Name>
       <Address>5 Jean Street</Address>
     </Club>
-    <Band ID="2">
+    <Band>
       <Name>The Death</Name>
       <Genre>Rock</Genre>
     </Band>

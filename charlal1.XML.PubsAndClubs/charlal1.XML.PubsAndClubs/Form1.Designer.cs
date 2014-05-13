@@ -28,23 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDisplay = new System.Windows.Forms.DataGridView();
-            this.Event = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CoverPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AgeLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Club = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClubAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Band = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BandGenre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbGenres = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pGridViewDisplay = new System.Windows.Forms.Panel();
             this.lMonth = new System.Windows.Forms.Label();
             this.rbThisMonth = new System.Windows.Forms.RadioButton();
             this.rbAllMonths = new System.Windows.Forms.RadioButton();
@@ -61,7 +53,7 @@
             this.lAgeLimit = new System.Windows.Forms.Label();
             this.lEndTime = new System.Windows.Forms.Label();
             this.tbEventName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lClubAddress = new System.Windows.Forms.Label();
             this.lCoverPrice = new System.Windows.Forms.Label();
             this.lStartTime = new System.Windows.Forms.Label();
             this.tbClubName = new System.Windows.Forms.TextBox();
@@ -75,8 +67,22 @@
             this.rbAddEvent = new System.Windows.Forms.RadioButton();
             this.rbEditEvent = new System.Windows.Forms.RadioButton();
             this.rbDeleteEvent = new System.Windows.Forms.RadioButton();
+            this.lID = new System.Windows.Forms.Label();
+            this.lIDValue = new System.Windows.Forms.Label();
+            this.bSave = new System.Windows.Forms.Button();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Event = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CoverPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AgeLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Club = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClubAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Band = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BandGenre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pGridViewDisplay.SuspendLayout();
             this.gbFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUpDownAgeLimit)).BeginInit();
             this.SuspendLayout();
@@ -84,24 +90,25 @@
             // dgvDisplay
             // 
             this.dgvDisplay.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.dgvDisplay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvDisplay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDisplay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDisplay.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvDisplay.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvDisplay.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDisplay.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvDisplay.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDisplay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDisplay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDisplay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.Event,
             this.Date,
             this.StartTime,
@@ -112,82 +119,34 @@
             this.ClubAddress,
             this.Band,
             this.BandGenre});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDisplay.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDisplay.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDisplay.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvDisplay.GridColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvDisplay.Location = new System.Drawing.Point(0, 0);
+            this.dgvDisplay.MultiSelect = false;
             this.dgvDisplay.Name = "dgvDisplay";
             this.dgvDisplay.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDisplay.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDisplay.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDisplay.RowHeadersVisible = false;
             this.dgvDisplay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDisplay.Size = new System.Drawing.Size(1011, 305);
             this.dgvDisplay.TabIndex = 0;
             this.dgvDisplay.SelectionChanged += new System.EventHandler(this.dgvDisplay_SelectionChanged);
-            // 
-            // Event
-            // 
-            this.Event.HeaderText = "Event Name";
-            this.Event.Name = "Event";
-            // 
-            // Date
-            // 
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            // 
-            // StartTime
-            // 
-            this.StartTime.HeaderText = "Start Time";
-            this.StartTime.Name = "StartTime";
-            // 
-            // EndTime
-            // 
-            this.EndTime.HeaderText = "End Time";
-            this.EndTime.Name = "EndTime";
-            // 
-            // CoverPrice
-            // 
-            this.CoverPrice.HeaderText = "Cover Price";
-            this.CoverPrice.Name = "CoverPrice";
-            // 
-            // AgeLimit
-            // 
-            this.AgeLimit.HeaderText = "Age Limit";
-            this.AgeLimit.Name = "AgeLimit";
-            // 
-            // Club
-            // 
-            this.Club.HeaderText = "Club Name";
-            this.Club.Name = "Club";
-            // 
-            // ClubAddress
-            // 
-            this.ClubAddress.HeaderText = "Club Address";
-            this.ClubAddress.Name = "ClubAddress";
-            // 
-            // Band
-            // 
-            this.Band.HeaderText = "Band Name";
-            this.Band.Name = "Band";
-            // 
-            // BandGenre
-            // 
-            this.BandGenre.HeaderText = "Band Genre";
-            this.BandGenre.Name = "BandGenre";
             // 
             // cbGenres
             // 
@@ -202,14 +161,14 @@
             this.cbGenres.Text = "All Genres";
             this.cbGenres.SelectedValueChanged += new System.EventHandler(this.cbGenres_SelectedValueChanged);
             // 
-            // panel1
+            // pGridViewDisplay
             // 
-            this.panel1.Controls.Add(this.dgvDisplay);
-            this.panel1.Location = new System.Drawing.Point(-1, -1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1011, 305);
-            this.panel1.TabIndex = 29;
+            this.pGridViewDisplay.Controls.Add(this.dgvDisplay);
+            this.pGridViewDisplay.Location = new System.Drawing.Point(-1, -1);
+            this.pGridViewDisplay.Margin = new System.Windows.Forms.Padding(0);
+            this.pGridViewDisplay.Name = "pGridViewDisplay";
+            this.pGridViewDisplay.Size = new System.Drawing.Size(1011, 305);
+            this.pGridViewDisplay.TabIndex = 29;
             // 
             // lMonth
             // 
@@ -377,15 +336,15 @@
             this.tbEventName.Size = new System.Drawing.Size(302, 26);
             this.tbEventName.TabIndex = 38;
             // 
-            // label1
+            // lClubAddress
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(496, 543);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 20);
-            this.label1.TabIndex = 48;
-            this.label1.Text = "Club Address";
+            this.lClubAddress.AutoSize = true;
+            this.lClubAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lClubAddress.Location = new System.Drawing.Point(496, 543);
+            this.lClubAddress.Name = "lClubAddress";
+            this.lClubAddress.Size = new System.Drawing.Size(104, 20);
+            this.lClubAddress.TabIndex = 48;
+            this.lClubAddress.Text = "Club Address";
             // 
             // lCoverPrice
             // 
@@ -488,13 +447,13 @@
             this.rbAddEvent.UseVisualStyleBackColor = true;
             this.rbAddEvent.CheckedChanged += new System.EventHandler(this.rbEdit_CheckedChanged);
             // 
-            // rbEdit
+            // rbEditEvent
             // 
             this.rbEditEvent.AutoSize = true;
             this.rbEditEvent.Checked = true;
             this.rbEditEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbEditEvent.Location = new System.Drawing.Point(179, 666);
-            this.rbEditEvent.Name = "rbEdit";
+            this.rbEditEvent.Name = "rbEditEvent";
             this.rbEditEvent.Size = new System.Drawing.Size(100, 24);
             this.rbEditEvent.TabIndex = 53;
             this.rbEditEvent.TabStop = true;
@@ -515,12 +474,120 @@
             this.rbDeleteEvent.UseVisualStyleBackColor = true;
             this.rbDeleteEvent.CheckedChanged += new System.EventHandler(this.rbEdit_CheckedChanged);
             // 
+            // lID
+            // 
+            this.lID.AutoSize = true;
+            this.lID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lID.Location = new System.Drawing.Point(147, 447);
+            this.lID.Name = "lID";
+            this.lID.Size = new System.Drawing.Size(26, 20);
+            this.lID.TabIndex = 0;
+            this.lID.Text = "ID";
+            // 
+            // lIDValue
+            // 
+            this.lIDValue.AutoSize = true;
+            this.lIDValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lIDValue.Location = new System.Drawing.Point(179, 447);
+            this.lIDValue.Name = "lIDValue";
+            this.lIDValue.Size = new System.Drawing.Size(18, 20);
+            this.lIDValue.TabIndex = 56;
+            this.lIDValue.Text = "0";
+            // 
+            // bSave
+            // 
+            this.bSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSave.Location = new System.Drawing.Point(606, 664);
+            this.bSave.Name = "bSave";
+            this.bSave.Size = new System.Drawing.Size(139, 29);
+            this.bSave.TabIndex = 57;
+            this.bSave.Text = "Save";
+            this.bSave.UseVisualStyleBackColor = true;
+            this.bSave.Click += new System.EventHandler(this.bSave_Click);
+            // 
+            // ID
+            // 
+            dataGridViewCellStyle3.NullValue = null;
+            this.ID.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ID.FillWeight = 14.40773F;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            // 
+            // Event
+            // 
+            this.Event.FillWeight = 31.57633F;
+            this.Event.HeaderText = "Event Name";
+            this.Event.Name = "Event";
+            // 
+            // Date
+            // 
+            dataGridViewCellStyle4.Format = "dd-MM-yyyy";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Date.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Date.FillWeight = 31.57633F;
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // StartTime
+            // 
+            this.StartTime.FillWeight = 17.24632F;
+            this.StartTime.HeaderText = "Start Time";
+            this.StartTime.Name = "StartTime";
+            // 
+            // EndTime
+            // 
+            this.EndTime.FillWeight = 20.40247F;
+            this.EndTime.HeaderText = "End Time";
+            this.EndTime.Name = "EndTime";
+            // 
+            // CoverPrice
+            // 
+            this.CoverPrice.FillWeight = 22.94726F;
+            this.CoverPrice.HeaderText = "Cover Price";
+            this.CoverPrice.Name = "CoverPrice";
+            // 
+            // AgeLimit
+            // 
+            this.AgeLimit.FillWeight = 22.94726F;
+            this.AgeLimit.HeaderText = "Age Limit";
+            this.AgeLimit.Name = "AgeLimit";
+            // 
+            // Club
+            // 
+            this.Club.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Club.FillWeight = 99.09013F;
+            this.Club.HeaderText = "Club Name";
+            this.Club.Name = "Club";
+            this.Club.Width = 60;
+            // 
+            // ClubAddress
+            // 
+            this.ClubAddress.FillWeight = 31.57633F;
+            this.ClubAddress.HeaderText = "Club Address";
+            this.ClubAddress.Name = "ClubAddress";
+            // 
+            // Band
+            // 
+            this.Band.FillWeight = 31.57633F;
+            this.Band.HeaderText = "Band Name";
+            this.Band.Name = "Band";
+            // 
+            // BandGenre
+            // 
+            this.BandGenre.FillWeight = 31.57633F;
+            this.BandGenre.HeaderText = "Band Genre";
+            this.BandGenre.Name = "BandGenre";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.bSave);
+            this.Controls.Add(this.lIDValue);
+            this.Controls.Add(this.lID);
             this.Controls.Add(this.rbDeleteEvent);
             this.Controls.Add(this.rbAddEvent);
             this.Controls.Add(this.rbEditEvent);
@@ -534,7 +601,7 @@
             this.Controls.Add(this.lAgeLimit);
             this.Controls.Add(this.lEndTime);
             this.Controls.Add(this.tbEventName);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lClubAddress);
             this.Controls.Add(this.lCoverPrice);
             this.Controls.Add(this.lStartTime);
             this.Controls.Add(this.tbClubName);
@@ -545,7 +612,7 @@
             this.Controls.Add(this.lClubName);
             this.Controls.Add(this.nUpDownAgeLimit);
             this.Controls.Add(this.tbStartTime);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pGridViewDisplay);
             this.Controls.Add(this.gbFilter);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1024, 768);
@@ -555,7 +622,7 @@
             this.Text = "Pubs and Clubs - Dunedin";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.pGridViewDisplay.ResumeLayout(false);
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUpDownAgeLimit)).EndInit();
@@ -568,17 +635,7 @@
 
         private System.Windows.Forms.DataGridView dgvDisplay;
         private System.Windows.Forms.ComboBox cbGenres;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Event;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StartTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EndTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CoverPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AgeLimit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Club;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClubAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Band;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BandGenre;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pGridViewDisplay;
         private System.Windows.Forms.Label lMonth;
         private System.Windows.Forms.RadioButton rbThisMonth;
         private System.Windows.Forms.RadioButton rbAllMonths;
@@ -595,7 +652,7 @@
         private System.Windows.Forms.Label lAgeLimit;
         private System.Windows.Forms.Label lEndTime;
         private System.Windows.Forms.TextBox tbEventName;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lClubAddress;
         private System.Windows.Forms.Label lCoverPrice;
         private System.Windows.Forms.Label lStartTime;
         private System.Windows.Forms.TextBox tbClubName;
@@ -609,6 +666,20 @@
         private System.Windows.Forms.RadioButton rbAddEvent;
         private System.Windows.Forms.RadioButton rbEditEvent;
         private System.Windows.Forms.RadioButton rbDeleteEvent;
+        private System.Windows.Forms.Label lID;
+        private System.Windows.Forms.Label lIDValue;
+        private System.Windows.Forms.Button bSave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Event;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EndTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CoverPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AgeLimit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Club;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClubAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Band;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BandGenre;
     }
 }
 

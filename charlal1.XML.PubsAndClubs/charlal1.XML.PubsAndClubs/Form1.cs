@@ -19,6 +19,11 @@ namespace charlal1.XML.PubsAndClubs
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Events
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
             // Load XML from folder
@@ -38,6 +43,151 @@ namespace charlal1.XML.PubsAndClubs
 
             // Update Display
             UpdateDisplay();            
+        }
+
+        private void dgvDisplay_SelectionChanged(object sender, EventArgs e)
+        {
+            DataGridView dataGridView = (DataGridView)sender;
+
+            DataGridViewSelectedCellCollection selectedCells = dataGridView.SelectedCells;
+
+            // Error checking
+            if (selectedCells.Count > 0 && dataGridView.CurrentCell.RowIndex < dataGridView.Rows.Count - 1)
+            {
+                // Only updates ID when Add Event is not checked
+                if (!rbAddEvent.Checked)
+                    lIDValue.Text = selectedCells[0].Value.ToString();
+
+                tbEventName.Text = selectedCells[1].Value.ToString();
+
+                string date = selectedCells[2].Value.ToString();
+                DateTime dt = DateTime.ParseExact(date, "dd/MM/yyyy", null);
+                dtpDate.Text = dt.ToString();
+
+                tbStartTime.Text = selectedCells[3].Value.ToString();
+                tbEndTime.Text = selectedCells[4].Value.ToString();
+                tbCoverPrice.Text = selectedCells[5].Value.ToString();
+                nUpDownAgeLimit.Value = Convert.ToInt16(selectedCells[6].Value);
+                tbClubName.Text = selectedCells[7].Value.ToString();
+                tbClubAddress.Text = selectedCells[8].Value.ToString();
+                tbBandName.Text = selectedCells[9].Value.ToString();
+                tbBandGenre.Text = selectedCells[10].Value.ToString();
+            }
+        }
+
+        private void cbGenres_SelectedValueChanged(object sender, EventArgs e)
+        {
+            UpdateDisplay();
+        }
+
+        private void rbAllMonths_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateDisplay();
+        }
+
+        private void bAddEvent_Click(object sender, EventArgs e)
+        {
+            if (rbEditEvent.Checked)
+                EditEvent();
+            else if (rbAddEvent.Checked)
+                AddEvent();
+            else if (rbDeleteEvent.Checked)
+                DeleteEvent();
+
+            UpdateDisplay();
+        }
+
+        private void rbEdit_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rb = (RadioButton)sender;
+
+            if (rb.Text == "Edit Event")
+            {
+                bAddEvent.Text = "Edit Event";
+                lIDValue.Text = dgvDisplay.CurrentCell.RowIndex.ToString();
+            }
+            else if (rb.Text == "Add Event")
+            {
+                bAddEvent.Text = "Add Event";
+                lIDValue.Text = (dgvDisplay.RowCount - 1).ToString();
+            }
+            else if (rb.Text == "Delete Event")
+            {
+                bAddEvent.Text = "Delete Event";
+                lIDValue.Text = dgvDisplay.CurrentCell.RowIndex.ToString();
+            }
+        }
+
+        private void bSave_Click(object sender, EventArgs e)
+        {
+            pubsClubs.Save("pubsClubs.xml");
+        }
+        
+        /// <summary>
+        /// Methods
+        /// </summary>
+        /// <param name="selection"></param>
+        private void UpdateDisplay()
+        {
+            string selection = cbGenres.SelectedItem.ToString();
+
+            if (selection == "All Genres" && rbAllMonths.Checked)
+                // Display All Genres
+                DisplayAllGenres();
+            else if (rbAllMonths.Checked)
+                // Display Only Selected Genres
+                DisplaySelectedGenres(selection);
+            else if (selection == "All Genres" && rbThisMonth.Checked)
+                // Display All Genres For Current Month 
+                DisplayAllGenresCurrentMonth();
+            else if (rbThisMonth.Checked)
+                // Display Only Selected Genres For Current Month 
+                DisplaySelectedGenresCurrentMonth(selection);
+        }
+        
+        private void DisplayAllGenres()
+        {
+            dgvDisplay.Rows.Clear();
+
+            foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
+            {
+                string[] items = GetItems(item);
+                dgvDisplay.Rows.Add(items);
+            }
+
+            dgvDisplay.Refresh();
+        }
+        
+        private void DisplaySelectedGenres(string selection)
+        {
+            dgvDisplay.Rows.Clear();
+
+            foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
+            {
+                string[] items = GetItems(item);
+
+                string genre = item.Element("Band").Element("Genre").Value.Trim();
+
+                if (selection == genre)
+                    dgvDisplay.Rows.Add(items);
+            }
+
+            dgvDisplay.Refresh();
+        }
+
+        private void DisplayAllGenresCurrentMonth()
+        {
+            dgvDisplay.Rows.Clear();
+
+            foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
+            {
+                string[] items = GetItems(item);
+
+                if (IsInMonth(item))
+                    dgvDisplay.Rows.Add(items);
+            }
+
+            dgvDisplay.Refresh();
         }
 
         private void DisplaySelectedGenresCurrentMonth(string selection)
@@ -62,93 +212,30 @@ namespace charlal1.XML.PubsAndClubs
             // Refresh the DataGridView
             dgvDisplay.Refresh();
         }
-
-        private bool IsInMonth(XElement item) 
+        
+        private bool IsInMonth(XElement item)
         {
             // Get Date
             string date = item.Element("Date").Value;
 
             // Convert To DateTime For Calculation
             DateTime convertedDate = DateTime.ParseExact(date, "dd/MM/yyyy", null);
-            
+
             // Todays Date
             DateTime today = DateTime.Today;
-            
+
             // First Day of Next Month
             DateTime firstDayOfNextMonth = new DateTime(today.Year, today.Month, 1).AddMonths(1);
 
             // Return If Date in Current Month
             return (convertedDate < firstDayOfNextMonth);
         }
-
-        private void DisplayAllGenresCurrentMonth()
-        {
-            dgvDisplay.Rows.Clear();
-
-            foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
-            {
-                string[] items = GetItems(item);
-
-                if (IsInMonth(item))
-                    dgvDisplay.Rows.Add(items);
-            }
-
-            dgvDisplay.Refresh();
-        }
-
-        private void DisplaySelectedGenres(string selection)
-        {
-            dgvDisplay.Rows.Clear();
-
-            foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
-            {
-                string[] items = GetItems(item);
-
-                string genre = item.Element("Band").Element("Genre").Value.Trim();
-                
-                if(selection == genre)
-                    dgvDisplay.Rows.Add(items);
-            }
-
-            dgvDisplay.Refresh();
-        }
-
-        private void DisplayAllGenres()
-        {
-            dgvDisplay.Rows.Clear();
-
-            foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
-            {
-                string[] items = GetItems(item);
-                if(items != null)
-                    dgvDisplay.Rows.Add(items);
-            }
-
-            dgvDisplay.Refresh();
-        }
-
-        private void UpdateDisplay()
-        {
-            string selection = cbGenres.SelectedItem.ToString();
-
-            if (selection == "All Genres" && rbAllMonths.Checked)
-                // Display All Genres
-                DisplayAllGenres();
-            else if (rbAllMonths.Checked)
-                // Display Only Selected Genres
-                DisplaySelectedGenres(selection);
-            else if (selection == "All Genres" && rbThisMonth.Checked)
-                // Display All Genres For Current Month 
-                DisplayAllGenresCurrentMonth();
-            else if (rbThisMonth.Checked)
-                // Display Only Selected Genres For Current Month 
-                DisplaySelectedGenresCurrentMonth(selection); 
-        }
-
+        
         private string[] GetItems(XElement item)
         {
             return new string[]
             {
+                item.Attribute("ID").Value,
                 item.Attribute("TITLE").Value,
                 item.Element("Date").Value,
                 item.Element("StartTime").Value,
@@ -161,59 +248,12 @@ namespace charlal1.XML.PubsAndClubs
                 item.Element("Band").Element("Genre").Value                                    
             };
         }
-
-        private void dgvDisplay_SelectionChanged(object sender, EventArgs e)
-        {
-            DataGridView dataGridView = (DataGridView)sender;
-
-            DataGridViewSelectedCellCollection selectedCells = dataGridView.SelectedCells;
-
-            if (selectedCells.Count > 0 && dataGridView.CurrentCell.RowIndex < dataGridView.Rows.Count - 1)
-            {
-                tbEventName.Text = selectedCells[0].Value.ToString();
-
-                string date = selectedCells[1].Value.ToString();
-                DateTime dt = DateTime.ParseExact(date, "dd/MM/yyyy", null);
-                dtpDate.Text = dt.ToString();
-
-                tbStartTime.Text = selectedCells[2].Value.ToString();
-                tbEndTime.Text = selectedCells[3].Value.ToString();
-                tbCoverPrice.Text = selectedCells[4].Value.ToString();
-                nUpDownAgeLimit.Value = Convert.ToInt16(selectedCells[5].Value);
-                tbClubName.Text = selectedCells[6].Value.ToString();
-                tbClubAddress.Text = selectedCells[7].Value.ToString();
-                tbBandName.Text = selectedCells[8].Value.ToString();
-                tbBandGenre.Text = selectedCells[9].Value.ToString();
-            }     
-        }
-
-        private void cbGenres_SelectedValueChanged(object sender, EventArgs e)
-        {
-            UpdateDisplay();
-        }
-
-        private void rbAllMonths_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdateDisplay();                     
-        }
-        
-        private void bAddEvent_Click(object sender, EventArgs e)
-        {
-            if(rbEditEvent.Checked)
-                EditEvent();
-            else if (rbAddEvent.Checked)
-                AddEvent();
-            else if(rbDeleteEvent.Checked)
-                DeleteEvent();
-
-            UpdateDisplay();
-        }
-
+                
         private void DeleteEvent()
         {
             foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
             {
-                if (item.Element("Date").Value == dtpDate.Text && item.Attribute("TITLE").Value == tbEventName.Text)
+                if (item.Attribute("ID").Value == lIDValue.Text)
                     item.Remove();
             }
         }
@@ -222,7 +262,7 @@ namespace charlal1.XML.PubsAndClubs
         {
             foreach (XElement item in pubsClubs.Element("Gig").Elements("Event"))
             {
-                if (item.Element("Date").Value == dtpDate.Text && item.Attribute("TITLE").Value == tbEventName.Text)
+                if (item.Attribute("ID").Value == lIDValue.Text)
                 {
                     item.Attribute("TITLE").Value = tbEventName.Text;
                     item.Element("Date").Value = dtpDate.Text;
@@ -240,38 +280,30 @@ namespace charlal1.XML.PubsAndClubs
         
         private void AddEvent()
         {
+            // Build event
             XElement newEvent = new XElement("Event",
                 new XAttribute("TITLE", tbEventName.Text),
+                new XAttribute("ID", lIDValue.Text),
                 new XElement("Date", dtpDate.Text),
                 new XElement("StartTime", tbStartTime.Text),
                 new XElement("EndTime", tbEndTime.Text),
                 new XElement("CoverPrice", tbCoverPrice.Text),
                 new XElement("AgeLimit", nUpDownAgeLimit.Value),
                 new XElement("Club",
-                    new XAttribute("ID", 0),
                     new XElement("Name", tbClubName.Text),
                     new XElement("Address", tbClubAddress.Text)
                 ),
                 new XElement("Band",
-                    new XAttribute("ID", 0),
                     new XElement("Name", tbBandName.Text),
                     new XElement("Genre", tbBandGenre.Text)
                 )
             );
 
+            // Add to tree
             pubsClubs.Element("Gig").Add(newEvent);
-        }
 
-        private void rbEdit_CheckedChanged(object sender, EventArgs e)
-        {
-            RadioButton rb = (RadioButton)sender;
-
-            if( rb.Text == "Edit Event")
-                bAddEvent.Text = "Edit Event";
-            else if( rb.Text == "Add Event")
-                bAddEvent.Text = "Add Event";
-            else if( rb.Text == "Delete Event")
-                bAddEvent.Text = "Delete Event";
-        }
+            // Goto edit view
+            rbEditEvent.Checked = true;
+        }        
     }
 }
