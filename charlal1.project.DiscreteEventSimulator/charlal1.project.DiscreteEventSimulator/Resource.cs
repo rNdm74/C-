@@ -6,8 +6,8 @@ using System.Text;
 namespace charlal1.project.DiscreteEventSimulator
 {
     class Resource
-    {
-        private Queue queue; // Maybe
+    {        
+        private bool IsFree { get; set; }
 
         public Resource() 
         {

@@ -14,6 +14,7 @@ namespace charlal1.project.DiscreteEventSimulator
         Calender calender;
         Simulator simulator;
 
+
         public Form1()
         {
             InitializeComponent();

@@ -6,7 +6,8 @@ using System.Text;
 namespace charlal1.project.DiscreteEventSimulator
 {
     enum ECallType { CAR_STEREO, OTHER }
-    enum EQueueType { CAR_STEREO, OTHER }
+    enum EQueueType { CAR_STEREO, OTHER, IVR }
+    enum EEventType { ARRIVAL, SWITCH_COMPLETE, QUEUE, PROCESSING_COMPLETE, FINISHED, END_SIMULATION }
 
     public static class Global 
     {
@@ -23,6 +24,13 @@ namespace charlal1.project.DiscreteEventSimulator
         public const double DELAY_IVR                = 0.3;
         public const int DELAY_PROCESSING            = 2;
         public const int CALL_PROBABILITY            = 4;
+
+        public const string ARRIVAL = "Arrival at call centre";
+        public const string IVR = "Complete service IVR";
+        public const string OTHER = "Complete service other";
+        public const string STEREO = "Complete service car stereo";
+        public const string END = "End replication";
+
 
         //public const DateTime END_SIMULATION_TIME    = DateTime.Now.AddMinutes(1);
     }

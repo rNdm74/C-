@@ -62,7 +62,7 @@
     <Compile Include="Queue.cs" />
     <Compile Include="RandomNumberGenerator.cs" />
     <Compile Include="Resource.cs" />
-    <Compile Include="ResourceFactory.cs" />
+    <Compile Include="EventFactory.cs" />
     <Compile Include="Simulator.cs" />
     <Compile Include="Statistics.cs" />
     <EmbeddedResource Include="Form1.resx">

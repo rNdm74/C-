@@ -27,5 +27,10 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             return EntityQueue[Constants.FIRST_IN_QUEUE];
         }
+
+        public bool IsFull() 
+        {
+            return (EntityQueue.Count > Constants.MAX_ON_HOLD);
+        }
     }
 }

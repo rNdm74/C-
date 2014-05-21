@@ -8,21 +8,18 @@ namespace charlal1.project.DiscreteEventSimulator
     class EntityFactory
     {
         private int EntityID;
-        private RandomNumberGenerator rGen;
 
-        public EntityFactory(RandomNumberGenerator rGen) 
+        public EntityFactory() 
         {
-            this.rGen = rGen;
-
             // On creation of factory IDs are reset to 1
-            this.EntityID = 1;
+            this.EntityID = 0;
         }
 
-        public Entity CreateEntity(DateTime EventTime)
+        public Entity CreateEntity()
         {
-            Entity newEntity = new Entity(EntityID);
+            Entity newEntity = new Entity(++EntityID);
 
-            newEntity.CallType = (rGen.Roll() <= Constants.CALL_PROBABILITY) ? ECallType.CAR_STEREO : ECallType.OTHER;
+            //newEntity.CallType = (rGen.Roll() <= Constants.CALL_PROBABILITY) ? ECallType.CAR_STEREO : ECallType.OTHER;
 
             return newEntity;
         }

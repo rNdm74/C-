@@ -5,55 +5,51 @@ using System.Text;
 
 namespace charlal1.project.DiscreteEventSimulator
 {
-    class Event
+    interface IEvent
     {
-        public string Name          { get; set; }
-        public Entity CurrentEntity { get; set; }
-        public DateTime EventTime   { get; set; }
-        public ECallType CallType   { get; set; }
-        public DateTime StartTime   { get; set; }
-        public DateTime EndTime     { get; set; }
+        void Process();
     }
-    
+
+    class Event 
+    {
+        public Entity ActiveEntity  { get; set; }
+        public String EventName     { get; set; }
+        public DateTime EventTime   { get; set; }
+    }
+                    
     // Entities initial request
     class ArrivalEvent : Event
     {
-        public ArrivalEvent(DateTime EventTime) 
+        public ArrivalEvent()
         {
-            this.EventTime = EventTime;
-        }        
+            this.EventName = Constants.ARRIVAL;
+        }
     }
 
     // Completion of Entities request at switchboard
     class SwitchCompleteEvent : Event
-    {
-        // Entity has specified call type
+    {    
+        public SwitchCompleteEvent() 
+        {
+            this.EventName = Constants.IVR;
+        }
     }
-
-    // Entity is in a queue
-    class QueueEvent : Event
-    {
-        // Entity has been put in a queue
-    }
-
+    
     // Entities request is being processed
     class ProcessingCompleteEvent : Event
     {
-        // Entity has finished being processed        
+        public ProcessingCompleteEvent() 
+        {
+            this.EventName = Constants.OTHER;
+        }
     }
-
-    // Entities request finished
-    class FinishedEvent : Event
-    {
-        // Spawn new Entity in calender;
-    }
-
+    
     // End of simulation
     class EndSimulationEvent : Event
     {
-        public EndSimulationEvent(DateTime EventTime) 
+        public EndSimulationEvent() 
         {
-            this.EventTime = EventTime;
-        }        
+            this.EventName = Constants.END;
+        }
     }
 }

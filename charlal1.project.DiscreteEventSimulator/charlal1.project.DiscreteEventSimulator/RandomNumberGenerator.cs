@@ -22,14 +22,20 @@ namespace charlal1.project.DiscreteEventSimulator
             return d1 + d2;
         }
 
-        public double TimeBetweenArrivals() 
+        public double TimeBetweenArrivals 
         {
-            return Roll() * Constants.DELAY_ARRIVAL;
+            get
+            {
+                return Roll() * Constants.DELAY_ARRIVAL;
+            }
         }
 
-        public double DelayAtIVR()
+        public double DelayAtIVR
         {
-            return Roll() * Constants.DELAY_IVR;
+            get
+            {
+                return Roll() * Constants.DELAY_IVR;
+            }
         }
 
         public double DelayCarStereo() 
