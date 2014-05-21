@@ -38,6 +38,9 @@ namespace charlal1.project.DiscreteEventSimulator
 
                 if (activeEvent is ArrivalEvent) 
                 {
+                    // Update global clock
+                    Global.Clock = activeEvent.EventTime;
+
                     // Get active entity
                     Entity activeEntity = activeEvent.ActiveEntity;
 
@@ -61,24 +64,42 @@ namespace charlal1.project.DiscreteEventSimulator
                         ivr.Add(activeEntity); 
                     }
 
+                    // Calculate next arrival time 
                     DateTime nextArrivalTime = Global.Clock.AddMinutes(rGen.TimeBetweenArrivals);
 
+                    // Create entity
                     Entity nextEntity = calender.SpawnNewEntity();
+                    nextEntity.NextEvent = EEventType.ARRIVAL;
                     nextEntity.StartTime = nextArrivalTime;
 
+                    // Setup next event for entity
                     calender.SpawnNewEvent(nextEntity);
                 }
 
                 if (activeEvent is SwitchCompleteEvent)
                 {
-                    // Move to resource queue
-                    calender.Worker(activeEvent);
+                    // Update Clock
+                    // Set active entity
+                    // Set active entites call type
+
+                    // Check to see if rep is available 
+                    // if available rep process call
+                    // and spawn next event
+                    // else add entity to rep queue and set begin wait time
+                    
                 }        
         
                 if(activeEvent is ProcessingCompleteEvent)
                 {
-                    // Resource has finished processing the Entitys request
-                    calender.Worker(activeEvent);
+                    
+                    // Update clock
+                    // Update statistics of enitiy leaving system
+                    // Rep is now free, look at queue
+                    // if empty set busy flag to false
+                    // else 
+                    // remove entity at head of queue
+                    // compute its process time
+                    // add a new complete service event to the calender at new time with active entity
                 }                               
             }
         }
