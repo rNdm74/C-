@@ -5,3 +5,11 @@ E:\Work\C-\charlal1.project.DiscreteEventSimulator\charlal1.project.DiscreteEven
 E:\Work\C-\charlal1.project.DiscreteEventSimulator\charlal1.project.DiscreteEventSimulator\obj\x86\Debug\charlal1.project.DiscreteEventSimulator.exe
 E:\Work\C-\charlal1.project.DiscreteEventSimulator\charlal1.project.DiscreteEventSimulator\obj\x86\Debug\charlal1.project.DiscreteEventSimulator.pdb
 E:\Work\C-\charlal1.project.DiscreteEventSimulator\charlal1.project.DiscreteEventSimulator\obj\x86\Debug\charlal1.project.DiscreteEventSimulator.Form1.resources
+V:\C-\charlal1.project.DiscreteEventSimulator\charlal1.project.DiscreteEventSimulator\obj\x86\Debug\charlal1.project.DiscreteEventSimulator.exe
+V:\C-\charlal1.project.DiscreteEventSimulator\charlal1.project.DiscreteEventSimulator\obj\x86\Debug\charlal1.project.DiscreteEventSimulator.pdb
+V:\C-\charlal1.project.DiscreteEventSimulator\charlal1.project.DiscreteEventSimulator\obj\x86\Debug\charlal1.project.DiscreteEventSimulator.csprojResolveAssemblyReference.cache
+V:\C-\charlal1.project.DiscreteEventSimulator\charlal1.project.DiscreteEventSimulator\obj\x86\Debug\charlal1.project.DiscreteEventSimulator.Form1.resources
+V:\C-\charlal1.project.DiscreteEventSimulator\charlal1.project.DiscreteEventSimulator\obj\x86\Debug\charlal1.project.DiscreteEventSimulator.Properties.Resources.resources
+V:\C-\charlal1.project.DiscreteEventSimulator\charlal1.project.DiscreteEventSimulator\obj\x86\Debug\charlal1.project.DiscreteEventSimulator.csproj.GenerateResource.Cache
+V:\C-\charlal1.project.DiscreteEventSimulator\charlal1.project.DiscreteEventSimulator\bin\Debug\charlal1.project.DiscreteEventSimulator.exe
+V:\C-\charlal1.project.DiscreteEventSimulator\charlal1.project.DiscreteEventSimulator\bin\Debug\charlal1.project.DiscreteEventSimulator.pdb

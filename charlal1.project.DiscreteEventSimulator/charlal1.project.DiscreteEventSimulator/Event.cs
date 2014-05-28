@@ -7,22 +7,38 @@ namespace charlal1.project.DiscreteEventSimulator
 {
     interface IEvent
     {
-        void Process();
+        void Execute();
     }
 
     class Event 
     {
-        public Entity ActiveEntity  { get; set; }
+        public Entity CurrentEntity  { get; set; }
         public String EventName     { get; set; }
         public DateTime EventTime   { get; set; }
     }
                     
     // Entities initial request
-    class ArrivalEvent : Event
+    class ArrivalEvent : Event, IEvent
     {
+        private EntityFactory entityFactory;
+
         public ArrivalEvent()
         {
             this.EventName = Constants.ARRIVAL;
+            this.entityFactory = new EntityFactory();
+        }
+
+        public void Execute()
+        {
+            // Assign entity its next event
+            CurrentEntity.NextEvent = EEventType.SWITCH_COMPLETE;
+
+            // Set entities start time at call centre
+            CurrentEntity.StartTime = EventTime;
+
+            // Calculate the next event time
+            DateTime nextEventTime = CurrentEntity.StartTime.AddMinutes(rGen.DelayAtIVR);
+            CurrentEntity.BeginWait = nextEventTime;
         }
     }
 

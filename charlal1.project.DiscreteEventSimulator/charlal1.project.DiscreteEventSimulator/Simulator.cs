@@ -14,18 +14,18 @@ namespace charlal1.project.DiscreteEventSimulator
         private List<Resource> resources;
         private Statistics simulationStatistics;
 
-        private Queue ivr;        
-        private Queue other;
-        private Queue carStereo;
+        private Queue ivrQueue;        
+        private Queue otherQueue;
+        private Queue carStereoQueue;
 
         public Simulator(Calender calender) 
         {
             this.activeEvent = calender.GetNextEvent();
             this.calender = calender;
 
-            ivr = new Queue(EQueueType.IVR);
-            other = new Queue(EQueueType.OTHER);
-            carStereo = new Queue(EQueueType.CAR_STEREO);
+            ivrQueue = new Queue(EQueueType.IVR);
+            otherQueue = new Queue(EQueueType.OTHER);
+            carStereoQueue = new Queue(EQueueType.CAR_STEREO);
 
             rGen = new RandomNumberGenerator();
         }
@@ -34,34 +34,38 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             while (!(activeEvent is EndSimulationEvent))
             {
+                // Get next event from calender
                 activeEvent = calender.GetNextEvent();
+
+                // Update global clock
+                Global.Clock = activeEvent.EventTime;
+
+                // Get active entity
+                Entity activeEntity = activeEvent.CurrentEntity;
 
                 if (activeEvent is ArrivalEvent) 
                 {
-                    // Update global clock
-                    Global.Clock = activeEvent.EventTime;
+                    //
+                    //activeEvent.Execute();
 
-                    // Get active entity
-                    Entity activeEntity = activeEvent.ActiveEntity;
-
-                    // Assign enitiy its next event
+                    // Assign entity its next event
                     activeEntity.NextEvent = EEventType.SWITCH_COMPLETE;
 
                     // Set entities start time at call centre
                     activeEntity.StartTime = activeEvent.EventTime;
 
-                    // Get queue length
-                    if (!ivr.IsFull())
-                    {
-                        // Calculate the next event time
-                        DateTime nextEventTime = activeEntity.StartTime.AddMinutes(rGen.DelayAtIVR);
-                        activeEntity.BeginWait = nextEventTime;
+                    // Calculate the next event time
+                    DateTime nextEventTime = activeEntity.StartTime.AddMinutes(rGen.DelayAtIVR);
+                    activeEntity.NextEventTime = nextEventTime;
 
+                    // Get queue length
+                    if (!ivrQueue.IsFull())
+                    {
                         //Setup next event for active entity
-                        calender.SpawnNewEvent(activeEntity);
+                        calender.SpawnNewEvent(activeEvent.CurrentEntity);
 
                         // Entity is put in Switch Queue
-                        ivr.Add(activeEntity); 
+                        ivrQueue.Add(activeEvent.CurrentEntity); 
                     }
 
                     // Calculate next arrival time 
@@ -79,7 +83,7 @@ namespace charlal1.project.DiscreteEventSimulator
                 if (activeEvent is SwitchCompleteEvent)
                 {
                     // Update Clock
-                    // Set active entity
+                    // Set active entity from ivr queue
                     // Set active entites call type
 
                     // Check to see if rep is available 
@@ -91,7 +95,6 @@ namespace charlal1.project.DiscreteEventSimulator
         
                 if(activeEvent is ProcessingCompleteEvent)
                 {
-                    
                     // Update clock
                     // Update statistics of enitiy leaving system
                     // Rep is now free, look at queue

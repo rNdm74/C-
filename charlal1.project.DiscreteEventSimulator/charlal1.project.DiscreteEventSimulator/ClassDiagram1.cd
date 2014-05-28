@@ -1,168 +1,169 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="charlal1.project.DiscreteEventSimulator.Calender" Collapsed="true">
-    <Position X="14.25" Y="0.5" Width="1.5" />
+  <Class Name="charlal1.project.DiscreteEventSimulator.Calender">
+    <Position X="12.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAABAAAAAAKAAAAAAAAAAAACAAAAAACAABAAAAAAA=</HashCode>
+      <HashCode>EAAAABAAAAAAIAAAAAAABAAAgCAAAAYACAABAAABAAA=</HashCode>
       <FileName>Calender.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="charlal1.project.DiscreteEventSimulator.Global" Collapsed="true">
-    <Position X="16" Y="1.5" Width="1.5" />
+  <Class Name="charlal1.project.DiscreteEventSimulator.Global">
+    <Position X="17" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Constants.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="charlal1.project.DiscreteEventSimulator.Constants" Collapsed="true">
-    <Position X="16" Y="0.5" Width="1.5" />
+  <Class Name="charlal1.project.DiscreteEventSimulator.Constants">
+    <Position X="17" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAIAAAACAAAAKAAAQAAgAAAAAACAAAAAAAAAAQAA=</HashCode>
+      <HashCode>AAEAAIAAAACAAAAKAAAQAAgAgAQAACAAAAgAQAAAQAA=</HashCode>
       <FileName>Constants.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="charlal1.project.DiscreteEventSimulator.Entity" Collapsed="true">
-    <Position X="17.75" Y="0.5" Width="1.5" />
+  <Class Name="charlal1.project.DiscreteEventSimulator.Entity">
+    <Position X="15.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAgAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAABAAAAAgAAAAAAAAAAAIAAIAAAAAAAAAACAAAA=</HashCode>
       <FileName>Entity.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="charlal1.project.DiscreteEventSimulator.EntityFactory" Collapsed="true">
-    <Position X="19.5" Y="0.5" Width="1.5" />
+  <Class Name="charlal1.project.DiscreteEventSimulator.EntityFactory">
+    <Position X="15.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAAAAAAAAAAAAAgAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
       <FileName>EntityFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="charlal1.project.DiscreteEventSimulator.Event" Collapsed="true">
-    <Position X="10" Y="7" Width="1.5" />
+  <Class Name="charlal1.project.DiscreteEventSimulator.Event">
+    <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAQAAAQAIACoAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAICAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Event.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="charlal1.project.DiscreteEventSimulator.ArrivalEvent" Collapsed="true">
-    <Position X="11.25" Y="8.25" Width="1.5" />
+  <Class Name="charlal1.project.DiscreteEventSimulator.ArrivalEvent">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Event.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="charlal1.project.DiscreteEventSimulator.SwitchCompleteEvent">
+    <Position X="2.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Event.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="charlal1.project.DiscreteEventSimulator.SwitchCompleteEvent" Collapsed="true">
-    <Position X="15.75" Y="8.25" Width="1.5" />
+  <Class Name="charlal1.project.DiscreteEventSimulator.ProcessingCompleteEvent">
+    <Position X="5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Event.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="charlal1.project.DiscreteEventSimulator.QueueEvent" Collapsed="true">
-    <Position X="4.5" Y="8.25" Width="1.5" />
+  <Class Name="charlal1.project.DiscreteEventSimulator.EndSimulationEvent">
+    <Position X="7.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Event.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="charlal1.project.DiscreteEventSimulator.ProcessingCompleteEvent" Collapsed="true">
-    <Position X="6.75" Y="8.25" Width="1.5" />
+  <Class Name="charlal1.project.DiscreteEventSimulator.EventFactory">
+    <Position X="5.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Event.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="charlal1.project.DiscreteEventSimulator.FinishedEvent" Collapsed="true">
-    <Position X="9" Y="8.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Event.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="charlal1.project.DiscreteEventSimulator.EndSimulationEvent" Collapsed="true">
-    <Position X="13.5" Y="8.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Event.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="charlal1.project.DiscreteEventSimulator.Form1" Collapsed="true">
-    <Position X="14.25" Y="1.5" Width="1.5" />
+    <Position X="15.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAABACAAAACAFAIAAAAAGQAgAAAAAA=</HashCode>
       <FileName>Form1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="charlal1.project.DiscreteEventSimulator.Program" Collapsed="true">
-    <Position X="17.75" Y="1.5" Width="1.5" />
+    <Position X="15.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="charlal1.project.DiscreteEventSimulator.Queue" Collapsed="true">
-    <Position X="19.5" Y="1.5" Width="1.5" />
+  <Class Name="charlal1.project.DiscreteEventSimulator.Queue">
+    <Position X="10.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AoIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>AoIAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAQAAAAA=</HashCode>
       <FileName>Queue.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="charlal1.project.DiscreteEventSimulator.RandomNumberGenerator" Collapsed="true">
-    <Position X="14.25" Y="2.5" Width="1.5" />
+  <Class Name="charlal1.project.DiscreteEventSimulator.RandomNumberGenerator">
+    <Position X="10.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAAAAAAACAAAAAAQABAAAAIAAgAAAAAAAA=</HashCode>
       <FileName>RandomNumberGenerator.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="charlal1.project.DiscreteEventSimulator.Resource" Collapsed="true">
-    <Position X="16" Y="2.5" Width="1.5" />
+  <Class Name="charlal1.project.DiscreteEventSimulator.Resource">
+    <Position X="13.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAABBAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>CAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Resource.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="charlal1.project.DiscreteEventSimulator.ResourceFactory" Collapsed="true">
-    <Position X="17.75" Y="2.5" Width="1.5" />
+  <Class Name="charlal1.project.DiscreteEventSimulator.Simulator">
+    <Position X="8.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ResourceFactory.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="charlal1.project.DiscreteEventSimulator.Simulator" Collapsed="true">
-    <Position X="16" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgEABAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>CAAAAAAAAAAAACAAAAgBAAAAgEABAAAAAAAAAAQAIAA=</HashCode>
       <FileName>Simulator.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="charlal1.project.DiscreteEventSimulator.Statistics" Collapsed="true">
-    <Position X="17.75" Y="3.5" Width="1.5" />
+  <Class Name="charlal1.project.DiscreteEventSimulator.Statistics">
+    <Position X="0.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Statistics.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="charlal1.project.DiscreteEventSimulator.Properties.Resources" Collapsed="true">
-    <Position X="19.5" Y="2.5" Width="1.5" />
+    <Position X="17" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="charlal1.project.DiscreteEventSimulator.Properties.Settings" Collapsed="true">
-    <Position X="14.25" Y="3.5" Width="1.5" />
+    <Position X="17" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
-  <Enum Name="charlal1.project.DiscreteEventSimulator.ECallType" Collapsed="true">
-    <Position X="14.25" Y="4.75" Width="1.5" />
+  <Interface Name="charlal1.project.DiscreteEventSimulator.IEvent">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Event.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="charlal1.project.DiscreteEventSimulator.ECallType">
+    <Position X="2.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAQAAAAAA=</HashCode>
       <FileName>Constants.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="charlal1.project.DiscreteEventSimulator.EQueueType" Collapsed="true">
-    <Position X="16" Y="4.75" Width="1.5" />
+  <Enum Name="charlal1.project.DiscreteEventSimulator.EQueueType">
+    <Position X="5.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAQAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAQAAAAAA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="charlal1.project.DiscreteEventSimulator.EEventType">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAQAAIACEAAQAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Constants.cs</FileName>
     </TypeIdentifier>
   </Enum>

@@ -26,7 +26,7 @@ namespace charlal1.project.DiscreteEventSimulator
             entityFactory = new EntityFactory();
 
             Event endSimulation = eventFactory.Spawn(EEventType.END_SIMULATION);
-            endSimulation.ActiveEntity = entityFactory.CreateEntity();
+            endSimulation.CurrentEntity = entityFactory.CreateEntity();
             endSimulation.EventTime = SimulationEndDateTime;
 
             events = new List<Event>();
@@ -82,7 +82,7 @@ namespace charlal1.project.DiscreteEventSimulator
             // Create next event for entity
             Event nextEvent = eventFactory.Spawn(nextEventType);
             nextEvent.EventTime = activeEntity.BeginWait;
-            nextEvent.ActiveEntity = activeEntity;
+            nextEvent.CurrentEntity = activeEntity;
 
             // Add event to calender
             events.Add(nextEvent);
