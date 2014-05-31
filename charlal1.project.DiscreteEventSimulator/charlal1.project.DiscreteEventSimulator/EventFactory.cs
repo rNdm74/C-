@@ -9,7 +9,7 @@ namespace charlal1.project.DiscreteEventSimulator
     {
         // Will build all events in simulaiton
         
-        public Event Spawn(EEventType eventType) 
+        public Event Spawn(EEventType eventType) // datetime , entity 
         {
             Event newEvent = null;
 
@@ -21,14 +21,8 @@ namespace charlal1.project.DiscreteEventSimulator
                 case EEventType.SWITCH_COMPLETE:
                     newEvent = new SwitchCompleteEvent();
                     break;
-                case EEventType.QUEUE:
-                    
-                    break;
                 case EEventType.PROCESSING_COMPLETE:
                     newEvent = new ProcessingCompleteEvent();
-                    break;
-                case EEventType.FINISHED:
-                    
                     break;
                 case EEventType.END_SIMULATION:
                     newEvent = new EndSimulationEvent();

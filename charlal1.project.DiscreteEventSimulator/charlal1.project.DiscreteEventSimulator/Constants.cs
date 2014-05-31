@@ -7,7 +7,7 @@ namespace charlal1.project.DiscreteEventSimulator
 {
     enum ECallType { CAR_STEREO, OTHER }
     enum EQueueType { CAR_STEREO, OTHER, IVR }
-    enum EEventType { ARRIVAL, SWITCH_COMPLETE, QUEUE, PROCESSING_COMPLETE, FINISHED, END_SIMULATION }
+    enum EEventType { ARRIVAL, SWITCH_COMPLETE, PROCESSING_COMPLETE, END_SIMULATION }
 
     public static class Global 
     {

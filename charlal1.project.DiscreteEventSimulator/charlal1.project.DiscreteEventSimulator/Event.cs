@@ -10,17 +10,23 @@ namespace charlal1.project.DiscreteEventSimulator
         void Execute();
     }
 
-    class Event 
+    class Event, IEvent
     {
         public Entity CurrentEntity  { get; set; }
         public String EventName     { get; set; }
         public DateTime EventTime   { get; set; }
+
+        // give everything  pass in in event constructor
+
+        // make constructor
+
     }
                     
     // Entities initial request
-    class ArrivalEvent : Event, IEvent
+    class ArrivalEvent : Event
     {
         private EntityFactory entityFactory;
+        // total count
 
         public ArrivalEvent()
         {

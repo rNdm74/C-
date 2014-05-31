@@ -20,17 +20,15 @@ namespace charlal1.project.DiscreteEventSimulator
         public void Add(Entity entityWaiting)
         {
             EntityQueue.Add(entityWaiting);
-            EntityQueue.Sort();
         }
 
-        public Entity Next() 
+        public Entity Pop() 
         {
-            return EntityQueue[Constants.FIRST_IN_QUEUE];
+            return EntityQueue.First();
         }
 
-        public bool IsFull() 
-        {
-            return (EntityQueue.Count > Constants.MAX_ON_HOLD);
-        }
+        // Count method
+
+
     }
 }

@@ -59,13 +59,14 @@ namespace charlal1.project.DiscreteEventSimulator
                     activeEntity.NextEventTime = nextEventTime;
 
                     // Get queue length
-                    if (!ivrQueue.IsFull())
+                    // Total of the two product queues
+                    if (true)
                     {
-                        //Setup next event for active entity
+                        //Setup next event for active entity switch complete event
                         calender.SpawnNewEvent(activeEvent.CurrentEntity);
 
-                        // Entity is put in Switch Queue
-                        ivrQueue.Add(activeEvent.CurrentEntity); 
+                        //
+                      
                     }
 
                     // Calculate next arrival time 
@@ -82,12 +83,17 @@ namespace charlal1.project.DiscreteEventSimulator
 
                 if (activeEvent is SwitchCompleteEvent)
                 {
+                    // execute
+
+
                     // Update Clock
-                    // Set active entity from ivr queue
+                  
+                    //give resourcemanager
                     // Set active entites call type
 
                     // Check to see if rep is available 
-                    // if available rep process call
+                    // if available rep 
+                    // entity hold rep
                     // and spawn next event
                     // else add entity to rep queue and set begin wait time
                     
@@ -96,12 +102,17 @@ namespace charlal1.project.DiscreteEventSimulator
                 if(activeEvent is ProcessingCompleteEvent)
                 {
                     // Update clock
+
                     // Update statistics of enitiy leaving system
-                    // Rep is now free, look at queue
+
+                    // (active entity Rep) is now free, look at queue
+
                     // if empty set busy flag to false
                     // else 
                     // remove entity at head of queue
+
                     // compute its process time
+
                     // add a new complete service event to the calender at new time with active entity
                 }                               
             }
