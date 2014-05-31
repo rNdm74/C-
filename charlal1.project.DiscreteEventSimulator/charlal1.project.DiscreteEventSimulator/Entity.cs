@@ -15,6 +15,7 @@ namespace charlal1.project.DiscreteEventSimulator
         public DateTime StartTime   { get; set; }
         public DateTime BeginWait   { get; set; }
         public DateTime NextEventTime { get; set; }
+        public Resource AssignResource { get; set; }
         
         public Entity(int Id) 
         {

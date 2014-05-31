@@ -8,24 +8,25 @@ namespace charlal1.project.DiscreteEventSimulator
     class EventFactory
     {
         // Will build all events in simulaiton
-        
-        public Event Spawn(EEventType eventType) // datetime , entity 
+        // Type, Datetime , Entity 
+
+        public Event Spawn(EEventType eventType, DateTime eventTime, Entity currentEntity)
         {
             Event newEvent = null;
 
             switch (eventType)
             {
                 case EEventType.ARRIVAL:
-                    newEvent = new ArrivalEvent();
+                    newEvent = new ArrivalEvent(eventTime, currentEntity);
                     break;
                 case EEventType.SWITCH_COMPLETE:
-                    newEvent = new SwitchCompleteEvent();
+                    newEvent = new SwitchCompleteEvent(eventTime, currentEntity);
                     break;
                 case EEventType.PROCESSING_COMPLETE:
-                    newEvent = new ProcessingCompleteEvent();
+                    newEvent = new ProcessingCompleteEvent(eventTime, currentEntity);
                     break;
                 case EEventType.END_SIMULATION:
-                    newEvent = new EndSimulationEvent();
+                    newEvent = new EndSimulationEvent(eventTime, currentEntity);
                     break;
             }
 

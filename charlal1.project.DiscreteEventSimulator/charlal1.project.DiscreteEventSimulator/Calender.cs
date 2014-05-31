@@ -7,91 +7,108 @@ namespace charlal1.project.DiscreteEventSimulator
 {
     class Calender
     {
-        private Statistics statistics;
-        private EventFactory eventFactory;
-        private EntityFactory entityFactory;
         private List<Event> events;
-
-        private RandomNumberGenerator randomNumberGenerator;
-        
-        public Calender(DateTime SimulationStartDateTime, DateTime SimulationEndDateTime) 
+                
+        public Calender() 
         {
             // Set global clock to simulation start time
-            Global.Clock = SimulationStartDateTime;
-
-            randomNumberGenerator = new RandomNumberGenerator();
-
-            statistics = new Statistics();
-            eventFactory = new EventFactory();
-            entityFactory = new EntityFactory();
-
-            Event endSimulation = eventFactory.Spawn(EEventType.END_SIMULATION);
-            endSimulation.CurrentEntity = entityFactory.CreateEntity();
-            endSimulation.EventTime = SimulationEndDateTime;
-
+            
             events = new List<Event>();
 
-            events.Add(eventFactory.Spawn(EEventType.END_SIMULATION));
-            events.Add(eventFactory.Spawn(EEventType.ARRIVAL));
-            events.Sort();
-        }
+            //Event endSimulation = eventFactory.Spawn(EEventType.END_SIMULATION);
+            //endSimulation.CurrentEntity = entityFactory.CreateEntity();
+            //endSimulation.EventTime = SimulationEndDateTime;
 
-        public void Worker(Event activeEvent) 
-        {
-            // Remove first event in calender list
-            events.RemoveAt(0);
+            
 
-            // Spawn new arrival
-
-            // Update the global clock to events execution time
-            Global.Clock = activeEvent.EventTime;
-
-            // Process event
-            //activeEvent.Process();
-
-            // Update sytem stats if required
-            //statistics.Update();
+            //events.Add(eventFactory.Spawn(EEventType.END_SIMULATION));
+            //events.Add(eventFactory.Spawn(EEventType.ARRIVAL));
+            //events.Sort();
         }
 
         // Processing of an event
-        public Event GetNextEvent() 
+        public Event GetNextEvent()
         {
-            return events[0];
+            // Get first event
+            Event nextEvent = events.First();
+
+            // Remove from list
+            events.RemoveAt(0);
+
+            // Return event
+            return nextEvent;
         }
 
-        public void UpdateEntity(Entity activeEntity)
+        public void Add(Event e) 
         {
-            // if event is arrival update entities state
-            //activeEntity.StartTime = activeEntity.EventTime;
+            // Add event to list
+            events.Add(e);
 
-            // if event is switchcomplete entity is in queue
+            // Sort list on EventTime
+            events.Sort((x, y) => x.EventTime.CompareTo(y.EventTime));
+        }
+
+        public void Remove(Event e) 
+        {
+            // Check if event is in queue
+
+            // Get events index
+            int index = events.IndexOf(e);
+
+            // Remove event at found index
+            events.RemoveAt(index);
+        }
+
+        //public void Worker(Event activeEvent) 
+        //{
+        //    // Remove first event in calender list
+        //    events.RemoveAt(0);
+
+        //    // Spawn new arrival
+
+        //    // Update the global clock to events execution time
+        //    Global.Clock = activeEvent.EventTime;
+
+        //    // Process event
+        //    //activeEvent.Process();
+
+        //    // Update sytem stats if required
+        //    //statistics.Update();
+        //}
+                
+        //public void UpdateEntity(Entity activeEntity)
+        //{
+        //    // if event is arrival update entities state
+        //    //activeEntity.StartTime = activeEntity.EventTime;
+
+        //    // if event is switchcomplete entity is in queue
             
-            // if event is processingcomplete entity
-        }
+        //    // if event is processingcomplete entity
+        //}
 
-        public void UpdateSytem() 
-        {
-            // Move entity into queue
-        }
+        //public void UpdateSytem() 
+        //{
+        //    // Move entity into queue
+        //}
 
-        public void SpawnNewEvent(Entity activeEntity)
-        {
-            // Get active entities next event
-            EEventType nextEventType = activeEntity.NextEvent;
+        //public void SpawnNewEvent(Entity activeEntity)
+        //{
+        //    // Get active entities next event
+        //    EEventType nextEventType = activeEntity.NextEvent;
                       
-            // Create next event for entity
-            Event nextEvent = eventFactory.Spawn(nextEventType);
-            nextEvent.EventTime = activeEntity.BeginWait;
-            nextEvent.CurrentEntity = activeEntity;
+        //    // Create next event for entity
+        //    Event nextEvent = eventFactory.Spawn(nextEventType);
+        //    nextEvent.EventTime = activeEntity.BeginWait;
+        //    nextEvent.CurrentEntity = activeEntity;
 
-            // Add event to calender
-            events.Add(nextEvent);
-        }
+        //    // Add event to calender
+        //    events.Add(nextEvent);
+        //}
 
-        public Entity SpawnNewEntity() 
-        {
-            // on arrival event is put into calender   
-            return entityFactory.CreateEntity();
-        }
+        //public Entity SpawnNewEntity() 
+        //{
+        //    // on arrival event is put into calender   
+        //    return entityFactory.CreateEntity();
+        //}
     }
 }

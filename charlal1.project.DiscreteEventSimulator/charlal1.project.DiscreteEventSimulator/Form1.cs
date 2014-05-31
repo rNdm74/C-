@@ -11,9 +11,7 @@ namespace charlal1.project.DiscreteEventSimulator
 {
     public partial class Form1 : Form
     {
-        Calender calender;
         Simulator simulator;
-
 
         public Form1()
         {
@@ -27,8 +25,7 @@ namespace charlal1.project.DiscreteEventSimulator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            calender = new Calender(dTPStartSimulationTime.Value, dTPEndSimulationTime.Value);
-            simulator = new Simulator(calender);
+            simulator = new Simulator(dTPStartSimulationTime.Value, dTPEndSimulationTime.Value);
             simulator.RunSimulation();
         }
     }

@@ -7,28 +7,35 @@ namespace charlal1.project.DiscreteEventSimulator
 {
     class Queue
     {
-        private List<Entity> EntityQueue;
-        private EQueueType QueueType;
+        private List<Entity> entityQueue;
+        public ECallType CallType { get; set; }
 
-        public Queue(EQueueType QueueType) 
+        public Queue(ECallType callType) 
         {
-            this.QueueType = QueueType;
+            this.CallType = callType;
 
-            this.EntityQueue = new List<Entity>();
+            this.entityQueue = new List<Entity>();
         }
 
         public void Add(Entity entityWaiting)
         {
-            EntityQueue.Add(entityWaiting);
+            entityQueue.Add(entityWaiting);
         }
 
-        public Entity Pop() 
+        public Entity First() 
         {
-            return EntityQueue.First();
+            return entityQueue.First();
         }
 
         // Count method
+        public int Count() 
+        {
+            return entityQueue.Count;
+        }
 
-
+        public bool IsEmpty() 
+        {
+            return (entityQueue.Count <= 0);
+        }
     }
 }
