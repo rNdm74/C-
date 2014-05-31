@@ -26,8 +26,11 @@ namespace charlal1.project.DiscreteEventSimulator
             rGen = new RandomNumberGenerator();
 
             Global.Clock = SimulationStartDateTime;
+
+            // Add EndSim Event
             Event endSimulationEvent = eventFactory.Spawn(EEventType.END_SIMULATION, SimulationEndDateTime, null);
 
+            // Create First Arrival event
             Entity firstCaller = entityFactory.CreateEntity();
             DateTime nextArrivalTime = Global.Clock.AddMinutes(rGen.TimeBetweenArrivals);
             Event firstArrivalEvent = eventFactory.Spawn(EEventType.ARRIVAL, nextArrivalTime, firstCaller);
