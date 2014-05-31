@@ -7,7 +7,7 @@ namespace charlal1.project.DiscreteEventSimulator
 {
     class Queue
     {
-        private List<Entity> entityQueue;
+        public List<Entity> entityQueue;
         public ECallType CallType { get; set; }
 
         public Queue(ECallType callType) 

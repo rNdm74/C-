@@ -17,24 +17,30 @@ namespace charlal1.project.DiscreteEventSimulator
         private EventFactory eventFactory;
         private RandomNumberGenerator rGen;
 
-        public Simulator(DateTime SimulationStartDateTime, DateTime SimulationEndDateTime) 
+        public Simulator(DateTime SimulationStartDateTime, DateTime SimulationEndDateTime, Statistics statistics) 
         {
-            calender = new Calender();            
-            statistics = new Statistics();
+            calender = new Calender();
+            resourceManager = new ResourceManager();
             entityFactory = new EntityFactory();
             eventFactory = new EventFactory();
             rGen = new RandomNumberGenerator();
+
+            statistics.calender = calender;
+            statistics.resourceMananger = resourceManager;
+            this.statistics = statistics;
+            
 
             Global.Clock = SimulationStartDateTime;
 
             // Add EndSim Event
             Event endSimulationEvent = eventFactory.Spawn(EEventType.END_SIMULATION, SimulationEndDateTime, null);
+            calender.Add(endSimulationEvent);
 
             // Create First Arrival event
             Entity firstCaller = entityFactory.CreateEntity();
             DateTime nextArrivalTime = Global.Clock.AddMinutes(rGen.TimeBetweenArrivals);
             Event firstArrivalEvent = eventFactory.Spawn(EEventType.ARRIVAL, nextArrivalTime, firstCaller);
-            calender.Add(endSimulationEvent);
+            calender.Add(firstArrivalEvent);
             
             
         }
@@ -43,6 +49,8 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             while (!(activeEvent is EndSimulationEvent))
             {
+                
+
                 // Get next event from calender
                 activeEvent = calender.GetNextEvent();
 
@@ -84,7 +92,12 @@ namespace charlal1.project.DiscreteEventSimulator
                     activeEvent.Execute(calender, resourceManager, statistics, rGen, entityFactory, eventFactory);
 
                     // 3. Tidy up e.g. graphics update etc
-                }                               
+                }
+
+
+                statistics.Update();
+
+                System.Threading.Thread.Sleep(1000);
             }
         }
     }

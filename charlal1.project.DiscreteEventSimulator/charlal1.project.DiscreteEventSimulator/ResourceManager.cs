@@ -8,7 +8,7 @@ namespace charlal1.project.DiscreteEventSimulator
     class ResourceManager
     {
         private List<Resource> resources;
-        private QueueManager queueManager;
+        public QueueManager queueManager;
 
         public ResourceManager() 
         {

@@ -7,7 +7,7 @@ namespace charlal1.project.DiscreteEventSimulator
 {
     class QueueManager
     {
-        List<Queue> simulatorQueues;
+        public List<Queue> simulatorQueues;
 
         public QueueManager() 
         {

@@ -7,7 +7,7 @@ namespace charlal1.project.DiscreteEventSimulator
 {
     class Calender
     {
-        private List<Event> events;
+        public List<Event> events;
                 
         public Calender() 
         {            

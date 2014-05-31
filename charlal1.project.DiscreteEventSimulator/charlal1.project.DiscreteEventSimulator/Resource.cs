@@ -14,6 +14,7 @@ namespace charlal1.project.DiscreteEventSimulator
         public Resource(ECallType callType) 
         {
             this.CallType = callType;
+            IsFree = true;
         }
     }
 }

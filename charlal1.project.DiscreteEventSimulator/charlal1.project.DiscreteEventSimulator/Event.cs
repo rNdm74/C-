@@ -64,7 +64,7 @@ namespace charlal1.project.DiscreteEventSimulator
             if (resourceManager.IsSpaceInQueues())
             {
                 //Setup next event for active entity switch complete event
-                Event processingCompleteEvent = eventFactory.Spawn(EEventType.PROCESSING_COMPLETE, nextEventTime, CurrentEntity);
+                Event processingCompleteEvent = eventFactory.Spawn(EEventType.SWITCH_COMPLETE, nextEventTime, CurrentEntity);
                 
                 // Add to calender
                 calender.Add(processingCompleteEvent);
@@ -138,6 +138,7 @@ namespace charlal1.project.DiscreteEventSimulator
 
             // (active entity Rep) is now free, look at queue
             Resource resource = CurrentEntity.AssignResource;
+            resource.IsFree = true;
 
             // if Queue is empty 
             if (resourceManager.IsQueueEmpty(CurrentEntity.CallType))

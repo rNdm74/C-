@@ -12,6 +12,7 @@ namespace charlal1.project.DiscreteEventSimulator
     public partial class Form1 : Form
     {
         Simulator simulator;
+        Statistics statistics;
 
         public Form1()
         {
@@ -20,12 +21,12 @@ namespace charlal1.project.DiscreteEventSimulator
 
         private void Form1_Load(object sender, System.EventArgs e)
         {
-            
+            statistics = new Statistics(lbCalender, lbQueues);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            simulator = new Simulator(dTPStartSimulationTime.Value, dTPEndSimulationTime.Value);
+            simulator = new Simulator(dTPStartSimulationTime.Value, dTPEndSimulationTime.Value.AddMinutes(50), statistics);
             simulator.RunSimulation();
         }
     }
