@@ -21,11 +21,12 @@ namespace charlal1.project.DiscreteEventSimulator
 
         private void Form1_Load(object sender, System.EventArgs e)
         {
-            statistics = new Statistics(lbCalender, lbQueues);
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            statistics = new Statistics(lbCalender, lbOtherQueue, lbCarStereoQueue);
             simulator = new Simulator(dTPStartSimulationTime.Value, dTPEndSimulationTime.Value.AddMinutes(50), statistics);
             simulator.RunSimulation();
         }

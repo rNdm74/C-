@@ -22,9 +22,12 @@ namespace charlal1.project.DiscreteEventSimulator
             entityQueue.Add(entityWaiting);
         }
 
-        public Entity First() 
+        public Entity GetFirstInQueue() 
         {
-            return entityQueue.First();
+            Entity firstInQueue = entityQueue.First();
+            entityQueue.RemoveAt(0);
+
+            return firstInQueue;
         }
 
         // Count method

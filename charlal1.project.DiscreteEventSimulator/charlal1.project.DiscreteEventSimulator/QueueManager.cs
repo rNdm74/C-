@@ -46,7 +46,7 @@ namespace charlal1.project.DiscreteEventSimulator
         public Entity GetFirstInQueue(ECallType callType) 
         {
             Queue queue = simulatorQueues.Find(q => q.CallType == callType);
-            return queue.First();
+            return queue.GetFirstInQueue();
         }
     }
 }

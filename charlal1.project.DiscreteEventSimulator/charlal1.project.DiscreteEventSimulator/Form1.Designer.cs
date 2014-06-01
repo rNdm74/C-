@@ -36,13 +36,16 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.gbCalender = new System.Windows.Forms.GroupBox();
             this.lbCalender = new System.Windows.Forms.ListBox();
-            this.gbQueues = new System.Windows.Forms.GroupBox();
-            this.lbQueues = new System.Windows.Forms.ListBox();
+            this.gbOther = new System.Windows.Forms.GroupBox();
+            this.lbOtherQueue = new System.Windows.Forms.ListBox();
+            this.gbCarStereo = new System.Windows.Forms.GroupBox();
+            this.lbCarStereoQueue = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.gbCalender.SuspendLayout();
-            this.gbQueues.SuspendLayout();
+            this.gbOther.SuspendLayout();
+            this.gbCarStereo.SuspendLayout();
             this.SuspendLayout();
             // 
             // dTPStartSimulationTime
@@ -106,7 +109,7 @@
             this.gbCalender.Controls.Add(this.lbCalender);
             this.gbCalender.Location = new System.Drawing.Point(240, 13);
             this.gbCalender.Name = "gbCalender";
-            this.gbCalender.Size = new System.Drawing.Size(442, 174);
+            this.gbCalender.Size = new System.Drawing.Size(328, 174);
             this.gbCalender.TabIndex = 5;
             this.gbCalender.TabStop = false;
             this.gbCalender.Text = "Calender";
@@ -116,33 +119,52 @@
             this.lbCalender.FormattingEnabled = true;
             this.lbCalender.Location = new System.Drawing.Point(7, 19);
             this.lbCalender.Name = "lbCalender";
-            this.lbCalender.Size = new System.Drawing.Size(429, 147);
+            this.lbCalender.Size = new System.Drawing.Size(315, 147);
             this.lbCalender.TabIndex = 0;
             // 
-            // gbQueues
+            // gbOther
             // 
-            this.gbQueues.Controls.Add(this.lbQueues);
-            this.gbQueues.Location = new System.Drawing.Point(240, 193);
-            this.gbQueues.Name = "gbQueues";
-            this.gbQueues.Size = new System.Drawing.Size(442, 174);
-            this.gbQueues.TabIndex = 6;
-            this.gbQueues.TabStop = false;
-            this.gbQueues.Text = "Queues";
+            this.gbOther.Controls.Add(this.lbOtherQueue);
+            this.gbOther.Location = new System.Drawing.Point(240, 193);
+            this.gbOther.Name = "gbOther";
+            this.gbOther.Size = new System.Drawing.Size(161, 174);
+            this.gbOther.TabIndex = 6;
+            this.gbOther.TabStop = false;
+            this.gbOther.Text = "Other Queue";
             // 
-            // lbQueues
+            // lbOtherQueue
             // 
-            this.lbQueues.FormattingEnabled = true;
-            this.lbQueues.Location = new System.Drawing.Point(7, 19);
-            this.lbQueues.Name = "lbQueues";
-            this.lbQueues.Size = new System.Drawing.Size(429, 147);
-            this.lbQueues.TabIndex = 0;
+            this.lbOtherQueue.FormattingEnabled = true;
+            this.lbOtherQueue.Location = new System.Drawing.Point(7, 19);
+            this.lbOtherQueue.Name = "lbOtherQueue";
+            this.lbOtherQueue.Size = new System.Drawing.Size(148, 147);
+            this.lbOtherQueue.TabIndex = 0;
+            // 
+            // gbCarStereo
+            // 
+            this.gbCarStereo.Controls.Add(this.lbCarStereoQueue);
+            this.gbCarStereo.Location = new System.Drawing.Point(407, 193);
+            this.gbCarStereo.Name = "gbCarStereo";
+            this.gbCarStereo.Size = new System.Drawing.Size(161, 174);
+            this.gbCarStereo.TabIndex = 7;
+            this.gbCarStereo.TabStop = false;
+            this.gbCarStereo.Text = "Car Stereo Queue";
+            // 
+            // lbCarStereoQueue
+            // 
+            this.lbCarStereoQueue.FormattingEnabled = true;
+            this.lbCarStereoQueue.Location = new System.Drawing.Point(7, 19);
+            this.lbCarStereoQueue.Name = "lbCarStereoQueue";
+            this.lbCarStereoQueue.Size = new System.Drawing.Size(148, 147);
+            this.lbCarStereoQueue.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 455);
-            this.Controls.Add(this.gbQueues);
+            this.ClientSize = new System.Drawing.Size(584, 381);
+            this.Controls.Add(this.gbCarStereo);
+            this.Controls.Add(this.gbOther);
             this.Controls.Add(this.gbCalender);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -154,7 +176,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.gbCalender.ResumeLayout(false);
-            this.gbQueues.ResumeLayout(false);
+            this.gbOther.ResumeLayout(false);
+            this.gbCarStereo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -169,8 +192,10 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox gbCalender;
         private System.Windows.Forms.ListBox lbCalender;
-        private System.Windows.Forms.GroupBox gbQueues;
-        private System.Windows.Forms.ListBox lbQueues;
+        private System.Windows.Forms.GroupBox gbOther;
+        private System.Windows.Forms.ListBox lbOtherQueue;
+        private System.Windows.Forms.GroupBox gbCarStereo;
+        private System.Windows.Forms.ListBox lbCarStereoQueue;
     }
 }
 

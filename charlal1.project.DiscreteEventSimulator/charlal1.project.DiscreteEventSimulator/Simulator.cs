@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace charlal1.project.DiscreteEventSimulator
 {
@@ -97,8 +98,26 @@ namespace charlal1.project.DiscreteEventSimulator
 
                 statistics.Update();
 
-                System.Threading.Thread.Sleep(1000);
+                //System.Threading.Thread.Sleep(100);
             }
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("#" + "\t" + "StartTime" + "\t" + "BeginWait" + "\t" + "EndTime" + "\t" + "CallType" + "\n");
+
+             
+
+            foreach (Entity entity in statistics.leavingEntities)
+            {
+                string startTime = entity.StartTime.ToString("hh:mm:ss");
+                string beginWait = entity.BeginWait.ToString("hh:mm:ss");
+                string endTime = entity.EndTime.ToString("hh:mm:ss");
+
+                sb.Append(entity.ID + "\t" + startTime + "\t" + beginWait + "\t" + endTime + "\t" + entity.CallType + "\n");
+            }
+            
+
+            MessageBox.Show(sb.ToString());
         }
     }
 }

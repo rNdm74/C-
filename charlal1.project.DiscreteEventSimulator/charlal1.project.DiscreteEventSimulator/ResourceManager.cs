@@ -51,7 +51,7 @@ namespace charlal1.project.DiscreteEventSimulator
             }
         }
 
-        public Entity GetNextEntityInQueue(ECallType calltype) 
+        public Entity GetFirstInQueue(ECallType calltype) 
         {
             return queueManager.GetFirstInQueue(calltype);
         }
