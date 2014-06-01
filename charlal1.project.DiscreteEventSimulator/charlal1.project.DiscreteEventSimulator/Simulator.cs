@@ -95,29 +95,13 @@ namespace charlal1.project.DiscreteEventSimulator
                     // 3. Tidy up e.g. graphics update etc
                 }
 
-
+                statistics.Iterations++;
                 statistics.Update();
 
                 //System.Threading.Thread.Sleep(100);
             }
 
-            StringBuilder sb = new StringBuilder();
-
-            sb.Append("#" + "\t" + "StartTime" + "\t" + "BeginWait" + "\t" + "EndTime" + "\t" + "CallType" + "\n");
-
-             
-
-            foreach (Entity entity in statistics.leavingEntities)
-            {
-                string startTime = entity.StartTime.ToString("hh:mm:ss");
-                string beginWait = entity.BeginWait.ToString("hh:mm:ss");
-                string endTime = entity.EndTime.ToString("hh:mm:ss");
-
-                sb.Append(entity.ID + "\t" + startTime + "\t" + beginWait + "\t" + endTime + "\t" + entity.CallType + "\n");
-            }
-            
-
-            MessageBox.Show(sb.ToString());
+            statistics.ComputeStatistics();
         }
     }
 }

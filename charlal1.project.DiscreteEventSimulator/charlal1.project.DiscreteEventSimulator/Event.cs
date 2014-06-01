@@ -69,9 +69,13 @@ namespace charlal1.project.DiscreteEventSimulator
                 // Add to calender
                 calender.Add(processingCompleteEvent);
             }
+            else
+            {
+                statistics.BusySignalCount++;
+            }
 
             // Calculate next arrival time 
-            DateTime nextArrivalTime = Global.Clock.AddMinutes(rGen.TimeBetweenArrivals);
+            DateTime nextArrivalTime = EventTime.AddMinutes(rGen.TimeBetweenArrivals);
 
             // Create entity
             Entity nextEntity = entitiyFactory.CreateEntity();
@@ -81,6 +85,8 @@ namespace charlal1.project.DiscreteEventSimulator
 
             // Add to the calender
             calender.Add(nextEvent);
+
+            
         }
     }
 
@@ -105,12 +111,13 @@ namespace charlal1.project.DiscreteEventSimulator
             {
                 // Resource is now busy
                 resource.IsFree = false;
+                statistics.ResourcesUsed++;
 
                 // entity hold rep
                 CurrentEntity.AssignResource = resource;
 
                 // and spawn next event
-                DateTime nextEventTime = Global.Clock.AddMinutes((CurrentEntity.CallType == ECallType.CAR_STEREO) ? rGen.DelayCarStereo() : rGen.DelayOther());
+                DateTime nextEventTime = EventTime.AddMinutes((CurrentEntity.CallType == ECallType.CAR_STEREO) ? rGen.DelayCarStereo() : rGen.DelayOther());
                 Event nextEvent = eventFactory.Spawn(EEventType.PROCESSING_COMPLETE, nextEventTime, CurrentEntity);
 
                 // Add to calender
@@ -119,7 +126,7 @@ namespace charlal1.project.DiscreteEventSimulator
             else 
             {
                 // Set begin wait time
-                CurrentEntity.BeginWait = Global.Clock;
+                CurrentEntity.BeginWait = EventTime;
                 
                 // Add entity to rep queue
                 resourceManager.AddToQueue(CurrentEntity);
@@ -139,7 +146,7 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             // Update statistics of enitiy leaving system
             statistics.CallCompletion++;
-            CurrentEntity.EndTime = Global.Clock;
+            CurrentEntity.EndTime = EventTime;
             statistics.leavingEntities.Add(CurrentEntity);
 
             // (active entity Rep) is now free, look at queue
@@ -151,17 +158,18 @@ namespace charlal1.project.DiscreteEventSimulator
             {
                 // Set busy flag to false
                 resource.IsFree = false;
+                statistics.ResourcesUsed++;
             }
             else
-            {
+            {                
                 // Remove entity at head of queue
                 Entity nextEntityInQueue = resourceManager.GetFirstInQueue(resource.CallType);
 
                 nextEntityInQueue.AssignResource = resource;
 
                 // compute its process time
-                DateTime nextEventTime = Global.Clock.AddMinutes((resource.CallType == ECallType.CAR_STEREO) ? rGen.DelayCarStereo() : rGen.DelayOther());
-                nextEntityInQueue.BeginWait = nextEventTime;
+                DateTime nextEventTime = EventTime.AddMinutes((resource.CallType == ECallType.CAR_STEREO) ? rGen.DelayCarStereo() : rGen.DelayOther());
+                //nextEntityInQueue.BeginWait = nextEventTime;
 
                 // Spawn next event
                 Event nextEvent = eventFactory.Spawn(EEventType.PROCESSING_COMPLETE, nextEventTime, nextEntityInQueue);

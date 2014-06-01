@@ -21,13 +21,14 @@ namespace charlal1.project.DiscreteEventSimulator
 
         private void Form1_Load(object sender, System.EventArgs e)
         {
-            
+            dTPEndSimulationTime.Value = dTPEndSimulationTime.Value.AddHours(2);
+            dTPEndSimulationTime.Refresh();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            statistics = new Statistics(lbCalender, lbOtherQueue, lbCarStereoQueue);
-            simulator = new Simulator(dTPStartSimulationTime.Value, dTPEndSimulationTime.Value.AddMinutes(50), statistics);
+            statistics = new Statistics(lbCalender, lbOtherQueue, lbCarStereoQueue, lbStatistics, lbStatisticsResults);
+            simulator = new Simulator(dTPStartSimulationTime.Value, dTPEndSimulationTime.Value, statistics);
             simulator.RunSimulation();
         }
     }

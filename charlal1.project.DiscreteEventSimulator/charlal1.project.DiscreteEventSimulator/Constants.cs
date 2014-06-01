@@ -18,7 +18,7 @@ namespace charlal1.project.DiscreteEventSimulator
     {
         public const int FIRST_IN_QUEUE              = 0;
         public const int MAX_RESOURCES_OTHER         = 2;
-        public const int MAX_RESOURCES_CAR_STEREO    = 3;
+        public const int MAX_RESOURCES_CAR_STEREO    = 1;
         public const int MAX_ON_HOLD                 = 10;
         public const int MAX_NO_CALLS                = 0;
         public const double DELAY_ARRIVAL            = 0.33;
