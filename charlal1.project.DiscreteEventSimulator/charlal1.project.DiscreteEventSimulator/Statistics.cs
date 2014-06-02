@@ -46,6 +46,8 @@ namespace charlal1.project.DiscreteEventSimulator
 
         public int Iterations { get; set; }
         public int ResourcesUsed { get; set; }
+
+
         public DataGridView dgvCalender;
         public DataGridView dgvStatistics;
 
@@ -84,9 +86,21 @@ namespace charlal1.project.DiscreteEventSimulator
             ///
             /// Display the calender in realtime
             ///
+            Update(dgvCalender);
+            
+            ///
+            /// Show entities in the queues
+            ///
+            Update(lbOtherQueue, ECallType.OTHER);
+            Update(lbCarStereoQueue, ECallType.CAR_STEREO);
+        }
 
-            dgvCalender.Rows.Clear();
+        private void Update(DataGridView dataGridView) 
+        {
+            // Clear the data grid view rows
+            dataGridView.Rows.Clear();
 
+            // Add row data
             for (int i = 0; i < calender.events.Count; i++)
             {
                 Event currentEvent = calender.events[i];
@@ -95,41 +109,29 @@ namespace charlal1.project.DiscreteEventSimulator
 
                 // Get event row data
                 string[] rowData = getRowData(currentEvent, eventEntity);
-                
+
                 // Add new row
-                dgvCalender.Rows.Add(rowData);
+                dataGridView.Rows.Add(rowData);
             }
 
-            dgvCalender.Refresh();
-
-
-            ///
-            /// Show entities in the queues
-            ///
-
-            lbOtherQueue.Items.Clear();
-
-            Queue queue0 = resourceMananger.queueManager.simulatorQueues[0];
-
-            for (int i = 0; i < queue0.entityQueue.Count(); i++)
-            {
-                lbOtherQueue.Items.Add(queue0.entityQueue[i].ID.ToString());
-            }
-
-            lbOtherQueue.Refresh();
-
-            lbCarStereoQueue.Items.Clear();
-
-            Queue queue1 = resourceMananger.queueManager.simulatorQueues[1];
-
-            for (int i = 0; i < queue1.entityQueue.Count(); i++)
-            {
-                lbCarStereoQueue.Items.Add(queue1.entityQueue[i].ID.ToString());
-            }
-
-            lbCarStereoQueue.Refresh();
+            // Refresh the data grid view
+            dataGridView.Refresh();
         }
 
+        private void Update(ListBox listBox, ECallType callType) 
+        {
+            // Clear the items in the listbox
+            listBox.Items.Clear();
+
+            // Get the entityIDs from the calltype queue
+            List<string> entityIDs = resourceMananger.GetQueueEntityIDs(callType);
+
+            // Add list of entityIDs to the listbox items
+            listBox.Items.AddRange(entityIDs.ToArray());
+
+            // Refresh the listbox
+            listBox.Refresh();
+        }
 
         public void ComputeStatistics() 
         {

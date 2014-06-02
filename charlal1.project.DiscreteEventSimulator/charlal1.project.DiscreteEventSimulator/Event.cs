@@ -52,7 +52,7 @@ namespace charlal1.project.DiscreteEventSimulator
         public override void Execute(Calender calender, ResourceManager resourceManager, Statistics statistics, RandomNumberGenerator rGen, EntityFactory entitiyFactory, EventFactory eventFactory)
         {
             // Assign entity its next event
-            CurrentEntity.NextEvent = EEventType.SWITCH_COMPLETE;
+            //CurrentEntity.NextEvent = EEventType.SWITCH_COMPLETE;
 
             // Set entities start time at call centre
             CurrentEntity.StartTime = EventTime;
@@ -65,7 +65,7 @@ namespace charlal1.project.DiscreteEventSimulator
             if (resourceManager.IsSpaceInQueues())
             {
                 // Set active entites call type
-                CurrentEntity.CallType = (rGen.Roll() <= Constants.CALL_PROBABILITY) ? ECallType.CAR_STEREO : ECallType.OTHER;
+                CurrentEntity.CallType = (rGen.Roll() <= Constants.CALL_TYPE_PROBABILITY) ? ECallType.CAR_STEREO : ECallType.OTHER;
 
                 //Setup next event for active entity switch complete event
                 Event processingCompleteEvent = eventFactory.Spawn(EEventType.SWITCH_COMPLETE, nextEventTime, CurrentEntity);
@@ -75,6 +75,7 @@ namespace charlal1.project.DiscreteEventSimulator
             }
             else
             {
+                // 
                 statistics.BusySignalCount++;
             }
 
@@ -89,8 +90,6 @@ namespace charlal1.project.DiscreteEventSimulator
 
             // Add to the calender
             calender.Add(nextEvent);
-
-            
         }
     }
 
@@ -144,16 +143,20 @@ namespace charlal1.project.DiscreteEventSimulator
         public ProcessingCompleteEvent(DateTime eventTime, Entity currentEntity) : base(eventTime, currentEntity)
         {
             this.EventType = EEventType.PROCESSING_COMPLETE;
-
-            //currentEntity.AssignResource.CallTime = eventTime.Subtract(Global.Clock).TotalSeconds;
         }
 
         public override void Execute(Calender calender, ResourceManager resourceManager, Statistics statistics, RandomNumberGenerator rGen, EntityFactory entitiyFactory, EventFactory eventFactory) 
         {
             // Update statistics of enitiy leaving system
             statistics.CallCompletion++;
+
+            // Set entities time they finish in the system
             CurrentEntity.EndTime = EventTime;
+
+            // Add entity for statistics
             statistics.leavingEntities.Add(CurrentEntity);
+
+
             statistics.ResourseWorkTime += CurrentEntity.EndTime.Subtract(CurrentEntity.StartProcessingTime).TotalSeconds;
             
 

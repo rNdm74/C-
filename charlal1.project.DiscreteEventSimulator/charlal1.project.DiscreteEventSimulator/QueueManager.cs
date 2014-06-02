@@ -7,7 +7,7 @@ namespace charlal1.project.DiscreteEventSimulator
 {
     class QueueManager
     {
-        public List<Queue> simulatorQueues;
+        private List<Queue> simulatorQueues;
 
         public QueueManager() 
         {
@@ -16,21 +16,28 @@ namespace charlal1.project.DiscreteEventSimulator
             simulatorQueues.Add(new Queue(ECallType.CAR_STEREO));
         }
 
-        public bool IsQueueEmpty(ECallType callType) 
+        public List<string> GetEntityIDsInQueue(ECallType callType) 
         {
+            // Get the queue for the call type
             Queue queue = simulatorQueues.Find(q => q.CallType == callType);
 
-            return (queue.IsEmpty());
+            return queue.GetEntityIDsInQueue();
         }
 
-        public bool IsSpaceInQueues() 
+        public bool IsQueueEmpty(ECallType callType) 
+        {
+            // Get the queue for the call type
+            Queue queue = simulatorQueues.Find(q => q.CallType == callType);
+
+            return queue.IsEmpty();
+        }
+
+        public bool IsSpaceInAllQueues() 
         {
             int total = 0;
 
-            foreach (var queue in simulatorQueues)
-	        {
+            foreach (Queue queue in simulatorQueues)
                 total += queue.Count();	 
-	        }
 
             return (total < Constants.MAX_ON_HOLD);
         }
@@ -45,7 +52,9 @@ namespace charlal1.project.DiscreteEventSimulator
 
         public Entity GetFirstInQueue(ECallType callType) 
         {
+            // Gets the queue for the call type
             Queue queue = simulatorQueues.Find(q => q.CallType == callType);
+
             return queue.GetFirstInQueue();
         }
     }

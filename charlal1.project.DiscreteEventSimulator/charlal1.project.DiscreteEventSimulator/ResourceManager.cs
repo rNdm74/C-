@@ -8,59 +8,54 @@ namespace charlal1.project.DiscreteEventSimulator
     class ResourceManager
     {
         private List<Resource> resources;
-        public QueueManager queueManager;
-        public double ResourcesWorkTime;
+        private QueueManager queueManager;
 
         public ResourceManager() 
         {
             resources = new List<Resource>();
-
-            for (int i = 0; i < Constants.MAX_RESOURCES_CAR_STEREO; i++)
-            {
-                resources.Add(new Resource(ECallType.CAR_STEREO));
-            }
-
-            for (int i = 0; i < Constants.MAX_RESOURCES_OTHER; i++)
-            {
-                resources.Add(new Resource(ECallType.OTHER));
-            }
-
             queueManager = new QueueManager();
 
-            ResourcesWorkTime = 0;
+            for (int i = 0; i < Constants.MAX_RESOURCES_CAR_STEREO; i++)
+                resources.Add(new Resource(ECallType.CAR_STEREO));
+
+            for (int i = 0; i < Constants.MAX_RESOURCES_OTHER; i++)
+                resources.Add(new Resource(ECallType.OTHER));
         }
 
-        public void AddResourceWorkTime() 
+        public List<string> GetQueueEntityIDs(ECallType callType) 
         {
-
+            return queueManager.GetEntityIDsInQueue(callType);
         }
 
         public bool IsSpaceInQueues() 
         {
-            return queueManager.IsSpaceInQueues();
+            // Returns true if there is space in all queues
+            return queueManager.IsSpaceInAllQueues();
         }
 
         public bool IsQueueEmpty(ECallType calltype) 
         {
+            // Returns true if the call type queue has no entities waiting
             return queueManager.IsQueueEmpty(calltype);
         }
 
         public Resource NextAvailableResource(ECallType? calltype)
         {
+            // Returns a resource, of its a specific calltype and it must be free else return null
             Resource resource = resources.Find(r => (r.CallType == calltype && r.IsFree == true));
+
             return resource;
         }
 
         public void AddToQueue(Entity currentEntity) 
         {
-            if (queueManager.IsSpaceInQueues()) 
-            {
-                queueManager.AddEntity(currentEntity);
-            }
+            // Adds the current entity to a queue
+            queueManager.AddEntity(currentEntity);
         }
 
         public Entity GetFirstInQueue(ECallType calltype) 
         {
+            // Pops the first in the queue
             return queueManager.GetFirstInQueue(calltype);
         }
     }
