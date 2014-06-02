@@ -9,6 +9,7 @@ namespace charlal1.project.DiscreteEventSimulator
     {
         private List<Resource> resources;
         public QueueManager queueManager;
+        public double ResourcesWorkTime;
 
         public ResourceManager() 
         {
@@ -25,6 +26,13 @@ namespace charlal1.project.DiscreteEventSimulator
             }
 
             queueManager = new QueueManager();
+
+            ResourcesWorkTime = 0;
+        }
+
+        public void AddResourceWorkTime() 
+        {
+
         }
 
         public bool IsSpaceInQueues() 
@@ -37,9 +45,9 @@ namespace charlal1.project.DiscreteEventSimulator
             return queueManager.IsQueueEmpty(calltype);
         }
 
-        public Resource NextAvailableResource()
+        public Resource NextAvailableResource(ECallType? calltype)
         {
-            Resource resource = resources.Find(r => r.IsFree == true);
+            Resource resource = resources.Find(r => (r.CallType == calltype && r.IsFree == true));
             return resource;
         }
 

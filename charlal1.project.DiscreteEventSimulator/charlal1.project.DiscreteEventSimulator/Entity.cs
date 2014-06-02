@@ -11,9 +11,10 @@ namespace charlal1.project.DiscreteEventSimulator
         public int ID               { get { return Id; } }
 
         public EEventType NextEvent { get; set; }
-        public ECallType CallType   { get; set; }
+        public ECallType? CallType   { get; set; }
         public DateTime StartTime   { get; set; }
         public DateTime BeginWait   { get; set; }
+        public DateTime StartProcessingTime { get; set; }
         public DateTime EndTime     { get; set; }
         public Resource AssignResource { get; set; }
         

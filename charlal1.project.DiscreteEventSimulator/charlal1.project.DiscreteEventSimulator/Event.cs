@@ -16,6 +16,7 @@ namespace charlal1.project.DiscreteEventSimulator
         public Entity CurrentEntity  { get; set; }
         public EEventType EventType     { get; set; }
         public DateTime EventTime   { get; set; }
+        public double ProcessingTime { get; set; }
 
         // give everything  pass in in event constructor
         protected Calender calender;
@@ -63,6 +64,9 @@ namespace charlal1.project.DiscreteEventSimulator
             // Total of the two product queues
             if (resourceManager.IsSpaceInQueues())
             {
+                // Set active entites call type
+                CurrentEntity.CallType = (rGen.Roll() <= Constants.CALL_PROBABILITY) ? ECallType.CAR_STEREO : ECallType.OTHER;
+
                 //Setup next event for active entity switch complete event
                 Event processingCompleteEvent = eventFactory.Spawn(EEventType.SWITCH_COMPLETE, nextEventTime, CurrentEntity);
                 
@@ -99,12 +103,9 @@ namespace charlal1.project.DiscreteEventSimulator
         }
 
         public override void Execute(Calender calender, ResourceManager resourceManager, Statistics statistics, RandomNumberGenerator rGen, EntityFactory entitiyFactory, EventFactory eventFactory) // ResourceManager
-        {
-            // Set active entites call type
-            CurrentEntity.CallType = (rGen.Roll() <= Constants.CALL_PROBABILITY) ? ECallType.CAR_STEREO : ECallType.OTHER;
-
+        {   
             // Check to see if rep is available 
-            Resource resource = resourceManager.NextAvailableResource();
+            Resource resource = resourceManager.NextAvailableResource(CurrentEntity.CallType);
 
             // if available rep 
             if (resource != null)
@@ -116,8 +117,11 @@ namespace charlal1.project.DiscreteEventSimulator
                 // entity hold rep
                 CurrentEntity.AssignResource = resource;
 
-                // and spawn next event
+                CurrentEntity.StartProcessingTime = Global.Clock;
+
+                // and spawn Processing Complete Event
                 DateTime nextEventTime = EventTime.AddMinutes((CurrentEntity.CallType == ECallType.CAR_STEREO) ? rGen.DelayCarStereo() : rGen.DelayOther());
+
                 Event nextEvent = eventFactory.Spawn(EEventType.PROCESSING_COMPLETE, nextEventTime, CurrentEntity);
 
                 // Add to calender
@@ -140,6 +144,8 @@ namespace charlal1.project.DiscreteEventSimulator
         public ProcessingCompleteEvent(DateTime eventTime, Entity currentEntity) : base(eventTime, currentEntity)
         {
             this.EventType = EEventType.PROCESSING_COMPLETE;
+
+            //currentEntity.AssignResource.CallTime = eventTime.Subtract(Global.Clock).TotalSeconds;
         }
 
         public override void Execute(Calender calender, ResourceManager resourceManager, Statistics statistics, RandomNumberGenerator rGen, EntityFactory entitiyFactory, EventFactory eventFactory) 
@@ -148,28 +154,42 @@ namespace charlal1.project.DiscreteEventSimulator
             statistics.CallCompletion++;
             CurrentEntity.EndTime = EventTime;
             statistics.leavingEntities.Add(CurrentEntity);
+            statistics.ResourseWorkTime += CurrentEntity.EndTime.Subtract(CurrentEntity.StartProcessingTime).TotalSeconds;
+            
 
+            
             // (active entity Rep) is now free, look at queue
             Resource resource = CurrentEntity.AssignResource;
-            resource.IsFree = true;
+            if (resource.CallType == ECallType.CAR_STEREO)
+            {
+                statistics.ResourseCarStereoWorkTime += CurrentEntity.EndTime.Subtract(CurrentEntity.StartProcessingTime).TotalSeconds;
+            }
+            else 
+            {
+                statistics.ResourseOtherWorkTime += CurrentEntity.EndTime.Subtract(CurrentEntity.StartProcessingTime).TotalSeconds;
+            }
 
             // if Queue is empty 
             if (resourceManager.IsQueueEmpty(resource.CallType))
             {
                 // Set busy flag to false
-                resource.IsFree = false;
-                statistics.ResourcesUsed++;
+                resource.IsFree = true;
             }
             else
             {                
                 // Remove entity at head of queue
                 Entity nextEntityInQueue = resourceManager.GetFirstInQueue(resource.CallType);
 
+                nextEntityInQueue.StartProcessingTime = Global.Clock;
+
+                // Resource is now busy
+                resource.IsFree = false;
+
+                // Assign the entity a resource
                 nextEntityInQueue.AssignResource = resource;
 
-                // compute its process time
+                // Compute its process time
                 DateTime nextEventTime = EventTime.AddMinutes((resource.CallType == ECallType.CAR_STEREO) ? rGen.DelayCarStereo() : rGen.DelayOther());
-                //nextEntityInQueue.BeginWait = nextEventTime;
 
                 // Spawn next event
                 Event nextEvent = eventFactory.Spawn(EEventType.PROCESSING_COMPLETE, nextEventTime, nextEntityInQueue);

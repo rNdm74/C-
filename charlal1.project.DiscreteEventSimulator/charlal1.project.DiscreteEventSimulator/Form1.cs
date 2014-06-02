@@ -27,7 +27,7 @@ namespace charlal1.project.DiscreteEventSimulator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            statistics = new Statistics(lbCalender, lbOtherQueue, lbCarStereoQueue, lbStatistics, lbStatisticsResults);
+            statistics = new Statistics(dgvCalender, dgvStatistics, lbOtherQueue, lbCarStereoQueue, lbStatisticsResults);
             simulator = new Simulator(dTPStartSimulationTime.Value, dTPEndSimulationTime.Value, statistics);
             simulator.RunSimulation();
         }

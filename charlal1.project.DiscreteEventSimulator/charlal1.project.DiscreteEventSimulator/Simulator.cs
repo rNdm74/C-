@@ -29,12 +29,13 @@ namespace charlal1.project.DiscreteEventSimulator
             statistics.calender = calender;
             statistics.resourceMananger = resourceManager;
             this.statistics = statistics;
-            
+
+            statistics.SystemTime = SimulationEndDateTime.Subtract(SimulationStartDateTime).TotalSeconds;
 
             Global.Clock = SimulationStartDateTime;
 
             // Add EndSim Event
-            Event endSimulationEvent = eventFactory.Spawn(EEventType.END_SIMULATION, SimulationEndDateTime, null);
+            Event endSimulationEvent = eventFactory.Spawn(EEventType.END_SIMULATION, SimulationEndDateTime, entityFactory.CreateEntity());
             calender.Add(endSimulationEvent);
 
             // Create First Arrival event
@@ -93,12 +94,13 @@ namespace charlal1.project.DiscreteEventSimulator
                     activeEvent.Execute(calender, resourceManager, statistics, rGen, entityFactory, eventFactory);
 
                     // 3. Tidy up e.g. graphics update etc
+                    
                 }
 
                 statistics.Iterations++;
                 statistics.Update();
 
-                //System.Threading.Thread.Sleep(100);
+                //System.Threading.Thread.Sleep(0);
             }
 
             statistics.ComputeStatistics();

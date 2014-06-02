@@ -9,15 +9,19 @@ namespace charlal1.project.DiscreteEventSimulator
     class Statistics
     {
         int count = 0;
-        public ListBox lbCalender;
+
         public ListBox lbOtherQueue;
         public ListBox lbCarStereoQueue;
-        public ListBox lbStatistics;
         public ListBox lbStatisticsResults;
         public List<Entity> leavingEntities;
 
         public Calender calender { get; set; }
         public ResourceManager resourceMananger { get; set; }
+
+        public double ResourseOtherWorkTime { get; set; }
+        public double ResourseCarStereoWorkTime { get; set; }
+        public double ResourseWorkTime { get; set; }
+        public double SystemTime { get; set; }
 
         // Busy Signal count
         public int BusySignalCount { get; set; }
@@ -42,31 +46,66 @@ namespace charlal1.project.DiscreteEventSimulator
 
         public int Iterations { get; set; }
         public int ResourcesUsed { get; set; }
+        public DataGridView dgvCalender;
+        public DataGridView dgvStatistics;
 
-        public Statistics(ListBox lbCalender, ListBox lbOtherQueue, ListBox lbCarStereoQueue, ListBox lbStatistics, ListBox lbStatisticsResults) 
+        public Statistics(DataGridView dgvCalender, DataGridView dgvStatistics, ListBox lbOtherQueue, ListBox lbCarStereoQueue, ListBox lbStatisticsResults) 
         {
-            this.lbCalender = lbCalender;
+            this.dgvCalender = dgvCalender;
+            this.dgvStatistics = dgvStatistics;
+
             this.lbOtherQueue = lbOtherQueue;
             this.lbCarStereoQueue = lbCarStereoQueue;
-            this.lbStatistics = lbStatistics;
             this.lbStatisticsResults = lbStatisticsResults;
 
             this.leavingEntities = new List<Entity>();
 
+            // Set variables to 0
             BusySignalCount = CallCompletion = ExcessiveWaitCount = ResourceUtilization = Iterations = ResourcesUsed = 0;
-            AverageWaitingTime = AverageSystemTime = AverageNumberWaiting = 0;
+            AverageWaitingTime = AverageSystemTime = AverageNumberWaiting = ResourseOtherWorkTime = ResourseCarStereoWorkTime = ResourseWorkTime = SystemTime = 0;
+        }
+
+        private string[] getRowData(Event currentEvent, Entity currentEntity) 
+        {
+            // Get statistics
+            string entityID = currentEntity.ID.ToString();
+            string eventType = (currentEvent == null) ? "---" : currentEvent.EventType.ToString();
+            string eventTime = (currentEvent == null) ? "---" : currentEvent.EventTime.ToShortTimeString();
+            string entityCallType = (currentEntity.CallType == null) ? "---" : currentEntity.CallType.ToString();
+            string entityStartTime = (currentEntity.StartTime.ToString("yyyy").Equals("0001")) ? "---" : currentEntity.StartTime.ToShortTimeString();
+            string entityBeginWait = (currentEntity.BeginWait.ToString("yyyy").Equals("0001")) ? "---" : currentEntity.BeginWait.ToShortTimeString();
+
+            // return data string array
+            return new string[] { entityID, eventType, eventTime, entityCallType, entityStartTime, entityBeginWait }; 
         }
 
         public void Update() 
         {
-            lbCalender.Items.Clear();
+            ///
+            /// Display the calender in realtime
+            ///
+
+            dgvCalender.Rows.Clear();
 
             for (int i = 0; i < calender.events.Count; i++)
             {
-                lbCalender.Items.Add(calender.events[i].EventTime.ToString("hh:mm:ss") + "\t\t" + calender.events[i].EventType.ToString());
+                Event currentEvent = calender.events[i];
+                // Get events entity
+                Entity eventEntity = currentEvent.CurrentEntity;
+
+                // Get event row data
+                string[] rowData = getRowData(currentEvent, eventEntity);
+                
+                // Add new row
+                dgvCalender.Rows.Add(rowData);
             }
 
-            lbCalender.Refresh();
+            dgvCalender.Refresh();
+
+
+            ///
+            /// Show entities in the queues
+            ///
 
             lbOtherQueue.Items.Clear();
 
@@ -89,68 +128,64 @@ namespace charlal1.project.DiscreteEventSimulator
             }
 
             lbCarStereoQueue.Refresh();
-
-
-            
-
-            //MessageBox.Show(sb.ToString());
         }
 
 
         public void ComputeStatistics() 
         {
-            lbStatistics.Items.Clear();
+            ///
+            /// Update Entity Statistics 
+            ///
 
-            //StringBuilder sb = new StringBuilder();
-            //sb.Append("#" + "\t" + "StartTime" + "\t" + "BeginWait" + "\t" + "EndTime" + "\t" + "CallType" + "\n");
-            lbStatistics.Items.Add("#" + " | " + "StartTime" + " | " + "BeginWait" + " | " + "EndTime" + " | " + "CallType");
-            //lbStatistics.Items.Add("");
+            // Clear the display
+            dgvStatistics.Rows.Clear();
 
-
+            // Loop through all the enititys that left the system
             foreach (Entity entity in leavingEntities)
             {
+                // Count for running averages
                 count++;
 
-                string startTime = entity.StartTime.ToString("hh:mm:ss");
+                // Display the entities that left the system
+                string[] entityData = getRowData(null, entity);
+                dgvStatistics.Rows.Add(entityData);
 
-                string beginWait = "---";
-
+                // If the entity waited
                 if (!entity.BeginWait.ToString("yyyy").Equals("0001"))
                 {
-                    beginWait = entity.BeginWait.ToString("hh:mm:ss");
-
+                    // Running average of the wait time of entities
                     double waitTime = entity.EndTime.Subtract(entity.BeginWait).TotalMinutes;
                     AverageWaitingTime += Compute(waitTime, AverageWaitingTime, count);
+
+                    // Running average of entities waiting
                     AverageNumberWaiting++;
                     AverageNumberWaiting += Compute(1, AverageNumberWaiting, count);
 
-                    if (waitTime > 1)
+                    // Work aout if call had an excessive wait time
+                    if (waitTime > Constants.EXCESSIVE_WAIT_TIME)
                     {
                         ExcessiveWaitCount++;
                     }
                 }
 
-                string endTime = entity.EndTime.ToString("hh:mm:ss");
-
+                // Average time entity takes to get through the system
                 double sysTime = entity.EndTime.Subtract(entity.StartTime).TotalMinutes;
                 AverageSystemTime += Compute(sysTime, AverageSystemTime, count);
-                
-
-                //sb.Append(entity.ID + "\t" + startTime + "\t" + beginWait + "\t" + endTime + "\t" + entity.CallType + "\n");
-                lbStatistics.Items.Add(entity.ID + " | " + startTime + " | " + beginWait + " | " + endTime + " | " + entity.CallType);
             }
 
-            lbStatistics.Refresh();
-
+            ///
+            /// Update Result Data
+            ///
             lbStatisticsResults.Items.Clear();
-            //lbStatisticsResults.Items.Add("");
             lbStatisticsResults.Items.Add("Bus Signal Count: " + BusySignalCount);
             lbStatisticsResults.Items.Add("Call Completions: " + CallCompletion);
             lbStatisticsResults.Items.Add("Excessive Wait Count: " + ExcessiveWaitCount);
             lbStatisticsResults.Items.Add("Average Wait Time: " + AverageWaitingTime);
             lbStatisticsResults.Items.Add("Average System Time: " + AverageSystemTime);
             lbStatisticsResults.Items.Add("Average Number Waiting: " + AverageNumberWaiting);
-            lbStatisticsResults.Items.Add("Resource Utilization: " + ResourcesUsed);
+            lbStatisticsResults.Items.Add("Other Utilization: " + (ResourseOtherWorkTime / Constants.MAX_RESOURCES_OTHER) / SystemTime);
+            lbStatisticsResults.Items.Add("Car Stereo Utilization: " + (ResourseCarStereoWorkTime / Constants.MAX_RESOURCES_CAR_STEREO) / SystemTime);
+            lbStatisticsResults.Items.Add("Resource Utilization Total: " + (ResourseWorkTime / (Constants.MAX_RESOURCES_CAR_STEREO + Constants.MAX_RESOURCES_OTHER)) / SystemTime);//(SystemTime / ResourseWorkTime));
             lbStatisticsResults.Refresh();
             
         }
