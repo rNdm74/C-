@@ -23,17 +23,29 @@ namespace charlal1.project.DiscreteEventSimulator
             entityQueue.Add(entityWaiting);
         }
 
-        public List<string> GetEntityIDsInQueue() 
+        public List<string[]> GetEntityDataInQueue() 
         {
             // Create list of entity ids
-            List<string> entityIDs = new List<string>();
+            List<string[]> entityData = new List<string[]>();
+
+
 
             // Get all the ids of the entities in the queue
-            foreach (Entity e in entityQueue)
-                entityIDs.Add(e.ID.ToString());
+            foreach (Entity e in entityQueue) 
+            {
+                string entityID = e.ID.ToString();
+                string eventType = "---";
+                string eventTime = "---";
+                string entityCallType = (e.CallType == null) ? "---" : e.CallType.ToString();
+                string entityStartTime = (e.StartTime.ToString("yyyy").Equals("0001")) ? "---" : e.StartTime.ToShortTimeString();
+                string entityBeginWait = (e.BeginWait.ToString("yyyy").Equals("0001")) ? "---" : e.BeginWait.ToShortTimeString();
+
+                entityData.Add(new string[] { entityID, eventType, eventTime, entityCallType, entityStartTime, entityBeginWait });
+            }
+                
 
             // Return list
-            return entityIDs;
+            return entityData;
         }
 
         public Entity GetFirstInQueue() 

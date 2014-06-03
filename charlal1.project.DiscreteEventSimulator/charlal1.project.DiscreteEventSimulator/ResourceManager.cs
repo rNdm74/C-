@@ -22,9 +22,9 @@ namespace charlal1.project.DiscreteEventSimulator
                 resources.Add(new Resource(ECallType.OTHER));
         }
 
-        public List<string> GetQueueEntityIDs(ECallType callType) 
+        public List<string[]> GetQueueEntityData(ECallType callType) 
         {
-            return queueManager.GetEntityIDsInQueue(callType);
+            return queueManager.GetEntityDataInQueue(callType);
         }
 
         public bool IsSpaceInQueues() 

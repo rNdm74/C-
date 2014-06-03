@@ -48,16 +48,15 @@ namespace charlal1.project.DiscreteEventSimulator
         public int ResourcesUsed { get; set; }
 
 
-        public DataGridView dgvCalender;
-        public DataGridView dgvStatistics;
+        public DataGridView dgvCalender, dgvStatistics, dgvOtherQueue, dgvCarStereoQueue;
 
-        public Statistics(DataGridView dgvCalender, DataGridView dgvStatistics, ListBox lbOtherQueue, ListBox lbCarStereoQueue, ListBox lbStatisticsResults) 
+        public Statistics(DataGridView dgvCalender, DataGridView dgvStatistics, DataGridView dgvOtherQueue, DataGridView dgvCarStereoQueue, ListBox lbStatisticsResults) 
         {
             this.dgvCalender = dgvCalender;
             this.dgvStatistics = dgvStatistics;
 
-            this.lbOtherQueue = lbOtherQueue;
-            this.lbCarStereoQueue = lbCarStereoQueue;
+            this.dgvOtherQueue = dgvOtherQueue;
+            this.dgvCarStereoQueue = dgvCarStereoQueue;
             this.lbStatisticsResults = lbStatisticsResults;
 
             this.leavingEntities = new List<Entity>();
@@ -91,8 +90,8 @@ namespace charlal1.project.DiscreteEventSimulator
             ///
             /// Show entities in the queues
             ///
-            Update(lbOtherQueue, ECallType.OTHER);
-            Update(lbCarStereoQueue, ECallType.CAR_STEREO);
+            Update(dgvOtherQueue, ECallType.OTHER);
+            Update(dgvCarStereoQueue, ECallType.CAR_STEREO);
         }
 
         private void Update(DataGridView dataGridView) 
@@ -118,19 +117,20 @@ namespace charlal1.project.DiscreteEventSimulator
             dataGridView.Refresh();
         }
 
-        private void Update(ListBox listBox, ECallType callType) 
+        private void Update(DataGridView dataGridView, ECallType callType) 
         {
             // Clear the items in the listbox
-            listBox.Items.Clear();
+            dataGridView.Rows.Clear();
 
-            // Get the entityIDs from the calltype queue
-            List<string> entityIDs = resourceMananger.GetQueueEntityIDs(callType);
+            // Get the entityData from the calltype queue
+            List<string[]> entityData = resourceMananger.GetQueueEntityData(callType);
 
-            // Add list of entityIDs to the listbox items
-            listBox.Items.AddRange(entityIDs.ToArray());
+            // Add new row
+            foreach (String[] data in entityData) 
+                dataGridView.Rows.Add(data);
 
             // Refresh the listbox
-            listBox.Refresh();
+            dataGridView.Refresh();
         }
 
         public void ComputeStatistics() 

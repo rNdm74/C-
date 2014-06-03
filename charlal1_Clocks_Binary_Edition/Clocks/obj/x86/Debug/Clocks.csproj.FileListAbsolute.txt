@@ -26,3 +26,5 @@ E:\Work\C-\charlal1_Clocks_Binary_Edition\Clocks\bin\Debug\AnalogClockControl.dl
 E:\Work\C-\charlal1_Clocks_Binary_Edition\Clocks\obj\x86\Debug\Clocks.Form1.resources
 E:\Work\C-\charlal1_Clocks_Binary_Edition\Clocks\obj\x86\Debug\Clocks.Properties.Resources.resources
 E:\Work\C-\charlal1_Clocks_Binary_Edition\Clocks\obj\x86\Debug\Clocks.csproj.GenerateResource.Cache
+V:\C-\charlal1_Clocks_Binary_Edition\Clocks\obj\x86\Debug\Clocks.exe
+V:\C-\charlal1_Clocks_Binary_Edition\Clocks\obj\x86\Debug\Clocks.pdb

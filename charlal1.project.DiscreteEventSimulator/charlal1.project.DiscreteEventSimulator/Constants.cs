@@ -10,7 +10,7 @@ namespace charlal1.project.DiscreteEventSimulator
     
     public static class Global 
     {
-        public static DateTime Clock;
+        public static DateTime Clock { get; set; }
     }
 
     public static class Constants
@@ -20,7 +20,7 @@ namespace charlal1.project.DiscreteEventSimulator
         public const int CALL_TYPE_PROBABILITY       = 4;
 
         // Simulation Constants
-        public const int MAX_RESOURCES_OTHER         = 2;
+        public const int MAX_RESOURCES_OTHER         = 1;
         public const int MAX_RESOURCES_CAR_STEREO    = 1;
         public const int MAX_ON_HOLD                 = 10;
         public const int EXCESSIVE_WAIT_TIME         = 1;

@@ -7,14 +7,13 @@ namespace charlal1.project.DiscreteEventSimulator
 {
     class Resource
     {        
-        public bool IsFree { get; set; }
-        // ECalltype
-        public ECallType CallType { get; set; }
+        public bool IsFree          { get; set; }
+        public ECallType CallType   { get; set; }
 
         public Resource(ECallType callType) 
         {
             this.CallType = callType;
-            IsFree = true;
+            this.IsFree = true;
         }
     }
 }

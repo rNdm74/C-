@@ -16,12 +16,12 @@ namespace charlal1.project.DiscreteEventSimulator
             simulatorQueues.Add(new Queue(ECallType.CAR_STEREO));
         }
 
-        public List<string> GetEntityIDsInQueue(ECallType callType) 
+        public List<string[]> GetEntityDataInQueue(ECallType callType) 
         {
             // Get the queue for the call type
             Queue queue = simulatorQueues.Find(q => q.CallType == callType);
 
-            return queue.GetEntityIDsInQueue();
+            return queue.GetEntityDataInQueue();
         }
 
         public bool IsQueueEmpty(ECallType callType) 

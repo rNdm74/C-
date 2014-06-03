@@ -28,3 +28,13 @@ E:\Work\C-\charlal1_Clocks_Binary_Edition\ClocksTests\bin\Debug\Clocks_Accessor.
 E:\Work\C-\charlal1_Clocks_Binary_Edition\ClocksTests\obj\Debug\ClocksTests.csprojResolveAssemblyReference.cache
 E:\Work\C-\charlal1_Clocks_Binary_Edition\ClocksTests\obj\Debug\ClocksTests.dll
 E:\Work\C-\charlal1_Clocks_Binary_Edition\ClocksTests\obj\Debug\ClocksTests.pdb
+V:\C-\charlal1_Clocks_Binary_Edition\ClocksTests\bin\Debug\ClocksTests.dll
+V:\C-\charlal1_Clocks_Binary_Edition\ClocksTests\bin\Debug\ClocksTests.pdb
+V:\C-\charlal1_Clocks_Binary_Edition\ClocksTests\bin\Debug\AnalogClockControl.dll
+V:\C-\charlal1_Clocks_Binary_Edition\ClocksTests\bin\Debug\Clocks.exe
+V:\C-\charlal1_Clocks_Binary_Edition\ClocksTests\bin\Debug\Clocks.pdb
+V:\C-\charlal1_Clocks_Binary_Edition\ClocksTests\bin\Debug\Clocks_Accessor.exe
+V:\C-\charlal1_Clocks_Binary_Edition\ClocksTests\bin\Debug\Clocks_Accessor.pdb
+V:\C-\charlal1_Clocks_Binary_Edition\ClocksTests\obj\Debug\ClocksTests.csprojResolveAssemblyReference.cache
+V:\C-\charlal1_Clocks_Binary_Edition\ClocksTests\obj\Debug\ClocksTests.dll
+V:\C-\charlal1_Clocks_Binary_Edition\ClocksTests\obj\Debug\ClocksTests.pdb
