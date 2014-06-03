@@ -46,6 +46,7 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             // Get the queue for the call type
             Queue queue = simulatorQueues.Find(q => q.CallType == currentEntity.CallType);
+
             // Add entitiy to queue
             queue.Add(currentEntity);
         }

@@ -19,12 +19,12 @@ namespace charlal1.project.DiscreteEventSimulator
         public double ProcessingTime { get; set; }
 
         // give everything  pass in in event constructor
-        protected Calender calender;
-        protected ResourceManager resourceManager;
-        protected Statistics statistics;
-        protected RandomNumberGenerator rGen;
-        protected EntityFactory entitiyFactory;
-        protected EventFactory eventFactory;
+        //protected Calender calender;
+        //protected ResourceManager resourceManager;
+        //protected Statistics statistics;
+        //protected RandomNumberGenerator rGen;
+        //protected EntityFactory entitiyFactory;
+        //protected EventFactory eventFactory;
 
         // make constructor
         public Event(DateTime eventTime, Entity currentEntity) 
@@ -108,7 +108,7 @@ namespace charlal1.project.DiscreteEventSimulator
             {
                 // Resource is now busy
                 resource.IsFree = false;
-                statistics.ResourcesUsed++;
+                //statistics.ResourcesUsed++;
 
                 // entity hold rep
                 CurrentEntity.AssignResource = resource;
@@ -144,21 +144,17 @@ namespace charlal1.project.DiscreteEventSimulator
 
         public override void Execute(Calender calender, ResourceManager resourceManager, Statistics statistics, RandomNumberGenerator rGen, EntityFactory entitiyFactory, EventFactory eventFactory) 
         {
-            // Update statistics of enitiy leaving system
-            statistics.CallCompletion++;
-
             // Set entities time they finish in the system
             CurrentEntity.EndTime = EventTime;
 
+            // Update statistics of enitiy leaving system
+            statistics.CallCompletion++;
+
             // Add entity for statistics
-            statistics.leavingEntities.Add(CurrentEntity);
+            //statistics.leavingEntities.Add(CurrentEntity);
             statistics.UpdateEntityStatistics(CurrentEntity);
-
-
             statistics.ResourseWorkTime += CurrentEntity.EndTime.Subtract(CurrentEntity.StartProcessingTime).TotalSeconds;
-            
-
-            
+                        
             // (active entity Rep) is now free, look at queue
             Resource resource = CurrentEntity.AssignResource;
             if (resource.CallType == ECallType.CAR_STEREO)

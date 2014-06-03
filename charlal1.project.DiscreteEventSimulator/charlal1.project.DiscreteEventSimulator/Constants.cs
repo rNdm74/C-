@@ -26,7 +26,7 @@ namespace charlal1.project.DiscreteEventSimulator
         public const int EXCESSIVE_WAIT_TIME         = 1;
 
         // Delay Constants
-        public const double DELAY_ARRIVAL            = 0.33;
+        public const double DELAY_ARRIVAL            = 0.333;
         public const double DELAY_IVR                = 0.3;
         public const int    DELAY_PROCESSING         = 2;
 
