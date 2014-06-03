@@ -12,7 +12,9 @@ namespace charlal1.project.DiscreteEventSimulator
     public partial class Form1 : Form
     {
         Simulator simulator;
-        Statistics statistics;
+        
+        Statistics statisticsSubject;
+        IDisplay[] displayObservers;
 
         public Form1()
         {
@@ -25,10 +27,20 @@ namespace charlal1.project.DiscreteEventSimulator
             dTPEndSimulationTime.Refresh();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void simulationStart_Click(object sender, EventArgs e)
         {
-            statistics = new Statistics(dgvCalender, dgvStatistics, dgvOtherQueue, dgvCarStereoQueue, lbStatisticsResults);
-            simulator = new Simulator(dTPStartSimulationTime.Value, dTPEndSimulationTime.Value, statistics);
+            statisticsSubject = new Statistics();
+            displayObservers = new IDisplay[] 
+            {
+                new Graphical(statisticsSubject, pGraphicalDisplay),
+                new Text(statisticsSubject, dgvCalender, dgvOtherQueue, dgvCarStereoQueue),
+                new Results(statisticsSubject, dgvStatistics, lbStatisticsResults)
+            };
+
+
+            //display = new Display(dgvCalender, dgvStatistics, dgvOtherQueue, dgvCarStereoQueue, lbStatisticsResults);
+
+            simulator = new Simulator(dTPStartSimulationTime.Value, dTPEndSimulationTime.Value, statisticsSubject);
             simulator.RunSimulation();
         }
     }

@@ -46,5 +46,33 @@ namespace charlal1.project.DiscreteEventSimulator
             // Remove event at found index
             events.RemoveAt(index);
         }
+
+        public List<string[]> GetEventData() 
+        {
+            List<string[]> eventData = new List<string[]>();
+
+            foreach (Event e in events)
+            {                
+                Entity eventEntity = e.CurrentEntity;
+
+                eventData.Add(rowData(e, eventEntity));
+            }
+
+            return eventData;
+        }
+
+        private string[] rowData(Event currentEvent, Entity currentEntity)
+        {
+            // Get statistics
+            string entityID = currentEntity.ID.ToString();
+            string eventType = (currentEvent == null) ? "---" : currentEvent.EventType.ToString();
+            string eventTime = (currentEvent == null) ? "---" : currentEvent.EventTime.ToShortTimeString();
+            string entityCallType = (currentEntity.CallType == null) ? "---" : currentEntity.CallType.ToString();
+            string entityStartTime = (currentEntity.StartTime.ToString("yyyy").Equals("0001")) ? "---" : currentEntity.StartTime.ToShortTimeString();
+            string entityBeginWait = (currentEntity.BeginWait.ToString("yyyy").Equals("0001")) ? "---" : currentEntity.BeginWait.ToShortTimeString();
+
+            // return data string array
+            return new string[] { entityID, eventType, eventTime, entityCallType, entityStartTime, entityBeginWait };
+        }
     }
 }

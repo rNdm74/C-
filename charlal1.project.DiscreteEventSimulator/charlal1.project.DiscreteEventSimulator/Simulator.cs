@@ -8,14 +8,17 @@ namespace charlal1.project.DiscreteEventSimulator
 {
     class Simulator
     {
-        
+        private Statistics statistics;
 
         private Calender calender;
+
         private Event activeEvent;
+
         private ResourceManager resourceManager;
-        private Statistics statistics;
+        
         private EntityFactory entityFactory;
         private EventFactory eventFactory;
+
         private RandomNumberGenerator rGen;
 
         public Simulator(DateTime SimulationStartDateTime, DateTime SimulationEndDateTime, Statistics statistics) 
@@ -26,8 +29,7 @@ namespace charlal1.project.DiscreteEventSimulator
             eventFactory = new EventFactory();
             rGen = new RandomNumberGenerator();
 
-            statistics.calender = calender;
-            statistics.resourceMananger = resourceManager;
+            
             this.statistics = statistics;
 
             statistics.SystemTime = SimulationEndDateTime.Subtract(SimulationStartDateTime).TotalSeconds;
@@ -97,13 +99,15 @@ namespace charlal1.project.DiscreteEventSimulator
                     
                 }
 
-                statistics.Iterations++;
-                statistics.Update();
+                //statistics.Iterations++;
+
+                statistics.UpdateLists(calender, resourceManager);
+                statistics.NotifyDisplays();
 
                 //System.Threading.Thread.Sleep(0);
             }
 
-            statistics.ComputeStatistics();
+            //statistics.ComputeStatistics();
         }
     }
 }

@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Calender.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Display.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="EntityFactory.cs" />
     <Compile Include="Event.cs" />

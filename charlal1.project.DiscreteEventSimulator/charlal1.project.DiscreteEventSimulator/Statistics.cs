@@ -6,59 +6,48 @@ using System.Windows.Forms;
 
 namespace charlal1.project.DiscreteEventSimulator
 {
-    class Statistics
+    /// <summary>
+    /// Subject
+    /// </summary>
+    /// 
+    interface IStatistics 
     {
-        int count = 0;
+        void AddDisplay(IDisplay d);
+        void RemoveDisplay(IDisplay d);
+        void NotifyDisplays();
+    }
 
-        public ListBox lbOtherQueue;
-        public ListBox lbCarStereoQueue;
-        public ListBox lbStatisticsResults;
-        public List<Entity> leavingEntities;
+    class Statistics : IStatistics
+    {
+        private int waitingAverageCount = 1;
+        private int systemAverageCount = 1;
 
-        public Calender calender { get; set; }
+        public Calender calender                { get; set; }
         public ResourceManager resourceMananger { get; set; }
 
-        public double ResourseOtherWorkTime { get; set; }
+        public int Iterations                   { get; set; }
+        public int ResourcesUsed                { get; set; }
+        public int BusySignalCount              { get; set; }
+        public int CallCompletion               { get; set; }
+        public int ExcessiveWaitCount           { get; set; }
+        public int ResourceUtilization          { get; set; }
+
+        public double ResourseOtherWorkTime     { get; set; }
         public double ResourseCarStereoWorkTime { get; set; }
-        public double ResourseWorkTime { get; set; }
-        public double SystemTime { get; set; }
-
-        // Busy Signal count
-        public int BusySignalCount { get; set; }
-
-        // Completion Count
-        public int CallCompletion { get; set; }
-
-        // Excessive Wait Count
-        public int ExcessiveWaitCount { get; set; }
-
-        // Resource Utilization
-        public int ResourceUtilization { get; set; }
-
-        // Average Number Waiting
-        public double AverageNumberWaiting { get; set; }
-
-        // Average Waiting Time
-        public double AverageWaitingTime { get; set; }
-
-        // Average System Time
-        public double AverageSystemTime { get; set; }
-
-        public int Iterations { get; set; }
-        public int ResourcesUsed { get; set; }
-
-
-        public DataGridView dgvCalender, dgvStatistics, dgvOtherQueue, dgvCarStereoQueue;
-
-        public Statistics(DataGridView dgvCalender, DataGridView dgvStatistics, DataGridView dgvOtherQueue, DataGridView dgvCarStereoQueue, ListBox lbStatisticsResults) 
+        public double ResourseWorkTime          { get; set; }
+        public double SystemTime                { get; set; }
+                
+        public double AverageNumberWaiting      { get; set; }
+        public double AverageWaitingTime        { get; set; }
+        public double AverageSystemTime         { get; set; }
+        
+        public List<Entity> leavingEntities;
+        private List<IDisplay> displayList;
+        
+        public Statistics() 
         {
-            this.dgvCalender = dgvCalender;
-            this.dgvStatistics = dgvStatistics;
 
-            this.dgvOtherQueue = dgvOtherQueue;
-            this.dgvCarStereoQueue = dgvCarStereoQueue;
-            this.lbStatisticsResults = lbStatisticsResults;
-
+            this.displayList = new List<IDisplay>();
             this.leavingEntities = new List<Entity>();
 
             // Set variables to 0
@@ -66,135 +55,190 @@ namespace charlal1.project.DiscreteEventSimulator
             AverageWaitingTime = AverageSystemTime = AverageNumberWaiting = ResourseOtherWorkTime = ResourseCarStereoWorkTime = ResourseWorkTime = SystemTime = 0;
         }
 
-        private string[] getRowData(Event currentEvent, Entity currentEntity) 
-        {
-            // Get statistics
-            string entityID = currentEntity.ID.ToString();
-            string eventType = (currentEvent == null) ? "---" : currentEvent.EventType.ToString();
-            string eventTime = (currentEvent == null) ? "---" : currentEvent.EventTime.ToShortTimeString();
-            string entityCallType = (currentEntity.CallType == null) ? "---" : currentEntity.CallType.ToString();
-            string entityStartTime = (currentEntity.StartTime.ToString("yyyy").Equals("0001")) ? "---" : currentEntity.StartTime.ToShortTimeString();
-            string entityBeginWait = (currentEntity.BeginWait.ToString("yyyy").Equals("0001")) ? "---" : currentEntity.BeginWait.ToShortTimeString();
 
-            // return data string array
-            return new string[] { entityID, eventType, eventTime, entityCallType, entityStartTime, entityBeginWait }; 
+        public void AddDisplay(IDisplay d)
+        {
+            displayList.Add(d);
         }
 
-        public void Update() 
+        public void RemoveDisplay(IDisplay d)
         {
-            ///
-            /// Display the calender in realtime
-            ///
-            Update(dgvCalender);
-            
-            ///
-            /// Show entities in the queues
-            ///
-            Update(dgvOtherQueue, ECallType.OTHER);
-            Update(dgvCarStereoQueue, ECallType.CAR_STEREO);
+            // Add error checking
+            if(displayList.Contains(d))
+                displayList.Remove(d);
         }
 
-        private void Update(DataGridView dataGridView) 
+        public void UpdateLists(Calender calender, ResourceManager resourceMananger) 
         {
-            // Clear the data grid view rows
-            dataGridView.Rows.Clear();
+            this.calender = calender;
+            this.resourceMananger = resourceMananger;
+        }
 
-            // Add row data
-            for (int i = 0; i < calender.events.Count; i++)
+        public void NotifyDisplays()
+        {
+            foreach (IDisplay currentDisplay in displayList)
             {
-                Event currentEvent = calender.events[i];
-                // Get events entity
-                Entity eventEntity = currentEvent.CurrentEntity;
+                currentDisplay.Update(calender, resourceMananger, this);
+                currentDisplay.Draw();
+            }
+        }
 
-                // Get event row data
-                string[] rowData = getRowData(currentEvent, eventEntity);
 
-                // Add new row
-                dataGridView.Rows.Add(rowData);
+
+
+
+
+
+        public void UpdateEntityStatistics(Entity e)
+        {
+            // If the entity waited
+            if (!e.BeginWait.ToString("yyyy").Equals("0001"))
+            {
+                // Work out entity wait time
+                double waitTime = e.EndTime.Subtract(e.BeginWait).TotalMinutes;
+
+                // Update waiting averages
+                UpdateAverageNumberWaiting();
+                UpdateAverageWaitingTime(waitTime);
+                UpdateExcessiveWaiting(waitTime);
+
+                // Increment the waiting average count
+                waitingAverageCount++;
             }
 
-            // Refresh the data grid view
-            dataGridView.Refresh();
+            // Update system time for all entities
+            UpdateSystemTime(e);
         }
 
-        private void Update(DataGridView dataGridView, ECallType callType) 
+
+        private void UpdateAverageWaitingTime(double waitTime) 
         {
-            // Clear the items in the listbox
-            dataGridView.Rows.Clear();
-
-            // Get the entityData from the calltype queue
-            List<string[]> entityData = resourceMananger.GetQueueEntityData(callType);
-
-            // Add new row
-            foreach (String[] data in entityData) 
-                dataGridView.Rows.Add(data);
-
-            // Refresh the listbox
-            dataGridView.Refresh();
+            // Running average of the wait time of entities
+            //double waitTime = entity.EndTime.Subtract(entity.BeginWait).TotalMinutes;
+            AverageWaitingTime += Compute(waitTime, AverageWaitingTime, waitingAverageCount);
         }
 
-        public void ComputeStatistics() 
+        private void UpdateAverageNumberWaiting() 
         {
-            ///
-            /// Update Entity Statistics 
-            ///
+            // Running average of entities waiting
+            AverageNumberWaiting++;
+            AverageNumberWaiting += Compute(1, AverageNumberWaiting, waitingAverageCount);
+        }
 
-            // Clear the display
-            dgvStatistics.Rows.Clear();
-
-            // Loop through all the enititys that left the system
-            foreach (Entity entity in leavingEntities)
+        private void UpdateExcessiveWaiting(double waitTime) 
+        {
+            // Work out if call had an excessive wait time
+            if (waitTime > Constants.EXCESSIVE_WAIT_TIME)
             {
-                // Count for running averages
-                count++;
-
-                // Display the entities that left the system
-                string[] entityData = getRowData(null, entity);
-                dgvStatistics.Rows.Add(entityData);
-
-                // If the entity waited
-                if (!entity.BeginWait.ToString("yyyy").Equals("0001"))
-                {
-                    // Running average of the wait time of entities
-                    double waitTime = entity.EndTime.Subtract(entity.BeginWait).TotalMinutes;
-                    AverageWaitingTime += Compute(waitTime, AverageWaitingTime, count);
-
-                    // Running average of entities waiting
-                    AverageNumberWaiting++;
-                    AverageNumberWaiting += Compute(1, AverageNumberWaiting, count);
-
-                    // Work aout if call had an excessive wait time
-                    if (waitTime > Constants.EXCESSIVE_WAIT_TIME)
-                    {
-                        ExcessiveWaitCount++;
-                    }
-                }
-
-                // Average time entity takes to get through the system
-                double sysTime = entity.EndTime.Subtract(entity.StartTime).TotalMinutes;
-                AverageSystemTime += Compute(sysTime, AverageSystemTime, count);
+                ExcessiveWaitCount++;
             }
-
-            ///
-            /// Update Result Data
-            ///
-            lbStatisticsResults.Items.Clear();
-            lbStatisticsResults.Items.Add("Bus Signal Count: " + BusySignalCount);
-            lbStatisticsResults.Items.Add("Call Completions: " + CallCompletion);
-            lbStatisticsResults.Items.Add("Excessive Wait Count: " + ExcessiveWaitCount);
-            lbStatisticsResults.Items.Add("Average Wait Time: " + AverageWaitingTime);
-            lbStatisticsResults.Items.Add("Average System Time: " + AverageSystemTime);
-            lbStatisticsResults.Items.Add("Average Number Waiting: " + AverageNumberWaiting);
-            lbStatisticsResults.Items.Add("Other Utilization: " + (ResourseOtherWorkTime / Constants.MAX_RESOURCES_OTHER) / SystemTime);
-            lbStatisticsResults.Items.Add("Car Stereo Utilization: " + (ResourseCarStereoWorkTime / Constants.MAX_RESOURCES_CAR_STEREO) / SystemTime);
-            lbStatisticsResults.Items.Add("Resource Utilization Total: " + (ResourseWorkTime / (Constants.MAX_RESOURCES_CAR_STEREO + Constants.MAX_RESOURCES_OTHER)) / SystemTime);//(SystemTime / ResourseWorkTime));
-            lbStatisticsResults.Refresh();
-            
         }
 
-        public double Compute(double newValue, double avgValue, int count)
+        private void UpdateSystemTime(Entity e) 
+        {
+            // Average time entity takes to get through the system
+            double sysTime = e.EndTime.Subtract(e.StartTime).TotalMinutes;
+
+            AverageSystemTime += Compute(sysTime, AverageSystemTime, systemAverageCount);
+
+            systemAverageCount++;
+        }
+
+        private double Compute(double newValue, double avgValue, int count)
         {
             return (newValue - avgValue) / count;
         }
+        
+        
+
+
+        /// <summary>
+        /// OLD METHODS USING SUBJECT OBSERVER PATTERN NOW
+        /// </summary>
+        /// <param name="currentEvent"></param>
+        /// <param name="currentEntity"></param>
+        /// <returns></returns>
+        
+        //public void Update() 
+        //{
+        //    ///
+        //    /// Display the calender in realtime
+        //    ///
+        //    //Update(dgvCalender);
+            
+        //    ///
+        //    /// Show entities in the queues
+        //    ///
+        //    //Update(dgvOtherQueue, ECallType.OTHER);
+        //    //Update(dgvCarStereoQueue, ECallType.CAR_STEREO);
+        //}
+
+        //private void Update(DataGridView dataGridView) 
+        //{
+        //    // Clear the data grid view rows
+        //    dataGridView.Rows.Clear();
+
+        //    // Add row data
+        //    for (int i = 0; i < calender.events.Count; i++)
+        //    {
+        //        Event currentEvent = calender.events[i];
+        //        // Get events entity
+        //        Entity eventEntity = currentEvent.CurrentEntity;
+
+        //        // Get event row data
+        //        //string[] rowData = getRowData(currentEvent, eventEntity);
+
+        //        // Add new row
+        //        //dataGridView.Rows.Add(rowData);
+        //    }
+
+        //    // Refresh the data grid view
+        //    dataGridView.Refresh();
+        //}
+
+        //private void Update(DataGridView dataGridView, ECallType callType) 
+        //{
+        //    // Clear the items in the listbox
+        //    dataGridView.Rows.Clear();
+
+        //    // Get the entityData from the calltype queue
+        //    List<string[]> entityData = resourceMananger.GetQueueEntityData(callType);
+
+        //    // Add new row
+        //    foreach (String[] data in entityData) 
+        //        dataGridView.Rows.Add(data);
+
+        //    // Refresh the listbox
+        //    dataGridView.Refresh();
+        //}
+
+        //public void ComputeStatistics() 
+        //{
+        //    ///
+        //    /// Update Entity Statistics 
+        //    ///
+
+        //    // Clear the display
+        //    //dgvStatistics.Rows.Clear();
+
+        //    // Loop through all the enititys that left the system
+        //    foreach (Entity entity in leavingEntities)
+        //    {
+                
+
+        //        // Display the entities that left the system
+        //        //string[] entityData = getRowData(null, entity);
+        //        //dgvStatistics.Rows.Add(entityData);
+
+                
+
+                
+        //    }
+
+            
+            
+        //}
+
+        
     }
 }

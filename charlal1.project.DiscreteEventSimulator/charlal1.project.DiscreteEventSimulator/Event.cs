@@ -11,7 +11,7 @@ namespace charlal1.project.DiscreteEventSimulator
         void GetDataReady();
     }
 
-    class Event: IEvent
+    abstract class Event : IEvent
     {
         public Entity CurrentEntity  { get; set; }
         public EEventType EventType     { get; set; }
@@ -32,13 +32,10 @@ namespace charlal1.project.DiscreteEventSimulator
             this.EventTime = eventTime;
             this.CurrentEntity = currentEntity;
         }
-        
-        public virtual void GetDataReady() {}
 
-        public virtual void Execute(Calender calender, ResourceManager resourceManager, Statistics statistics, RandomNumberGenerator rGen, EntityFactory entitiyFactory, EventFactory eventFactory)
-        {
-            
-        }
+        public virtual void GetDataReady() { }
+
+        public abstract void Execute(Calender calender, ResourceManager resourceManager, Statistics statistics, RandomNumberGenerator rGen, EntityFactory entitiyFactory, EventFactory eventFactory);
     }
                     
     // Entities initial request
@@ -48,7 +45,7 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             this.EventType = EEventType.ARRIVAL;
         }
-        
+
         public override void Execute(Calender calender, ResourceManager resourceManager, Statistics statistics, RandomNumberGenerator rGen, EntityFactory entitiyFactory, EventFactory eventFactory)
         {
             // Assign entity its next event
@@ -155,6 +152,7 @@ namespace charlal1.project.DiscreteEventSimulator
 
             // Add entity for statistics
             statistics.leavingEntities.Add(CurrentEntity);
+            statistics.UpdateEntityStatistics(CurrentEntity);
 
 
             statistics.ResourseWorkTime += CurrentEntity.EndTime.Subtract(CurrentEntity.StartProcessingTime).TotalSeconds;
@@ -212,7 +210,7 @@ namespace charlal1.project.DiscreteEventSimulator
         }
 
         public override void Execute(Calender calender, ResourceManager resourceManager, Statistics statistics, RandomNumberGenerator rGen, EntityFactory entitiyFactory, EventFactory eventFactory)
-        { 
+        {
         }
     }
 }
