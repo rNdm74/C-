@@ -53,8 +53,6 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             while (!(activeEvent is EndSimulationEvent))
             {
-                
-
                 // Get next event from calender
                 activeEvent = calender.GetNextEvent();
 
