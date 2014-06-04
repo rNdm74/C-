@@ -102,7 +102,7 @@ namespace charlal1.project.DiscreteEventSimulator
                 statistics.UpdateLists(calender, resourceManager);
                 statistics.NotifyDisplays();
 
-                //System.Threading.Thread.Sleep(0);
+                System.Threading.Thread.Sleep(500);
             }
 
             //statistics.ComputeStatistics();
