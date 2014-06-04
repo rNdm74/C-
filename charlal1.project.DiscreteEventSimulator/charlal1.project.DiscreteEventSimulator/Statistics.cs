@@ -19,7 +19,7 @@ namespace charlal1.project.DiscreteEventSimulator
 
     class Statistics : IStatistics
     {
-        private int waitingAverageCount = 1;
+        private int waitingAverageCount, waitingAverageCarStereoCount, waitingAverageOtherCount;
         private int systemAverageCount = 1;
 
         public Calender calender                { get; set; }
@@ -29,7 +29,11 @@ namespace charlal1.project.DiscreteEventSimulator
         public int ResourcesUsed                { get; set; }
         public int BusySignalCount              { get; set; }
         public int CallCompletion               { get; set; }
+        public int CallCompletionOther          { get; set; }
+        public int CallCompletionCarStereo      { get; set; }
         public int ExcessiveWaitCount           { get; set; }
+        public int ExcessiveWaitCountOther      { get; set; }
+        public int ExcessiveWaitCountCarStereo  { get; set; }
         public int ResourceUtilization          { get; set; }
 
         public double ResourseOtherWorkTime     { get; set; }
@@ -39,6 +43,8 @@ namespace charlal1.project.DiscreteEventSimulator
                 
         public double AverageNumberWaiting      { get; set; }
         public double AverageWaitingTime        { get; set; }
+        public double AverageNumberWaitingOther { get; set; }
+        public double AverageNumberWaitingCarStereo { get; set; }
         public double AverageSystemTime         { get; set; }
         
         public List<Entity> leavingEntities;
@@ -49,6 +55,8 @@ namespace charlal1.project.DiscreteEventSimulator
 
             this.displayList = new List<IDisplay>();
             this.leavingEntities = new List<Entity>();
+
+            waitingAverageCount = waitingAverageCarStereoCount = waitingAverageOtherCount = 0;
 
             // Set variables to 0
             BusySignalCount = CallCompletion = ExcessiveWaitCount = ResourceUtilization = Iterations = ResourcesUsed = 0;
@@ -87,10 +95,23 @@ namespace charlal1.project.DiscreteEventSimulator
 
 
 
-
+        private void updateCompletions(ECallType? callType) 
+        {
+            switch (callType)
+            {
+                case ECallType.OTHER:
+                    CallCompletionOther++;
+                    break;
+                case ECallType.CAR_STEREO:
+                    CallCompletionCarStereo++;
+                    break;
+            }
+        }
 
         public void UpdateEntityStatistics(Entity e)
         {
+            updateCompletions(e.CallType);
+
             // If the entity waited
             if (!e.BeginWait.ToString("yyyy").Equals("0001"))
             {
@@ -98,12 +119,11 @@ namespace charlal1.project.DiscreteEventSimulator
                 double waitTime = e.EndTime.Subtract(e.BeginWait).TotalMinutes;
 
                 // Update waiting averages
-                UpdateAverageNumberWaiting();
+                UpdateAverageNumberWaiting(e.CallType);
                 UpdateAverageWaitingTime(waitTime);
-                UpdateExcessiveWaiting(waitTime);
+                UpdateExcessiveWaiting(e.CallType, waitTime);
 
-                // Increment the waiting average count
-                waitingAverageCount++;
+                
             }
 
             // Update system time for all entities
@@ -118,18 +138,43 @@ namespace charlal1.project.DiscreteEventSimulator
             AverageWaitingTime += Compute(waitTime, AverageWaitingTime, waitingAverageCount);
         }
 
-        private void UpdateAverageNumberWaiting() 
+        private void UpdateAverageNumberWaiting(ECallType? callType) 
         {
             // Running average of entities waiting
             AverageNumberWaiting++;
-            AverageNumberWaiting += Compute(1, AverageNumberWaiting, waitingAverageCount);
+            AverageNumberWaiting += Compute(1, AverageNumberWaiting, ++waitingAverageCount);
+
+            // Increment the waiting average count
+            //waitingAverageCount++;
+
+            switch (callType)
+            {
+                case ECallType.CAR_STEREO:
+                    AverageNumberWaitingCarStereo++;
+                    AverageNumberWaitingCarStereo += Compute(1, AverageNumberWaitingCarStereo, ++waitingAverageCarStereoCount);
+                    break;
+                case ECallType.OTHER:
+                    AverageNumberWaitingOther++;
+                    AverageNumberWaitingOther += Compute(1, AverageNumberWaitingOther, ++waitingAverageOtherCount);
+                    break;
+            }
         }
 
-        private void UpdateExcessiveWaiting(double waitTime) 
+        private void UpdateExcessiveWaiting(ECallType? callType, double waitTime) 
         {
             // Work out if call had an excessive wait time
             if (waitTime > Constants.EXCESSIVE_WAIT_TIME)
             {
+                switch (callType)
+                {
+                    case ECallType.CAR_STEREO:
+                        ExcessiveWaitCountCarStereo++;
+                        break;
+                    case ECallType.OTHER:
+                        ExcessiveWaitCountOther++;
+                        break;
+                } 
+   
                 ExcessiveWaitCount++;
             }
         }

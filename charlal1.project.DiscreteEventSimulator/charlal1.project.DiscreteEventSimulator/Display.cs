@@ -226,7 +226,11 @@ namespace charlal1.project.DiscreteEventSimulator
         private int resourcesUsed;
         private int busySignalCount;
         private int callCompletion;
+        private int callCompletionOther;
+        private int callCompletionCarStereo;
         private int excessiveWaitCount;
+        private int excessiveWaitCountOther;
+        private int excessiveWaitCountCarStereo;
 
         private double resourceUtilization;
         private double resourseOtherWorkTime;
@@ -234,8 +238,12 @@ namespace charlal1.project.DiscreteEventSimulator
         private double resourseWorkTime;
         private double systemTime;
         private double averageNumberWaiting;
+        private double averageNumberWaitingOther;
+        private double averageNumberWaitingCarStereo;
         private double averageWaitingTime;
         private double averageSystemTime;
+
+        private string timeObs;
 
         public Results(IStatistics statisticsSubject, DataGridView dgvStatistics, ListBox lbStatisticsResults)
             : base(statisticsSubject)
@@ -252,13 +260,24 @@ namespace charlal1.project.DiscreteEventSimulator
             
             busySignalCount = statistics.BusySignalCount;
             callCompletion = statistics.CallCompletion;
+            callCompletionOther = statistics.CallCompletionOther;
+            callCompletionCarStereo = statistics.CallCompletionCarStereo;
             excessiveWaitCount = statistics.ExcessiveWaitCount;
+            excessiveWaitCountOther = statistics.ExcessiveWaitCountOther;
+            excessiveWaitCountCarStereo = statistics.ExcessiveWaitCountCarStereo;
             averageWaitingTime = statistics.AverageWaitingTime;
             averageSystemTime = statistics.AverageSystemTime;
             averageNumberWaiting = statistics.AverageNumberWaiting;
+            averageNumberWaitingOther = statistics.AverageNumberWaitingOther;
+            averageNumberWaitingCarStereo = statistics.AverageNumberWaitingCarStereo;
             resourseOtherWorkTime = (statistics.ResourseOtherWorkTime / Constants.MAX_RESOURCES_OTHER) / statistics.SystemTime;
             resourseCarStereoWorkTime = (statistics.ResourseCarStereoWorkTime / Constants.MAX_RESOURCES_CAR_STEREO) / statistics.SystemTime;
             resourceUtilization = (statistics.ResourseWorkTime / (Constants.MAX_RESOURCES_OTHER + Constants.MAX_RESOURCES_CAR_STEREO)) / statistics.SystemTime;
+
+            //timeObs = statistics.SystemTime;
+
+            TimeSpan t = TimeSpan.FromSeconds(statistics.SystemTime);
+            timeObs = string.Format("{0:D1}:{1:D2}:{2:D2}", t.Hours, t.Minutes, t.Seconds);
         }
 
         public override void Draw()
@@ -267,16 +286,40 @@ namespace charlal1.project.DiscreteEventSimulator
             /// Draw data to listbox
             ///
 
+            dgvStatistics.Rows.Clear();
+            dgvStatistics.Rows.Add(new String[] { "Bus Signal Count", busySignalCount.ToString(), "---" });
+            dgvStatistics.Rows.Add(new String[] { "Call Completions", callCompletion.ToString(), "---" });
+            dgvStatistics.Rows.Add(new String[] { "Call Completions Other", callCompletionOther.ToString(), "---" });
+            dgvStatistics.Rows.Add(new String[] { "Call Completions Car Stereo", callCompletionCarStereo.ToString(), "---" });
+            dgvStatistics.Rows.Add(new String[] { "Excessive Wait Count", excessiveWaitCount.ToString(), "---" });
+            dgvStatistics.Rows.Add(new String[] { "Excessive Wait Count Other", excessiveWaitCountOther.ToString(), "---" });
+            dgvStatistics.Rows.Add(new String[] { "Excessive Wait Count Car Stereo", excessiveWaitCountCarStereo.ToString(), "---" });
+            dgvStatistics.Rows.Add(new String[] { "Average Wait Time", averageWaitingTime.ToString(), timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Average System Time", averageSystemTime.ToString(), timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Average Number Waiting", averageNumberWaiting.ToString(), timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Average Waiting Other", averageNumberWaitingOther.ToString(), timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Average Waiting Car Stereo", averageNumberWaitingCarStereo.ToString(), timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Resource Utilization Other", resourseOtherWorkTime.ToString(), timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Resource Utilization Car Stereo", resourseCarStereoWorkTime.ToString(), timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Resource Utilization Total", resourceUtilization.ToString(), timeObs });
+            dgvStatistics.Refresh();
+
             lbStatisticsResults.Items.Clear();
-            lbStatisticsResults.Items.Add("Bus Signal Count: " + busySignalCount);
-            lbStatisticsResults.Items.Add("Call Completions: " + callCompletion);
-            lbStatisticsResults.Items.Add("Excessive Wait Count: " + excessiveWaitCount);
-            lbStatisticsResults.Items.Add("Average Wait Time: " + averageWaitingTime);
-            lbStatisticsResults.Items.Add("Average System Time: " + averageSystemTime);
-            lbStatisticsResults.Items.Add("Average Number Waiting: " + averageNumberWaiting);
-            lbStatisticsResults.Items.Add("Other Utilization: " + resourseOtherWorkTime);
-            lbStatisticsResults.Items.Add("Car Stereo Utilization: " + resourseCarStereoWorkTime);
-            lbStatisticsResults.Items.Add("Resource Utilization Total: " + resourceUtilization);
+            lbStatisticsResults.Items.Add("Bus Signal Count:\t\t\t " + busySignalCount);
+            lbStatisticsResults.Items.Add("Call Completions:\t\t\t " + callCompletion);
+            lbStatisticsResults.Items.Add("Call Completions Other:\t\t " + callCompletionOther);
+            lbStatisticsResults.Items.Add("Call Completions Car Stereo:\t\t " + callCompletionCarStereo);
+            lbStatisticsResults.Items.Add("Excessive Wait Count:\t\t " + excessiveWaitCount);
+            lbStatisticsResults.Items.Add("Excessive Wait Count Other:\t\t " + excessiveWaitCountOther);
+            lbStatisticsResults.Items.Add("Excessive Wait Count Car Stereo:\t " + excessiveWaitCountCarStereo);
+            lbStatisticsResults.Items.Add("Average Wait Time:\t\t\t " + averageWaitingTime);
+            lbStatisticsResults.Items.Add("Average System Time:\t\t " + averageSystemTime);
+            lbStatisticsResults.Items.Add("Average Number Waiting:\t\t " + averageNumberWaiting);
+            lbStatisticsResults.Items.Add("Average Other Waiting:\t\t " + averageNumberWaitingOther);
+            lbStatisticsResults.Items.Add("Average Car Stereo Waiting:\t\t " + averageNumberWaitingCarStereo);
+            lbStatisticsResults.Items.Add("Resource Utilization Other:\t\t " + resourseOtherWorkTime);
+            lbStatisticsResults.Items.Add("Resource Utilization Car Stereo:\t " + resourseCarStereoWorkTime);
+            lbStatisticsResults.Items.Add("Resource Utilization Total:\t\t " + resourceUtilization);
             lbStatisticsResults.Refresh();
         }
     }
