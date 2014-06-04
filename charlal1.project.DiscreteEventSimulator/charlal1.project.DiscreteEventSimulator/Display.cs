@@ -35,22 +35,102 @@ namespace charlal1.project.DiscreteEventSimulator
 
     class Graphical : Display
     {
-        private Graphics canvas;
+        private Panel pGraphical;
+        private List<String[]> otherQueue;
+        private List<String[]> carStereoQueue;
+        private List<String[]> calenderList;
 
         public Graphical(IStatistics statisticsSubject, Panel pGraphical)
             : base(statisticsSubject)
         {
-            canvas = pGraphical.CreateGraphics();
+            this.pGraphical = pGraphical;
         }
 
         public override void Update(Calender calender, ResourceManager resourceMananger, Statistics statistics)
         {
-            //throw new NotImplementedException();
+            otherQueue = resourceMananger.GetQueueEntityData(ECallType.OTHER);
+            carStereoQueue = resourceMananger.GetQueueEntityData(ECallType.CAR_STEREO);
+            calenderList = calender.GetEventData();
         }
 
         public override void Draw()
         {
-            //throw new NotImplementedException();
+            pGraphical.Controls.Clear();
+
+            Label arrivalEntity = new Label();
+            Label ivrEntity = new Label(); ;
+            List<Label> resourceCarStereo = new List<Label>();
+            List<Label> resourceOther = new List<Label>();
+
+            int count = 1;
+
+            foreach (String[] eventData in calenderList)
+            {
+                if (eventData[1].Equals(EEventType.ARRIVAL.ToString()))
+                {
+                    String id = eventData[0];
+                    arrivalEntity = Entity(id, ECallType.CAR_STEREO, new Point(32, 256));
+                }
+
+                if (eventData[1].Equals(EEventType.SWITCH_COMPLETE.ToString()))
+                {
+                    String id = eventData[0];
+                    ivrEntity = Entity(id, ECallType.CAR_STEREO, new Point(128, 256));
+                }
+
+                if (eventData[1].Equals(EEventType.PROCESSING_COMPLETE.ToString()) && eventData[3].Equals(ECallType.OTHER.ToString()))
+                {
+                    String id = eventData[0];
+                    resourceOther.Add(Entity(id, ECallType.OTHER, new Point(256, 256 + (count * 32))));
+
+                    count++;
+                }
+
+                if (eventData[1].Equals(EEventType.PROCESSING_COMPLETE.ToString()) && eventData[3].Equals(ECallType.CAR_STEREO.ToString()))
+                {
+                    String id = eventData[0];
+                    resourceCarStereo.Add(Entity(id, ECallType.CAR_STEREO, new Point(512, 256)));
+                }
+            }
+
+            pGraphical.Controls.Add(arrivalEntity);
+            pGraphical.Controls.Add(ivrEntity);
+            foreach (Label l in resourceOther)
+                pGraphical.Controls.Add(l);
+            foreach (Label l in resourceCarStereo)
+                pGraphical.Controls.Add(l);
+
+            pGraphical.Controls.Add(arrivalEntity);
+
+            for (int col = 0; col < carStereoQueue.Count; col++)
+            {
+                String id = carStereoQueue[col][0];
+                Label entity = Entity(id, ECallType.CAR_STEREO, new Point(32 * col, 128));
+                pGraphical.Controls.Add(entity);
+            }
+
+            for (int col = 0; col < otherQueue.Count; col++)
+            {
+                String id = otherQueue[col][0];
+                Label entity = Entity(id, ECallType.CAR_STEREO, new Point(32 * col, 32));
+                pGraphical.Controls.Add(entity);
+            }
+
+            pGraphical.Refresh();
+        }
+
+        private Label Entity(string ID, ECallType callType, Point location) 
+        {
+            Label label = new Label();
+            label.BackColor = System.Drawing.Color.Gainsboro;
+            label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label.Location = location;
+            label.Name = ID;
+            label.Size = new System.Drawing.Size(32, 32);
+            label.Text = ID;
+            label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+
+            return label;
         }
     }
 
