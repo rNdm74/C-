@@ -20,7 +20,7 @@ namespace charlal1.project.DiscreteEventSimulator
         public const int CALL_TYPE_PROBABILITY       = 4;
 
         // Simulation Constants
-        public const int MAX_RESOURCES_OTHER         = 2;
+        public const int MAX_RESOURCES_OTHER         = 3;
         public const int MAX_RESOURCES_CAR_STEREO    = 1;
         public const int MAX_ON_HOLD                 = 10;
         public const int EXCESSIVE_WAIT_TIME         = 1;
@@ -31,10 +31,12 @@ namespace charlal1.project.DiscreteEventSimulator
         public const int    DELAY_PROCESSING         = 2;
 
         // String outputs
-        public const string ARRIVAL = "Arrival at call centre";
-        public const string IVR = "Complete service IVR";
-        public const string OTHER = "Complete service other";
-        public const string STEREO = "Complete service car stereo";
-        public const string END = "End replication";
+        public const string ARRIVAL                  = "ARRIVAL";
+        public const string SWITCH                   = "SWITCH";
+        public const string OTHER_QUEUE              = "OTHER_QUEUE";
+        public const string STEREO_QUEUE             = "CAR_STEREO_QUEUE";
+        public const string OTHER_RESOURCE           = "OTHER_RESOURCE";
+        public const string STEREO_RESOURCE          = "CAR_STEREO_RESOURCE";
+        public const string END                      = "END";
     }
 }

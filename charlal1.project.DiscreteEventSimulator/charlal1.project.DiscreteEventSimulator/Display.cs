@@ -62,7 +62,8 @@ namespace charlal1.project.DiscreteEventSimulator
             List<Label> resourcesCarStereo = new List<Label>();
             List<Label> resourcesOther = new List<Label>();
 
-            int count = 0;
+            int otherCount = 0;
+            int carStereoCount = 0;
 
             Label arrival = new Label();
             arrival.Text = "ARRIVAL";
@@ -116,15 +117,16 @@ namespace charlal1.project.DiscreteEventSimulator
                 if (eventData[1].Equals(EEventType.PROCESSING_COMPLETE.ToString()) && eventData[3].Equals(ECallType.OTHER.ToString()))
                 {
                     String id = eventData[0];
-                    resourcesOther.Add(Entity(id, ECallType.OTHER, new Point(resourceOther.Left, resourceOther.Bottom + (count * 32)), System.Drawing.Color.LightPink));
+                    resourcesOther.Add(Entity(id, ECallType.OTHER, new Point(resourceOther.Left + (otherCount * 32), resourceOther.Bottom), System.Drawing.Color.LightPink));
 
-                    count++;
+                    otherCount++;
                 }
 
                 if (eventData[1].Equals(EEventType.PROCESSING_COMPLETE.ToString()) && eventData[3].Equals(ECallType.CAR_STEREO.ToString()))
                 {
                     String id = eventData[0];
-                    resourcesCarStereo.Add(Entity(id, ECallType.CAR_STEREO, new Point(resourceCarStereo.Left, resourceCarStereo.Bottom), System.Drawing.Color.LightBlue));
+                    resourcesCarStereo.Add(Entity(id, ECallType.CAR_STEREO, new Point(resourceCarStereo.Left + (carStereoCount * 32), resourceCarStereo.Bottom), System.Drawing.Color.LightBlue));
+                    carStereoCount++;
                 }
             }
 
