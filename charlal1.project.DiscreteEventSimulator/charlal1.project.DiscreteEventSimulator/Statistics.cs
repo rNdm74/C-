@@ -52,7 +52,6 @@ namespace charlal1.project.DiscreteEventSimulator
         
         public Statistics() 
         {
-
             this.displayList = new List<IDisplay>();
             this.leavingEntities = new List<Entity>();
 

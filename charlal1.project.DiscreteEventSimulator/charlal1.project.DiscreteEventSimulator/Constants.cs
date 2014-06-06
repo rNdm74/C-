@@ -17,10 +17,13 @@ namespace charlal1.project.DiscreteEventSimulator
     {
         //
         public const int FIRST_IN_QUEUE              = 0;
+        public const int EVENT_ENTITY_POS            = 0;
+        public const int EVENT_TYPE_POS              = 1;
+        public const int EVENT_CALL_TYPE_POS         = 3;
         public const int CALL_TYPE_PROBABILITY       = 4;
 
         // Simulation Constants
-        public const int MAX_RESOURCES_OTHER         = 3;
+        public const int MAX_RESOURCES_OTHER         = 2;
         public const int MAX_RESOURCES_CAR_STEREO    = 1;
         public const int MAX_ON_HOLD                 = 10;
         public const int EXCESSIVE_WAIT_TIME         = 1;

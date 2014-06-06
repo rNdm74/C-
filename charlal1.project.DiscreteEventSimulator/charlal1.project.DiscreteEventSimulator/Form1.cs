@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace charlal1.project.DiscreteEventSimulator
 {
@@ -15,6 +16,8 @@ namespace charlal1.project.DiscreteEventSimulator
         
         Statistics statisticsSubject;
         IDisplay[] displayObservers;
+
+        private Thread t;
 
         public Form1()
         {
@@ -32,16 +35,20 @@ namespace charlal1.project.DiscreteEventSimulator
             statisticsSubject = new Statistics();
             displayObservers = new IDisplay[] 
             {
-                new Graphical(statisticsSubject, pGraphicalDisplay),
-                new Text(statisticsSubject, dgvCalender, dgvOtherQueue, dgvCarStereoQueue),
-                new Results(statisticsSubject, dgvStatistics, lbStatisticsResults)
+                new Graphical(statisticsSubject, this, pGraphicalDisplay),
+                new Text(statisticsSubject, this,  dgvCalender, dgvOtherQueue, dgvCarStereoQueue),
+                new Results(statisticsSubject, this,  dgvStatistics, lbStatisticsResults)
             };
 
 
             //display = new Display(dgvCalender, dgvStatistics, dgvOtherQueue, dgvCarStereoQueue, lbStatisticsResults);
 
             simulator = new Simulator(dTPStartSimulationTime.Value, dTPEndSimulationTime.Value, statisticsSubject);
-            simulator.RunSimulation();
+            //simulator.RunSimulation();
+
+            ThreadStart ts = new ThreadStart(simulator.RunSimulation);
+            t = new Thread(ts);
+            t.Start();
         }
     }
 }

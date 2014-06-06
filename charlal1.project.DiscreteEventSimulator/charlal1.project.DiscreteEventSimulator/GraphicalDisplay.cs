@@ -7,63 +7,226 @@ using System.Drawing;
 
 namespace charlal1.project.DiscreteEventSimulator
 {
+    enum ELabelType 
+    { 
+        L_ARRIVAL, 
+        L_IVR, 
+        L_OTHER_QUEUE, 
+        L_CAR_STEREO_QUEUE, 
+        L_RESOURCE_OTHER, 
+        L_RESOURCE_CAR_STEREO 
+    }
+
     interface IGraphicalDisplay 
     {
-        void Update(List<String[]> otherQueue, List<String[]> carStereoQueue, List<String[]> calenderList);
-        void Draw(Panel pGraphical);
+        void Update(Calender calender, ResourceManager resourceMananger, Statistics statistics);
+        void Draw();
     }
 
     class GraphicalDisplay : IGraphicalDisplay
     {
         private Panel pGraphical;
-        private List<String[]> otherQueue;
-        private List<String[]> carStereoQueue;
-        private List<String[]> calenderList;
+
+        public List<string> Arrival;
+        public List<string> SwitchComplete;
+        public List<string> QueueOther;
+        public List<string> QueueCarStereo;
+        public List<string> ResourceOther;
+        public List<string> ResourceCarStereo;
+
+        private GraphicalDisplayFactory gdFactory;
 
         public GraphicalDisplay(Panel pGraphical) 
         {
             this.pGraphical = pGraphical;
+            this.gdFactory = new GraphicalDisplayFactory(this);
+
+            Arrival = new List<string>();
+            SwitchComplete = new List<string>();
+            QueueOther = new List<string>();
+            QueueCarStereo = new List<string>();
+            ResourceOther = new List<string>();
+            ResourceCarStereo = new List<string>();
+
+            pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_ARRIVAL));
+            pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_IVR));
+            pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_OTHER_QUEUE));
+            pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_CAR_STEREO_QUEUE));
+            pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_RESOURCE_OTHER));
+            pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_RESOURCE_CAR_STEREO));
         }
 
-        public void Update(List<String[]> otherQueue, List<String[]> carStereoQueue, List<String[]> calenderList)
+        public void Update(Calender calender, ResourceManager resourceMananger, Statistics statistics)
         {
-            this.otherQueue = otherQueue;
-            this.carStereoQueue = carStereoQueue;
-            this.calenderList = calenderList;
+            Arrival.Clear();
+            SwitchComplete.Clear();
+            QueueOther.Clear();
+            QueueCarStereo.Clear();
+            ResourceOther.Clear();
+            ResourceCarStereo.Clear();
+
+            process(resourceMananger.GetQueueEntityData(ECallType.OTHER));
+            process(resourceMananger.GetQueueEntityData(ECallType.CAR_STEREO));
+            process(calender.GetEventData());
         }
 
-        public void Draw(Panel pGraphical)
+        private void process(List<String[]> list) 
         {
-            pGraphical.Controls.Clear();
+            foreach (string[] data in list)
+            {
+                string entityID = data[Constants.EVENT_ENTITY_POS];
+                string eventType = data[Constants.EVENT_TYPE_POS];
+                string callType = data[Constants.EVENT_CALL_TYPE_POS];
 
+                List<string> updatedList = null;
 
+                if (eventType.Equals(EEventType.ARRIVAL.ToString()))
+                    updatedList = Arrival;
+                
+                if (eventType.Equals(EEventType.SWITCH_COMPLETE.ToString()))
+                    updatedList = SwitchComplete;
+                
+                if (eventType.Equals("---") && callType.Equals(ECallType.OTHER.ToString()))
+                    updatedList = QueueOther;
+
+                if (eventType.Equals("---") && callType.Equals(ECallType.CAR_STEREO.ToString()))
+                    updatedList = QueueCarStereo;
+                
+                if (eventType.Equals(EEventType.PROCESSING_COMPLETE.ToString()) && callType.Equals(ECallType.OTHER.ToString()))
+                    updatedList = ResourceOther;
+                
+                if (eventType.Equals(EEventType.PROCESSING_COMPLETE.ToString()) && callType.Equals(ECallType.CAR_STEREO.ToString()))
+                    updatedList = ResourceCarStereo;
+
+                if(!eventType.Equals(EEventType.END_SIMULATION.ToString()))
+                    updatedList.Add(entityID);
+            }
+        }
+
+        public void Draw()
+        {
+            // Clear controls
+            foreach (Label l in pGraphical.Controls.Find("lEntity", true))
+            {
+                pGraphical.Controls.Remove(l);
+            }
+
+            pGraphical.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_ARRIVAL));
+            pGraphical.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_IVR));
+            pGraphical.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_OTHER_QUEUE));
+            pGraphical.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_CAR_STEREO_QUEUE));
+            pGraphical.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_OTHER));
+            pGraphical.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_CAR_STEREO));
 
             pGraphical.Refresh();
         }
+    }
 
-        private Label InitLabel(string text, Point location) 
+    class GraphicalDisplayFactory
+    {
+        private const int SIZE = 32;
+
+        private GraphicalDisplay gDisplay;
+
+        public GraphicalDisplayFactory(GraphicalDisplay gDisplay) 
         {
-            Label label = new Label();
-            label.Text = text;
-            label.AutoSize = true;
-            label.Location = location;
-            label.Name = "l" + text;
-
-            return label;
+            this.gDisplay = gDisplay;
         }
 
-        private Label InitEntityLabel(string id, Point location, Color color)
+        public Label[] MakeQueue(ELabelType labelType)
         {
-            Label label = new Label();
-            label.BackColor = color;
-            label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label.Location = location;
-            label.Name = "l" + id;
-            label.Size = new System.Drawing.Size(32, 32);
-            label.Text = id;
-            label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            switch (labelType)
+            {
+                case ELabelType.L_ARRIVAL:
+                    return makeEntityLabelList(gDisplay.Arrival, Color.LightGreen, 32, 87);
+                case ELabelType.L_IVR:
+                    return makeEntityLabelList(gDisplay.SwitchComplete, Color.LightGoldenrodYellow, 164, 87);
+                case ELabelType.L_OTHER_QUEUE:
+                    return makeEntityLabelList(gDisplay.QueueOther, Color.LightBlue, 312, 55);
+                case ELabelType.L_CAR_STEREO_QUEUE:
+                    return makeEntityLabelList(gDisplay.QueueCarStereo, Color.LightPink, 312, 215);
+                case ELabelType.L_RESOURCE_OTHER:
+                    return makeEntityLabelList(gDisplay.ResourceOther, Color.LightBlue, 640, 55);
+                case ELabelType.L_RESOURCE_CAR_STEREO:
+                    return makeEntityLabelList(gDisplay.ResourceCarStereo, Color.LightPink, 640, 215);
+                default:
+                    return new Label[0];
+            }
+            
+        }
 
-            return label;
+        public Label MakeLabel(ELabelType labelType) 
+        {
+            switch (labelType)
+            {
+                case ELabelType.L_ARRIVAL:
+                    return makeLabel(Constants.ARRIVAL, 32, 64);
+                case ELabelType.L_IVR:
+                    return makeLabel(Constants.SWITCH, 164, 64);
+                case ELabelType.L_OTHER_QUEUE:
+                    return makeLabel(Constants.OTHER_QUEUE, 312, 32);
+                case ELabelType.L_CAR_STEREO_QUEUE:
+                    return makeLabel(Constants.STEREO_QUEUE, 312, 192);
+                case ELabelType.L_RESOURCE_OTHER:
+                    return makeLabel(Constants.OTHER_RESOURCE, 640, 32);
+                case ELabelType.L_RESOURCE_CAR_STEREO:
+                    return makeLabel(Constants.STEREO_RESOURCE, 640, 192);
+                default:
+                    return new Label { Text = "Default Label" };
+            }
+        }
+
+        private Label makeLabel(string text, int x, int y)
+        {
+            return new Label 
+            {
+                Text = text,
+                AutoSize = true,
+                Location = new Point(x, y),
+                Name = "l" + text
+            };
+        }
+
+        private Label[] makeEntityLabelList(List<string> list, Color color, int startX, int startY) 
+        {
+            Label[] labelList = null;
+
+            try
+            {
+                labelList = new Label[list.Count];
+
+                for (int col = 0; col < labelList.Length; col++)
+                {
+                    string text = list[col];
+
+                    int x = (startX - SIZE) + ((list.Count - col) * SIZE);
+                    int y = startY;
+
+                    labelList[col] = makeEntityLabel(text, color, x, y);
+                }
+            }
+            catch (Exception)
+            {
+                
+                //throw;
+            }
+            
+
+            return labelList;
+        }
+
+        private Label makeEntityLabel(string text, Color color, int x, int y)
+        {
+            return new Label 
+            { 
+                BackColor = color,
+                BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle,
+                Location = new Point(x, y),
+                Name = "lEntity",
+                Size = new System.Drawing.Size(SIZE, SIZE),
+                Text = text,
+                TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+            };
         }
     }
 }
