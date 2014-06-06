@@ -12,11 +12,9 @@ namespace charlal1.project.DiscreteEventSimulator
 {
     public partial class Form1 : Form
     {
-        Simulator simulator;
-        
-        Statistics statisticsSubject;
-        IDisplay[] displayObservers;
-
+        private Simulator simulator;
+        private Statistics statisticsSubject;
+        private IDisplay[] displayObservers;
         private Thread t;
 
         public Form1()
@@ -28,6 +26,7 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             dTPEndSimulationTime.Value = dTPEndSimulationTime.Value.AddHours(2);
             dTPEndSimulationTime.Refresh();
+
         }
 
         private void simulationStart_Click(object sender, EventArgs e)
@@ -40,15 +39,16 @@ namespace charlal1.project.DiscreteEventSimulator
                 new Results(statisticsSubject, this,  dgvStatistics, lbStatisticsResults)
             };
 
-
-            //display = new Display(dgvCalender, dgvStatistics, dgvOtherQueue, dgvCarStereoQueue, lbStatisticsResults);
-
             simulator = new Simulator(dTPStartSimulationTime.Value, dTPEndSimulationTime.Value, statisticsSubject);
-            //simulator.RunSimulation();
-
+            
             ThreadStart ts = new ThreadStart(simulator.RunSimulation);
             t = new Thread(ts);
             t.Start();
+        }
+
+        private void tbSimulationSpeed_Scroll(object sender, EventArgs e)
+        {
+            Global.SimulationSpeed = tbSimulationSpeed.Value;
         }
     }
 }

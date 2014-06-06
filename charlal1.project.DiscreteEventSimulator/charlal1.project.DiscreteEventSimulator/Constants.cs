@@ -11,6 +11,7 @@ namespace charlal1.project.DiscreteEventSimulator
     public static class Global 
     {
         public static DateTime Clock { get; set; }
+        public static int SimulationSpeed { get; set; }
     }
 
     public static class Constants

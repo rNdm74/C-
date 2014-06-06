@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace charlal1.project.DiscreteEventSimulator
 {
     class Simulator
-    {
+    { 
         private Statistics statistics;
 
         private Calender calender;
@@ -21,6 +21,7 @@ namespace charlal1.project.DiscreteEventSimulator
 
         private RandomNumberGenerator rGen;
 
+
         public Simulator(DateTime SimulationStartDateTime, DateTime SimulationEndDateTime, Statistics statistics) 
         {
             calender = new Calender();
@@ -29,7 +30,6 @@ namespace charlal1.project.DiscreteEventSimulator
             eventFactory = new EventFactory();
             rGen = new RandomNumberGenerator();
 
-            
             this.statistics = statistics;
 
             statistics.SystemTime = SimulationEndDateTime.Subtract(SimulationStartDateTime).TotalSeconds;
@@ -102,10 +102,8 @@ namespace charlal1.project.DiscreteEventSimulator
                 statistics.UpdateLists(calender, resourceManager);
                 statistics.NotifyDisplays();
 
-                //System.Threading.Thread.Sleep(500);
+                System.Threading.Thread.Sleep(Global.SimulationSpeed);
             }
-
-            //statistics.ComputeStatistics();
-        }
+        } 
     }
 }
