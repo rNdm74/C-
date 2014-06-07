@@ -24,8 +24,6 @@ namespace charlal1.project.DiscreteEventSimulator
         private Calender calender                { get; set; }
         private ResourceManager resourceMananger { get; set; }
 
-
-
         //private List<Entity> leavingEntities;
         private List<IDisplay> displayList;
         

@@ -19,8 +19,6 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             Entity newEntity = new Entity(++EntityID);
 
-            //newEntity.CallType = (rGen.Roll() <= Constants.CALL_PROBABILITY) ? ECallType.CAR_STEREO : ECallType.OTHER;
-
             return newEntity;
         }
     }
