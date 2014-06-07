@@ -9,44 +9,35 @@ namespace charlal1.project.DiscreteEventSimulator
     class Simulator
     { 
         private Statistics statistics;
-
         private Calender calender;
-
         private Event activeEvent;
-
-        private ResourceManager resourceManager;
-        
+        private ResourceManager resourceManager;        
         private EntityFactory entityFactory;
         private EventFactory eventFactory;
-
         private RandomNumberGenerator rGen;
 
-
-        public Simulator(DateTime SimulationStartDateTime, DateTime SimulationEndDateTime, Statistics statistics) 
+        public Simulator(Statistics statistics) 
         {
+            this.statistics = statistics;
+
             calender = new Calender();
             resourceManager = new ResourceManager();
             entityFactory = new EntityFactory();
             eventFactory = new EventFactory();
             rGen = new RandomNumberGenerator();
-
-            this.statistics = statistics;
-
-            statistics.SystemTime = SimulationEndDateTime.Subtract(SimulationStartDateTime).TotalSeconds;
-
-            Global.Clock = SimulationStartDateTime;
+            
+            // Set global clock
+            Global.CLOCK = Global.START_SIMULATION_TIME;
 
             // Add EndSim Event
-            Event endSimulationEvent = eventFactory.Spawn(EEventType.END_SIMULATION, SimulationEndDateTime, entityFactory.CreateEntity());
+            Event endSimulationEvent = eventFactory.Spawn(EEventType.END_SIMULATION, Global.END_SIMULATION_TIME, entityFactory.CreateEntity());
             calender.Add(endSimulationEvent);
 
             // Create First Arrival event
             Entity firstCaller = entityFactory.CreateEntity();
-            DateTime nextArrivalTime = Global.Clock.AddMinutes(rGen.TimeBetweenArrivals);
+            DateTime nextArrivalTime = Global.CLOCK.AddMinutes(rGen.TimeBetweenArrivals);
             Event firstArrivalEvent = eventFactory.Spawn(EEventType.ARRIVAL, nextArrivalTime, firstCaller);
             calender.Add(firstArrivalEvent);
-            
-            
         }
 
         public void RunSimulation() 
@@ -57,10 +48,7 @@ namespace charlal1.project.DiscreteEventSimulator
                 activeEvent = calender.GetNextEvent();
 
                 // Update global clock
-                Global.Clock = activeEvent.EventTime;
-
-                // Get active entity
-                //Entity activeEntity = activeEvent.CurrentEntity;
+                Global.CLOCK = activeEvent.EventTime;
 
                 if (activeEvent is ArrivalEvent) 
                 {
@@ -77,8 +65,6 @@ namespace charlal1.project.DiscreteEventSimulator
                     // 1. Prepare info for the event
 
                     // 2. Tell event to execute
-                    //    give resourcemanager
-                    //    activeEvent.Execute();
                     activeEvent.Execute(calender, resourceManager, statistics, rGen, entityFactory, eventFactory);
 
                     // 3. Tidy up e.g. graphics update etc
@@ -89,20 +75,18 @@ namespace charlal1.project.DiscreteEventSimulator
                     // 1. Prepare info for the event
 
                     // 2. Tell event to execute
-                    //    give resourcemanager
-                    //    activeEvent.Execute();
                     activeEvent.Execute(calender, resourceManager, statistics, rGen, entityFactory, eventFactory);
 
                     // 3. Tidy up e.g. graphics update etc
                     
                 }
 
-                //statistics.Iterations++;
-
+                // Update simulation statistics
                 statistics.UpdateLists(calender, resourceManager);
                 statistics.NotifyDisplays();
 
-                System.Threading.Thread.Sleep(Global.SimulationSpeed);
+                // Control the speed of the loop
+                System.Threading.Thread.Sleep(Global.SIMULATION_SPEED);
             }
         } 
     }

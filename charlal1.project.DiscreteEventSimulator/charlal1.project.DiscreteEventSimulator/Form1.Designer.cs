@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dTPStartSimulationTime = new System.Windows.Forms.DateTimePicker();
             this.dTPEndSimulationTime = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
@@ -72,9 +72,9 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nUpDown_Max_Resources_Car_Stereo = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.nUpDownMaxOther = new System.Windows.Forms.NumericUpDown();
+            this.nUpDown_Max_Resources_Other = new System.Windows.Forms.NumericUpDown();
             this.tbSimulationSpeed = new System.Windows.Forms.TrackBar();
             this.pGraphicalDisplay = new System.Windows.Forms.Panel();
             this.pTextDisplay = new System.Windows.Forms.Panel();
@@ -84,19 +84,18 @@
             this.tpStatistics = new System.Windows.Forms.TabPage();
             this.lbStatisticsResults = new System.Windows.Forms.ListBox();
             this.tpSettings = new System.Windows.Forms.TabPage();
-            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.nUpDown_Delay_Processing = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.nUpDown_Delay_Switch = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.nUpDown_Delay_Arrival = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.nUpDown_Excessive_Wait_Time = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.nUpDown_Max_On_Hold = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.gbCalender.SuspendLayout();
@@ -106,8 +105,8 @@
             this.gbCarStereo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarStereoQueue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatistics)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nUpDownMaxOther)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDown_Max_Resources_Car_Stereo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDown_Max_Resources_Other)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbSimulationSpeed)).BeginInit();
             this.pTextDisplay.SuspendLayout();
             this.tcDisplay.SuspendLayout();
@@ -115,17 +114,17 @@
             this.tpGraphicalDisplay.SuspendLayout();
             this.tpStatistics.SuspendLayout();
             this.tpSettings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDown_Delay_Processing)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDown_Delay_Switch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDown_Delay_Arrival)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDown_Excessive_Wait_Time)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDown_Max_On_Hold)).BeginInit();
             this.SuspendLayout();
             // 
             // dTPStartSimulationTime
             // 
             this.dTPStartSimulationTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dTPStartSimulationTime.Location = new System.Drawing.Point(476, 29);
+            this.dTPStartSimulationTime.Location = new System.Drawing.Point(607, 83);
             this.dTPStartSimulationTime.Name = "dTPStartSimulationTime";
             this.dTPStartSimulationTime.Size = new System.Drawing.Size(208, 26);
             this.dTPStartSimulationTime.TabIndex = 0;
@@ -133,7 +132,7 @@
             // dTPEndSimulationTime
             // 
             this.dTPEndSimulationTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dTPEndSimulationTime.Location = new System.Drawing.Point(476, 77);
+            this.dTPEndSimulationTime.Location = new System.Drawing.Point(607, 131);
             this.dTPEndSimulationTime.Name = "dTPEndSimulationTime";
             this.dTPEndSimulationTime.Size = new System.Drawing.Size(208, 26);
             this.dTPEndSimulationTime.TabIndex = 0;
@@ -170,14 +169,14 @@
             this.dgvCalender.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCalender.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvCalender.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCalender.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCalender.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvCalender.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCalender.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Entity,
@@ -186,14 +185,14 @@
             this.ProductType,
             this.StartTime,
             this.BeginWait});
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCalender.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCalender.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgvCalender.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCalender.EnableHeadersVisualStyles = false;
             this.dgvCalender.GridColor = System.Drawing.Color.White;
@@ -204,8 +203,8 @@
             this.dgvCalender.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvCalender.RowHeadersVisible = false;
             this.dgvCalender.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvCalender.RowsDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCalender.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvCalender.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvCalender.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCalender.Size = new System.Drawing.Size(1006, 215);
@@ -268,14 +267,14 @@
             this.dgvOtherQueue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvOtherQueue.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvOtherQueue.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOtherQueue.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOtherQueue.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvOtherQueue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOtherQueue.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn13,
@@ -284,14 +283,14 @@
             this.dataGridViewTextBoxColumn16,
             this.dataGridViewTextBoxColumn17,
             this.dataGridViewTextBoxColumn18});
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOtherQueue.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOtherQueue.DefaultCellStyle = dataGridViewCellStyle17;
             this.dgvOtherQueue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvOtherQueue.EnableHeadersVisualStyles = false;
             this.dgvOtherQueue.GridColor = System.Drawing.Color.White;
@@ -300,8 +299,8 @@
             this.dgvOtherQueue.ReadOnly = true;
             this.dgvOtherQueue.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvOtherQueue.RowHeadersVisible = false;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvOtherQueue.RowsDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvOtherQueue.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvOtherQueue.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOtherQueue.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOtherQueue.Size = new System.Drawing.Size(1000, 193);
@@ -363,14 +362,14 @@
             this.dgvCarStereoQueue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCarStereoQueue.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvCarStereoQueue.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCarStereoQueue.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCarStereoQueue.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dgvCarStereoQueue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarStereoQueue.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn7,
@@ -379,14 +378,14 @@
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12});
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCarStereoQueue.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCarStereoQueue.DefaultCellStyle = dataGridViewCellStyle20;
             this.dgvCarStereoQueue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCarStereoQueue.EnableHeadersVisualStyles = false;
             this.dgvCarStereoQueue.GridColor = System.Drawing.Color.White;
@@ -395,8 +394,8 @@
             this.dgvCarStereoQueue.ReadOnly = true;
             this.dgvCarStereoQueue.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvCarStereoQueue.RowHeadersVisible = false;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvCarStereoQueue.RowsDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCarStereoQueue.RowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvCarStereoQueue.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvCarStereoQueue.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCarStereoQueue.Size = new System.Drawing.Size(1003, 154);
@@ -447,27 +446,27 @@
             this.dgvStatistics.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvStatistics.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvStatistics.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle34.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStatistics.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStatistics.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvStatistics.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStatistics.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStatistics.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStatistics.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgvStatistics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStatistics.EnableHeadersVisualStyles = false;
             this.dgvStatistics.GridColor = System.Drawing.SystemColors.Control;
@@ -475,9 +474,9 @@
             this.dgvStatistics.Name = "dgvStatistics";
             this.dgvStatistics.ReadOnly = true;
             this.dgvStatistics.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvStatistics.RowHeadersVisible = false;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvStatistics.RowsDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvStatistics.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            this.dgvStatistics.RowTemplate.Height = 32;
             this.dgvStatistics.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvStatistics.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStatistics.Size = new System.Drawing.Size(1008, 626);
@@ -504,22 +503,22 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 180);
+            this.label2.Location = new System.Drawing.Point(162, 234);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(274, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "MAX_RESOURCES_CAR_STEREO";
             // 
-            // numericUpDown1
+            // nUpDown_Max_Resources_Car_Stereo
             // 
-            this.numericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDown1.Location = new System.Drawing.Point(476, 178);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(208, 26);
-            this.numericUpDown1.TabIndex = 4;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.nUpDown_Max_Resources_Car_Stereo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nUpDown_Max_Resources_Car_Stereo.Location = new System.Drawing.Point(607, 232);
+            this.nUpDown_Max_Resources_Car_Stereo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
+            this.nUpDown_Max_Resources_Car_Stereo.Name = "nUpDown_Max_Resources_Car_Stereo";
+            this.nUpDown_Max_Resources_Car_Stereo.Size = new System.Drawing.Size(208, 26);
+            this.nUpDown_Max_Resources_Car_Stereo.TabIndex = 4;
+            this.nUpDown_Max_Resources_Car_Stereo.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -528,22 +527,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 132);
+            this.label1.Location = new System.Drawing.Point(162, 186);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(221, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "MAX_RESOURCES_OTHER";
             // 
-            // nUpDownMaxOther
+            // nUpDown_Max_Resources_Other
             // 
-            this.nUpDownMaxOther.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nUpDownMaxOther.Location = new System.Drawing.Point(476, 130);
-            this.nUpDownMaxOther.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
-            this.nUpDownMaxOther.Name = "nUpDownMaxOther";
-            this.nUpDownMaxOther.Size = new System.Drawing.Size(208, 26);
-            this.nUpDownMaxOther.TabIndex = 2;
-            this.nUpDownMaxOther.Value = new decimal(new int[] {
+            this.nUpDown_Max_Resources_Other.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nUpDown_Max_Resources_Other.Location = new System.Drawing.Point(607, 184);
+            this.nUpDown_Max_Resources_Other.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
+            this.nUpDown_Max_Resources_Other.Name = "nUpDown_Max_Resources_Other";
+            this.nUpDown_Max_Resources_Other.Size = new System.Drawing.Size(208, 26);
+            this.nUpDown_Max_Resources_Other.TabIndex = 2;
+            this.nUpDown_Max_Resources_Other.Value = new decimal(new int[] {
             2,
             0,
             0,
@@ -650,25 +649,24 @@
             // tpSettings
             // 
             this.tpSettings.BackColor = System.Drawing.Color.White;
-            this.tpSettings.Controls.Add(this.label10);
             this.tpSettings.Controls.Add(this.dTPEndSimulationTime);
             this.tpSettings.Controls.Add(this.label9);
             this.tpSettings.Controls.Add(this.dTPStartSimulationTime);
             this.tpSettings.Controls.Add(this.label8);
             this.tpSettings.Controls.Add(this.label7);
-            this.tpSettings.Controls.Add(this.numericUpDown6);
+            this.tpSettings.Controls.Add(this.nUpDown_Delay_Processing);
             this.tpSettings.Controls.Add(this.label6);
-            this.tpSettings.Controls.Add(this.numericUpDown5);
+            this.tpSettings.Controls.Add(this.nUpDown_Delay_Switch);
             this.tpSettings.Controls.Add(this.label5);
-            this.tpSettings.Controls.Add(this.numericUpDown4);
+            this.tpSettings.Controls.Add(this.nUpDown_Delay_Arrival);
             this.tpSettings.Controls.Add(this.label4);
-            this.tpSettings.Controls.Add(this.numericUpDown3);
+            this.tpSettings.Controls.Add(this.nUpDown_Excessive_Wait_Time);
             this.tpSettings.Controls.Add(this.label3);
-            this.tpSettings.Controls.Add(this.numericUpDown2);
+            this.tpSettings.Controls.Add(this.nUpDown_Max_On_Hold);
             this.tpSettings.Controls.Add(this.label2);
-            this.tpSettings.Controls.Add(this.numericUpDown1);
+            this.tpSettings.Controls.Add(this.nUpDown_Max_Resources_Car_Stereo);
             this.tpSettings.Controls.Add(this.label1);
-            this.tpSettings.Controls.Add(this.nUpDownMaxOther);
+            this.tpSettings.Controls.Add(this.nUpDown_Max_Resources_Other);
             this.tpSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpSettings.Location = new System.Drawing.Point(4, 52);
             this.tpSettings.Name = "tpSettings";
@@ -677,20 +675,10 @@
             this.tpSettings.TabIndex = 3;
             this.tpSettings.Text = "Settings";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(31, 468);
-            this.label10.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(171, 20);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "SIMULATION_SPEED";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(31, 82);
+            this.label9.Location = new System.Drawing.Point(162, 136);
             this.label9.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(197, 20);
@@ -700,7 +688,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(31, 34);
+            this.label8.Location = new System.Drawing.Point(162, 88);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(215, 20);
@@ -710,22 +698,22 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(31, 420);
+            this.label7.Location = new System.Drawing.Point(162, 474);
             this.label7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(179, 20);
             this.label7.TabIndex = 15;
             this.label7.Text = "DELAY_PROCESSING";
             // 
-            // numericUpDown6
+            // nUpDown_Delay_Processing
             // 
-            this.numericUpDown6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDown6.Location = new System.Drawing.Point(476, 418);
-            this.numericUpDown6.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(208, 26);
-            this.numericUpDown6.TabIndex = 14;
-            this.numericUpDown6.Value = new decimal(new int[] {
+            this.nUpDown_Delay_Processing.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nUpDown_Delay_Processing.Location = new System.Drawing.Point(607, 472);
+            this.nUpDown_Delay_Processing.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
+            this.nUpDown_Delay_Processing.Name = "nUpDown_Delay_Processing";
+            this.nUpDown_Delay_Processing.Size = new System.Drawing.Size(208, 26);
+            this.nUpDown_Delay_Processing.TabIndex = 14;
+            this.nUpDown_Delay_Processing.Value = new decimal(new int[] {
             2,
             0,
             0,
@@ -734,28 +722,28 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(31, 372);
+            this.label6.Location = new System.Drawing.Point(162, 426);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 20);
+            this.label6.Size = new System.Drawing.Size(135, 20);
             this.label6.TabIndex = 13;
-            this.label6.Text = "DELAY_IVR";
+            this.label6.Text = "DELAY_SWITCH";
             // 
-            // numericUpDown5
+            // nUpDown_Delay_Switch
             // 
-            this.numericUpDown5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDown5.DecimalPlaces = 1;
-            this.numericUpDown5.Increment = new decimal(new int[] {
+            this.nUpDown_Delay_Switch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nUpDown_Delay_Switch.DecimalPlaces = 1;
+            this.nUpDown_Delay_Switch.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.numericUpDown5.Location = new System.Drawing.Point(476, 370);
-            this.numericUpDown5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(208, 26);
-            this.numericUpDown5.TabIndex = 12;
-            this.numericUpDown5.Value = new decimal(new int[] {
+            this.nUpDown_Delay_Switch.Location = new System.Drawing.Point(607, 424);
+            this.nUpDown_Delay_Switch.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
+            this.nUpDown_Delay_Switch.Name = "nUpDown_Delay_Switch";
+            this.nUpDown_Delay_Switch.Size = new System.Drawing.Size(208, 26);
+            this.nUpDown_Delay_Switch.TabIndex = 12;
+            this.nUpDown_Delay_Switch.Value = new decimal(new int[] {
             3,
             0,
             0,
@@ -764,52 +752,52 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(31, 324);
+            this.label5.Location = new System.Drawing.Point(162, 378);
             this.label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(143, 20);
             this.label5.TabIndex = 11;
             this.label5.Text = "DELAY_ARRIVAL";
             // 
-            // numericUpDown4
+            // nUpDown_Delay_Arrival
             // 
-            this.numericUpDown4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDown4.DecimalPlaces = 2;
-            this.numericUpDown4.Increment = new decimal(new int[] {
+            this.nUpDown_Delay_Arrival.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nUpDown_Delay_Arrival.DecimalPlaces = 3;
+            this.nUpDown_Delay_Arrival.Increment = new decimal(new int[] {
             1,
             0,
             0,
-            131072});
-            this.numericUpDown4.Location = new System.Drawing.Point(476, 322);
-            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(208, 26);
-            this.numericUpDown4.TabIndex = 10;
-            this.numericUpDown4.Value = new decimal(new int[] {
-            33,
+            196608});
+            this.nUpDown_Delay_Arrival.Location = new System.Drawing.Point(607, 376);
+            this.nUpDown_Delay_Arrival.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
+            this.nUpDown_Delay_Arrival.Name = "nUpDown_Delay_Arrival";
+            this.nUpDown_Delay_Arrival.Size = new System.Drawing.Size(208, 26);
+            this.nUpDown_Delay_Arrival.TabIndex = 10;
+            this.nUpDown_Delay_Arrival.Value = new decimal(new int[] {
+            333,
             0,
             0,
-            131072});
+            196608});
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 276);
+            this.label4.Location = new System.Drawing.Point(162, 330);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(198, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "EXCESSIVE_WAIT_TIME";
             // 
-            // numericUpDown3
+            // nUpDown_Excessive_Wait_Time
             // 
-            this.numericUpDown3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDown3.Location = new System.Drawing.Point(476, 274);
-            this.numericUpDown3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(208, 26);
-            this.numericUpDown3.TabIndex = 8;
-            this.numericUpDown3.Value = new decimal(new int[] {
+            this.nUpDown_Excessive_Wait_Time.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nUpDown_Excessive_Wait_Time.Location = new System.Drawing.Point(607, 328);
+            this.nUpDown_Excessive_Wait_Time.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
+            this.nUpDown_Excessive_Wait_Time.Name = "nUpDown_Excessive_Wait_Time";
+            this.nUpDown_Excessive_Wait_Time.Size = new System.Drawing.Size(208, 26);
+            this.nUpDown_Excessive_Wait_Time.TabIndex = 8;
+            this.nUpDown_Excessive_Wait_Time.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -818,22 +806,22 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 228);
+            this.label3.Location = new System.Drawing.Point(162, 282);
             this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(130, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "MAX_ON_HOLD";
             // 
-            // numericUpDown2
+            // nUpDown_Max_On_Hold
             // 
-            this.numericUpDown2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDown2.Location = new System.Drawing.Point(476, 226);
-            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(208, 26);
-            this.numericUpDown2.TabIndex = 6;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.nUpDown_Max_On_Hold.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nUpDown_Max_On_Hold.Location = new System.Drawing.Point(607, 280);
+            this.nUpDown_Max_On_Hold.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
+            this.nUpDown_Max_On_Hold.Name = "nUpDown_Max_On_Hold";
+            this.nUpDown_Max_On_Hold.Size = new System.Drawing.Size(208, 26);
+            this.nUpDown_Max_On_Hold.TabIndex = 6;
+            this.nUpDown_Max_On_Hold.Value = new decimal(new int[] {
             10,
             0,
             0,
@@ -842,7 +830,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(354, 699);
+            this.label11.Location = new System.Drawing.Point(604, 699);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 13);
             this.label11.TabIndex = 15;
@@ -851,7 +839,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(604, 699);
+            this.label12.Location = new System.Drawing.Point(357, 699);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(27, 13);
             this.label12.TabIndex = 16;
@@ -882,8 +870,8 @@
             this.gbCarStereo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarStereoQueue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatistics)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nUpDownMaxOther)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDown_Max_Resources_Car_Stereo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDown_Max_Resources_Other)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbSimulationSpeed)).EndInit();
             this.pTextDisplay.ResumeLayout(false);
             this.tcDisplay.ResumeLayout(false);
@@ -892,11 +880,11 @@
             this.tpStatistics.ResumeLayout(false);
             this.tpSettings.ResumeLayout(false);
             this.tpSettings.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDown_Delay_Processing)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDown_Delay_Switch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDown_Delay_Arrival)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDown_Excessive_Wait_Time)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDown_Max_On_Hold)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -913,9 +901,9 @@
         private System.Windows.Forms.TrackBar tbSimulationSpeed;
         private System.Windows.Forms.Panel pGraphicalDisplay;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nUpDown_Max_Resources_Car_Stereo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown nUpDownMaxOther;
+        private System.Windows.Forms.NumericUpDown nUpDown_Max_Resources_Other;
         private System.Windows.Forms.DataGridView dgvCalender;
         private System.Windows.Forms.DataGridView dgvStatistics;
         private System.Windows.Forms.DataGridView dgvOtherQueue;
@@ -939,16 +927,15 @@
         private System.Windows.Forms.TabPage tpStatistics;
         private System.Windows.Forms.TabPage tpSettings;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown nUpDown_Excessive_Wait_Time;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown nUpDown_Max_On_Hold;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown nUpDown_Delay_Arrival;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
+        private System.Windows.Forms.NumericUpDown nUpDown_Delay_Processing;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.NumericUpDown nUpDown_Delay_Switch;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListBox lbStatisticsResults;

@@ -19,47 +19,26 @@ namespace charlal1.project.DiscreteEventSimulator
 
     class Statistics : IStatistics
     {
-        private int waitingAverageCount, waitingAverageCarStereoCount, waitingAverageOtherCount;
-        private int systemAverageCount = 1;
+        private int waitingAverageCount, waitingAverageCarStereoCount, waitingAverageOtherCount, systemAverageCount;
 
-        public Calender calender                { get; set; }
-        public ResourceManager resourceMananger { get; set; }
+        private Calender calender                { get; set; }
+        private ResourceManager resourceMananger { get; set; }
 
-        public int Iterations                   { get; set; }
-        public int ResourcesUsed                { get; set; }
-        public int BusySignalCount              { get; set; }
-        public int CallCompletion               { get; set; }
-        public int CallCompletionOther          { get; set; }
-        public int CallCompletionCarStereo      { get; set; }
-        public int ExcessiveWaitCount           { get; set; }
-        public int ExcessiveWaitCountOther      { get; set; }
-        public int ExcessiveWaitCountCarStereo  { get; set; }
-        public int ResourceUtilization          { get; set; }
 
-        public double ResourseOtherWorkTime     { get; set; }
-        public double ResourseCarStereoWorkTime { get; set; }
-        public double ResourseWorkTime          { get; set; }
-        public double SystemTime                { get; set; }
-                
-        public double AverageNumberWaiting      { get; set; }
-        public double AverageWaitingTime        { get; set; }
-        public double AverageNumberWaitingOther { get; set; }
-        public double AverageNumberWaitingCarStereo { get; set; }
-        public double AverageSystemTime         { get; set; }
-        
-        public List<Entity> leavingEntities;
+
+        //private List<Entity> leavingEntities;
         private List<IDisplay> displayList;
         
         public Statistics() 
         {
             this.displayList = new List<IDisplay>();
-            this.leavingEntities = new List<Entity>();
+            //this.leavingEntities = new List<Entity>();
 
-            waitingAverageCount = waitingAverageCarStereoCount = waitingAverageOtherCount = 0;
+            waitingAverageCount = waitingAverageCarStereoCount = waitingAverageOtherCount = systemAverageCount = 0;
 
             // Set variables to 0
-            BusySignalCount = CallCompletion = ExcessiveWaitCount = ResourceUtilization = Iterations = ResourcesUsed = 0;
-            AverageWaitingTime = AverageSystemTime = AverageNumberWaiting = ResourseOtherWorkTime = ResourseCarStereoWorkTime = ResourseWorkTime = SystemTime = 0;
+            //BusySignalCount = CallCompletion = ExcessiveWaitCount = ResourceUtilization = Iterations = ResourcesUsed = 0;
+            //AverageWaitingTime = AverageSystemTime = AverageNumberWaiting = ResourseOtherWorkTime = ResourseCarStereoWorkTime = ResourseWorkTime = SystemTime = 0;
         }
 
 
@@ -91,25 +70,12 @@ namespace charlal1.project.DiscreteEventSimulator
         }
 
 
-
-
-
-        private void updateCompletions(ECallType? callType) 
-        {
-            switch (callType)
-            {
-                case ECallType.OTHER:
-                    CallCompletionOther++;
-                    break;
-                case ECallType.CAR_STEREO:
-                    CallCompletionCarStereo++;
-                    break;
-            }
-        }
-
         public void UpdateEntityStatistics(Entity e)
         {
-            updateCompletions(e.CallType);
+            // Update statistics of enitiy leaving system
+            Global.CallCompletion++;
+
+            UpdateCompletions(e.CallType);
 
             // If the entity waited
             if (!e.BeginWait.ToString("yyyy").Equals("0001"))
@@ -122,26 +88,69 @@ namespace charlal1.project.DiscreteEventSimulator
                 UpdateAverageWaitingTime(waitTime);
                 UpdateExcessiveWaiting(e.CallType, waitTime);
 
-                
+
             }
 
             // Update system time for all entities
             UpdateSystemTime(e);
+            
+            UpdateResourceUtilization(e);
+            
         }
+
+        public void UpdateCompletions(ECallType? callType)
+        {
+            switch (callType)
+            {
+                case ECallType.OTHER:
+                    Global.CallCompletionOther++;
+                    break;
+                case ECallType.CAR_STEREO:
+                    Global.CallCompletionCarStereo++;
+                    break;
+            }
+        }
+
+        public void UpdateResourceUtilization(Entity e) 
+        {
+            Global.ResourseWorkTime += e.EndTime.Subtract(e.StartProcessingTime).TotalSeconds;
+            updateWorkTime(e);
+            Global.ResourceOtherUtilization = (Global.ResourseOtherWorkTime / Global.MAX_RESOURCES_OTHER) / Global.SystemTime;
+            Global.ResourceCarStereoUtilization = (Global.ResourseCarStereoWorkTime / Global.MAX_RESOURCES_CAR_STEREO) / Global.SystemTime;
+            Global.ResourceUtilization = (Global.ResourseWorkTime / (Global.MAX_RESOURCES_OTHER + Global.MAX_RESOURCES_CAR_STEREO)) / Global.SystemTime;
+        }
+
+        private void updateWorkTime(Entity e)
+        {
+            switch (e.CallType)
+	        {
+		        case ECallType.OTHER:
+                    Global.ResourseOtherWorkTime += e.EndTime.Subtract(e.StartProcessingTime).TotalSeconds;
+                    break;
+                case ECallType.CAR_STEREO:
+                    Global.ResourseCarStereoWorkTime += e.EndTime.Subtract(e.StartProcessingTime).TotalSeconds;
+                    break;
+	        }
+        }
+
+
+        
+
+        
 
 
         private void UpdateAverageWaitingTime(double waitTime) 
         {
             // Running average of the wait time of entities
             //double waitTime = entity.EndTime.Subtract(entity.BeginWait).TotalMinutes;
-            AverageWaitingTime += Compute(waitTime, AverageWaitingTime, waitingAverageCount);
+            Global.AverageWaitingTime += Compute(waitTime, Global.AverageWaitingTime, waitingAverageCount);
         }
 
         private void UpdateAverageNumberWaiting(ECallType? callType) 
         {
             // Running average of entities waiting
-            AverageNumberWaiting++;
-            AverageNumberWaiting += Compute(1, AverageNumberWaiting, ++waitingAverageCount);
+            Global.AverageNumberWaiting++;
+            Global.AverageNumberWaiting += Compute(1, Global.AverageNumberWaiting, ++waitingAverageCount);
 
             // Increment the waiting average count
             //waitingAverageCount++;
@@ -149,12 +158,12 @@ namespace charlal1.project.DiscreteEventSimulator
             switch (callType)
             {
                 case ECallType.CAR_STEREO:
-                    AverageNumberWaitingCarStereo++;
-                    AverageNumberWaitingCarStereo += Compute(1, AverageNumberWaitingCarStereo, ++waitingAverageCarStereoCount);
+                    Global.AverageNumberWaitingCarStereo++;
+                    Global.AverageNumberWaitingCarStereo += Compute(1, Global.AverageNumberWaitingCarStereo, ++waitingAverageCarStereoCount);
                     break;
                 case ECallType.OTHER:
-                    AverageNumberWaitingOther++;
-                    AverageNumberWaitingOther += Compute(1, AverageNumberWaitingOther, ++waitingAverageOtherCount);
+                    Global.AverageNumberWaitingOther++;
+                    Global.AverageNumberWaitingOther += Compute(1, Global.AverageNumberWaitingOther, ++waitingAverageOtherCount);
                     break;
             }
         }
@@ -162,19 +171,19 @@ namespace charlal1.project.DiscreteEventSimulator
         private void UpdateExcessiveWaiting(ECallType? callType, double waitTime) 
         {
             // Work out if call had an excessive wait time
-            if (waitTime > Constants.EXCESSIVE_WAIT_TIME)
+            if (waitTime > Global.EXCESSIVE_WAIT_TIME)
             {
                 switch (callType)
                 {
                     case ECallType.CAR_STEREO:
-                        ExcessiveWaitCountCarStereo++;
+                        Global.ExcessiveWaitCountCarStereo++;
                         break;
                     case ECallType.OTHER:
-                        ExcessiveWaitCountOther++;
+                        Global.ExcessiveWaitCountOther++;
                         break;
-                } 
-   
-                ExcessiveWaitCount++;
+                }
+
+                Global.ExcessiveWaitCount++;
             }
         }
 
@@ -183,106 +192,12 @@ namespace charlal1.project.DiscreteEventSimulator
             // Average time entity takes to get through the system
             double sysTime = e.EndTime.Subtract(e.StartTime).TotalMinutes;
 
-            AverageSystemTime += Compute(sysTime, AverageSystemTime, systemAverageCount);
-
-            systemAverageCount++;
+            Global.AverageSystemTime += Compute(sysTime, Global.AverageSystemTime, ++systemAverageCount);
         }
 
         private double Compute(double newValue, double avgValue, int count)
         {
             return (newValue - avgValue) / count;
-        }
-        
-        
-
-
-        /// <summary>
-        /// OLD METHODS USING SUBJECT OBSERVER PATTERN NOW
-        /// </summary>
-        /// <param name="currentEvent"></param>
-        /// <param name="currentEntity"></param>
-        /// <returns></returns>
-        
-        //public void Update() 
-        //{
-        //    ///
-        //    /// Display the calender in realtime
-        //    ///
-        //    //Update(dgvCalender);
-            
-        //    ///
-        //    /// Show entities in the queues
-        //    ///
-        //    //Update(dgvOtherQueue, ECallType.OTHER);
-        //    //Update(dgvCarStereoQueue, ECallType.CAR_STEREO);
-        //}
-
-        //private void Update(DataGridView dataGridView) 
-        //{
-        //    // Clear the data grid view rows
-        //    dataGridView.Rows.Clear();
-
-        //    // Add row data
-        //    for (int i = 0; i < calender.events.Count; i++)
-        //    {
-        //        Event currentEvent = calender.events[i];
-        //        // Get events entity
-        //        Entity eventEntity = currentEvent.CurrentEntity;
-
-        //        // Get event row data
-        //        //string[] rowData = getRowData(currentEvent, eventEntity);
-
-        //        // Add new row
-        //        //dataGridView.Rows.Add(rowData);
-        //    }
-
-        //    // Refresh the data grid view
-        //    dataGridView.Refresh();
-        //}
-
-        //private void Update(DataGridView dataGridView, ECallType callType) 
-        //{
-        //    // Clear the items in the listbox
-        //    dataGridView.Rows.Clear();
-
-        //    // Get the entityData from the calltype queue
-        //    List<string[]> entityData = resourceMananger.GetQueueEntityData(callType);
-
-        //    // Add new row
-        //    foreach (String[] data in entityData) 
-        //        dataGridView.Rows.Add(data);
-
-        //    // Refresh the listbox
-        //    dataGridView.Refresh();
-        //}
-
-        //public void ComputeStatistics() 
-        //{
-        //    ///
-        //    /// Update Entity Statistics 
-        //    ///
-
-        //    // Clear the display
-        //    //dgvStatistics.Rows.Clear();
-
-        //    // Loop through all the enititys that left the system
-        //    foreach (Entity entity in leavingEntities)
-        //    {
-                
-
-        //        // Display the entities that left the system
-        //        //string[] entityData = getRowData(null, entity);
-        //        //dgvStatistics.Rows.Add(entityData);
-
-                
-
-                
-        //    }
-
-            
-            
-        //}
-
-        
+        }        
     }
 }

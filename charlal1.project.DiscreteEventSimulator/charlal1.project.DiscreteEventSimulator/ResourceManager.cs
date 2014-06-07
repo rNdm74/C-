@@ -15,10 +15,10 @@ namespace charlal1.project.DiscreteEventSimulator
             resources = new List<Resource>();
             queueManager = new QueueManager();
 
-            for (int i = 0; i < Constants.MAX_RESOURCES_CAR_STEREO; i++)
+            for (int i = 0; i < Global.MAX_RESOURCES_CAR_STEREO; i++)
                 resources.Add(new Resource(ECallType.CAR_STEREO));
 
-            for (int i = 0; i < Constants.MAX_RESOURCES_OTHER; i++)
+            for (int i = 0; i < Global.MAX_RESOURCES_OTHER; i++)
                 resources.Add(new Resource(ECallType.OTHER));
         }
 

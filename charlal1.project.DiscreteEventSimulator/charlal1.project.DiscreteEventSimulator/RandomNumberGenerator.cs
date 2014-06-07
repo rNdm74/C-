@@ -26,21 +26,21 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             get
             {
-                return Roll() * Constants.DELAY_ARRIVAL;
+                return Roll() * Global.DELAY_ARRIVAL;
             }
         }
 
-        public double DelayAtIVR
+        public double DelayAtSwitch
         {
             get
             {
-                return Roll() * Constants.DELAY_IVR;
+                return Roll() * Global.DELAY_SWITCH;
             }
         }
 
         public double DelayCarStereo() 
         {
-            return Roll() * Constants.DELAY_PROCESSING;
+            return Roll() * Global.DELAY_PROCESSING;
         }
 
         public double DelayOther() 
