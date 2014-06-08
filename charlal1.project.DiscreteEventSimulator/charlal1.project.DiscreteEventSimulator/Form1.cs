@@ -24,15 +24,12 @@ namespace charlal1.project.DiscreteEventSimulator
 
         private void Form1_Load(object sender, System.EventArgs e)
         {
-            dTPEndSimulationTime.Value = dTPEndSimulationTime.Value.AddHours(2);
+            dTPEndSimulationTime.Value = dTPEndSimulationTime.Value.AddHours(3);
             dTPEndSimulationTime.Refresh();
-
         }
 
         private void simulationStart_Click(object sender, EventArgs e)
         {
-            initGlobals();
-
             statisticsSubject = new Statistics();
             displayObservers = new IDisplay[] 
             {
@@ -41,8 +38,10 @@ namespace charlal1.project.DiscreteEventSimulator
                 new Results(statisticsSubject, this,  dgvStatistics, lbStatisticsResults)
             };
 
+            InitializeGlobals();
+
             simulator = new Simulator(statisticsSubject);
-            
+
             ThreadStart ts = new ThreadStart(simulator.RunSimulation);
             t = new Thread(ts);
             t.Start();
@@ -53,7 +52,7 @@ namespace charlal1.project.DiscreteEventSimulator
             Global.SIMULATION_SPEED = tbSimulationSpeed.Value;
         }
 
-        private void initGlobals() 
+        private void InitializeGlobals() 
         {
             Global.START_SIMULATION_TIME = dTPStartSimulationTime.Value;
             Global.END_SIMULATION_TIME = dTPEndSimulationTime.Value;             
@@ -65,14 +64,16 @@ namespace charlal1.project.DiscreteEventSimulator
             Global.DELAY_SWITCH = (double)nUpDown_Delay_Switch.Value;
             Global.DELAY_PROCESSING = (double)nUpDown_Delay_Processing.Value;
 
-            
-            
-
             // Set variables to 0
             Global.BusySignalCount = Global.CallCompletion = Global.CallCompletionOther = Global.CallCompletionCarStereo = Global.ExcessiveWaitCount = Global.ExcessiveWaitCountOther = Global.ExcessiveWaitCountCarStereo = Global.Iterations = Global.ResourcesUsed = 0;
             Global.AverageWaitingTime = Global.AverageSystemTime = Global.AverageNumberWaiting = Global.ResourceUtilization = Global.ResourseOtherWorkTime = Global.ResourseCarStereoWorkTime = Global.ResourseWorkTime = Global.SystemTime = 0;
 
             Global.SystemTime = Global.END_SIMULATION_TIME.Subtract(Global.START_SIMULATION_TIME).TotalSeconds;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Abort();
         }
     }
 }
