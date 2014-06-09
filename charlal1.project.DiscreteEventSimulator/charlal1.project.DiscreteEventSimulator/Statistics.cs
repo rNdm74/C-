@@ -76,10 +76,11 @@ namespace charlal1.project.DiscreteEventSimulator
             UpdateCompletions(e.CallType);
 
             // If the entity waited
-            if (!e.BeginWait.ToString("yyyy").Equals("0001"))
+            //if (!e.BeginWait.ToString("yyyy").Equals("0001"))
+            if(e.BeginWait != 0)
             {
                 // Work out entity wait time
-                double waitTime = e.EndTime.Subtract(e.BeginWait).TotalMinutes;
+                int waitTime = (e.EndTime - e.BeginWait) / Constants.SECONDS_TO_MINUTES;
 
                 // Update waiting averages
                 UpdateAverageNumberWaiting(e.CallType);
@@ -111,7 +112,7 @@ namespace charlal1.project.DiscreteEventSimulator
 
         public void UpdateResourceUtilization(Entity e) 
         {
-            Global.ResourseWorkTime += e.EndTime.Subtract(e.StartProcessingTime).TotalSeconds;
+            Global.ResourseWorkTime += e.EndTime - e.StartProcessingTime;
             updateWorkTime(e);
             Global.ResourceOtherUtilization = (Global.ResourseOtherWorkTime / Global.MAX_RESOURCES_OTHER) / Global.SystemTime;
             Global.ResourceCarStereoUtilization = (Global.ResourseCarStereoWorkTime / Global.MAX_RESOURCES_CAR_STEREO) / Global.SystemTime;
@@ -123,21 +124,15 @@ namespace charlal1.project.DiscreteEventSimulator
             switch (e.CallType)
 	        {
 		        case ECallType.OTHER:
-                    Global.ResourseOtherWorkTime += e.EndTime.Subtract(e.StartProcessingTime).TotalSeconds;
+                    Global.ResourseOtherWorkTime += e.EndTime - e.StartProcessingTime;
                     break;
                 case ECallType.CAR_STEREO:
-                    Global.ResourseCarStereoWorkTime += e.EndTime.Subtract(e.StartProcessingTime).TotalSeconds;
+                    Global.ResourseCarStereoWorkTime += e.EndTime - e.StartProcessingTime;
                     break;
 	        }
         }
 
-
-        
-
-        
-
-
-        private void UpdateAverageWaitingTime(double waitTime) 
+        private void UpdateAverageWaitingTime(int waitTime) 
         {
             // Running average of the wait time of entities
             //double waitTime = entity.EndTime.Subtract(entity.BeginWait).TotalMinutes;
@@ -166,7 +161,7 @@ namespace charlal1.project.DiscreteEventSimulator
             }
         }
 
-        private void UpdateExcessiveWaiting(ECallType? callType, double waitTime) 
+        private void UpdateExcessiveWaiting(ECallType? callType, int waitTime) 
         {
             // Work out if call had an excessive wait time
             if (waitTime > Global.EXCESSIVE_WAIT_TIME)
@@ -188,9 +183,9 @@ namespace charlal1.project.DiscreteEventSimulator
         private void UpdateSystemTime(Entity e) 
         {
             // Average time entity takes to get through the system
-            double sysTime = e.EndTime.Subtract(e.StartTime).TotalMinutes;
+            double sysTime = e.EndTime - e.StartTime;
 
-            Global.AverageSystemTime += Compute(sysTime, Global.AverageSystemTime, ++systemAverageCount);
+            Global.AverageSystemTime += Compute(sysTime / Constants.SECONDS_TO_MINUTES, Global.AverageSystemTime, ++systemAverageCount);
         }
 
         private double Compute(double newValue, double avgValue, int count)

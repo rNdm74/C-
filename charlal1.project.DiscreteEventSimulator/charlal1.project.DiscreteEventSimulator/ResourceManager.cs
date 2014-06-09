@@ -27,10 +27,13 @@ namespace charlal1.project.DiscreteEventSimulator
             return queueManager.GetEntityDataInQueue(callType);
         }
 
-        public bool IsSpaceInQueues() 
+        public bool IsSpaceInQueues 
         {
-            // Returns true if there is space in all queues
-            return queueManager.IsSpaceInAllQueues();
+            get
+            {
+                // Returns true if there is space in all queues
+                return queueManager.IsSpaceInAllQueues();
+            }
         }
 
         public bool IsQueueEmpty(ECallType calltype) 

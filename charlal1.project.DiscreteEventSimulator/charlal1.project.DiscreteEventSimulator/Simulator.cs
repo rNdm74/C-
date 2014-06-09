@@ -22,9 +22,10 @@ namespace charlal1.project.DiscreteEventSimulator
 
             calender = new Calender();
             resourceManager = new ResourceManager();
+            rGen = new RandomNumberGenerator();
             entityFactory = new EntityFactory();
             eventFactory = new EventFactory();
-            rGen = new RandomNumberGenerator();
+            
             
             // Set global clock
             Global.CLOCK = Global.START_SIMULATION_TIME;
@@ -33,9 +34,9 @@ namespace charlal1.project.DiscreteEventSimulator
             Event endSimulationEvent = eventFactory.Spawn(EEventType.END_SIMULATION, Global.END_SIMULATION_TIME, entityFactory.CreateEntity());
             calender.Add(endSimulationEvent);
 
-            // Create First Arrival event
+            // Create First Arrival Event
             Entity firstCaller = entityFactory.CreateEntity();
-            DateTime nextArrivalTime = Global.CLOCK.AddMinutes(rGen.TimeBetweenArrivals);
+            int nextArrivalTime = Global.CLOCK + rGen.TimeBetweenArrivals;
             Event firstArrivalEvent = eventFactory.Spawn(EEventType.ARRIVAL, nextArrivalTime, firstCaller);
             calender.Add(firstArrivalEvent);
         }

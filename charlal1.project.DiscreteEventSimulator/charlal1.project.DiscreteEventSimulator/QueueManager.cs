@@ -29,7 +29,7 @@ namespace charlal1.project.DiscreteEventSimulator
             // Get the queue for the call type
             Queue queue = simulatorQueues.Find(q => q.CallType == callType);
 
-            return queue.IsEmpty();
+            return queue.IsEmpty;
         }
 
         public bool IsSpaceInAllQueues() 
@@ -37,7 +37,7 @@ namespace charlal1.project.DiscreteEventSimulator
             int total = 0;
 
             foreach (Queue queue in simulatorQueues)
-                total += queue.Count();
+                total += queue.Count;
 
             return (total < Global.MAX_ON_HOLD);
         }

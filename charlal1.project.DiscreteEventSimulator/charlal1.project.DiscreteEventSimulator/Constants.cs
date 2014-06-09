@@ -10,12 +10,12 @@ namespace charlal1.project.DiscreteEventSimulator
     
     public static class Global 
     {
-        public static DateTime CLOCK                        { get; set; }
+        public static int CLOCK                             { get; set; }
         public static int SIMULATION_SPEED                  { get; set; }
 
         // Simulation
-        public static DateTime START_SIMULATION_TIME        { get; set; }
-        public static DateTime END_SIMULATION_TIME          { get; set; }
+        public static int START_SIMULATION_TIME             { get; set; }
+        public static int END_SIMULATION_TIME               { get; set; }
         public static int MAX_RESOURCES_OTHER               { get; set; }
         public static int MAX_RESOURCES_CAR_STEREO          { get; set; }
         public static int MAX_ON_HOLD                       { get; set; }
@@ -60,7 +60,7 @@ namespace charlal1.project.DiscreteEventSimulator
         public const int EVENT_TYPE_POS              = 1;
         public const int EVENT_CALL_TYPE_POS         = 3;
         public const int CALL_TYPE_PROBABILITY       = 4;
-
+        public const int SECONDS_TO_MINUTES          = 60;
         // Simulation Constants
         //public const int MAX_RESOURCES_OTHER         = 2;
         //public const int MAX_RESOURCES_CAR_STEREO    = 1;

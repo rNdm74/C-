@@ -14,11 +14,11 @@ namespace charlal1.project.DiscreteEventSimulator
     {
         public Entity CurrentEntity     { get; set; }
         public EEventType EventType     { get; set; }
-        public DateTime EventTime       { get; set; }
+        public int EventTime            { get; set; }
         public double ProcessingTime    { get; set; }
         
         // make constructor
-        public Event(DateTime eventTime, Entity currentEntity) 
+        public Event(int eventTime, Entity currentEntity) 
         {
             this.EventTime = eventTime;
             this.CurrentEntity = currentEntity;
@@ -30,7 +30,8 @@ namespace charlal1.project.DiscreteEventSimulator
     // Entities initial request
     class ArrivalEvent : Event
     {
-        public ArrivalEvent(DateTime eventTime, Entity currentEntity) : base(eventTime, currentEntity)
+        public ArrivalEvent(int eventTime, Entity currentEntity)
+            : base(eventTime, currentEntity)
         {
             this.EventType = EEventType.ARRIVAL;
         }
@@ -40,16 +41,16 @@ namespace charlal1.project.DiscreteEventSimulator
             // Set entities start time at call centre
             CurrentEntity.StartTime = EventTime;
 
-            // Calculate the next event time
-            DateTime nextEventTime = CurrentEntity.StartTime.AddMinutes(rGen.DelayAtSwitch);
-                        
             // Total of the two product queues
-            if (resourceManager.IsSpaceInQueues())
+            if (resourceManager.IsSpaceInQueues)
             {
                 // Set active entites call type
-                CurrentEntity.CallType = (rGen.Roll() <= Constants.CALL_TYPE_PROBABILITY) ? ECallType.CAR_STEREO : ECallType.OTHER;
+                CurrentEntity.CallType = rGen.GetCallType;
 
-                //Setup next event for active entity switch complete event
+                // Calculate the next event time
+                int nextEventTime = CurrentEntity.StartTime + rGen.TimeBetweenArrivals;
+
+                // Setup next event for active entity switch complete event
                 Event processingCompleteEvent = eventFactory.Spawn(EEventType.SWITCH_COMPLETE, nextEventTime, CurrentEntity);
                 
                 // Add to calender
@@ -62,7 +63,7 @@ namespace charlal1.project.DiscreteEventSimulator
             }
 
             // Calculate next arrival time 
-            DateTime nextArrivalTime = EventTime.AddMinutes(rGen.TimeBetweenArrivals);
+            int nextArrivalTime = EventTime + rGen.TimeBetweenArrivals;
 
             // Create entity
             Entity nextEntity = entitiyFactory.CreateEntity();
@@ -78,7 +79,8 @@ namespace charlal1.project.DiscreteEventSimulator
     // Completion of Entities request at switchboard
     class SwitchCompleteEvent : Event
     {
-        public SwitchCompleteEvent(DateTime eventTime, Entity currentEntity) : base(eventTime, currentEntity)
+        public SwitchCompleteEvent(int eventTime, Entity currentEntity)
+            : base(eventTime, currentEntity)
         {
             this.EventType = EEventType.SWITCH_COMPLETE;
         }
@@ -100,8 +102,10 @@ namespace charlal1.project.DiscreteEventSimulator
                 // Set the time the enitity starts being processed
                 CurrentEntity.StartProcessingTime = Global.CLOCK;
 
-                // and spawn Processing Complete Event
-                DateTime nextEventTime = EventTime.AddMinutes((CurrentEntity.CallType == ECallType.CAR_STEREO) ? rGen.DelayCarStereo() : rGen.DelayOther());
+                // Compute its process time
+                int nextEventTime = EventTime + rGen.NextEventTime(CurrentEntity.CallType);
+
+                // Spawn Processing Complete Event
                 Event nextEvent = eventFactory.Spawn(EEventType.PROCESSING_COMPLETE, nextEventTime, CurrentEntity);
 
                 // Add to calender
@@ -121,7 +125,8 @@ namespace charlal1.project.DiscreteEventSimulator
     // Entities request is being processed
     class ProcessingCompleteEvent : Event
     {
-        public ProcessingCompleteEvent(DateTime eventTime, Entity currentEntity) : base(eventTime, currentEntity)
+        public ProcessingCompleteEvent(int eventTime, Entity currentEntity)
+            : base(eventTime, currentEntity)
         {
             this.EventType = EEventType.PROCESSING_COMPLETE;
         }
@@ -158,7 +163,8 @@ namespace charlal1.project.DiscreteEventSimulator
                 nextEntityInQueue.AssignResource = resource;
 
                 // Compute its process time
-                DateTime nextEventTime = EventTime.AddMinutes((resource.CallType == ECallType.CAR_STEREO) ? rGen.DelayCarStereo() : rGen.DelayOther());
+                int nextEventTime = EventTime + rGen.NextEventTime(resource.CallType);
+
                 // Spawn next event
                 Event nextEvent = eventFactory.Spawn(EEventType.PROCESSING_COMPLETE, nextEventTime, nextEntityInQueue);
 
@@ -171,7 +177,8 @@ namespace charlal1.project.DiscreteEventSimulator
     // End of simulation
     class EndSimulationEvent : Event
     {
-        public EndSimulationEvent(DateTime eventTime, Entity currentEntity) : base(eventTime, currentEntity)
+        public EndSimulationEvent(int eventTime, Entity currentEntity)
+            : base(eventTime, currentEntity)
         {
             this.EventType = EEventType.END_SIMULATION;
         }

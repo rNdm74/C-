@@ -12,40 +12,76 @@ namespace charlal1.project.DiscreteEventSimulator
         public RandomNumberGenerator()
         {
             rGen = new Random();
+
+            //TimeSpan ts = new TimeSpan();
+            
         }
 
-        public int Roll()
-        {
-            int d1 = rGen.Next(1, 7);
-            int d2 = rGen.Next(1, 7);
-
-            return d1 + d2;
-        }
-
-        public double TimeBetweenArrivals 
+        public int Roll
         {
             get
             {
-                return Roll() * Global.DELAY_ARRIVAL;
+                int d1 = rGen.Next(1, 7);
+                int d2 = rGen.Next(1, 7);
+
+                return d1 + d2;
             }
         }
 
-        public double DelayAtSwitch
+        public int TimeBetweenArrivals 
         {
             get
             {
-                return Roll() * Global.DELAY_SWITCH;
+                return (int) (Roll * Global.DELAY_ARRIVAL) * Constants.SECONDS_TO_MINUTES;
             }
         }
 
-        public double DelayCarStereo() 
+        public int DelayAtSwitch
         {
-            return Roll() * Global.DELAY_PROCESSING;
+            get
+            {
+                return (int)(Roll * Global.DELAY_SWITCH) * Constants.SECONDS_TO_MINUTES;
+            }
         }
 
-        public double DelayOther() 
+        public int DelayCarStereo 
         {
-            return Roll();
+            get
+            {
+                return (int)(Roll * Global.DELAY_PROCESSING) * Constants.SECONDS_TO_MINUTES;
+            }
+        }
+
+        public int DelayOther
+        {
+            get
+            {
+                return Roll * Constants.SECONDS_TO_MINUTES;
+            }
+        }
+
+        public int NextEventTime(ECallType? callType) 
+        {
+            switch (callType)
+            {
+                case ECallType.CAR_STEREO:
+                    return DelayCarStereo;
+                case ECallType.OTHER:
+                    return DelayOther;
+                default:
+                    return DelayAtSwitch;
+            }
+        }
+
+        public ECallType GetCallType
+        {
+            get
+            {
+                if(Roll <= Constants.CALL_TYPE_PROBABILITY)
+                    return ECallType.CAR_STEREO;
+                else
+                    return ECallType.OTHER;
+            }
         }
     }
 }

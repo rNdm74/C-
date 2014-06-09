@@ -10,7 +10,7 @@ namespace charlal1.project.DiscreteEventSimulator
         // Will build all events in simulaiton
         // Type, Datetime , Entity 
 
-        public Event Spawn(EEventType eventType, DateTime eventTime, Entity currentEntity)
+        public Event Spawn(EEventType eventType, int eventTime, Entity currentEntity)
         {
             Event newEvent = null;
 
