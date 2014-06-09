@@ -7,7 +7,9 @@ using System.Windows.Forms;
 namespace charlal1.project.DiscreteEventSimulator
 {
     class Simulator
-    { 
+    {
+        private delegate void SetCallBack();
+
         private Statistics statistics;
         private Calender calender;
         private Event activeEvent;
@@ -18,14 +20,13 @@ namespace charlal1.project.DiscreteEventSimulator
 
         public Simulator(Statistics statistics) 
         {
-            this.statistics = statistics;
+            this.statistics = statistics;            
 
             calender = new Calender();
             resourceManager = new ResourceManager();
             rGen = new RandomNumberGenerator();
             entityFactory = new EntityFactory();
             eventFactory = new EventFactory();
-            
             
             // Set global clock
             Global.CLOCK = Global.START_SIMULATION_TIME;
@@ -44,7 +45,7 @@ namespace charlal1.project.DiscreteEventSimulator
         public void RunSimulation() 
         {
             while (!(activeEvent is EndSimulationEvent))
-            {
+            {                
                 // Get next event from calender
                 activeEvent = calender.GetNextEvent();
 
@@ -87,8 +88,12 @@ namespace charlal1.project.DiscreteEventSimulator
                 statistics.NotifyDisplays();
 
                 // Control the speed of the loop
-                System.Threading.Thread.Sleep(Global.SIMULATION_SPEED);
+                System.Threading.Thread.Sleep(Global.SIMULATION_SPEED);                
             }
-        } 
+
+            MessageBox.Show("The simulation completed successfully","Simulation Complete");
+        }
+
+
     }
 }

@@ -146,9 +146,9 @@ namespace charlal1.project.DiscreteEventSimulator
                 case ELabelType.L_CAR_STEREO_QUEUE:
                     return makeEntityLabelList(gDisplay.QueueCarStereo, Color.LightPink, 312, 215);
                 case ELabelType.L_RESOURCE_OTHER:
-                    return makeEntityLabelList(gDisplay.ResourceOther, Color.LightBlue, 640, 55);
+                    return makeEntityLabelList(gDisplay.ResourceOther, Color.LightBlue, 740, 55);
                 case ELabelType.L_RESOURCE_CAR_STEREO:
-                    return makeEntityLabelList(gDisplay.ResourceCarStereo, Color.LightPink, 640, 215);
+                    return makeEntityLabelList(gDisplay.ResourceCarStereo, Color.LightPink, 740, 215);
                 default:
                     return new Label[0];
             }
@@ -168,9 +168,9 @@ namespace charlal1.project.DiscreteEventSimulator
                 case ELabelType.L_CAR_STEREO_QUEUE:
                     return makeLabel(Constants.STEREO_QUEUE, 312, 192);
                 case ELabelType.L_RESOURCE_OTHER:
-                    return makeLabel(Constants.OTHER_RESOURCE, 640, 32);
+                    return makeLabel(Constants.OTHER_RESOURCE, 740, 32);
                 case ELabelType.L_RESOURCE_CAR_STEREO:
-                    return makeLabel(Constants.STEREO_RESOURCE, 640, 192);
+                    return makeLabel(Constants.STEREO_RESOURCE, 740, 192);
                 default:
                     return new Label { Text = "Default Label" };
             }

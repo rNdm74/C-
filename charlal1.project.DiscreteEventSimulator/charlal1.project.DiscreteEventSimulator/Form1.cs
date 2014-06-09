@@ -24,7 +24,8 @@ namespace charlal1.project.DiscreteEventSimulator
 
         private void Form1_Load(object sender, System.EventArgs e)
         {
-            
+            InitializeGlobals();
+            InitializeSimulation();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -48,6 +49,7 @@ namespace charlal1.project.DiscreteEventSimulator
         private void InitializeGlobals() 
         {
             
+            
             Global.START_SIMULATION_TIME = (int) nUpDownSimulationStartTime.Value;
             Global.END_SIMULATION_TIME = (int) nUpDownSimulationRunTime.Value;             
             Global.MAX_RESOURCES_OTHER = (int) nUpDown_Max_Resources_Other.Value;
@@ -63,7 +65,10 @@ namespace charlal1.project.DiscreteEventSimulator
             Global.AverageWaitingTime = Global.AverageSystemTime = Global.AverageNumberWaiting = Global.ResourceUtilization = Global.ResourseOtherWorkTime = Global.ResourseCarStereoWorkTime = Global.ResourseWorkTime = Global.SystemTime = 0;
 
             Global.CLOCK = Global.START_SIMULATION_TIME;
-            Global.SystemTime = Global.END_SIMULATION_TIME - Global.START_SIMULATION_TIME; //Global.END_SIMULATION_TIME.Subtract(Global.START_SIMULATION_TIME).TotalSeconds;
+            Global.SystemTime = Global.END_SIMULATION_TIME;
+
+            pbSimulation.Value = 0;
+            pbSimulation.Maximum = Global.END_SIMULATION_TIME;
         }
 
         private void InitializeSimulation() 
@@ -74,7 +79,7 @@ namespace charlal1.project.DiscreteEventSimulator
             {
                 new Graphical(statisticsSubject, this, pGraphicalDisplay),
                 new Text(statisticsSubject, this,  dgvCalender, dgvOtherQueue, dgvCarStereoQueue),
-                new Results(statisticsSubject, this,  dgvStatistics, lbStatisticsResults)
+                new Results(statisticsSubject, this,  dgvStatistics, pbSimulation)
             };
 
             simulator = new Simulator(statisticsSubject);

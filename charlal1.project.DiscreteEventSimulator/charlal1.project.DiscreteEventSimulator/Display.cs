@@ -142,14 +142,14 @@ namespace charlal1.project.DiscreteEventSimulator
     class Results : Display
     {
         private DataGridView dgvStatistics;
-        private ListBox lbStatisticsResults;
+        private ProgressBar pBar;
         private string timeObs;
 
-        public Results(IStatistics statisticsSubject, Form1 mainForm, DataGridView dgvStatistics, ListBox lbStatisticsResults)
+        public Results(IStatistics statisticsSubject, Form1 mainForm, DataGridView dgvStatistics, ProgressBar pBar)
             : base(statisticsSubject, mainForm)
         {
             this.dgvStatistics = dgvStatistics;
-            this.lbStatisticsResults = lbStatisticsResults;
+            this.pBar = pBar;
         }
 
         public override void Update(Calender calender, ResourceManager resourceMananger, Statistics statistics)
@@ -159,6 +159,12 @@ namespace charlal1.project.DiscreteEventSimulator
             ///            
             TimeSpan t = TimeSpan.FromSeconds(Global.SystemTime);
             timeObs = string.Format("{0:D1}:{1:D2}:{2:D2}", t.Hours, t.Minutes, t.Seconds);
+
+            if (pBar.InvokeRequired)
+            {
+                SetCallBack d = new SetCallBack(UpdateProgress);
+                mainForm.Invoke(d);
+            }
         }
 
         public override void Draw()
@@ -168,6 +174,11 @@ namespace charlal1.project.DiscreteEventSimulator
                 SetCallBack d = new SetCallBack(DrawStatistics);
                 mainForm.Invoke(d);
             }
+        }
+        
+        private void UpdateProgress()
+        {
+            pBar.Value = Global.CLOCK;
         }
 
         private void DrawStatistics() 
