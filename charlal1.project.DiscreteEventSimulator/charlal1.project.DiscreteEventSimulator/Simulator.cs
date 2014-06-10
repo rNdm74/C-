@@ -92,10 +92,11 @@ namespace charlal1.project.DiscreteEventSimulator
                 System.Threading.Thread.Sleep(Global.SIMULATION_SPEED);                
             }
 
-            //MessageBox.Show("The simulation completed successfully","Simulation Complete");
+            // Gives user feedback at the end of the simulation
             if(Global.GEN_CSV)
                 OpenSaveFileDialog();
-            
+            else
+                MessageBox.Show("The simulation completed successfully", "Simulation Complete");
         }
 
         private void OpenSaveFileDialog() 

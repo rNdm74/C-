@@ -48,12 +48,12 @@ namespace charlal1.project.DiscreteEventSimulator
             ResourceOther = new List<string>();
             ResourceCarStereo = new List<string>();
 
-            pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_ARRIVAL));
-            pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_IVR));
-            pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_OTHER_QUEUE));
-            pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_CAR_STEREO_QUEUE));
-            pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_RESOURCE_OTHER));
-            pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_RESOURCE_CAR_STEREO));
+            //pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_ARRIVAL));
+            //pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_IVR));
+            //pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_OTHER_QUEUE));
+            //pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_CAR_STEREO_QUEUE));
+            //pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_RESOURCE_OTHER));
+            //pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_RESOURCE_CAR_STEREO));
         }
 
         public void Update(Calender calender, ResourceManager resourceMananger, Statistics statistics)
@@ -106,25 +106,38 @@ namespace charlal1.project.DiscreteEventSimulator
         public void Draw()
         {
             // Clear controls
-            foreach (Label l in pGraphical.Controls.Find("lEntity", true))
+            foreach (Control c in pGraphical.Controls)
             {
-                pGraphical.Controls.Remove(l);
+                foreach (Label l in c.Controls.Find("lEntity", true))
+                {
+                    c.Controls.Remove(l);
+                    //pGraphical.Controls[1].Controls.Remove(l);
+                    //pGraphical.Controls[2].Controls.Remove(l);
+                    //pGraphical.Controls[3].Controls.Remove(l);
+                    //pGraphical.Controls[4].Controls.Remove(l);
+                    //pGraphical.Controls[5].Controls.Remove(l);
+                }
             }
 
-            pGraphical.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_ARRIVAL));
-            pGraphical.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_IVR));
-            pGraphical.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_OTHER_QUEUE));
-            pGraphical.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_CAR_STEREO_QUEUE));
-            pGraphical.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_OTHER));
-            pGraphical.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_CAR_STEREO));
+            pGraphical.Controls[4].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_OTHER_QUEUE));
+            pGraphical.Controls[3].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_CAR_STEREO_QUEUE));
+            pGraphical.Controls[2].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_ARRIVAL));
+            pGraphical.Controls[5].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_IVR));
+            pGraphical.Controls[0].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_OTHER));
+            pGraphical.Controls[1].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_CAR_STEREO));
 
-            pGraphical.Refresh();
+            pGraphical.Controls[0].Refresh();
+            pGraphical.Controls[1].Refresh();
+            pGraphical.Controls[2].Refresh();
+            pGraphical.Controls[3].Refresh();
+            pGraphical.Controls[4].Refresh();
+            pGraphical.Controls[5].Refresh();
         }
     }
 
     class GraphicalDisplayFactory
     {
-        private const int SIZE = 32;
+        private const int SIZE = 64;
 
         private GraphicalDisplay gDisplay;
 
@@ -138,17 +151,17 @@ namespace charlal1.project.DiscreteEventSimulator
             switch (labelType)
             {
                 case ELabelType.L_ARRIVAL:
-                    return makeEntityLabelList(gDisplay.Arrival, Color.LightGreen, 32, 87);
+                    return makeEntityLabelList(gDisplay.Arrival, Color.LightGreen, 32, 32);
                 case ELabelType.L_IVR:
-                    return makeEntityLabelList(gDisplay.SwitchComplete, Color.LightGoldenrodYellow, 164, 87);
+                    return makeEntityLabelList(gDisplay.SwitchComplete, Color.LightGoldenrodYellow, 32, 32);
                 case ELabelType.L_OTHER_QUEUE:
-                    return makeEntityLabelList(gDisplay.QueueOther, Color.LightBlue, 312, 55);
+                    return makeEntityLabelList(gDisplay.QueueOther, Color.LightBlue, 32, 32);
                 case ELabelType.L_CAR_STEREO_QUEUE:
-                    return makeEntityLabelList(gDisplay.QueueCarStereo, Color.LightPink, 312, 215);
+                    return makeEntityLabelList(gDisplay.QueueCarStereo, Color.LightPink, 32, 32);
                 case ELabelType.L_RESOURCE_OTHER:
-                    return makeEntityLabelList(gDisplay.ResourceOther, Color.LightBlue, 740, 55);
+                    return makeEntityLabelList(gDisplay.ResourceOther, Color.LightBlue, 32, 32);
                 case ELabelType.L_RESOURCE_CAR_STEREO:
-                    return makeEntityLabelList(gDisplay.ResourceCarStereo, Color.LightPink, 740, 215);
+                    return makeEntityLabelList(gDisplay.ResourceCarStereo, Color.LightPink, 32, 32);
                 default:
                     return new Label[0];
             }
@@ -160,17 +173,17 @@ namespace charlal1.project.DiscreteEventSimulator
             switch (labelType)
             {
                 case ELabelType.L_ARRIVAL:
-                    return makeLabel(Constants.ARRIVAL, 32, 64);
+                    return makeLabel(Constants.ARRIVAL, 32, 192);
                 case ELabelType.L_IVR:
-                    return makeLabel(Constants.SWITCH, 164, 64);
+                    return makeLabel(Constants.SWITCH, 164, 192);
                 case ELabelType.L_OTHER_QUEUE:
                     return makeLabel(Constants.OTHER_QUEUE, 312, 32);
                 case ELabelType.L_CAR_STEREO_QUEUE:
-                    return makeLabel(Constants.STEREO_QUEUE, 312, 192);
+                    return makeLabel(Constants.STEREO_QUEUE, 312, 240);
                 case ELabelType.L_RESOURCE_OTHER:
                     return makeLabel(Constants.OTHER_RESOURCE, 740, 32);
                 case ELabelType.L_RESOURCE_CAR_STEREO:
-                    return makeLabel(Constants.STEREO_RESOURCE, 740, 192);
+                    return makeLabel(Constants.STEREO_RESOURCE, 740, 364);
                 default:
                     return new Label { Text = "Default Label" };
             }
