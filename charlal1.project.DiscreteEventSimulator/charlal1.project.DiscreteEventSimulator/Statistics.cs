@@ -19,24 +19,22 @@ namespace charlal1.project.DiscreteEventSimulator
 
     class Statistics : IStatistics
     {
-        private int waitingAverageCount, waitingAverageCarStereoCount, waitingAverageOtherCount, systemAverageCount;
+        private int count = 0;
 
-        private Calender calender                { get; set; }
-        private ResourceManager resourceMananger { get; set; }
+        private int iterations, averageWaitingTimeCount, averageNumberWaitingCount, waitingAverageCarStereoCount, waitingAverageOtherCount, systemAverageCount;
 
-        //private List<Entity> leavingEntities;
+        private Calender calender;
+        private ResourceManager resourceMananger;
+
+        public Dictionary<int, string> CsvData   { get; set; }
+
         private List<IDisplay> displayList;
         
         public Statistics() 
         {
+            this.CsvData = new Dictionary<int,string>();
             this.displayList = new List<IDisplay>();
-            //this.leavingEntities = new List<Entity>();
-
-            waitingAverageCount = waitingAverageCarStereoCount = waitingAverageOtherCount = systemAverageCount = 0;
-
-            // Set variables to 0
-            //BusySignalCount = CallCompletion = ExcessiveWaitCount = ResourceUtilization = Iterations = ResourcesUsed = 0;
-            //AverageWaitingTime = AverageSystemTime = AverageNumberWaiting = ResourseOtherWorkTime = ResourseCarStereoWorkTime = ResourseWorkTime = SystemTime = 0;
+            iterations = averageWaitingTimeCount = averageNumberWaitingCount = waitingAverageCarStereoCount = waitingAverageOtherCount = systemAverageCount = 0;
         }
 
 
@@ -76,7 +74,6 @@ namespace charlal1.project.DiscreteEventSimulator
             UpdateCompletions(e.CallType);
 
             // If the entity waited
-            //if (!e.BeginWait.ToString("yyyy").Equals("0001"))
             if(e.BeginWait != 0)
             {
                 // Work out entity wait time
@@ -86,15 +83,15 @@ namespace charlal1.project.DiscreteEventSimulator
                 UpdateAverageNumberWaiting(e.CallType);
                 UpdateAverageWaitingTime(waitTime);
                 UpdateExcessiveWaiting(e.CallType, waitTime);
-
-
+                //count+
             }
 
             // Update system time for all entities
             UpdateSystemTime(e);
             
             UpdateResourceUtilization(e);
-            
+
+            UpdateCSVData();
         }
 
         public void UpdateCompletions(ECallType? callType)
@@ -136,14 +133,14 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             // Running average of the wait time of entities
             //double waitTime = entity.EndTime.Subtract(entity.BeginWait).TotalMinutes;
-            Global.AverageWaitingTime += Compute(waitTime, Global.AverageWaitingTime, waitingAverageCount);
+            Global.AverageWaitingTime += Compute(waitTime, Global.AverageWaitingTime, ++averageWaitingTimeCount);
         }
 
         private void UpdateAverageNumberWaiting(ECallType? callType) 
         {
             // Running average of entities waiting
             Global.AverageNumberWaiting++;
-            Global.AverageNumberWaiting += Compute(1, Global.AverageNumberWaiting, ++waitingAverageCount);
+            Global.AverageNumberWaiting += Compute(1, Global.AverageNumberWaiting, ++averageNumberWaitingCount);
 
             // Increment the waiting average count
             //waitingAverageCount++;
@@ -183,14 +180,42 @@ namespace charlal1.project.DiscreteEventSimulator
         private void UpdateSystemTime(Entity e) 
         {
             // Average time entity takes to get through the system
-            double sysTime = e.EndTime - e.StartTime;
+            double sysTime = (e.EndTime - e.StartTime) / Constants.SECONDS_TO_MINUTES;
 
-            Global.AverageSystemTime += Compute(sysTime / Constants.SECONDS_TO_MINUTES, Global.AverageSystemTime, ++systemAverageCount);
+            Global.AverageSystemTime += Compute(sysTime, Global.AverageSystemTime, ++systemAverageCount);
         }
 
         private double Compute(double newValue, double avgValue, int count)
         {
             return (newValue - avgValue) / count;
-        }        
+        }       
+ 
+        private void UpdateCSVData()
+        {
+            string data = 
+            Global.BusySignalCount + "," +
+            Global.CallCompletion + "," +
+            Global.CallCompletionOther + "," +
+            Global.CallCompletionCarStereo + "," +
+            Global.ExcessiveWaitCount + "," +
+            Global.ExcessiveWaitCountOther + "," +
+            Global.ExcessiveWaitCountCarStereo + "," +
+            Global.ResourceUtilization + "," +
+            Global.ResourceOtherUtilization + "," +
+            Global.ResourceCarStereoUtilization + "," +
+            Global.ResourseOtherWorkTime + "," +
+            Global.ResourseCarStereoWorkTime + "," +
+            Global.ResourseWorkTime + "," +
+            Global.SystemTime + "," +
+            Global.AverageNumberWaiting + "," +
+            Global.AverageWaitingTime + "," +
+            Global.AverageNumberWaitingOther + "," +
+            Global.AverageNumberWaitingCarStereo + "," +
+            Global.AverageSystemTime;
+
+            CsvData.Add(iterations, data);
+
+            iterations++;
+        }
     }
 }

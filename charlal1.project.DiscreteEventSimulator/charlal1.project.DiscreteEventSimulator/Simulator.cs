@@ -92,6 +92,8 @@ namespace charlal1.project.DiscreteEventSimulator
             }
 
             MessageBox.Show("The simulation completed successfully","Simulation Complete");
+            
+            
         }
 
 

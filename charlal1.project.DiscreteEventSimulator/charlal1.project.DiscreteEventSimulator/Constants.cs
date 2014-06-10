@@ -29,6 +29,7 @@ namespace charlal1.project.DiscreteEventSimulator
         // Statistics
         public static int Iterations                        { get; set; }
         public static int ResourcesUsed                     { get; set; }
+
         public static int BusySignalCount                   { get; set; }
         public static int CallCompletion                    { get; set; }
         public static int CallCompletionOther               { get; set; }
