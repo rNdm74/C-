@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace charlal1.project.DiscreteEventSimulator
 {
@@ -91,11 +92,64 @@ namespace charlal1.project.DiscreteEventSimulator
                 System.Threading.Thread.Sleep(Global.SIMULATION_SPEED);                
             }
 
-            MessageBox.Show("The simulation completed successfully","Simulation Complete");
-            
+            //MessageBox.Show("The simulation completed successfully","Simulation Complete");
+            if(Global.GEN_CSV)
+                OpenSaveFileDialog();
             
         }
 
+        private void OpenSaveFileDialog() 
+        {
+            Stream myStream;
+            StreamWriter file;
 
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+            saveFileDialog.Filter = "CSV files (*.csv)|*.csv";
+            saveFileDialog.FilterIndex = 2;
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.FileName = "simulator_statistics_" + DateTime.Now.ToString("ddMMyyyy");
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if ((myStream = saveFileDialog.OpenFile()) != null)
+                {
+                    file = new StreamWriter(myStream);
+                    
+                    file.WriteLine
+                    (
+                        "Iterations," +
+                        "Busy Signal," +
+                        "Call Completion," +
+                        "Call Completion Other," +
+                        "Call Completion Car Stereo," +
+                        "Excessive Wait Count," +
+                        "Excessive Wait Count Other," +
+                        "Excessive Wait Count Car Stereo," +
+                        "Resource Utilization," +
+                        "Resource Other Utilization," +
+                        "Resource Car Stereo Utilization," +
+                        "Resourse Other Work Time," +
+                        "Resourse Car Stereo Work Time," +
+                        "Resourse Work Time," +
+                        "System Time," +
+                        "Average Number Waiting," +
+                        "Average Waiting Time," +
+                        "Average Number Waiting Other," +
+                        "Average Number Waiting Car Stereo," +
+                        "Average System Time"
+                    );
+
+                    // Code to write the stream goes here.
+                    foreach (KeyValuePair<int, string> item in statistics.CsvData)
+                    {
+                        file.WriteLine(item.Key + "," + item.Value);
+                    }
+
+                    file.Close();
+                    myStream.Close();
+                }
+            }
+        }
     }
 }

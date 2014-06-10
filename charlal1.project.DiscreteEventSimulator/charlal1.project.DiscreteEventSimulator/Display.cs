@@ -197,9 +197,9 @@ namespace charlal1.project.DiscreteEventSimulator
             dgvStatistics.Rows.Add(new String[] { "Excessive Wait Count Car Stereo",    Global.ExcessiveWaitCountCarStereo.ToString(),          "---" });
             dgvStatistics.Rows.Add(new String[] { "Average Wait Time",                  Global.AverageWaitingTime.ToString("0 min"),            timeObs });
             dgvStatistics.Rows.Add(new String[] { "Average System Time",                Global.AverageSystemTime.ToString("0 min"),             timeObs });
-            dgvStatistics.Rows.Add(new String[] { "Average Number Waiting",             Global.AverageNumberWaiting.ToString(),                 timeObs });
-            dgvStatistics.Rows.Add(new String[] { "Average Waiting Other",              Global.AverageNumberWaitingOther.ToString(),            timeObs });
-            dgvStatistics.Rows.Add(new String[] { "Average Waiting Car Stereo",         Global.AverageNumberWaitingCarStereo.ToString(),        timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Average Number Waiting",             Global.AverageNumberWaiting.ToString("0"),                 timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Average Waiting Other",              Global.AverageNumberWaitingOther.ToString("0.0"),            timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Average Waiting Car Stereo",         Global.AverageNumberWaitingCarStereo.ToString("0.0"),        timeObs });
             dgvStatistics.Rows.Add(new String[] { "Resource Utilization Other",         Global.ResourceOtherUtilization.ToString("0.##%"),      timeObs });
             dgvStatistics.Rows.Add(new String[] { "Resource Utilization Car Stereo",    Global.ResourceCarStereoUtilization.ToString("0.##%"),  timeObs });
             dgvStatistics.Rows.Add(new String[] { "Resource Utilization Total",         Global.ResourceUtilization.ToString("0.##%"),           timeObs });

@@ -49,7 +49,7 @@ namespace charlal1.project.DiscreteEventSimulator
 
         private void InitializeGlobals() 
         {
-            
+            Global.GEN_CSV = cbSaveFileDialog.Checked;
             
             Global.START_SIMULATION_TIME = (int) nUpDownSimulationStartTime.Value;
             Global.END_SIMULATION_TIME = (int) nUpDownSimulationRunTime.Value;             
@@ -62,14 +62,37 @@ namespace charlal1.project.DiscreteEventSimulator
             Global.DELAY_PROCESSING = (double)nUpDown_Delay_Processing.Value;
 
             // Set variables to 0
-            Global.BusySignalCount = Global.CallCompletion = Global.CallCompletionOther = Global.CallCompletionCarStereo = Global.ExcessiveWaitCount = Global.ExcessiveWaitCountOther = Global.ExcessiveWaitCountCarStereo = Global.Iterations = Global.ResourcesUsed = 0;
-            Global.AverageWaitingTime = Global.AverageSystemTime = Global.AverageNumberWaiting = Global.ResourceUtilization = Global.ResourseOtherWorkTime = Global.ResourseCarStereoWorkTime = Global.ResourseWorkTime = Global.SystemTime = 0;
+            Global.BusySignalCount = 
+            Global.CallCompletion = 
+            Global.CallCompletionOther = 
+            Global.CallCompletionCarStereo = 
+            Global.ExcessiveWaitCount = 
+            Global.ExcessiveWaitCountOther = 
+            Global.ExcessiveWaitCountCarStereo = 
+            Global.Iterations = 
+            Global.ResourcesUsed = 
+            Global.WaitCount = 
+            Global.WaitCountOther = 
+            Global.WaitCountCarStereo = 0;
+
+            Global.AverageWaitingTime = 
+            Global.AverageSystemTime = 
+            Global.AverageNumberWaiting =
+            Global.AverageNumberWaitingOther =
+            Global.AverageNumberWaitingCarStereo = 
+            Global.ResourceUtilization = 
+            Global.ResourseOtherWorkTime = 
+            Global.ResourseCarStereoWorkTime = 
+            Global.ResourseWorkTime = 
+            Global.SystemTime = 0;
 
             Global.CLOCK = Global.START_SIMULATION_TIME;
             Global.SystemTime = Global.END_SIMULATION_TIME;
 
             pbSimulation.Value = 0;
             pbSimulation.Maximum = Global.END_SIMULATION_TIME;
+
+
         }
 
         private void InitializeSimulation() 
@@ -90,62 +113,9 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             ThreadStart ts = new ThreadStart(simulator.RunSimulation);
             t = new Thread(ts);
+            t.SetApartmentState(ApartmentState.STA);
             t.Start();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Stream myStream;
-            StreamWriter file;
-
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-
-            saveFileDialog1.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
-            saveFileDialog1.FilterIndex = 2;
-            saveFileDialog1.RestoreDirectory = true;
-
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                if ((myStream = saveFileDialog1.OpenFile()) != null)
-                {
-                    file = new StreamWriter(myStream);
-                    string header =
-                            "Iterations," +
-                            "Busy Signal," +
-                            "Call Completion," +
-                            "Call Completion Other," +
-                            "Call Completion Car Stereo," +
-                            "Excessive Wait Count," +
-                            "Excessive Wait Count Other," +
-                            "Excessive Wait Count Car Stereo," +
-                            "Resource Utilization," +
-                            "Resource Other Utilization," +
-                            "Resource Car Stereo Utilization," +
-                            "Resourse Other Work Time," +
-                            "Resourse Car Stereo Work Time," +
-                            "Resourse Work Time," +
-                            "System Time," +
-                            "Average Number Waiting," +
-                            "Average Waiting Time," +
-                            "Average Number Waiting Other," +
-                            "Average Number Waiting Car Stereo," +
-                            "Average System Time";
-
-
-                    file.WriteLine(header);
-
-                    // Code to write the stream goes here.
-                    foreach (KeyValuePair<int, string> item in statisticsSubject.CsvData)
-                    {
-                        
-
-                        file.WriteLine(item.Key + "," + item.Value);
-                    }
-
-                    file.Close();
-                    myStream.Close();
-                }
-            }
+            
         }
     }
 }

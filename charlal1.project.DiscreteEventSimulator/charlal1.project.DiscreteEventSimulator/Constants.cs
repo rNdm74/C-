@@ -12,6 +12,7 @@ namespace charlal1.project.DiscreteEventSimulator
     {
         public static int CLOCK                             { get; set; }
         public static int SIMULATION_SPEED                  { get; set; }
+        public static bool GEN_CSV                          { get; set; }
 
         // Simulation
         public static int START_SIMULATION_TIME             { get; set; }
@@ -37,6 +38,9 @@ namespace charlal1.project.DiscreteEventSimulator
         public static int ExcessiveWaitCount                { get; set; }
         public static int ExcessiveWaitCountOther           { get; set; }
         public static int ExcessiveWaitCountCarStereo       { get; set; }
+        public static int WaitCount                         { get; set; }
+        public static int WaitCountOther                    { get; set; }
+        public static int WaitCountCarStereo                { get; set; }
 
         public static double ResourceUtilization            { get; set; }
         public static double ResourceOtherUtilization       { get; set; }
