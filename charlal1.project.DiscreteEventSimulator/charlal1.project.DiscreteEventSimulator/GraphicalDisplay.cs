@@ -10,7 +10,7 @@ namespace charlal1.project.DiscreteEventSimulator
     enum ELabelType 
     { 
         L_ARRIVAL, 
-        L_IVR, 
+        L_SWITCH, 
         L_OTHER_QUEUE, 
         L_CAR_STEREO_QUEUE, 
         L_RESOURCE_OTHER, 
@@ -47,13 +47,6 @@ namespace charlal1.project.DiscreteEventSimulator
             QueueCarStereo = new List<string>();
             ResourceOther = new List<string>();
             ResourceCarStereo = new List<string>();
-
-            //pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_ARRIVAL));
-            //pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_IVR));
-            //pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_OTHER_QUEUE));
-            //pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_CAR_STEREO_QUEUE));
-            //pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_RESOURCE_OTHER));
-            //pGraphical.Controls.Add(gdFactory.MakeLabel(ELabelType.L_RESOURCE_CAR_STEREO));
         }
 
         public void Update(Calender calender, ResourceManager resourceMananger, Statistics statistics)
@@ -111,20 +104,15 @@ namespace charlal1.project.DiscreteEventSimulator
                 foreach (Label l in c.Controls.Find("lEntity", true))
                 {
                     c.Controls.Remove(l);
-                    //pGraphical.Controls[1].Controls.Remove(l);
-                    //pGraphical.Controls[2].Controls.Remove(l);
-                    //pGraphical.Controls[3].Controls.Remove(l);
-                    //pGraphical.Controls[4].Controls.Remove(l);
-                    //pGraphical.Controls[5].Controls.Remove(l);
                 }
             }
 
-            pGraphical.Controls[4].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_OTHER_QUEUE));
-            pGraphical.Controls[3].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_CAR_STEREO_QUEUE));
-            pGraphical.Controls[2].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_ARRIVAL));
-            pGraphical.Controls[5].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_IVR));
-            pGraphical.Controls[0].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_OTHER));
-            pGraphical.Controls[1].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_CAR_STEREO));
+            pGraphical.Controls[3].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_OTHER_QUEUE));
+            pGraphical.Controls[0].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_CAR_STEREO_QUEUE));
+            pGraphical.Controls[4].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_ARRIVAL));
+            pGraphical.Controls[5].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_SWITCH));
+            pGraphical.Controls[1].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_OTHER));
+            pGraphical.Controls[2].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_CAR_STEREO));
 
             pGraphical.Controls[0].Refresh();
             pGraphical.Controls[1].Refresh();
@@ -152,7 +140,7 @@ namespace charlal1.project.DiscreteEventSimulator
             {
                 case ELabelType.L_ARRIVAL:
                     return makeEntityLabelList(gDisplay.Arrival, Color.LightGreen, 32, 32);
-                case ELabelType.L_IVR:
+                case ELabelType.L_SWITCH:
                     return makeEntityLabelList(gDisplay.SwitchComplete, Color.LightGoldenrodYellow, 32, 32);
                 case ELabelType.L_OTHER_QUEUE:
                     return makeEntityLabelList(gDisplay.QueueOther, Color.LightBlue, 32, 32);
@@ -168,37 +156,37 @@ namespace charlal1.project.DiscreteEventSimulator
             
         }
 
-        public Label MakeLabel(ELabelType labelType) 
-        {
-            switch (labelType)
-            {
-                case ELabelType.L_ARRIVAL:
-                    return makeLabel(Constants.ARRIVAL, 32, 192);
-                case ELabelType.L_IVR:
-                    return makeLabel(Constants.SWITCH, 164, 192);
-                case ELabelType.L_OTHER_QUEUE:
-                    return makeLabel(Constants.OTHER_QUEUE, 312, 32);
-                case ELabelType.L_CAR_STEREO_QUEUE:
-                    return makeLabel(Constants.STEREO_QUEUE, 312, 240);
-                case ELabelType.L_RESOURCE_OTHER:
-                    return makeLabel(Constants.OTHER_RESOURCE, 740, 32);
-                case ELabelType.L_RESOURCE_CAR_STEREO:
-                    return makeLabel(Constants.STEREO_RESOURCE, 740, 364);
-                default:
-                    return new Label { Text = "Default Label" };
-            }
-        }
+        //public Label MakeLabel(ELabelType labelType) 
+        //{
+        //    switch (labelType)
+        //    {
+        //        case ELabelType.L_ARRIVAL:
+        //            return makeLabel(Constants.ARRIVAL, 32, 192);
+        //        case ELabelType.L_SWITCH:
+        //            return makeLabel(Constants.SWITCH, 164, 192);
+        //        case ELabelType.L_OTHER_QUEUE:
+        //            return makeLabel(Constants.OTHER_QUEUE, 312, 32);
+        //        case ELabelType.L_CAR_STEREO_QUEUE:
+        //            return makeLabel(Constants.STEREO_QUEUE, 312, 240);
+        //        case ELabelType.L_RESOURCE_OTHER:
+        //            return makeLabel(Constants.OTHER_RESOURCE, 740, 32);
+        //        case ELabelType.L_RESOURCE_CAR_STEREO:
+        //            return makeLabel(Constants.STEREO_RESOURCE, 740, 364);
+        //        default:
+        //            return new Label { Text = "Default Label" };
+        //    }
+        //}
 
-        private Label makeLabel(string text, int x, int y)
-        {
-            return new Label 
-            {
-                Text = text,
-                AutoSize = true,
-                Location = new Point(x, y),
-                Name = "l" + text
-            };
-        }
+        //private Label makeLabel(string text, int x, int y)
+        //{
+        //    return new Label 
+        //    {
+        //        Text = text,
+        //        AutoSize = true,
+        //        Location = new Point(x, y),
+        //        Name = "l" + text
+        //    };
+        //}
 
         private Label[] makeEntityLabelList(List<string> list, Color color, int startX, int startY) 
         {
@@ -208,7 +196,7 @@ namespace charlal1.project.DiscreteEventSimulator
             {
                 labelList = new Label[list.Count];
 
-                for (int col = 0; col < labelList.Length; col++)
+                for (int col = 0; col < list.Count; col++)
                 {
                     string text = list[col];
 
