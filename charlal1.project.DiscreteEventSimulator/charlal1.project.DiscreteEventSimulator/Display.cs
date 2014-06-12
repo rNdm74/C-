@@ -139,13 +139,13 @@ namespace charlal1.project.DiscreteEventSimulator
         }
     }
 
-    class Results : Display
+    class Stats : Display
     {
         private DataGridView dgvStatistics;
         private ProgressBar pBar;
         private string timeObs;
 
-        public Results(IStatistics statisticsSubject, Form1 mainForm, DataGridView dgvStatistics, ProgressBar pBar)
+        public Stats(IStatistics statisticsSubject, Form1 mainForm, DataGridView dgvStatistics, ProgressBar pBar)
             : base(statisticsSubject, mainForm)
         {
             this.dgvStatistics = dgvStatistics;
@@ -178,31 +178,28 @@ namespace charlal1.project.DiscreteEventSimulator
         
         private void UpdateProgress()
         {
-            pBar.Value = Global.CLOCK;
+            pBar.Value = Global.Clock;
         }
 
         private void DrawStatistics() 
         {
-            ///
-            /// Draw data to listbox
-            ///
-
+            // Draw data to listbox
             dgvStatistics.Rows.Clear();
-            dgvStatistics.Rows.Add(new String[] { "Bus Signal Count",                   Global.BusySignalCount.ToString(),                      "---" });
-            dgvStatistics.Rows.Add(new String[] { "Call Completions",                   Global.CallCompletion.ToString(),                       "---" });
-            dgvStatistics.Rows.Add(new String[] { "Call Completions Other",             Global.CallCompletionOther.ToString(),                  "---" });
-            dgvStatistics.Rows.Add(new String[] { "Call Completions Car Stereo",        Global.CallCompletionCarStereo.ToString(),              "---" });
-            dgvStatistics.Rows.Add(new String[] { "Excessive Wait Count",               Global.ExcessiveWaitCount.ToString(),                   "---" });
-            dgvStatistics.Rows.Add(new String[] { "Excessive Wait Count Other",         Global.ExcessiveWaitCountOther.ToString(),              "---" });
-            dgvStatistics.Rows.Add(new String[] { "Excessive Wait Count Car Stereo",    Global.ExcessiveWaitCountCarStereo.ToString(),          "---" });
-            dgvStatistics.Rows.Add(new String[] { "Average Wait Time",                  Global.AverageWaitingTime.ToString("0 min"),            timeObs });
-            dgvStatistics.Rows.Add(new String[] { "Average System Time",                Global.AverageSystemTime.ToString("0 min"),             timeObs });
-            dgvStatistics.Rows.Add(new String[] { "Average Number Waiting",             Global.AverageNumberWaiting.ToString("0"),                 timeObs });
-            dgvStatistics.Rows.Add(new String[] { "Average Waiting Other",              Global.AverageNumberWaitingOther.ToString("0.0"),            timeObs });
-            dgvStatistics.Rows.Add(new String[] { "Average Waiting Car Stereo",         Global.AverageNumberWaitingCarStereo.ToString("0.0"),        timeObs });
-            dgvStatistics.Rows.Add(new String[] { "Resource Utilization Other",         Global.ResourceOtherUtilization.ToString("0.##%"),      timeObs });
-            dgvStatistics.Rows.Add(new String[] { "Resource Utilization Car Stereo",    Global.ResourceCarStereoUtilization.ToString("0.##%"),  timeObs });
-            dgvStatistics.Rows.Add(new String[] { "Resource Utilization Total",         Global.ResourceUtilization.ToString("0.##%"),           timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Bus Signal Count",                           Global.BusySignalCount.ToString(),                      "---" });
+            dgvStatistics.Rows.Add(new String[] { "Call Completions",                           Global.CallCompletion.ToString(),                       "---" });
+            dgvStatistics.Rows.Add(new String[] { "Call Completions " + Constants.TYPE_1,       Global.CallCompletionType1.ToString(),                  "---" });
+            dgvStatistics.Rows.Add(new String[] { "Call Completions " + Constants.TYPE_2,       Global.CallCompletionType2.ToString(),                  "---" });
+            dgvStatistics.Rows.Add(new String[] { "Excessive Wait Count",                       Global.ExcessiveWaitCount.ToString(),                   "---" });
+            dgvStatistics.Rows.Add(new String[] { "Excessive Wait Count " + Constants.TYPE_1,   Global.ExcessiveWaitCountType1.ToString(),              "---" });
+            dgvStatistics.Rows.Add(new String[] { "Excessive Wait Count " + Constants.TYPE_2,   Global.ExcessiveWaitCountType2.ToString(),              "---" });
+            dgvStatistics.Rows.Add(new String[] { "Average Wait Time",                          Global.AverageWaitingTime.ToString("0 min"),            timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Average System Time",                        Global.AverageSystemTime.ToString("0 min"),             timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Average Number Waiting",                     Global.AverageNumberWaiting.ToString("0"),              timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Average Waiting " + Constants.TYPE_1,        Global.AverageNumberWaitingType1.ToString("0.0"),       timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Average Waiting " + Constants.TYPE_2,        Global.AverageNumberWaitingType2.ToString("0.0"),       timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Resource Utilization " + Constants.TYPE_1,   Global.ResourceType1Utilization.ToString("0.##%"),      timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Resource Utilization " + Constants.TYPE_2,   Global.ResourceType2Utilization.ToString("0.##%"),      timeObs });
+            dgvStatistics.Rows.Add(new String[] { "Resource Utilization Total",                 Global.ResourceUtilization.ToString("0.##%"),           timeObs });
             dgvStatistics.Refresh();
         }
     }

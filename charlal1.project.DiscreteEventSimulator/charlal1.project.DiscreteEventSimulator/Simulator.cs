@@ -30,15 +30,15 @@ namespace charlal1.project.DiscreteEventSimulator
             eventFactory = new EventFactory();
             
             // Set global clock
-            Global.CLOCK = Global.START_SIMULATION_TIME;
+            Global.Clock = Global.StartSimulationTime;
 
             // Add EndSim Event
-            Event endSimulationEvent = eventFactory.Spawn(EEventType.END_SIMULATION, Global.END_SIMULATION_TIME, entityFactory.CreateEntity());
+            Event endSimulationEvent = eventFactory.Spawn(EEventType.END_SIMULATION, Global.EndSimulationTime, entityFactory.CreateEntity());
             calender.Add(endSimulationEvent);
 
             // Create First Arrival Event
             Entity firstCaller = entityFactory.CreateEntity();
-            int nextArrivalTime = Global.CLOCK + rGen.TimeBetweenArrivals;
+            int nextArrivalTime = Global.Clock + rGen.TimeBetweenArrivals;
             Event firstArrivalEvent = eventFactory.Spawn(EEventType.ARRIVAL, nextArrivalTime, firstCaller);
             calender.Add(firstArrivalEvent);
         }
@@ -51,7 +51,7 @@ namespace charlal1.project.DiscreteEventSimulator
                 activeEvent = calender.GetNextEvent();
 
                 // Update global clock
-                Global.CLOCK = activeEvent.EventTime;
+                Global.Clock = activeEvent.EventTime;
 
                 if (activeEvent is ArrivalEvent) 
                 {
@@ -89,11 +89,11 @@ namespace charlal1.project.DiscreteEventSimulator
                 statistics.NotifyDisplays();
 
                 // Control the speed of the loop
-                System.Threading.Thread.Sleep(Global.SIMULATION_SPEED);                
+                System.Threading.Thread.Sleep(Global.SimulationSpeed);                
             }
 
             // Gives user feedback at the end of the simulation
-            if(Global.GEN_CSV)
+            if(Global.ExportCSV)
                 OpenSaveFileDialog();
             else
                 MessageBox.Show("The simulation completed successfully", "Simulation Complete");
@@ -101,54 +101,31 @@ namespace charlal1.project.DiscreteEventSimulator
 
         private void OpenSaveFileDialog() 
         {
-            Stream myStream;
+            Stream stream;
             StreamWriter file;
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-
             saveFileDialog.Filter = "CSV files (*.csv)|*.csv";
             saveFileDialog.FilterIndex = 2;
             saveFileDialog.RestoreDirectory = true;
-            saveFileDialog.FileName = "simulator_statistics_" + DateTime.Now.ToString("ddMMyyyy");
+            saveFileDialog.FileName = "simulator_statistics_" + DateTime.Now.ToString("hhmmss_ddMMyyyy");
+            saveFileDialog.Title = "Export Data";
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if ((myStream = saveFileDialog.OpenFile()) != null)
+                if ((stream = saveFileDialog.OpenFile()) != null)
                 {
-                    file = new StreamWriter(myStream);
-                    
-                    file.WriteLine
-                    (
-                        "Iterations," +
-                        "Busy Signal," +
-                        "Call Completion," +
-                        "Call Completion Other," +
-                        "Call Completion Car Stereo," +
-                        "Excessive Wait Count," +
-                        "Excessive Wait Count Other," +
-                        "Excessive Wait Count Car Stereo," +
-                        "Resource Utilization," +
-                        "Resource Other Utilization," +
-                        "Resource Car Stereo Utilization," +
-                        "Resourse Other Work Time," +
-                        "Resourse Car Stereo Work Time," +
-                        "Resourse Work Time," +
-                        "System Time," +
-                        "Average Number Waiting," +
-                        "Average Waiting Time," +
-                        "Average Number Waiting Other," +
-                        "Average Number Waiting Car Stereo," +
-                        "Average System Time"
-                    );
+                    file = new StreamWriter(stream);
 
-                    // Code to write the stream goes here.
-                    foreach (KeyValuePair<int, string> item in statistics.CsvData)
-                    {
+                    // Write csv header
+                    file.WriteLine(Constants.EXPORT_DATA_HEADER);
+
+                    // Code to write the stream goes here
+                    foreach (KeyValuePair<int, string> item in statistics.ExportCSVData)
                         file.WriteLine(item.Key + "," + item.Value);
-                    }
 
                     file.Close();
-                    myStream.Close();
+                    stream.Close();
                 }
             }
         }

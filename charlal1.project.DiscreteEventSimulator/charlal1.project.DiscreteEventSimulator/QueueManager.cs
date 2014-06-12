@@ -39,7 +39,7 @@ namespace charlal1.project.DiscreteEventSimulator
             foreach (Queue queue in simulatorQueues)
                 total += queue.Count;
 
-            return (total < Global.MAX_ON_HOLD);
+            return (total < Global.MaxOnHold);
         }
 
         public void AddEntity(Entity currentEntity) 

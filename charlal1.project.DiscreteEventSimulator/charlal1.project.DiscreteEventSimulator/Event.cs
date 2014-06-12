@@ -25,11 +25,31 @@ namespace charlal1.project.DiscreteEventSimulator
         }
 
         public abstract void Execute(Calender calender, ResourceManager resourceManager, Statistics statistics, RandomNumberGenerator rGen, EntityFactory entitiyFactory, EventFactory eventFactory);
+
+        public string[] ToString() 
+        {
+            // Get timespan
+            TimeSpan et = TimeSpan.FromSeconds(EventTime);
+            // Calculate hours
+            int etHours = et.Hours + (Global.StartSimulationTime / Constants.DATE_TIME_FACTOR);
+
+            // Setup string[] for display
+            string[] entityToString = CurrentEntity.ToString();
+            entityToString[1] = EventType.ToString();
+            entityToString[2] = string.Format("{0:D1}:{1:D2}:{2:D2}", etHours, et.Minutes, et.Seconds);
+
+            // return data string array
+            return entityToString;
+        }
     }
-                    
-    // Entities initial request
+      
     class ArrivalEvent : Event
     {
+        /// <summary>
+        /// Entities initial request
+        /// </summary>
+        /// <param name="eventTime">The time the event occurs</param>
+        /// <param name="currentEntity"> Entity associated with the eventd</param>
         public ArrivalEvent(int eventTime, Entity currentEntity)
             : base(eventTime, currentEntity)
         {
@@ -48,7 +68,7 @@ namespace charlal1.project.DiscreteEventSimulator
                 CurrentEntity.CallType = rGen.GetCallType;
 
                 // Calculate the next event time
-                int nextEventTime = CurrentEntity.StartTime + rGen.TimeBetweenArrivals;
+                int nextEventTime = CurrentEntity.StartTime + rGen.DelayAtSwitch;
 
                 // Setup next event for active entity switch complete event
                 Event processingCompleteEvent = eventFactory.Spawn(EEventType.SWITCH_COMPLETE, nextEventTime, CurrentEntity);
@@ -76,9 +96,13 @@ namespace charlal1.project.DiscreteEventSimulator
         }
     }
 
-    // Completion of Entities request at switchboard
     class SwitchCompleteEvent : Event
     {
+        /// <summary>
+        /// Completion of Entities request at switchboard
+        /// </summary>
+        /// <param name="eventTime">The time the event occurs</param>
+        /// <param name="currentEntity"> Entity associated with the eventd</param>
         public SwitchCompleteEvent(int eventTime, Entity currentEntity)
             : base(eventTime, currentEntity)
         {
@@ -100,7 +124,7 @@ namespace charlal1.project.DiscreteEventSimulator
                 CurrentEntity.AssignResource = resource;
 
                 // Set the time the enitity starts being processed
-                CurrentEntity.StartProcessingTime = Global.CLOCK;
+                CurrentEntity.StartProcessingTime = Global.Clock;
 
                 // Compute its process time
                 int nextEventTime = EventTime + rGen.NextEventTime(CurrentEntity.CallType);
@@ -121,10 +145,14 @@ namespace charlal1.project.DiscreteEventSimulator
             }
         }
     }
-    
-    // Entities request is being processed
+     
     class ProcessingCompleteEvent : Event
     {
+        /// <summary>
+        /// Entities request is being processed
+        /// </summary>
+        /// <param name="eventTime">The time the event occurs</param>
+        /// <param name="currentEntity"> Entity associated with the eventd</param>
         public ProcessingCompleteEvent(int eventTime, Entity currentEntity)
             : base(eventTime, currentEntity)
         {
@@ -154,7 +182,7 @@ namespace charlal1.project.DiscreteEventSimulator
                 Entity nextEntityInQueue = resourceManager.GetFirstInQueue(resource.CallType);
 
                 // Set the time the enitity starts being processed
-                nextEntityInQueue.StartProcessingTime = Global.CLOCK;
+                nextEntityInQueue.StartProcessingTime = Global.Clock;
 
                 // Resource is now busy
                 resource.IsFree = false;
@@ -174,9 +202,13 @@ namespace charlal1.project.DiscreteEventSimulator
         }
     }
     
-    // End of simulation
     class EndSimulationEvent : Event
     {
+        /// <summary>
+        /// End of simulation
+        /// </summary>
+        /// <param name="eventTime">The time the event occurs</param>
+        /// <param name="currentEntity"> Entity associated with the eventd</param>
         public EndSimulationEvent(int eventTime, Entity currentEntity)
             : base(eventTime, currentEntity)
         {

@@ -12,27 +12,35 @@ namespace charlal1.project.DiscreteEventSimulator
         public RandomNumberGenerator()
         {
             rGen = new Random();
-
-            //TimeSpan ts = new TimeSpan();
-            
         }
 
-        public int Roll
+        private int rollDice()
         {
-            get
-            {
-                int d1 = rGen.Next(1, 7);
-                int d2 = rGen.Next(1, 7);
+            int d1 = rGen.Next(1, 7);
+            int d2 = rGen.Next(1, 7);
 
-                return d1 + d2;
-            }
+            return d1 + d2;
+        }
+
+        private int delayTime(double delay) 
+        {
+            // Get dice roll
+            int roll = rollDice();
+            // Get factor based on delay const
+            double factor = roll * delay;
+            // Convert to seconds from minutes
+            double delaySeconds = factor * Constants.CONVERT_TO_SECONDS;
+            // Convert to integer for Global.Clock
+            int result = (int)Math.Ceiling(delaySeconds);
+
+            return result;
         }
 
         public int TimeBetweenArrivals 
         {
             get
-            {
-                return (int) (Roll * Global.DELAY_ARRIVAL) * Constants.SECONDS_TO_MINUTES;
+            {   
+                return delayTime(Global.DelayArrival);
             }
         }
 
@@ -40,7 +48,7 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             get
             {
-                return (int)(Roll * Global.DELAY_SWITCH) * Constants.SECONDS_TO_MINUTES;
+                return delayTime(Global.DelaySwitch);
             }
         }
 
@@ -48,7 +56,7 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             get
             {
-                return (int)(Roll * Global.DELAY_PROCESSING) * Constants.SECONDS_TO_MINUTES;
+                return delayTime(Global.DelayProcessing);
             }
         }
 
@@ -56,7 +64,7 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             get
             {
-                return Roll * Constants.SECONDS_TO_MINUTES;
+                return delayTime(1);
             }
         }
 
@@ -77,7 +85,9 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             get
             {
-                if(Roll <= Constants.CALL_TYPE_PROBABILITY)
+                int roll = rollDice();
+
+                if (roll <= Global.CallTypeProbability)
                     return ECallType.CAR_STEREO;
                 else
                     return ECallType.OTHER;

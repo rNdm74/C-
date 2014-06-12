@@ -17,9 +17,7 @@ namespace charlal1.project.DiscreteEventSimulator
 
         public Entity CreateEntity()
         {
-            Entity newEntity = new Entity(++EntityID);
-
-            return newEntity;
+            return new Entity(++EntityID);;
         }
     }
 }

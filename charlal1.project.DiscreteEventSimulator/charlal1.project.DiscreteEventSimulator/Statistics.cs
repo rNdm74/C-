@@ -19,20 +19,15 @@ namespace charlal1.project.DiscreteEventSimulator
 
     class Statistics : IStatistics
     {
-        public Dictionary<int, string> CsvData { get; set; }
-
         private Calender calender;
         private ResourceManager resourceMananger;
         private List<IDisplay> displayList;
-        private Update update;
-        private int iterations;
+        private StatisticsProcessor statisticsProcessor;
         
         public Statistics() 
         {
-            this.CsvData = new Dictionary<int,string>();
             this.displayList = new List<IDisplay>();
-            this.update = new Update();
-            this.iterations = 0;
+            this.statisticsProcessor = new StatisticsProcessor();
         }
         
         public void AddDisplay(IDisplay d)
@@ -64,53 +59,71 @@ namespace charlal1.project.DiscreteEventSimulator
         
         public void UpdateEntityStatistics(Entity e)
         {
-            update.Completions(e.CallType);
+            statisticsProcessor.Update(e);
+        }
 
-            // If the entity waited
-            if(e.BeginWait != 0)
+        public Dictionary<int, string> ExportCSVData
+        {
+            get
             {
-                // Work out entity wait time
-                int waitTime = (e.EndTime - e.BeginWait) / Constants.SECONDS_TO_MINUTES;
-
-                // Update waiting averages
-                update.AverageWaitTime(waitTime);
-                update.AverageNumberWaiting(e.CallType);                
-                update.ExcessiveWaiting(e.CallType, waitTime);                
+                return statisticsProcessor.ExportCsvData;
             }
-
-            // Update system time for all entities
-            update.AverageSystemTime(e);
-
-            //
-            update.UpdateWorkTime(e);
-            //
-            update.ResourceUtilization(e);
-            //
-            update.Count++;
-
-            // Update data for csv export
-            CsvData.Add(iterations, update.CSVData);
-
-            // Track system iterations
-            iterations++;
-        }              
+        }
     }
 
-    class Update
+    class StatisticsProcessor
     {
-        public int Count { get; set; }
+        private int count;
+        private int iterations;
+        private Dictionary<int, string> exportCsvData;
+        public Dictionary<int, string> ExportCsvData { get { return exportCsvData; } }
         
-        public Update() 
+        public StatisticsProcessor() 
         {
             // Init
-            Count = 1;            
+            this.count = 1;
+            this.iterations = 0;
+            this.exportCsvData = new Dictionary<int, string>();
         }
 
         /// <summary>
-        /// 
+        /// Update the stats
         /// </summary>
-        /// <param name="callType"></param>
-        public void Completions(ECallType? callType)
+        public void Update(Entity e) 
+        {
+            completions(e.CallType);
+
+            // If the entity waited
+            if (e.BeginWait != 0)
+            {
+                // Work out entity wait time
+                int waitTime = (e.EndTime - e.BeginWait) / Constants.CONVERT_TO_SECONDS;
+
+                // Update waiting averages
+                averageWaitTime(waitTime);
+                averageNumberWaiting(e.CallType);
+                excessiveWaiting(e.CallType, waitTime);
+            }
+
+            // Update system time for all entities
+            averageSystemTime(e);
+            //
+            updateWorkTime(e);
+            //
+            resourceUtilization(e);
+            //
+            count++;
+
+            // Update data for csv export
+            exportCsvData.Add(iterations, csvData);
+            // Track system iterations
+            iterations++;
+        }
+
+        /// <summary>
+        /// Computes all call compleation stats
+        /// </summary>
+        private void completions(ECallType? callType)
         {
             // Update statistics of enitiy leaving system
             Global.CallCompletion++;
@@ -118,43 +131,41 @@ namespace charlal1.project.DiscreteEventSimulator
             switch (callType)
             {
                 case ECallType.OTHER:
-                    Global.CallCompletionOther++;
+                    Global.CallCompletionType1++;
                     break;
                 case ECallType.CAR_STEREO:
-                    Global.CallCompletionCarStereo++;
+                    Global.CallCompletionType2++;
                     break;
             }
         }
         
         /// <summary>
-        /// 
+        /// Computes the average time all entites waited
         /// </summary>
-        /// <param name="waitTime"></param>
-        public void AverageWaitTime(int waitTime)
+        private void averageWaitTime(int waitTime)
         {
             // Running average of the wait time of entities
-            Global.AverageWaitingTime += Compute(waitTime, Global.AverageWaitingTime, Count);
+            Global.AverageWaitingTime += compute(waitTime, Global.AverageWaitingTime, count);
         }
 
         /// <summary>
-        /// 
+        /// Computes the average number of entities that waited
         /// </summary>
-        /// <param name="callType"></param>
-        public void AverageNumberWaiting(ECallType? callType)
+        private void averageNumberWaiting(ECallType? callType)
         {
             // Running average of entities waiting
             Global.WaitCount++;
-            Global.AverageNumberWaiting += Compute(Global.WaitCount, Global.AverageNumberWaiting, Count);
+            Global.AverageNumberWaiting += compute(Global.WaitCount, Global.AverageNumberWaiting, count);
                         
             switch (callType)
             {
                 case ECallType.CAR_STEREO:
-                    Global.WaitCountCarStereo++;
-                    Global.AverageNumberWaitingCarStereo += Compute(Global.WaitCountCarStereo, Global.AverageNumberWaitingCarStereo, Count);
+                    Global.WaitCountType2++;
+                    Global.AverageNumberWaitingType2 += compute(Global.WaitCountType2, Global.AverageNumberWaitingType2, count);
                     break;
                 case ECallType.OTHER:
-                    Global.WaitCountOther++;
-                    Global.AverageNumberWaitingOther += Compute(Global.WaitCountOther, Global.AverageNumberWaitingOther, Count);
+                    Global.WaitCountType1++;
+                    Global.AverageNumberWaitingType1 += compute(Global.WaitCountType1, Global.AverageNumberWaitingType1, count);
                     break;
             }
         }
@@ -162,108 +173,96 @@ namespace charlal1.project.DiscreteEventSimulator
         /// <summary>
         /// If the entity is waiting over 1 min, can be set by user
         /// </summary>
-        /// <param name="callType"></param>
-        /// <param name="waitTime"></param>
-        public void ExcessiveWaiting(ECallType? callType, int waitTime)
+        private void excessiveWaiting(ECallType? callType, int waitTime)
         {
             // Work out if call had an excessive wait time
-            if (waitTime > Global.EXCESSIVE_WAIT_TIME)
+            if (waitTime > Global.ExcessiveWaitTime)
             {
                 Global.ExcessiveWaitCount++;
 
                 switch (callType)
                 {
                     case ECallType.CAR_STEREO:
-                        Global.ExcessiveWaitCountCarStereo++;
+                        Global.ExcessiveWaitCountType2++;
                         break;
                     case ECallType.OTHER:
-                        Global.ExcessiveWaitCountOther++;
+                        Global.ExcessiveWaitCountType1++;
                         break;
                 }
             }
         }
         
         /// <summary>
-        /// 
+        /// Computes the average time it takes for entity to traverse the system
         /// </summary>
-        /// <param name="e"></param>
-        public void AverageSystemTime(Entity e)
+        private void averageSystemTime(Entity e)
         {
             // Average time entity takes to get through the system
-            double sysTime = (e.EndTime - e.StartTime) / Constants.SECONDS_TO_MINUTES;
-
-            Global.AverageSystemTime += Compute(sysTime, Global.AverageSystemTime, Count);
+            double sysTime = (e.EndTime - e.StartTime) / Constants.CONVERT_TO_SECONDS;
+            Global.AverageSystemTime += compute(sysTime, Global.AverageSystemTime, count);
         }
 
         /// <summary>
-        /// 
+        /// Computes all resources worktime for the entity
         /// </summary>
-        /// <param name="e"></param>
-        public void UpdateWorkTime(Entity e)
+        private void updateWorkTime(Entity e)
         {
             switch (e.CallType)
             {
                 case ECallType.OTHER:
-                    Global.ResourseOtherWorkTime += e.EndTime - e.StartProcessingTime;
+                    Global.ResourseType1WorkTime += e.EndTime - e.StartProcessingTime;
                     break;
                 case ECallType.CAR_STEREO:
-                    Global.ResourseCarStereoWorkTime += e.EndTime - e.StartProcessingTime;
+                    Global.ResourseType2WorkTime += e.EndTime - e.StartProcessingTime;
                     break;
             }
         }
 
         /// <summary>
-        /// 
+        /// Computes all resource utilization
         /// </summary>
-        /// <param name="e"></param>
-        public void ResourceUtilization(Entity e)
+        private void resourceUtilization(Entity e)
         {
             Global.ResourseWorkTime += e.EndTime - e.StartProcessingTime;
-            //UpdateWorkTime(e);
-            Global.ResourceOtherUtilization = (Global.ResourseOtherWorkTime / Global.MAX_RESOURCES_OTHER) / Global.SystemTime;
-            Global.ResourceCarStereoUtilization = (Global.ResourseCarStereoWorkTime / Global.MAX_RESOURCES_CAR_STEREO) / Global.SystemTime;
-            Global.ResourceUtilization = (Global.ResourseWorkTime / (Global.MAX_RESOURCES_OTHER + Global.MAX_RESOURCES_CAR_STEREO)) / Global.SystemTime;
+            Global.ResourceType1Utilization = (Global.ResourseType1WorkTime / Global.MaxResourcesType1) / Global.SystemTime;
+            Global.ResourceType2Utilization = (Global.ResourseType2WorkTime / Global.MaxResourcesType2) / Global.SystemTime;
+            Global.ResourceUtilization = (Global.ResourseWorkTime / (Global.MaxResourcesType1 + Global.MaxResourcesType2)) / Global.SystemTime;
         }
 
         /// <summary>
-        /// 
+        /// Compute the running average 
         /// </summary>
-        /// <param name="newValue"></param>
-        /// <param name="avgValue"></param>
-        /// <param name="count"></param>
-        /// <returns></returns>
-        private double Compute(double newValue, double avgValue, int count)
+        private double compute(double newValue, double avgValue, int count)
         {
             return (newValue - avgValue) / count;
         }
 
         /// <summary>
-        /// 
+        /// To string for all global statstical data
         /// </summary>
-        /// <returns></returns>
-        public string CSVData
+        private string csvData
         {
             get
             {
                 return
                 Global.BusySignalCount + "," +
                 Global.CallCompletion + "," +
-                Global.CallCompletionOther + "," +
-                Global.CallCompletionCarStereo + "," +
+                Global.CallCompletionType1 + "," +
+                Global.CallCompletionType2 + "," +
                 Global.ExcessiveWaitCount + "," +
-                Global.ExcessiveWaitCountOther + "," +
-                Global.ExcessiveWaitCountCarStereo + "," +
+                Global.ExcessiveWaitCountType1 + "," +
+                Global.ExcessiveWaitCountType2 + "," +
                 Global.ResourceUtilization + "," +
-                Global.ResourceOtherUtilization + "," +
-                Global.ResourceCarStereoUtilization + "," +
-                Global.ResourseOtherWorkTime + "," +
-                Global.ResourseCarStereoWorkTime + "," +
+                Global.ResourceType1Utilization + "," +
+                Global.ResourceType2Utilization + "," +
+                Global.ResourseType1WorkTime + "," +
+                Global.ResourseType2WorkTime + "," +
                 Global.ResourseWorkTime + "," +
                 Global.SystemTime + "," +
                 Global.AverageNumberWaiting + "," +
                 Global.AverageWaitingTime + "," +
-                Global.AverageNumberWaitingOther + "," +
-                Global.AverageNumberWaitingCarStereo + "," +
+                Global.AverageNumberWaitingType1 + "," +
+                Global.AverageNumberWaitingType2 + "," +
                 Global.AverageSystemTime;   
             }                     
         }

@@ -37,11 +37,16 @@ namespace charlal1.project.DiscreteEventSimulator
 
         private void tbSimulationSpeed_Scroll(object sender, EventArgs e)
         {
-            Global.SIMULATION_SPEED = tbSimulationSpeed.Value;
+            Global.SimulationSpeed = tbSimulationSpeed.Value;
         }
+
+        
 
         private void simulationStart_Click(object sender, EventArgs e)
         {
+            if (t != null)
+                t.Abort();
+
             InitializeGlobals();
             InitializeSimulation();
             StartSimulation();
@@ -49,50 +54,31 @@ namespace charlal1.project.DiscreteEventSimulator
 
         private void InitializeGlobals() 
         {
-            Global.GEN_CSV = cbSaveFileDialog.Checked;
+            Global.Init();
+
+            Global.ExportCSV = cbSaveFileDialog.Checked;
             
-            Global.START_SIMULATION_TIME = (int) nUpDownSimulationStartTime.Value;
-            Global.END_SIMULATION_TIME = (int) nUpDownSimulationRunTime.Value;             
-            Global.MAX_RESOURCES_OTHER = (int) nUpDown_Max_Resources_Other.Value;
-            Global.MAX_RESOURCES_CAR_STEREO = (int)nUpDown_Max_Resources_Car_Stereo.Value;
-            Global.MAX_ON_HOLD = (int)nUpDown_Max_On_Hold.Value;
-            Global.EXCESSIVE_WAIT_TIME = (int)nUpDown_Excessive_Wait_Time.Value;
-            Global.DELAY_ARRIVAL = (double)nUpDown_Delay_Arrival.Value;
-            Global.DELAY_SWITCH = (double)nUpDown_Delay_Switch.Value;
-            Global.DELAY_PROCESSING = (double)nUpDown_Delay_Processing.Value;
+            // Simulation
+            Global.StartSimulationTime = (int)nUpDownSimulationStartTime.Value;
+            Global.EndSimulationTime = (int)nUpDownSimulationRunTime.Value;             
+            Global.MaxResourcesType1 = (int)nUpDown_Max_Resources_Other.Value;
+            Global.MaxResourcesType2 = (int)nUpDown_Max_Resources_Car_Stereo.Value;
+            Global.MaxOnHold = (int)nUpDown_Max_On_Hold.Value;
+            Global.ExcessiveWaitTime = (int)nUpDown_Excessive_Wait_Time.Value;
+            Global.CallTypeProbability = (int)nUpDownCallTypeProbability.Value;
 
-            // Set variables to 0
-            Global.BusySignalCount = 
-            Global.CallCompletion = 
-            Global.CallCompletionOther = 
-            Global.CallCompletionCarStereo = 
-            Global.ExcessiveWaitCount = 
-            Global.ExcessiveWaitCountOther = 
-            Global.ExcessiveWaitCountCarStereo = 
-            Global.Iterations = 
-            Global.ResourcesUsed = 
-            Global.WaitCount = 
-            Global.WaitCountOther = 
-            Global.WaitCountCarStereo = 0;
+            // Delays
+            Global.DelayArrival = (double)nUpDown_Delay_Arrival.Value;
+            Global.DelaySwitch = (double)nUpDown_Delay_Switch.Value;
+            Global.DelayProcessing = (double)nUpDown_Delay_Processing.Value;
 
-            Global.AverageWaitingTime = 
-            Global.AverageSystemTime = 
-            Global.AverageNumberWaiting =
-            Global.AverageNumberWaitingOther =
-            Global.AverageNumberWaitingCarStereo = 
-            Global.ResourceUtilization = 
-            Global.ResourseOtherWorkTime = 
-            Global.ResourseCarStereoWorkTime = 
-            Global.ResourseWorkTime = 
-            Global.SystemTime = 0;
+            // Set simulation clock and total sytem run time
+            Global.Clock = Global.StartSimulationTime;
+            Global.SystemTime = Global.EndSimulationTime;
 
-            Global.CLOCK = Global.START_SIMULATION_TIME;
-            Global.SystemTime = Global.END_SIMULATION_TIME;
-
+            // Setup the progressbar start value and max value 
             pbSimulation.Value = 0;
-            pbSimulation.Maximum = Global.END_SIMULATION_TIME;
-
-
+            pbSimulation.Maximum = Global.EndSimulationTime;
         }
 
         private void InitializeSimulation() 
@@ -103,7 +89,7 @@ namespace charlal1.project.DiscreteEventSimulator
             {
                 new Graphical(statisticsSubject, this, pGraphicalDisplay),
                 new Text(statisticsSubject, this,  dgvCalender, dgvOtherQueue, dgvCarStereoQueue),
-                new Results(statisticsSubject, this,  dgvStatistics, pbSimulation)
+                new Stats(statisticsSubject, this,  dgvStatistics, pbSimulation)
             };
 
             simulator = new Simulator(statisticsSubject);
@@ -115,7 +101,11 @@ namespace charlal1.project.DiscreteEventSimulator
             t = new Thread(ts);
             t.SetApartmentState(ApartmentState.STA);
             t.Start();
-            
+        }
+
+        private void cbSaveFileDialog_CheckedChanged(object sender, EventArgs e)
+        {
+            Global.ExportCSV = cbSaveFileDialog.Checked;
         }
     }
 }

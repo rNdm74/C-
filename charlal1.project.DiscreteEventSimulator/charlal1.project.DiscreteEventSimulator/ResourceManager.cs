@@ -15,10 +15,10 @@ namespace charlal1.project.DiscreteEventSimulator
             resources = new List<Resource>();
             queueManager = new QueueManager();
 
-            for (int i = 0; i < Global.MAX_RESOURCES_CAR_STEREO; i++)
+            for (int i = 0; i < Global.MaxResourcesType2; i++)
                 resources.Add(new Resource(ECallType.CAR_STEREO));
 
-            for (int i = 0; i < Global.MAX_RESOURCES_OTHER; i++)
+            for (int i = 0; i < Global.MaxResourcesType1; i++)
                 resources.Add(new Resource(ECallType.OTHER));
         }
 
@@ -45,9 +45,7 @@ namespace charlal1.project.DiscreteEventSimulator
         public Resource NextAvailableResource(ECallType? calltype)
         {
             // Returns a resource, of its a specific calltype and it must be free else return null
-            Resource resource = resources.Find(r => (r.CallType == calltype && r.IsFree == true));
-
-            return resource;
+            return resources.Find(r => (r.CallType == calltype && r.IsFree == true));
         }
 
         public void AddToQueue(Entity currentEntity) 

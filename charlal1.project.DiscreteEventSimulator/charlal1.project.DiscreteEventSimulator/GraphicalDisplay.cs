@@ -7,16 +7,6 @@ using System.Drawing;
 
 namespace charlal1.project.DiscreteEventSimulator
 {
-    enum ELabelType 
-    { 
-        L_ARRIVAL, 
-        L_SWITCH, 
-        L_OTHER_QUEUE, 
-        L_CAR_STEREO_QUEUE, 
-        L_RESOURCE_OTHER, 
-        L_RESOURCE_CAR_STEREO 
-    }
-
     interface IGraphicalDisplay 
     {
         void Update(Calender calender, ResourceManager resourceMananger, Statistics statistics);
@@ -51,6 +41,7 @@ namespace charlal1.project.DiscreteEventSimulator
 
         public void Update(Calender calender, ResourceManager resourceMananger, Statistics statistics)
         {
+            // Clear the lists
             Arrival.Clear();
             SwitchComplete.Clear();
             QueueOther.Clear();
@@ -58,41 +49,54 @@ namespace charlal1.project.DiscreteEventSimulator
             ResourceOther.Clear();
             ResourceCarStereo.Clear();
 
-            process(resourceMananger.GetQueueEntityData(ECallType.OTHER));
-            process(resourceMananger.GetQueueEntityData(ECallType.CAR_STEREO));
-            process(calender.GetEventData());
+            // Update the lists
+            updateDisplayList(resourceMananger.GetQueueEntityData(ECallType.OTHER));
+            updateDisplayList(resourceMananger.GetQueueEntityData(ECallType.CAR_STEREO));
+            updateDisplayList(calender.GetEventData());
         }
 
-        private void process(List<String[]> list) 
+        private void updateDisplayList(List<String[]> list) 
         {
+            // Loop through all data from the list
             foreach (string[] data in list)
             {
+                // Pull the data we need for display
                 string entityID = data[Constants.EVENT_ENTITY_POS];
                 string eventType = data[Constants.EVENT_TYPE_POS];
                 string callType = data[Constants.EVENT_CALL_TYPE_POS];
 
-                List<string> updatedList = null;
+                // Create a placeholder list
+                List<string> listToBeProcessed = null;
 
+                // Used If statements as to much computation for switch
+                //
+                // Change list to arrival
                 if (eventType.Equals(EEventType.ARRIVAL.ToString()))
-                    updatedList = Arrival;
-                
+                    listToBeProcessed = Arrival;
+
+                // Switch complete list
                 if (eventType.Equals(EEventType.SWITCH_COMPLETE.ToString()))
-                    updatedList = SwitchComplete;
-                
+                    listToBeProcessed = SwitchComplete;
+
+                // If no event enitity is in queue && change list to other 
                 if (eventType.Equals("---") && callType.Equals(ECallType.OTHER.ToString()))
-                    updatedList = QueueOther;
+                    listToBeProcessed = QueueOther;
 
+                // If no event enitity is in queue && change list to car stereo 
                 if (eventType.Equals("---") && callType.Equals(ECallType.CAR_STEREO.ToString()))
-                    updatedList = QueueCarStereo;
-                
-                if (eventType.Equals(EEventType.PROCESSING_COMPLETE.ToString()) && callType.Equals(ECallType.OTHER.ToString()))
-                    updatedList = ResourceOther;
-                
-                if (eventType.Equals(EEventType.PROCESSING_COMPLETE.ToString()) && callType.Equals(ECallType.CAR_STEREO.ToString()))
-                    updatedList = ResourceCarStereo;
+                    listToBeProcessed = QueueCarStereo;
 
+                // Get the event and calltype
+                if (eventType.Equals(EEventType.PROCESSING_COMPLETE.ToString()) && callType.Equals(ECallType.OTHER.ToString()))
+                    listToBeProcessed = ResourceOther;
+
+                // Get the event and calltype
+                if (eventType.Equals(EEventType.PROCESSING_COMPLETE.ToString()) && callType.Equals(ECallType.CAR_STEREO.ToString()))
+                    listToBeProcessed = ResourceCarStereo;
+
+                // Add info to the list if the simulation is still running
                 if(!eventType.Equals(EEventType.END_SIMULATION.ToString()))
-                    updatedList.Add(entityID);
+                    listToBeProcessed.Add(entityID);
             }
         }
 
@@ -100,33 +104,33 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             // Clear controls
             foreach (Control c in pGraphical.Controls)
-            {
                 foreach (Label l in c.Controls.Find("lEntity", true))
-                {
                     c.Controls.Remove(l);
-                }
-            }
 
-            pGraphical.Controls[3].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_OTHER_QUEUE));
-            pGraphical.Controls[0].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_CAR_STEREO_QUEUE));
-            pGraphical.Controls[4].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_ARRIVAL));
-            pGraphical.Controls[5].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_SWITCH));
-            pGraphical.Controls[1].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_OTHER));
-            pGraphical.Controls[2].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_CAR_STEREO));
+            // Get indexes of the gbControls
+            int gbArrivalIndex = pGraphical.Controls.IndexOfKey("gbArrival");
+            int gbSwitchIndex = pGraphical.Controls.IndexOfKey("gbSwitch");
+            int gbOtherQueueIndex = pGraphical.Controls.IndexOfKey("gbOtherQueue");
+            int gbCarStereoQueueIndex = pGraphical.Controls.IndexOfKey("gbCarStereoQueue");
+            int gbResourcesOtherIndex = pGraphical.Controls.IndexOfKey("gbResourcesOther");
+            int gbResourcesCarStereoIndex = pGraphical.Controls.IndexOfKey("gbResourcesCarStereo");
 
-            pGraphical.Controls[0].Refresh();
-            pGraphical.Controls[1].Refresh();
-            pGraphical.Controls[2].Refresh();
-            pGraphical.Controls[3].Refresh();
-            pGraphical.Controls[4].Refresh();
-            pGraphical.Controls[5].Refresh();
+            // Add the controls to the gbControls
+            pGraphical.Controls[gbArrivalIndex].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_ARRIVAL));
+            pGraphical.Controls[gbSwitchIndex].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_SWITCH));
+            pGraphical.Controls[gbOtherQueueIndex].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_QUEUE_TYPE_1));
+            pGraphical.Controls[gbCarStereoQueueIndex].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_QUEUE_TYPE_2));
+            pGraphical.Controls[gbResourcesOtherIndex].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_TYPE_1));
+            pGraphical.Controls[gbResourcesCarStereoIndex].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_TYPE_2));
+
+            // Refresh controls
+            foreach (Control c in pGraphical.Controls)
+                c.Refresh();
         }
     }
 
     class GraphicalDisplayFactory
     {
-        private const int SIZE = 64;
-
         private GraphicalDisplay gDisplay;
 
         public GraphicalDisplayFactory(GraphicalDisplay gDisplay) 
@@ -139,79 +143,38 @@ namespace charlal1.project.DiscreteEventSimulator
             switch (labelType)
             {
                 case ELabelType.L_ARRIVAL:
-                    return makeEntityLabelList(gDisplay.Arrival, Color.LightGreen, 32, 32);
+                    return makeEntityLabelList(gDisplay.Arrival, Color.LightGreen);
                 case ELabelType.L_SWITCH:
-                    return makeEntityLabelList(gDisplay.SwitchComplete, Color.LightGoldenrodYellow, 32, 32);
-                case ELabelType.L_OTHER_QUEUE:
-                    return makeEntityLabelList(gDisplay.QueueOther, Color.LightBlue, 32, 32);
-                case ELabelType.L_CAR_STEREO_QUEUE:
-                    return makeEntityLabelList(gDisplay.QueueCarStereo, Color.LightPink, 32, 32);
-                case ELabelType.L_RESOURCE_OTHER:
-                    return makeEntityLabelList(gDisplay.ResourceOther, Color.LightBlue, 32, 32);
-                case ELabelType.L_RESOURCE_CAR_STEREO:
-                    return makeEntityLabelList(gDisplay.ResourceCarStereo, Color.LightPink, 32, 32);
+                    return makeEntityLabelList(gDisplay.SwitchComplete, Color.LightGoldenrodYellow);
+                case ELabelType.L_QUEUE_TYPE_1:
+                    return makeEntityLabelList(gDisplay.QueueOther, Color.LightBlue);
+                case ELabelType.L_QUEUE_TYPE_2:
+                    return makeEntityLabelList(gDisplay.QueueCarStereo, Color.LightPink);
+                case ELabelType.L_RESOURCE_TYPE_1:
+                    return makeEntityLabelList(gDisplay.ResourceOther, Color.LightBlue);
+                case ELabelType.L_RESOURCE_TYPE_2:
+                    return makeEntityLabelList(gDisplay.ResourceCarStereo, Color.LightPink);
                 default:
                     return new Label[0];
             }
-            
         }
 
-        //public Label MakeLabel(ELabelType labelType) 
-        //{
-        //    switch (labelType)
-        //    {
-        //        case ELabelType.L_ARRIVAL:
-        //            return makeLabel(Constants.ARRIVAL, 32, 192);
-        //        case ELabelType.L_SWITCH:
-        //            return makeLabel(Constants.SWITCH, 164, 192);
-        //        case ELabelType.L_OTHER_QUEUE:
-        //            return makeLabel(Constants.OTHER_QUEUE, 312, 32);
-        //        case ELabelType.L_CAR_STEREO_QUEUE:
-        //            return makeLabel(Constants.STEREO_QUEUE, 312, 240);
-        //        case ELabelType.L_RESOURCE_OTHER:
-        //            return makeLabel(Constants.OTHER_RESOURCE, 740, 32);
-        //        case ELabelType.L_RESOURCE_CAR_STEREO:
-        //            return makeLabel(Constants.STEREO_RESOURCE, 740, 364);
-        //        default:
-        //            return new Label { Text = "Default Label" };
-        //    }
-        //}
-
-        //private Label makeLabel(string text, int x, int y)
-        //{
-        //    return new Label 
-        //    {
-        //        Text = text,
-        //        AutoSize = true,
-        //        Location = new Point(x, y),
-        //        Name = "l" + text
-        //    };
-        //}
-
-        private Label[] makeEntityLabelList(List<string> list, Color color, int startX, int startY) 
+        private Label[] makeEntityLabelList(List<string> list, Color color) 
         {
             Label[] labelList = null;
 
-            try
+            labelList = new Label[list.Count];
+
+            for (int col = 0; col < list.Count; col++)
             {
-                labelList = new Label[list.Count];
+                string text = list[col];
 
-                for (int col = 0; col < list.Count; col++)
-                {
-                    string text = list[col];
+                // Reverse the order so first is on the right
+                int x = (Constants.LABEL_START_X - Constants.LABEL_SIZE) + ((list.Count - col) * Constants.LABEL_SIZE);
+                int y = Constants.LABEL_START_Y;
 
-                    int x = (startX - SIZE) + ((list.Count - col) * SIZE);
-                    int y = startY;
-
-                    labelList[col] = makeEntityLabel(text, color, x, y);
-                }
+                labelList[col] = makeEntityLabel(text, color, x, y);
             }
-            catch (Exception)
-            {
-                
-                //throw;
-            }
-            
 
             return labelList;
         }
@@ -224,7 +187,7 @@ namespace charlal1.project.DiscreteEventSimulator
                 BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle,
                 Location = new Point(x, y),
                 Name = "lEntity",
-                Size = new System.Drawing.Size(SIZE, SIZE),
+                Size = new System.Drawing.Size(Constants.LABEL_SIZE, Constants.LABEL_SIZE),
                 Text = text,
                 TextAlign = System.Drawing.ContentAlignment.MiddleCenter
             };

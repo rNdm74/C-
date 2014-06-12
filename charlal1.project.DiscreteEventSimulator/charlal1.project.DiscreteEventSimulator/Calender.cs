@@ -52,35 +52,9 @@ namespace charlal1.project.DiscreteEventSimulator
             List<string[]> eventData = new List<string[]>();
 
             foreach (Event e in events)
-            {                
-                Entity eventEntity = e.CurrentEntity;
-
-                eventData.Add(rowData(e, eventEntity));
-            }
+                eventData.Add(e.ToString());
 
             return eventData;
-        }
-
-        private string[] rowData(Event currentEvent, Entity currentEntity)
-        {
-            TimeSpan et = TimeSpan.FromSeconds(currentEvent.EventTime);
-            TimeSpan st = TimeSpan.FromSeconds(currentEntity.StartTime);
-            TimeSpan wt = TimeSpan.FromSeconds(currentEntity.BeginWait);
-
-            int etHours = et.Hours + (Global.START_SIMULATION_TIME  / 100);
-            int stHours = st.Hours + (Global.START_SIMULATION_TIME / 100);
-            int wtHours = wt.Hours + (Global.START_SIMULATION_TIME / 100);
-
-            // Get statistics
-            string entityID = currentEntity.ID.ToString();
-            string eventType = (currentEvent == null) ? "---" : currentEvent.EventType.ToString();
-            string eventTime = (currentEvent == null) ? "---" : string.Format("{0:D1}:{1:D2}:{2:D2}", etHours, et.Minutes, et.Seconds);
-            string entityCallType = (currentEntity.CallType == null) ? "---" : currentEntity.CallType.ToString();
-            string entityStartTime = (currentEntity.StartTime == 0) ? "---" : string.Format("{0:D1}:{1:D2}:{2:D2}", stHours, st.Minutes, st.Seconds);//(currentEntity.StartTime.ToString("yyyy").Equals("0001")) ? "---" : currentEntity.StartTime.ToShortTimeString();
-            string entityBeginWait = (currentEntity.BeginWait == 0) ? "---" : string.Format("{0:D1}:{1:D2}:{2:D2}", wtHours, wt.Minutes, wt.Seconds);//(currentEntity.BeginWait.ToString("yyyy").Equals("0001")) ? "---" : currentEntity.BeginWait.ToShortTimeString();
-
-            // return data string array
-            return new string[] { entityID, eventType, eventTime, entityCallType, entityStartTime, entityBeginWait };
         }
     }
 }
