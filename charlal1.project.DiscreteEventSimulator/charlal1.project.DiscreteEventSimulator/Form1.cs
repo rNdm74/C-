@@ -95,7 +95,7 @@ namespace charlal1.project.DiscreteEventSimulator
             Global.DelayProcessing = (double)nUpDown_Processing_Delay.Value;
 
             // Set simulation clock and total sytem run time
-            Global.Clock = Global.StartSimulationTime;
+            Global.Clock = 0;
             Global.SystemTime = Global.EndSimulationTime;
 
             // Setup the progressbar start value and max value 

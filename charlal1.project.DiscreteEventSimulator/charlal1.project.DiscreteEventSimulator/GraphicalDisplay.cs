@@ -30,6 +30,7 @@ namespace charlal1.project.DiscreteEventSimulator
         private Control cQueueCarStereo;
         private Control cResourceOther;
         private Control cResourceCarStereo;
+        private Control cTimeDisplay;
 
         private GraphicalDisplayFactory gdFactory;
 
@@ -52,7 +53,7 @@ namespace charlal1.project.DiscreteEventSimulator
             int gbCarStereoQueueIndex = pGraphical.Controls.IndexOfKey("gbCarStereoQueue");
             int gbResourcesOtherIndex = pGraphical.Controls.IndexOfKey("gbResourcesOther");
             int gbResourcesCarStereoIndex = pGraphical.Controls.IndexOfKey("gbResourcesCarStereo");
-            int pbArrowIndex = pGraphical.Controls.IndexOfKey("pbArrow");
+            int lTimeDisplayIndex = pGraphical.Controls.IndexOfKey("lTimeDisplay");
 
             // Add the controls from pGraphics
             cArrival = pGraphical.Controls[gbArrivalIndex];
@@ -61,6 +62,7 @@ namespace charlal1.project.DiscreteEventSimulator
             cQueueCarStereo = pGraphical.Controls[gbCarStereoQueueIndex];
             cResourceOther = pGraphical.Controls[gbResourcesOtherIndex];
             cResourceCarStereo = pGraphical.Controls[gbResourcesCarStereoIndex];
+            cTimeDisplay = pGraphical.Controls[lTimeDisplayIndex];
         }
 
         /// <summary>
@@ -80,6 +82,8 @@ namespace charlal1.project.DiscreteEventSimulator
             updateDisplayDataList(resourceMananger.GetQueueEntityData(ECallType.OTHER));
             updateDisplayDataList(resourceMananger.GetQueueEntityData(ECallType.CAR_STEREO));
             updateDisplayDataList(calender.GetEventData());
+
+            
         }
 
         /// <summary>
@@ -147,6 +151,13 @@ namespace charlal1.project.DiscreteEventSimulator
             cQueueCarStereo.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_QUEUE_TYPE_2));
             cResourceOther.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_TYPE_1));
             cResourceCarStereo.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_TYPE_2));
+
+            // Get global clock time
+            TimeSpan st = TimeSpan.FromSeconds(Global.Clock);
+            // Format the hours 
+            int stHours = st.Hours + (Global.StartSimulationTime / Constants.DATE_TIME_FACTOR);
+            // Update display
+            cTimeDisplay.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", stHours, st.Minutes, st.Seconds);
 
             // Refresh controls
             foreach (Control c in pGraphical.Controls)

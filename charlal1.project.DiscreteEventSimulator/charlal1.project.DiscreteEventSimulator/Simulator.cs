@@ -30,7 +30,7 @@ namespace charlal1.project.DiscreteEventSimulator
             eventFactory = new EventFactory();
             
             // Set global clock
-            Global.Clock = Global.StartSimulationTime;
+            //Global.Clock = Global.StartSimulationTime;
 
             // Add EndSim Event
             Event endSimulationEvent = eventFactory.Spawn(EEventType.END_SIMULATION, Global.EndSimulationTime, entityFactory.CreateEntity());
