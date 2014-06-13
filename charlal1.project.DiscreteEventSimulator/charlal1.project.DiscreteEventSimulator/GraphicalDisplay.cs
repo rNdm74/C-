@@ -24,6 +24,13 @@ namespace charlal1.project.DiscreteEventSimulator
         public List<string> ResourceOther;
         public List<string> ResourceCarStereo;
 
+        private Control cArrival;
+        private Control cSwitchComplete;
+        private Control cQueueOther;
+        private Control cQueueCarStereo;
+        private Control cResourceOther;
+        private Control cResourceCarStereo;
+
         private GraphicalDisplayFactory gdFactory;
 
         public GraphicalDisplay(Panel pGraphical) 
@@ -37,8 +44,28 @@ namespace charlal1.project.DiscreteEventSimulator
             QueueCarStereo = new List<string>();
             ResourceOther = new List<string>();
             ResourceCarStereo = new List<string>();
+
+            // Get indexes of the gbControls
+            int gbArrivalIndex = pGraphical.Controls.IndexOfKey("gbArrival");
+            int gbSwitchIndex = pGraphical.Controls.IndexOfKey("gbSwitch");
+            int gbOtherQueueIndex = pGraphical.Controls.IndexOfKey("gbOtherQueue");
+            int gbCarStereoQueueIndex = pGraphical.Controls.IndexOfKey("gbCarStereoQueue");
+            int gbResourcesOtherIndex = pGraphical.Controls.IndexOfKey("gbResourcesOther");
+            int gbResourcesCarStereoIndex = pGraphical.Controls.IndexOfKey("gbResourcesCarStereo");
+            int pbArrowIndex = pGraphical.Controls.IndexOfKey("pbArrow");
+
+            // Add the controls from pGraphics
+            cArrival = pGraphical.Controls[gbArrivalIndex];
+            cSwitchComplete = pGraphical.Controls[gbSwitchIndex];
+            cQueueOther = pGraphical.Controls[gbOtherQueueIndex];
+            cQueueCarStereo = pGraphical.Controls[gbCarStereoQueueIndex];
+            cResourceOther = pGraphical.Controls[gbResourcesOtherIndex];
+            cResourceCarStereo = pGraphical.Controls[gbResourcesCarStereoIndex];
         }
 
+        /// <summary>
+        /// Keeps the simulation information current for Calender, Other and CarStereo Queue 
+        /// </summary>
         public void Update(Calender calender, ResourceManager resourceMananger, Statistics statistics)
         {
             // Clear the lists
@@ -50,12 +77,15 @@ namespace charlal1.project.DiscreteEventSimulator
             ResourceCarStereo.Clear();
 
             // Update the lists
-            updateDisplayList(resourceMananger.GetQueueEntityData(ECallType.OTHER));
-            updateDisplayList(resourceMananger.GetQueueEntityData(ECallType.CAR_STEREO));
-            updateDisplayList(calender.GetEventData());
+            updateDisplayDataList(resourceMananger.GetQueueEntityData(ECallType.OTHER));
+            updateDisplayDataList(resourceMananger.GetQueueEntityData(ECallType.CAR_STEREO));
+            updateDisplayDataList(calender.GetEventData());
         }
 
-        private void updateDisplayList(List<String[]> list) 
+        /// <summary>
+        /// Keeps the display data lists up to date
+        /// </summary>
+        private void updateDisplayDataList(List<String[]> list) 
         {
             // Loop through all data from the list
             foreach (string[] data in list)
@@ -100,6 +130,9 @@ namespace charlal1.project.DiscreteEventSimulator
             }
         }
 
+        /// <summary>
+        /// Draw the controls on the panel
+        /// </summary>
         public void Draw()
         {
             // Clear controls
@@ -107,21 +140,13 @@ namespace charlal1.project.DiscreteEventSimulator
                 foreach (Label l in c.Controls.Find("lEntity", true))
                     c.Controls.Remove(l);
 
-            // Get indexes of the gbControls
-            int gbArrivalIndex = pGraphical.Controls.IndexOfKey("gbArrival");
-            int gbSwitchIndex = pGraphical.Controls.IndexOfKey("gbSwitch");
-            int gbOtherQueueIndex = pGraphical.Controls.IndexOfKey("gbOtherQueue");
-            int gbCarStereoQueueIndex = pGraphical.Controls.IndexOfKey("gbCarStereoQueue");
-            int gbResourcesOtherIndex = pGraphical.Controls.IndexOfKey("gbResourcesOther");
-            int gbResourcesCarStereoIndex = pGraphical.Controls.IndexOfKey("gbResourcesCarStereo");
-
             // Add the controls to the gbControls
-            pGraphical.Controls[gbArrivalIndex].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_ARRIVAL));
-            pGraphical.Controls[gbSwitchIndex].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_SWITCH));
-            pGraphical.Controls[gbOtherQueueIndex].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_QUEUE_TYPE_1));
-            pGraphical.Controls[gbCarStereoQueueIndex].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_QUEUE_TYPE_2));
-            pGraphical.Controls[gbResourcesOtherIndex].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_TYPE_1));
-            pGraphical.Controls[gbResourcesCarStereoIndex].Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_TYPE_2));
+            cArrival.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_ARRIVAL));
+            cSwitchComplete.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_SWITCH));
+            cQueueOther.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_QUEUE_TYPE_1));
+            cQueueCarStereo.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_QUEUE_TYPE_2));
+            cResourceOther.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_TYPE_1));
+            cResourceCarStereo.Controls.AddRange(gdFactory.MakeQueue(ELabelType.L_RESOURCE_TYPE_2));
 
             // Refresh controls
             foreach (Control c in pGraphical.Controls)
@@ -138,6 +163,9 @@ namespace charlal1.project.DiscreteEventSimulator
             this.gDisplay = gDisplay;
         }
 
+        /// <summary>
+        /// Returns a list of labels a queue type
+        /// </summary>
         public Label[] MakeQueue(ELabelType labelType)
         {
             switch (labelType)
@@ -159,6 +187,9 @@ namespace charlal1.project.DiscreteEventSimulator
             }
         }
 
+        /// <summary>
+        /// Create the list of labels
+        /// </summary>
         private Label[] makeEntityLabelList(List<string> list, Color color) 
         {
             Label[] labelList = null;
@@ -176,9 +207,13 @@ namespace charlal1.project.DiscreteEventSimulator
                 labelList[col] = makeEntityLabel(text, color, x, y);
             }
 
+            // Return a list of labels 
             return labelList;
         }
 
+        /// <summary>
+        /// Return a new label 
+        /// </summary>
         private Label makeEntityLabel(string text, Color color, int x, int y)
         {
             return new Label 

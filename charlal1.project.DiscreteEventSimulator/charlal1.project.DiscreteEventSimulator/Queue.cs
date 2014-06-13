@@ -18,12 +18,18 @@ namespace charlal1.project.DiscreteEventSimulator
             this.entityQueue = new List<Entity>();
         }
 
+        /// <summary>
+        /// Add entity to the queue
+        /// </summary>
         public void Add(Entity entityWaiting)
         {
             // Add entity to the queue
             entityQueue.Add(entityWaiting);
         }
 
+        /// <summary>
+        /// Returns a toString list of all the entities in the queue
+        /// </summary>
         public List<string[]> GetEntityDataInQueue() 
         {
             // Create list of entity ids
@@ -37,17 +43,23 @@ namespace charlal1.project.DiscreteEventSimulator
             return entityData;
         }
 
+        /// <summary>
+        /// Pops the first in the queue
+        /// </summary>
         public Entity GetFirstInQueue() 
         {
             // Pops the first in the queue
             Entity firstInQueue = entityQueue.First();
+
             // Removes it from the queue
             entityQueue.RemoveAt(0);
 
             return firstInQueue;
         }
 
-        // Count method
+        /// <summary>
+        /// Get the count of the queue
+        /// </summary>
         public int Count
         {
             get
@@ -56,6 +68,9 @@ namespace charlal1.project.DiscreteEventSimulator
             }
         }
 
+        /// <summary>
+        /// Returns if the queue is empty
+        /// </summary>
         public bool IsEmpty 
         {
             get

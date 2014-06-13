@@ -20,7 +20,7 @@ namespace charlal1.project.DiscreteEventSimulator
     class Statistics : IStatistics
     {
         private Calender calender;
-        private ResourceManager resourceMananger;
+        private ResourceManager resourceManager;
         private List<IDisplay> displayList;
         private StatisticsProcessor statisticsProcessor;
         
@@ -30,11 +30,17 @@ namespace charlal1.project.DiscreteEventSimulator
             this.statisticsProcessor = new StatisticsProcessor();
         }
         
+        /// <summary>
+        /// Adds a display to the list
+        /// </summary>
         public void AddDisplay(IDisplay d)
         {
             displayList.Add(d);
         }
 
+        /// <summary>
+        /// Removes a display from the list
+        /// </summary>
         public void RemoveDisplay(IDisplay d)
         {
             // Add error checking
@@ -42,26 +48,38 @@ namespace charlal1.project.DiscreteEventSimulator
                 displayList.Remove(d);
         }
 
-        public void UpdateLists(Calender calender, ResourceManager resourceMananger) 
+        /// <summary>
+        /// Keeps the calender and resourcemanager lists up to date
+        /// </summary>
+        public void UpdateLists(Calender calender, ResourceManager resourceManager) 
         {
             this.calender = calender;
-            this.resourceMananger = resourceMananger;
+            this.resourceManager = resourceManager;
         }
 
+        /// <summary>
+        /// Update the observers and then tell them to draw 
+        /// </summary>
         public void NotifyDisplays()
         {
             foreach (IDisplay currentDisplay in displayList)
             {
-                currentDisplay.Update(calender, resourceMananger, this);
+                currentDisplay.Update(calender, resourceManager, this);
                 currentDisplay.Draw();
             }
         }
         
+        /// <summary>
+        /// Get all statistics form the entity
+        /// </summary>
         public void UpdateEntityStatistics(Entity e)
         {
             statisticsProcessor.Update(e);
         }
 
+        /// <summary>
+        /// Return data to be exported in csv format
+        /// </summary>
         public Dictionary<int, string> ExportCSVData
         {
             get
@@ -91,6 +109,7 @@ namespace charlal1.project.DiscreteEventSimulator
         /// </summary>
         public void Update(Entity e) 
         {
+            // Updats call completions of the simulation
             completions(e.CallType);
 
             // If the entity waited
@@ -107,11 +126,11 @@ namespace charlal1.project.DiscreteEventSimulator
 
             // Update system time for all entities
             averageSystemTime(e);
-            //
-            updateWorkTime(e);
-            //
+            // Increments the resources work times
+            resourceWorkTime(e);
+            // Computes resources utilization
             resourceUtilization(e);
-            //
+            // Increment count for averages
             count++;
 
             // Update data for csv export
@@ -125,9 +144,10 @@ namespace charlal1.project.DiscreteEventSimulator
         /// </summary>
         private void completions(ECallType? callType)
         {
-            // Update statistics of enitiy leaving system
+            // Update statistics of every enitiy leaving system
             Global.CallCompletion++;
 
+            // Update individual completions
             switch (callType)
             {
                 case ECallType.OTHER:
@@ -145,7 +165,7 @@ namespace charlal1.project.DiscreteEventSimulator
         private void averageWaitTime(int waitTime)
         {
             // Running average of the wait time of entities
-            Global.AverageWaitingTime += compute(waitTime, Global.AverageWaitingTime, count);
+            Global.AverageWaitingTime += computeAverage(waitTime, Global.AverageWaitingTime, count);
         }
 
         /// <summary>
@@ -155,17 +175,17 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             // Running average of entities waiting
             Global.WaitCount++;
-            Global.AverageNumberWaiting += compute(Global.WaitCount, Global.AverageNumberWaiting, count);
+            Global.AverageNumberWaiting += computeAverage(Global.WaitCount, Global.AverageNumberWaiting, count);
                         
             switch (callType)
             {
                 case ECallType.CAR_STEREO:
                     Global.WaitCountType2++;
-                    Global.AverageNumberWaitingType2 += compute(Global.WaitCountType2, Global.AverageNumberWaitingType2, count);
+                    Global.AverageNumberWaitingType2 += computeAverage(Global.WaitCountType2, Global.AverageNumberWaitingType2, count);
                     break;
                 case ECallType.OTHER:
                     Global.WaitCountType1++;
-                    Global.AverageNumberWaitingType1 += compute(Global.WaitCountType1, Global.AverageNumberWaitingType1, count);
+                    Global.AverageNumberWaitingType1 += computeAverage(Global.WaitCountType1, Global.AverageNumberWaitingType1, count);
                     break;
             }
         }
@@ -197,23 +217,29 @@ namespace charlal1.project.DiscreteEventSimulator
         /// </summary>
         private void averageSystemTime(Entity e)
         {
+            // Computes the time in seconds a entity moves through the simulation
+            double systemTraversalTime = (e.EndTime - e.StartTime) / Constants.CONVERT_TO_SECONDS;
+
             // Average time entity takes to get through the system
-            double sysTime = (e.EndTime - e.StartTime) / Constants.CONVERT_TO_SECONDS;
-            Global.AverageSystemTime += compute(sysTime, Global.AverageSystemTime, count);
+            Global.AverageSystemTime += computeAverage(systemTraversalTime, Global.AverageSystemTime, count);
         }
 
         /// <summary>
         /// Computes all resources worktime for the entity
         /// </summary>
-        private void updateWorkTime(Entity e)
+        private void resourceWorkTime(Entity e)
         {
+            // Increments total resource worktime
+            Global.ResourseTotalWorkTime += e.EndTime - e.StartProcessingTime;
+
+            // Increments specific resouce worktime
             switch (e.CallType)
             {
                 case ECallType.OTHER:
-                    Global.ResourseType1WorkTime += e.EndTime - e.StartProcessingTime;
+                    Global.ResourseType1TotalWorkTime += e.EndTime - e.StartProcessingTime;
                     break;
                 case ECallType.CAR_STEREO:
-                    Global.ResourseType2WorkTime += e.EndTime - e.StartProcessingTime;
+                    Global.ResourseType2TotalWorkTime += e.EndTime - e.StartProcessingTime;
                     break;
             }
         }
@@ -223,22 +249,26 @@ namespace charlal1.project.DiscreteEventSimulator
         /// </summary>
         private void resourceUtilization(Entity e)
         {
-            Global.ResourseWorkTime += e.EndTime - e.StartProcessingTime;
-            Global.ResourceType1Utilization = (Global.ResourseType1WorkTime / Global.MaxResourcesType1) / Global.SystemTime;
-            Global.ResourceType2Utilization = (Global.ResourseType2WorkTime / Global.MaxResourcesType2) / Global.SystemTime;
-            Global.ResourceUtilization = (Global.ResourseWorkTime / (Global.MaxResourcesType1 + Global.MaxResourcesType2)) / Global.SystemTime;
+            // Utilization computation equations: 
+
+            // Specific Utilzation = (Total time worked specific resource / Total number of specific resources) / Total time system run
+            Global.ResourceType1Utilization = (Global.ResourseType1TotalWorkTime / Global.MaxResourcesType1) / Global.SystemTime;
+            Global.ResourceType2Utilization = (Global.ResourseType2TotalWorkTime / Global.MaxResourcesType2) / Global.SystemTime;
+
+            // Total Utilization = (Total time worked / Total number of all resources) / Total time system run
+            Global.ResourceUtilization = (Global.ResourseTotalWorkTime / (Global.MaxResourcesType1 + Global.MaxResourcesType2)) / Global.SystemTime;
         }
 
         /// <summary>
-        /// Compute the running average 
+        /// Compute the average, new data minus the current average devided by the count
         /// </summary>
-        private double compute(double newValue, double avgValue, int count)
+        private double computeAverage(double newValue, double avgValue, int count)
         {
             return (newValue - avgValue) / count;
         }
 
         /// <summary>
-        /// To string for all global statstical data
+        /// To string for all global statstical data, creates row of data for the CSV export
         /// </summary>
         private string csvData
         {
@@ -255,9 +285,9 @@ namespace charlal1.project.DiscreteEventSimulator
                 Global.ResourceUtilization + "," +
                 Global.ResourceType1Utilization + "," +
                 Global.ResourceType2Utilization + "," +
-                Global.ResourseType1WorkTime + "," +
-                Global.ResourseType2WorkTime + "," +
-                Global.ResourseWorkTime + "," +
+                Global.ResourseType1TotalWorkTime + "," +
+                Global.ResourseType2TotalWorkTime + "," +
+                Global.ResourseTotalWorkTime + "," +
                 Global.SystemTime + "," +
                 Global.AverageNumberWaiting + "," +
                 Global.AverageWaitingTime + "," +

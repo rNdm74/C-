@@ -7,9 +7,13 @@ namespace charlal1.project.DiscreteEventSimulator
 {
     class EventFactory
     {
-        // Will build all events in simulaiton
-        // Type, Datetime , Entity 
-
+        /// <summary>
+        /// Will build all events in simulaiton 
+        /// </summary>
+        /// <param name="eventType">EventType</param>
+        /// <param name="eventTime">EventTime</param>
+        /// <param name="currentEntity">CurrentEntity</param>
+        /// <returns></returns>
         public Event Spawn(EEventType eventType, int eventTime, Entity currentEntity)
         {
             Event newEvent = null;

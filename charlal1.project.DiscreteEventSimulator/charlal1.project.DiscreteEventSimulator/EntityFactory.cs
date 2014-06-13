@@ -15,6 +15,9 @@ namespace charlal1.project.DiscreteEventSimulator
             this.EntityID = 0;
         }
 
+        /// <summary>
+        /// Returns a new entity with a unique ID
+        /// </summary>
         public Entity CreateEntity()
         {
             return new Entity(++EntityID);;

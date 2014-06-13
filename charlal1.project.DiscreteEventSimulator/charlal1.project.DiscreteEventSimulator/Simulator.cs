@@ -43,6 +43,9 @@ namespace charlal1.project.DiscreteEventSimulator
             calender.Add(firstArrivalEvent);
         }
 
+        /// <summary>
+        /// Run the simulation
+        /// </summary>
         public void RunSimulation() 
         {
             while (!(activeEvent is EndSimulationEvent))
@@ -55,33 +58,20 @@ namespace charlal1.project.DiscreteEventSimulator
 
                 if (activeEvent is ArrivalEvent) 
                 {
-                    // 1. Prepare info for the event
-
-                    // 2. Tell event to execute
+                    // Tell event to execute
                     activeEvent.Execute(calender, resourceManager, statistics, rGen, entityFactory, eventFactory);
-
-                    // 3. Tidy up e.g. graphics update etc                    
                 }
 
                 if (activeEvent is SwitchCompleteEvent)
                 {
-                    // 1. Prepare info for the event
-
-                    // 2. Tell event to execute
+                    // Tell event to execute
                     activeEvent.Execute(calender, resourceManager, statistics, rGen, entityFactory, eventFactory);
-
-                    // 3. Tidy up e.g. graphics update etc
                 }        
         
                 if(activeEvent is ProcessingCompleteEvent)
                 {
-                    // 1. Prepare info for the event
-
-                    // 2. Tell event to execute
+                    // Tell event to execute
                     activeEvent.Execute(calender, resourceManager, statistics, rGen, entityFactory, eventFactory);
-
-                    // 3. Tidy up e.g. graphics update etc
-                    
                 }
 
                 // Update simulation statistics
@@ -99,6 +89,9 @@ namespace charlal1.project.DiscreteEventSimulator
                 MessageBox.Show("The simulation completed successfully", "Simulation Complete");
         }
 
+        /// <summary>
+        /// Show the SaveFileDialog
+        /// </summary>
         private void OpenSaveFileDialog() 
         {
             Stream stream;

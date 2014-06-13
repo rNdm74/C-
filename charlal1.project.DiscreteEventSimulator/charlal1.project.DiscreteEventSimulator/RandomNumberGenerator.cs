@@ -14,6 +14,9 @@ namespace charlal1.project.DiscreteEventSimulator
             rGen = new Random();
         }
 
+        /// <summary>
+        /// Returns the result of two rolls of a dice
+        /// </summary>
         private int rollDice()
         {
             int d1 = rGen.Next(1, 7);
@@ -22,6 +25,9 @@ namespace charlal1.project.DiscreteEventSimulator
             return d1 + d2;
         }
 
+        /// <summary>
+        /// Calculates the delay time and returns it in integer format
+        /// </summary>
         private int delayTime(double delay) 
         {
             // Get dice roll
@@ -36,6 +42,9 @@ namespace charlal1.project.DiscreteEventSimulator
             return result;
         }
 
+        /// <summary>
+        /// Get the time between entity arrivals
+        /// </summary>
         public int TimeBetweenArrivals 
         {
             get
@@ -44,6 +53,9 @@ namespace charlal1.project.DiscreteEventSimulator
             }
         }
 
+        /// <summary>
+        /// Get the delay the entity is at the switch
+        /// </summary>
         public int DelayAtSwitch
         {
             get
@@ -52,6 +64,9 @@ namespace charlal1.project.DiscreteEventSimulator
             }
         }
 
+        /// <summary>
+        /// Get the delay the entity is processed by the car stereo resource
+        /// </summary>
         public int DelayCarStereo 
         {
             get
@@ -60,14 +75,20 @@ namespace charlal1.project.DiscreteEventSimulator
             }
         }
 
+        /// <summary>
+        /// Get the delay the entity is processed by the other resource
+        /// </summary>
         public int DelayOther
         {
             get
             {
-                return delayTime(1);
+                return delayTime(1); // 1 meaning no value applied to the roll
             }
         }
 
+        /// <summary>
+        /// Return the event time depending on callType
+        /// </summary>
         public int NextEventTime(ECallType? callType) 
         {
             switch (callType)
@@ -81,6 +102,9 @@ namespace charlal1.project.DiscreteEventSimulator
             }
         }
 
+        /// <summary>
+        /// Return a call type effected by probability
+        /// </summary>
         public ECallType GetCallType
         {
             get

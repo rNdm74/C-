@@ -17,10 +17,13 @@ namespace charlal1.project.DiscreteEventSimulator
         void Draw();
     }
 
+    /// <summary>
+    /// Observer Pattern Class gets data from the statistics subject class
+    /// </summary>
     abstract class Display : IDisplay
     {
+        //
         protected delegate void SetCallBack();
-
         protected IStatistics statisticsSubject;
         protected Form1 mainForm;
 
@@ -37,6 +40,9 @@ namespace charlal1.project.DiscreteEventSimulator
         public abstract void Draw();
     }
 
+    /// <summary>
+    /// Graphical, it displays the simulation information with a graphical representation of the simulation data 
+    /// </summary>
     class Graphical : Display
     {
         private GraphicalDisplay gDisplay;
@@ -49,17 +55,29 @@ namespace charlal1.project.DiscreteEventSimulator
             this.gDisplay = new GraphicalDisplay(pGraphical);
         }
 
+        /// <summary>
+        /// Update the information from the main simulation
+        /// </summary>
         public override void Update(Calender calender, ResourceManager resourceMananger, Statistics statistics)
         {
             gDisplay.Update(calender, resourceMananger, statistics);
         }
 
+        /// <summary>
+        /// Draw the graphical view to the panel
+        /// </summary>
         public override void Draw()
         {
             if (pGraphical.InvokeRequired)
             {
+                // It's on a different thread, so use Invoke.
                 SetCallBack d = new SetCallBack(gDisplay.Draw);
                 mainForm.Invoke(d);
+            }
+            else 
+            {
+                // It's on the same thread, no need for Invoke
+                gDisplay.Draw();
             }
         }
     }
@@ -82,6 +100,9 @@ namespace charlal1.project.DiscreteEventSimulator
             this.dgvCarStereoQueue = dgvCarStereoQueue;
         }
 
+        /// <summary>
+        /// Update the information from the main simulation
+        /// </summary>
         public override void Update(Calender calender, ResourceManager resourceMananger, Statistics statistics)
         {
             calenderData = calender.GetEventData();
@@ -89,43 +110,76 @@ namespace charlal1.project.DiscreteEventSimulator
             carStereoQueueData = resourceMananger.GetQueueEntityData(ECallType.CAR_STEREO);
         }
 
+        /// <summary>
+        /// Draw the datagrid views with updated information
+        /// </summary>
         public override void Draw()
         {
             if (dgvCalender.InvokeRequired)
             {
+                // It's on a different thread, so use Invoke.
                 SetCallBack d = new SetCallBack(DrawCalender);
                 mainForm.Invoke(d);
+            }
+            else
+            {
+                // It's on the same thread, no need for Invoke 
+                DrawCalender();
             }
 
             if (dgvOtherQueue.InvokeRequired)
             {
+                // It's on a different thread, so use Invoke.
                 SetCallBack d = new SetCallBack(DrawOtherQueue);
                 mainForm.Invoke(d);
+            }
+            else
+            {
+                // It's on the same thread, no need for Invoke 
+                DrawOtherQueue();
             }
                 
             if(dgvCarStereoQueue.InvokeRequired)
             {
+                // It's on a different thread, so use Invoke.
                 SetCallBack d = new SetCallBack(DrawCarStereoQueue);
                 mainForm.Invoke(d);
             }
+            else
+            {
+                // It's on the same thread, no need for Invoke 
+                DrawCarStereoQueue();
+            }
         }
 
+        /// <summary>
+        /// Draw the calender queue
+        /// </summary>
         private void DrawCalender() 
         {
-            DataGridViewDraw(dgvCalender, calenderData);
+            dataGridViewDraw(dgvCalender, calenderData);
         }
 
+        /// <summary>
+        /// Draw the other resource queue
+        /// </summary>
         private void DrawOtherQueue() 
         {
-            DataGridViewDraw(dgvOtherQueue, otherQueueData);
+            dataGridViewDraw(dgvOtherQueue, otherQueueData);
         }
 
+        /// <summary>
+        /// Draw the car stereo resource queue
+        /// </summary>
         private void DrawCarStereoQueue() 
         {
-            DataGridViewDraw(dgvCarStereoQueue, carStereoQueueData);
+            dataGridViewDraw(dgvCarStereoQueue, carStereoQueueData);
         }
 
-        private void DataGridViewDraw(DataGridView dataGridView, List<string[]> data) 
+        /// <summary>
+        /// Populate the datagridview rows with simulation data
+        /// </summary>
+        private void dataGridViewDraw(DataGridView dataGridView, List<string[]> data) 
         {
             // Clear the data grid view rows
             dataGridView.Rows.Clear();
@@ -150,40 +204,60 @@ namespace charlal1.project.DiscreteEventSimulator
         {
             this.dgvStatistics = dgvStatistics;
             this.pBar = pBar;
-        }
 
-        public override void Update(Calender calender, ResourceManager resourceMananger, Statistics statistics)
-        {
-            ///
-            /// Update Result Data
-            ///            
+            // Displays the system running time from seconds
             TimeSpan t = TimeSpan.FromSeconds(Global.SystemTime);
             timeObs = string.Format("{0:D1}:{1:D2}:{2:D2}", t.Hours, t.Minutes, t.Seconds);
+        }
 
+        /// <summary>
+        /// Update status bar no information from the main simulation is used
+        /// </summary>
+        public override void Update(Calender calender, ResourceManager resourceMananger, Statistics statistics)
+        {   
             if (pBar.InvokeRequired)
             {
+                // It's on a different thread, so use Invoke.
                 SetCallBack d = new SetCallBack(UpdateProgress);
                 mainForm.Invoke(d);
             }
-        }
-
-        public override void Draw()
-        {
-            if (dgvStatistics.InvokeRequired)
+            else
             {
-                SetCallBack d = new SetCallBack(DrawStatistics);
-                mainForm.Invoke(d);
+                // It's on the same thread, no need for Invoke 
+                pBar.Value = Global.Clock;
             }
         }
-        
+
         private void UpdateProgress()
         {
             pBar.Value = Global.Clock;
         }
 
+        /// <summary>
+        /// Draw data to listbox
+        /// </summary>
+        public override void Draw()
+        {
+            if (dgvStatistics.InvokeRequired)
+            {
+                // It's on a different thread, so use Invoke.
+                SetCallBack d = new SetCallBack(DrawStatistics);
+                mainForm.Invoke(d);
+            }
+            else
+            {
+                // It's on the same thread, no need for Invoke 
+                DrawStatistics();
+            }
+        }
+        
+        
+
+        /// <summary>
+        /// Draw data to listbox
+        /// </summary>
         private void DrawStatistics() 
         {
-            // Draw data to listbox
             dgvStatistics.Rows.Clear();
             dgvStatistics.Rows.Add(new String[] { "Bus Signal Count",                           Global.BusySignalCount.ToString(),                      "---" });
             dgvStatistics.Rows.Add(new String[] { "Call Completions",                           Global.CallCompletion.ToString(),                       "---" });

@@ -17,15 +17,20 @@ namespace charlal1.project.DiscreteEventSimulator
         public int EventTime            { get; set; }
         public double ProcessingTime    { get; set; }
         
-        // make constructor
         public Event(int eventTime, Entity currentEntity) 
         {
             this.EventTime = eventTime;
             this.CurrentEntity = currentEntity;
         }
 
+        /// <summary>
+        /// Method to execute all event procedures
+        /// </summary>
         public abstract void Execute(Calender calender, ResourceManager resourceManager, Statistics statistics, RandomNumberGenerator rGen, EntityFactory entitiyFactory, EventFactory eventFactory);
 
+        /// <summary>
+        /// Returns a string list of all event data
+        /// </summary>
         public string[] ToString() 
         {
             // Get timespan

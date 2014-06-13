@@ -15,48 +15,62 @@ namespace charlal1.project.DiscreteEventSimulator
             resources = new List<Resource>();
             queueManager = new QueueManager();
 
-            for (int i = 0; i < Global.MaxResourcesType2; i++)
-                resources.Add(new Resource(ECallType.CAR_STEREO));
-
+            // Setup resources
             for (int i = 0; i < Global.MaxResourcesType1; i++)
                 resources.Add(new Resource(ECallType.OTHER));
+            for (int i = 0; i < Global.MaxResourcesType2; i++)
+                resources.Add(new Resource(ECallType.CAR_STEREO));
         }
 
+        /// <summary>
+        /// Gets a formatted list of data from the queue
+        /// </summary>
         public List<string[]> GetQueueEntityData(ECallType callType) 
         {
             return queueManager.GetEntityDataInQueue(callType);
         }
 
+        /// <summary>
+        /// Returns true if there is space in all queues
+        /// </summary>
         public bool IsSpaceInQueues 
         {
             get
             {
-                // Returns true if there is space in all queues
                 return queueManager.IsSpaceInAllQueues();
             }
         }
 
+        /// <summary>
+        /// Returns true if the call type queue has no entities waiting
+        /// </summary>
         public bool IsQueueEmpty(ECallType calltype) 
         {
-            // Returns true if the call type queue has no entities waiting
             return queueManager.IsQueueEmpty(calltype);
         }
 
+        /// <summary>
+        /// Returns the next available resource
+        /// </summary>
         public Resource NextAvailableResource(ECallType? calltype)
         {
-            // Returns a resource, of its a specific calltype and it must be free else return null
+            // Specific calltype and resource must be free else will return null 
             return resources.Find(r => (r.CallType == calltype && r.IsFree == true));
         }
 
+        /// <summary>
+        /// Adds the current entity to a queue 
+        /// </summary>
         public void AddToQueue(Entity currentEntity) 
-        {
-            // Adds the current entity to a queue
+        {   
             queueManager.AddEntity(currentEntity);
         }
 
+        /// <summary>
+        /// Pops the first in the queue 
+        /// </summary>
         public Entity GetFirstInQueue(ECallType calltype) 
         {
-            // Pops the first in the queue
             return queueManager.GetFirstInQueue(calltype);
         }
     }
